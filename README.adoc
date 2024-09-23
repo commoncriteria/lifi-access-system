@@ -1,35 +1,30 @@
-== To create a new project based on this template
-* Follow the directions on this wiki page: https://github.com/commoncriteria/pp-template/wiki/Creating-a-New-Project
-* Edit the README contents below, replacing QQQQ with the name of your requirements document, and replacing all occurrences of "pp-template" with the name of your new repo.
-* And then delete this part, leaving everything below here.
-
-== Protection Profile for QQQQ
+== Protection Profile for LiFi Access Systems
 
 [cols="1,1,1,1,1,1,1,1"]
 |===
-8+|pp-template
-| https://github.com/commoncriteria/pp-template/tree/master[master] 
-a| https://commoncriteria.github.io/pp-template/master/pp-template-release.html[📄]
-a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/ValidationReport.txt]
-image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/validation.svg[Validation]
-a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/SanityChecksOutput.md]
-image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/warnings.svg[SanityChecks]
-a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/SpellCheckReport.txt]
-image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/spell-badge.svg[SpellCheck]
-a|[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/TDValidationReport.txt]
-image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/tds.svg[TDs]
-a|image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/transforms.svg[transforms,150]
-a| [link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/HTMLs.adoc]
-image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/html_count.svg[HTML Count]
-[link=https://github.com/commoncriteria/pp-template/blob/gh-pages/master/PDFs.adoc]
-image::https://raw.githubusercontent.com/commoncriteria/pp-template/gh-pages/master/pdf_count.svg[PDF Count]
+8+|lifi-access-system
+| https://github.com/commoncriteria/lifi-access-system/tree/main[main] 
+a| https://commoncriteria.github.io/lifi-access-system/main/lifi-access-system-release.html[📄]
+a|[link=https://github.com/commoncriteria/lifi-access-system/blob/gh-pages/main/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/lifi-access-system/blob/gh-pages/main/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/lifi-access-system/blob/gh-pages/main/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/lifi-access-system/blob/gh-pages/main/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/lifi-access-system/blob/gh-pages/main/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/lifi-access-system/blob/gh-pages/main/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pages/main/pdf_count.svg[PDF Count]
 |===
 
-=== Draft Version (latest build of master branch)
-* https://commoncriteria.github.io/pp-template/master/pp-template-release-linkable.html[Protection
-Profile for QQQQ] (html)
-* https://commoncriteria.github.io/pp-template/master/pp-template-release-linkable.pdf[Protection
-Profile for QQQQ] (pdf)
+=== Draft Version (latest build of main branch)
+* https://commoncriteria.github.io/lifi-access-system/main/lifi-access-system-release-linkable.html[Protection
+Profile for LiFi Access System] (html)
+* https://commoncriteria.github.io/lifi-access-system/main/lifi-access-system-release-linkable.pdf[Protection
+Profile for LiFi Access System] (pdf)
 
 === Release Version
 
@@ -46,14 +41,14 @@ join the NIAP Technical Community (Mailing list and updates)]
 === Feedback
 
 Questions, comments, and fixes can be submitted to the
-https://github.com/commoncriteria/QQQQ/issues[repository issue tracker]
+https://github.com/commoncriteria/lifi-access-system/issues[repository issue tracker]
 
 === Quickstart
 
 To clone this project along with its _transforms_ submodule run:
 
 ....
-  git clone --recursive git@github.com:commoncriteria/qqqq.git
+  git clone --recursive git@github.com:commoncriteria/lifi-access-system.git
 ....
 
 To pull updates from the upstream _transforms_ submodule and commit them
