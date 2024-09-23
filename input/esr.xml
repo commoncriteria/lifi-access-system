@@ -2,105 +2,262 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/esr2html.xsl"?>
 
 <ESR xmlns="http://common-criteria.rhcloud.com/ns/esr" name="Operating System Fundamentals">
-  
 	<intro>
-		<esrtitle>Some PP Name</esrtitle>
-		<maintainer>NIAP and CESG</maintainer>
+		<esrtitle>Light Fidelity (LiFi) Local Area Network (LAN) Access System</esrtitle>
+		<maintainer>NIAP</maintainer>
 		<identifier>42</identifier>
 		<version>1.0</version>
 		<status>draft</status>
-		<issuedate>19 March 2015</issuedate>
+		<issuedate>Draft</issuedate>
 		<approver/>
 		<supercedes/>
 	</intro>
 
 	<section title="Background and Purpose" id="purpose">
-		This section sets the context for not only the ESR, but what is 
-		expected of the resulting Protection Profile (PP). The intent is 
-		that the remaining sections provide succinct statements that 
-		highlight the relevant aspects to be addressed by the Technical 
-		Community (TC) constructing the PP. Here, the authors provide a 
-		narrative that introduces the reader to the problem being solved, 
-		and presents key aspects that support or guide the TC, and may
-		elaborate on subtleties not apparent in the “bulleted” high level
-		statements.
+		This document describes a core set of high-level fundamental security requirements expected of any Light Fidelity (LiFi) Access System (AS) in terms of [CC] for use in Wireless networks. It is intended to provide asset of requirements which can be built upon by future revisions to provide an overall set of security solutions for a Wireless network.
 	</section>
 	<section title="Use Cases" id="usecases">
-	  This section is intended to provide the initial scope/bound of the 
-	  security problem by providing the reader with concise statements 
-	  regarding the scenarios in which the technology is being used. The 
-	  intended usage presented here should lay the groundwork for the 
-	  identifying the resources to be protected, and what threats must be
-	  considered in the drafting of the Essential Security Requirements 
-	  (ESR) and for the TC to consider when writing the PP.
+	  The TOE is a distributed system consisting of multiple network devices that collectively serve as the LiFi network endpoint. In addition to claiming the relevant "Distributed TOE" requirements in the NDcPP, this use case also requires the TOE to claim the optional Security Functional Requirement (SFR) FCS_CKM.2/DISTRIB to describe the key distribution method between distributed TOE components..
 	</section>
 
 	<section title="Resources to be protected" id="resourcesprotected">
-    	  This section is intended to provide the initial scope/bound of the 
-    	  security problem by providing the reader with concise statements
-    	  regarding the scenarios in which the technology is being used. The 
-    	  intended usage presented here should lay the groundwork for the 
-    	  identifying the resources to be protected, and what threats must be
-    	  considered in the drafting of the Essential Security Requirements 
-    	  (ESR) and for the TC to consider when writing the PP.
+    	  <ul>
+			<li>
+				Any networking-facing management interfaces, including traffic to and from the LiFi AP, and any critical data (e.g., audit data).
+			</li>
+			<li>
+				LiFi Access Point software and firmware
+			</li>
+			<li>
+				Data stored locally by the LiFI AP (e.g. Policy, flow control, etc.).
+			</li>
+			<li>
+				Configuration and reboot data, including any policy made part of the boot configuration
+			</li>
+			<li>
+				Authentication credentials such as keys and passwords.
+			</li>
+			<li>
+				Northbound, Southbound and East/West channels and connections
+			</li>
+			<li>
+				Any stored updates intended for LiFi Access Systems devices
+			</li>
+			<li>
+				LiFi Access System configuration and reboot data stored in the LiFi Access System
+			</li>
+			<li>
+				Traffic and packet statistics
+			</li>
+			<li>
+				Audit information
+			</li>
+			<li>
+				Management servers OS and services
+			</li>
+			<li>
+				Data to and from management server and LiFi Access point
+			</li>
+		  </ul>
 	</section>
 
-	<section title="Attacker access" id="attackeraccess"> 
-	  The following assumptions are made about
-	  attackers' ability to develop attacks: 
-	  <ul>
-	    <li> An attacker has an arbitrary amount of time to analyze the behavior of the product, its
-	    interaction with its platform, and the data it transmits over the network. </li>
-	    <li> An attacker is able to acquire their own copy of the target product and study its
-	    behavior on a platform that they control. </li>
-	  </ul>
-	  <p/> The attacker is expected to engage in the following general classes of attack: <!-- added in order to allow for rather direct flow to Threats section in PP -->
-	  <ul>
-	    <li> Network eavesdropping, in which an attacker may monitor and gain access to data
-	    exchanged between the product and other endpoints. </li>
-	    <li> Network attack, in which an attacker may initiate malicious communications with the
-	    product or alter communications between the product and other endpoints. </li>
-	    <li> Local attack, in which an attacker has gained the ability to execute code on the
-	    system, which may be used to escalate privilege or access data without
-	    authorization. </li>
-	    <li> Limited physical access attack, in which an attacker may attempt to access data on
-	    the system by virtue of being physically present for a limited period of time. This
-	    limited physical access does not include attacks in which the attacker could
-	    disassemble the system to gain access to its storage media or manipulate the product's
-	    underlying hardware and firmware. Systems used for working remotely, such as laptops
-	    and tablets, for which an attacker could gain longer physical access to, should
-	    apply additional protections that are provided by products evaluated against other
-	    Protection Profiles (e.g. FDE cPP). </li>
-	    <li> Persistence, in which an attacker has already exploited the system and wishes to
-	    maintain presence on the system. </li>
-	  </ul>
+	<section title="Attacker access" id="attackeraccess">
+		<p> The following assumption are made about attackers' ability to develop attacks: </p>
+			<ul>
+				<li>
+					T.NETWORK_DISCLOSURE: Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to conduct unauthorized activities. If malicious external devices are able to communicate with devices on the protected network, or if devices on the protected network can establish communications with those external devices (e.g., as a result of nonexistent or insufficient WLAN data encryption that exposes the WLAN data in transit to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of information.
+				</li>
+				<li>
+					T.NETWORK_ACESS: Devices located outside the protected network may seek to exercise services located on the protected network that are intended to be only accessed from inside the protected network or only accessed by entities using an authenticated pat into the protected network.
+				</li>
+				<li>
+					T.TSF_FAILURE: Security mechanisms of the TOE generally build up from a primitive set of mechanisms (e.g., memory management, privileged modes of process execution) to more complex sets of mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex mechanisms, resulting in a compromise of the TOE Security Functionality (TSF).
+				</li>
+				<li>
+					T.DATA_INTEGRITY: Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to modify the data without authorization. If known malicious external devices are able to communicate with devices on the protected network or if devices on the protected network can establish communications with those external devices then the data contained within the communications may be susceptible to a loss of integrity.
+				</li>
+				<li>
+					T.REPLAY_ATTACK: If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets trans versing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.
+				</li>
+			</ul>
 	</section>
-	
 	<section title="Essential Security Requirements" id="requirements">
-        	This is where the authors present an initial set of English 
-        	requirements that specify security functionality, rather than 
-        	design and/or implementation characteristics. These requirements 
-        	will provide the foundation for which the detailed set of 
-        	requirements is derived. It is important that the requirements 
-        	captured here make an attempt to fully address the categories 
-        	(e.g., access control, identification and authentication, 
-        	management capabilities, roles of administration, secure 
-        	communications, and audit). That's not to say the requirements are 
-        	fully specified or detailed enough to simply translate to Common 
-        	Criteria security functional requirements. The goal is that there 
-        	is enough information contained here, as well as the other sections
-        	of this document, to provide the TC enough information to ensure 
-        	they have an understanding of what is minimally required in breath.
-
-			<!--
-			This is where the authors explicitly state english requirements
-			that this class of product must satisfy. 
-	        -->
+		<ul>
+			<li>
+				Security Audit Generation: mandatory for any TOE that conforms to this PP-Module
+			</li>
+			<li>
+				Protected Audit Event Storage: The TSF shall be able to transmit the generated audit data to an external IT entity using a trusted channel according to FDTP_ITC>1. TSF shall be able to store generated audit data on TOE itself. In addition, TOE will also store audit data externally or list of components which audit data is transmitted to. The TSF shall drop new audit data, overwrite previous audit records when local storage is full.
+			</li>
+			<li>
+				TOEs will protect audit storage data at rest and in transit. Additionally TOEs will have the option to enable or disable communication for audit data transversal.
+			</li>
+			<li>
+				The TSF shall use AES with Cipher Block Chain CBC and CCM Mode Protocol (CCM). Additionally CTR, GCM, Or GCMP will be used. Key sizes will be 128, 192, or 256 in length.
+			</li>
+			<li>
+				The TSF shall be able to run self-tests during initial start-up and periodically to verify integrity of stored TSF executable code when it is loaded for execution through the use of the TSF-provided cryptographic service specified in FCS_COP.1/SigGn.
+			</li>
+			<li>
+				TSF shall be capable of using IEEE 802.1X for Internet Protocol Security (IPsec), Remote Authentication Dial in User Service (RADIUS) over transport layer security (TLS), and SSH, TLS, DTLS, HTTPS with no other protocols to provide trusted communication channel between itself and authorized IT entities supporting the following capabilities. 802.1X authentication server, audit server, and other capabilities that is logically distinct from other communication and provides assured identification of its end points and protection of the channel data from disclosure and detection of modification of the channel data.
+			</li>
+			<li>
+				The TSF shall be able to generate an audit record of the following auditable events:
+				<ol type="a">
+					<li>Start-up and shutdown of the audit functions;</li>
+					<li> All auditable events for the [not specified] level of audit; and </li>
+					<li> <i> Auditable events listed in the Auditable Events table</i></li>
+					<li><i>Failure of wireless sensor communication</i></li>
+				</ol>
+				<table>
+					<tr>
+						<th>Requirement</th>
+						<th>Auditable Events</th>
+						<th>Additional Audit Record Contents</th>
+					</tr>
+					<tr>
+						<td>FCS_CKM.1/WPA</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FCS_CKM.2/DISTRIB (optional)</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FCS_CKM.2/GTK</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FCS_CKM.2/PMK</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FCS_RADSEC_EXT.1 (selection-based)</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FCS_RADSEC_EXT.2 (selection-based)</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FCS_RADSEC_EXT.3 (selection-based)</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td rowspan="2">FCS_IPSEC_EXT.1 (selection-based)</td>
+						<td>Protocol failures.</td>
+						<td>Reason for failure. Non-TOE endpoint of conection.</td>
+					</tr>
+					<tr>
+						<td>Establishment or Termination of an IPsec SA.</td>
+						<td>Non-TOE endpoint of connection.</td>
+					</tr>
+					<tr>
+						<td rowspan="2">FIA_8021X_EXT.1</td>
+						<td>Attempts to access the 802.1X controlled port prior to successful completion of the authentication exchange.</td>
+						<td>Provided client identity (e.g. Media Access Control [MAC] address).</td>
+					</tr>
+					<tr>
+						<td>Failed authentication attempt</td>
+						<td>Provided client identity (e.g. MAC address).</td>
+					</tr>
+					<tr>
+						<td>FIA_PSK_EXT.1 (selection-based)</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FIA_UAU.6</td>
+						<td>Attempts to re-authenticate.</td>
+						<td>Origin of the attempt (e.g., IP address).</td>
+					</tr>
+					<tr>
+						<td><xref to="fel-managementfun-as"/></td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FMT_SMR_EXT.1</td>
+						<td colspan="2">None.</td>
+					</tr>
+					<tr>
+						<td>FPT_FLS>1</td>
+						<td>Failure of the TSF.</td>
+						<td>Indication that the TSF has failed with the type of failure that occured></td>
+					</tr>
+					<tr>
+						<td rowspan="2">FPT_TST_EXT.1</td>
+						<td> Execution of TSF self-test.</td>
+						<td>None.</td>
+					</tr>
+					<tr>
+						<td>Detected integrity  violations.</td>
+						<td>The TSF code file that caused the integrity viloation.</td>
+					</tr>
+					<tr>
+						<td>FTA_TSE.1</td>
+						<td>Failure of the TSF.</td>
+						<td>Indication that the TSF has failed with the type of failure that occurred.</td>
+					</tr>
+					<tr>
+						<td rowspan="2">FTP_ITC.1</td>
+						<td> Failed attempts to establish a trusted channel (including IEEE 802.11).</td>
+						<td rowspan="2">Identification of the initiator and target of channel.</td>
+					</tr>
+					<tr>
+						<td>Detection of modification of channel data.</td>
+					</tr>
+				</table>
+				<ctr ctr-type="Table" id="auditLiFi">: Auditable Events</ctr>
+			</li>
+			<li>
+				The TSF shall generate symmetric cryptographic keys in accordance with a specified cryptographic key generation algorithm using a Random Bit Generator as specified in FCS_RBG_EXT.1 that meet the following: [IEEE802.11-2020 and IEEE802.11ax-2021 or no other standards]
+			</li>
+			<li>
+				The TSF shall receive 802.11 PMK in accordance with specified cryptographic key distribution method from 802.1X Authorization Server that meets the following: IEEE 802.11-2020 and does not expose the cryptographic keys
+			</li>
+			<li>
+				The TSF shall conform to IEEE Standard 802.1X for Port Access Entity (PAE) in the "Authenticator" role
+			</li>
+			<li>
+				The TSF shall support communication to a RADIUS authentication server conforming to RFCs 2865 and 3579
+			</li>
+			<li>
+				The TSF shall ensure that no access to its 802.1X controlled port s given to the wireless client prior to successful completion of this authentication exchange
+			</li>
+			<li>
+				The TSF shall re-authenticate the administrative user under the conditions [when the user changes their password, following TSF initiated session locking
+			</li>
+			<li>
+				The TSF shall be capable of performing the following management  functions
+				<ul>
+					<li>Configure the security policy for each wireless network, including:</li>
+					<ul>
+						<li>Security Type</li>
+						<li>Authentication protocol</li>
+						<li>Client credentials to be used for authentication</li>
+						<li>SSID</li>
+						<li>If the SSID is broadcasted</li>
+						<li>Frequency band</li>
+						<li>Transmit power level</li>
+					</ul>
+				</ul>
+			</li>
+			<li>
+				The TSF shall ensure that the ability to administer remotely the TOE from a wireless client shall be disabled by default
+			</li>
+				The TSF shall preserve a secure state when the following types of failures occur:
+				[<i>failure of the self-tests</i>]
+			<li>
+				The TSF shall be able to deny session establishment of LiFi client session based on TOE interface, time, day, or other attributes
+			</li>
+			<li>
+				The TSF shall be capable of using WPA3-Enterprise, WPA2_Enterprise and with p WPA3-SAE, WPA3-SAE-PK, WPA2-PSK, with no other modes]
+			</li>
+		</ul> 
 	</section>
 
 	<section title="Assumptions" id="assumptions">
 	  Simply put, this section presents the aspects of the product and 
-	  its	intended environment that can be assumed to hold true. This 
+	  its intended environment that can be assumed to hold true. This 
 	  will provide additional scope on the resulting PP.
 
 	  The following assumptions are made for the operating system product and its operational
@@ -130,12 +287,14 @@
 	</section>
 
 
-	<section title="Optional Extensions" id="extensions"> 
+	<section title="Optional Extensions" id="extensions">
 		Additional security functionality that may
 		be appropriate for some use cases, and can be expressed in extensions to this document,
-		includes: 
+		includes:
 		<ul>
-			<li></li>
+			<li>
+				The TSF shall distribute the IEEE 802.11 keys in accordance with a specified key distribution method: [trusted channel protocol specified in FPT_)ITT.1 (Base-PP) ] that meets the following: [standards specified in the various iterations of FCS_COP.1] and does not expose the cryptographic keys.
+			</li>
 		</ul>
 	</section>
 
@@ -160,7 +319,7 @@
 				functionality and may weaken the normal operating functionality of the product</li>
 			<li>Platform - The product PP shall not address the hardware or firmware of its underlying
 				platform to include the boot sequence before control is handed off to the product. That
-				the platform itself is virtual or physical is irrelevant to any evaluations. </li>
+				the platform itself is virtual or physical is irrelevant to any evaluations. It does address the configuration and handling of LiFI data to include drivers and services that support this feature within the firmware. Additionally the management services that support configuration of the TSF </li>
 			<li>Applications - The product PP shall not address applications that are not delivered as
 				part of the product installation process. </li>
 		</ul>
