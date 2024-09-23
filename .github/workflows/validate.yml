@@ -15,17 +15,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout project and transforms
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Install Jing
         run: wget -O - https://github.com/relaxng/jing-trang/releases/download/V20181222/jing-20181222.zip | jar -x
 
-      - name: PP Schema Validation
+      - name: Schema Validation
         run: JING_JAR=jing*/bin/jing.jar make validate
 
     #  - name: cPP Schema Validation
     #    run: JING_JAR=jing*/bin/jing.jar make -f cPP.make validate
-
-
