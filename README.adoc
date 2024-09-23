@@ -23,8 +23,6 @@ image::https://raw.githubusercontent.com/commoncriteria/lifi-access-system/gh-pa
 === Draft Version (latest build of main branch)
 * https://commoncriteria.github.io/lifi-access-system/main/lifi-access-system-release-linkable.html[Protection
 Profile for LiFi Access System] (html)
-* https://commoncriteria.github.io/lifi-access-system/main/lifi-access-system-release-linkable.pdf[Protection
-Profile for LiFi Access System] (pdf)
 
 === Release Version
 
