@@ -35,6 +35,9 @@ jobs:
     - name: Set base URL
       run: echo "action_projname=${PWD##*/}" >> $GITHUB_ENV
       
+    - name: Quick Build ESR
+      run: WARN_PATH="output/SanityChecksOutput.md" make esr
+      
     - name: Quick Build
       run: WARN_PATH="output/SanityChecksOutput.md" make
       
