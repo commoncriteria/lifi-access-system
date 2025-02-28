@@ -255,10 +255,10 @@
       A conformant TOE may implement either 802.11bb or G.vlc. Depending on which is supported, different requirements will apply to the TOE as they each implement different methods of protection of data in transit.
       <implements>
         <feature id="feat-80211bb" title="802.11bb Support">
-          <description>The TOE implements Li-Fi using IEEE 802.11bb.</description>
+          <description>The TOE implements Li-Fi using IEEE 802.11bb. Data in transit is protected using either IPsec or RadSec (RADIUS over TLS).</description>
         </feature>
         <feature id="feat-gvlc" title="G.vlc Support">
-          <description>The TSF implements Li-Fi using ITU-T G.6991 (aka G.vlc)</description>
+          <description>The TSF implements Li-Fi using ITU-T G.6991 (aka G.vlc). Data in transit is protected using MACsec. When the TOE implements this feature, it must also claim conformance to the PP-Module for MACsec Ethernet Encryption.</description>
         </feature>
       </implements>			
     </section>   
@@ -471,7 +471,38 @@ This PP-Module is written to address the situation where a distributed network d
     </sec-func-req-dir> 
     
       <modified-sfrs>
-        
+        <section title="Protection of the TSF (FPT)" id="base-fpt">
+        <base-sfr-spec cc-id="fpt_tst_ext.1" title="TSF Testing" id="modsfr-fpt-tst-ext-1">
+          <consistency-rationale>This PP-Module modifies the Base-PP's definition of the SFR by defining a minimum baseline for what self-tests must be run. Additional self-tests
+            may still be specified by the ST author.</consistency-rationale>
+          <description>
+            <h:b>NOTE: for CC:2022 Part 2 conformance this SFR may be replaced in the next NDcPP release with FPT_TST.1. If so, then corresponding changes will need to be made here as well.</h:b>
+            
+            This SFR is functionally identical to what is defined in the GPOS PP except that
+            ECC key generation with support for P-384 has been made mandatory
+            in support of IPsec due to the mandated support for Diffie-Hellman (DH) group 20 in
+            FCS_IPSEC_EXT.1.8.<h:p/>
+            
+            The text of the requirement is replaced with:<h:br/><h:br/>
+            
+            The TSF shall run a suite of the following self-tests <h:b>during initial start-up (on power on) and </h:b> [<h:b>selection:</h:b> <h:i>
+              periodically during normal operation,
+              at the request of the authorized user,
+              at the conditions [<h:b>assignment:</h:b> conditions under which self-tests should occur],
+              <h:b>in no other circumstances</h:b></h:i>]
+             to demonstrate the correct operation of the TSF: <h:b>integrity verification of stored TSF executable code when it is loaded for execution
+              through the use of the TSF-provided cryptographic service specified in FCS_COP.1/SigGen,</h:b> [<h:b>selection:</h:b><h:i>
+                [<h:b>assignment:</h:b> list of additional self-tests run by the TSF],
+                <h:b>no other self-tests</h:b></h:i>].
+            
+            
+          </description>
+          
+          <!-- no-op used for xpath for the moment because NDcPP does not yet exist in this schema so there is no point in attempting to substitute anything until it does.-->
+         <no-change/> 
+         
+        </base-sfr-spec>
+        </section>
       </modified-sfrs>
       <additional-sfrs/>
       
@@ -797,12 +828,16 @@ This PP-Module is written to address the situation where a distributed network d
              </Tests>
            </aactivity>
          </f-element>
+         <audit-event/>
        </f-component>
         
 	</section>  
       </man-sfrs><!-- Mandatory SFRs -->
 
-<opt-sfrs/>
+<opt-sfrs>
+  
+  
+</opt-sfrs>
     
 		<!-- Selection-based SFRs -->
 		<sel-sfrs>
@@ -812,7 +847,260 @@ This PP-Module is written to address the situation where a distributed network d
 				</audit-table>
 			</section>
 
-			<!-- Selection-based SFRs. Classes and ECD information is required. -->
+
+		  <sec:sel_fcs title="Cryptographic Support (FCS)">
+		    
+		    <ext-comp-def title="RadSec" fam-id="FCS_RADSEC_EXT">
+		      <fam-behavior>Components in this family describe requirements for implementation of the RadSec (RADIUS over TLS) protocol.</fam-behavior> 
+		    </ext-comp-def>
+		    
+		    <f-component name="RadSec" cc-id="fcs_radsec_ext.1">
+		      <depends on="s-radius"/>
+		      
+		      <comp-lev>requires the TSF to implement RadSec using a specified peer authentication method.</comp-lev>
+		      <management>No specific management functions are identified.</management>
+		      <audit>There are no auditable events foreseen.</audit>
+		      <dependencies>
+		        FCS_TLSC_EXT.1 TLS Client Protocol<h:br/>
+		        <no-link>FIA_PSK_EXT.1</no-link> Pre-Shared Key Composition<h:br/>
+		        FIA_X509_EXT.1 X.509v3 Certificate Validation
+		      </dependencies>
+		      <f-element>
+		        <title>
+		          The TSF shall implement RADIUS over TLS as specified in RFC 6614 to communicate securely with a RADIUS server.
+		        </title>
+		      </f-element>
+		      <f-element>
+		        <title>
+		          The TSF shall perform peer authentication using <selectables>
+		            <selectable id="s-x509-certs">X.509v3 certificates</selectable>
+		            <selectable id="s-radsec-psk">pre-shared keys</selectable>
+		          </selectables>.
+		        </title>
+		        <ext-comp-def-title><title>
+		          The TSF shall perform peer authentication using <assignable>some authentication method</assignable>.
+		        </title></ext-comp-def-title>
+		        <note role="application">
+		          <h:p>This SFR is applicable if "RADIUS over TLS" is selected in FTP_ITC.1.1.</h:p>
+		          <h:p>
+		            If <xref to="s-x509-certs"/> is selected in FCS_RADSEC_EXT.1.2,
+		            then FCS_TLSC_EXT.1 from the Functional Package for TLS must be claimed and "mutual authentication" must be selected. 
+		            If <xref to="s-radsec-psk"/> is selected in FCS_RADSEC_EXT.1.2, then FCS_RADSEC_EXT.2 and FIA_PSK_EXT.1 in this PP-Module must be claimed.
+		          </h:p>
+		        </note>
+		        <aactivity>
+		          <TSS>
+		            The evaluator will verify that the TSS description includes the use of
+		            RADIUS over TLS, as described in RFC 6614.
+		            <h:p>
+		              If X.509v3 certificates is selected, the evaluator will ensure that the TSS description includes the use of client-side certificates for TLS mutual authentication.
+		            </h:p>
+		          </TSS>
+		          <Guidance>
+		            The evaluator will verify that any configuration necessary to meet the requirement must be contained in the guidance.<h:br/><h:br/>
+		          </Guidance>
+		          <Tests>
+		            The evaluator will demonstrate the ability to successfully establish a RADIUS over TLS connection with a RADIUS server. 
+		            This test will be performed with X.509v3 certificates if selected and performed with pre-shared keys if selected.</Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event/>
+		    </f-component>
+		    
+
+		    <f-component name="RadSec using Pre-Shared Keys" cc-id="fcs_radsec_ext.2">
+		      <depends on="s-radsec-psk"/>
+		      
+		      <comp-lev>requires the TSF to implement RadSec using pre-shared key authentication in a manner that conforms to relevant TLS specifications.</comp-lev>
+		      <management>No specific management functions are identified.</management>
+		      <audit>There are no auditable events foreseen.</audit>
+		      <dependencies>
+		        FCS_CKM.1 Cryptographic Key Generation<h:br/>
+		        FCS_COP.1 Cryptographic Operation<h:br/>
+		        <no-link>FCS_RADSEC_EXT.1</no-link> RadSec<h:br/>
+		        FCS_RBG.1 Random Bit Generation
+		      </dependencies>
+		      <f-element>
+		        <title><comment>Updated to remove 128-bit ciphers and TLS 1.1. Does TLS 1.3 need to be selectable here and do the ciphers need to change further?<h:br/><h:br/></comment>
+		          The TSF shall implement TLS 1.2 and no earlier TLS versions when acting as a RADIUS over TLS client that supports the following ciphersuites: 
+		          <selectables linebreak="yes">
+		            <selectable>TLS_PSK_WITH_AES_256_CBC_SHA</selectable>
+		            <selectable>TLS_DHE_PSK_WITH_AES_256_CBC_SHA</selectable>
+		            <selectable id="s-rsa_psk_aes_256_cbc">TLS_RSA_PSK_WITH_AES_256_CBC_SHA</selectable>
+		            <selectable>TLS_PSK_WITH_AES_256_GCM_SHA384</selectable>
+		            <selectable>TLS_DHE_PSK_WITH_AES_256_GCM_SHA384</selectable>
+		            <selectable id="s-rsa_psk_aes_256_gcm">TLS_RSA_PSK_WITH_AES_256_GCM_SHA384</selectable>
+		          </selectables>.
+		        </title>
+		        <ext-comp-def-title>
+		          <title>The TSF shall implement <assignable>list of allowed TLS versions</assignable> and reject all other TLS and SSL versions. 
+		            The TLS implementation shall support the following ciphersuites for use when acting as a RADIUS over TLS client: <assignable>list of supported ciphersuites</assignable>.</title>
+		        </ext-comp-def-title>
+		        <note role="application">
+		          <h:p>
+		            If any of the TLS_RSA_PSK ciphersuites are selected by the ST author,
+		            it is necessary to claim the selection-based requirement FCS_RADSEC_EXT.3.
+		          </h:p>
+		          <h:p>
+		            The above ciphersuites are only for use when the TSF is acting as a RADIUS over TLS client,
+		            not for other uses of the TLS protocol. 
+		            The ciphersuites to be tested in the evaluated configuration are limited by this requirement. 
+		            The ST author should select the ciphersuites that are supported.
+		            If "X.509v3 certificates" is selected in FCS_RADSEC_EXT.1.2, 
+		            the ciphersuites selected in (and tested by) FCS_TLSC_EXT.2.1 are also supported for
+		            RADIUS over TLS client use.
+		          </h:p>
+		        </note>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall be able to <selectables>
+		          <selectable>accept</selectable>
+		          <selectable>generate using the random bit generator specified in FCS_RBG.1</selectable>
+		        </selectables> bit-based pre-shared keys.</title>
+		        <aactivity>
+		          <TSS>
+		            The evaluator will check the description of the implementation of this protocol in the TSS to ensure that the ciphersuites supported are specified. 
+		            The evaluator will check the TSS to ensure that the ciphersuites specified are identical to those listed for this component. 
+		            The evaluator will also verify that the TSS contains a description of the denial of old SSL and TLS versions.
+		            <h:p>
+		              The evaluator will examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are generated (if the TOE supports this functionality) 
+		              and confirm that this process uses the RBG specified in FCS_RBG.1.
+		            </h:p>
+		          </TSS>
+		          <Guidance>
+		            The evaluator will verify that any configuration necessary to meet the requirement must be contained in the guidance.
+		            <h:p>
+		              The evaluator will also check the guidance documentation to ensure that it contains instructions on configuring the TOE so that RADIUS over TLS conforms to the description in the TSS 
+		              (for instance, the set of ciphersuites advertised by the TOE may have to be restricted to
+		              meet the requirements).
+		            </h:p>
+		            <h:p>
+		              The evaluator will confirm the operational guidance contains instructions for either entering bit-based pre-shared keys or generating a bit-based pre-shared key (or both).
+		            </h:p>
+		          </Guidance>
+		          <Tests>The evaluator will perform the following tests:
+		            <testlist>
+		              <test>The evaluator will establish a RADIUS over TLS connection using each of the ciphersuites selected in FCS_RADSEC_EXT.2.1. 
+		                It is sufficient to observe the successful negotiation of a cipher suite to satisfy the intent of the test; it is not necessary 
+		                to examine the characteristics of the encrypted traffic in an attempt to discern the cipher suite being used (for example, 
+		                that the cryptographic algorithm is 128-bit AES and not 256-bit AES).</test>
+		              <test>The evaluator will set the pre-shared key to a value that does not match the server's pre-shared key and demonstrate that the TOE cannot successfully complete a protocol negotiation using this key.</test>
+		              <test>The evaluator will configure the server to select the TLS_NULL_WITH_NULL_NULL cipher suite and verify that the client denies the connection.</test>
+		              <test>The evaluator will perform the following modifications to the traffic:<h:ul>
+		                <h:li>Change the TLS version selected by the server in the Server Hello to a non-supported TLS version (for example, 1.3, represented by the two bytes 03 04) and verify that the client rejects the connection.</h:li>
+		                <h:li>Modify at least one byte in the server’s nonce in the Server Hello handshake message, and verify that the client rejects the Server Key Exchange handshake message 
+		                  (if using a DHE cipher suite) or that the server denies the client’s Finished handshake message.</h:li>
+		                <h:li>Modify the server’s selected cipher suite in the Server Hello handshake message to be a cipher suite not presented in the Client Hello handshake message. 
+		                  The evaluator will verify that the client rejects the connection after receiving the Server Hello.</h:li>
+		                <h:li>Modify a byte in the Server Finished handshake message, and verify that the client rejects the connection and does not send any application data.</h:li>
+		                <h:li>Send a garbled message from the server after the server has issued the ChangeCipherSpec message and verify that the client denies the connection.</h:li>
+		              </h:ul></test>
+		              <test>[conditional] If the TOE does not generate bit-based pre-shared keys, the evaluator will obtain a bit-based pre-shared key of the appropriate length and enter it according to the instructions in the operational guidance. 
+		                The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</test>
+		              <test>[conditional] If the TOE does generate bit-based pre-shared keys, the evaluator will generate a bit-based pre-shared key of the appropriate length and use it according to the instructions in the operational guidance. 
+		                The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</test>
+		            </testlist>
+		          </Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event/>
+		    </f-component>
+		    
+		    
+		    <f-component name="RadSec using Pre-Shared Keys and RSA" cc-id="fcs_radsec_ext.3">
+		      <depends on="s-rsa_psk_aes_256_cbc" on1="s-rsa_psk_aes_256_gcm"/>
+		      <comp-lev>requires the TSF to validate the external entity used for trusted communications.</comp-lev>
+		      <management>No specific management functions are identified.</management>
+		      <audit>There are no auditable events foreseen.</audit>
+		      <dependencies>
+		        FCS_RADSEC_EXT.2 RadSec using Pre-Shared Keys<h:br/>
+		        <no-link>FIA_X509_EXT.1</no-link> X.509v3 Certificate Validation<h:br/>
+		      </dependencies>
+		      <f-element>
+		        <title>
+		          When the TSF negotiates a TLS_RSA_PSK cipher suite, the TSF shall verify that the presented identifier matches the reference identifier per RFC 6125 section 6.
+		        </title>
+		        <note role="application">
+		          <h:p>
+		            This requirement must be claimed if any ciphersuites beginning with 'TLS_RSA_PSK' are selected in FCS_RADSEC_EXT.2.1.</h:p>
+		          <h:p>
+		            The rules for verification of identity are described in Section 6 of RFC 6125. 
+		            The reference identifier is typically established by configuration (e.g. configuring the name of the authentication server). 
+		            Based on a singular reference identifier’s source domain and application service type (e.g. HTTP, SIP, LDAP), 
+		            the client establishes all reference identifiers which are acceptable, such as a Common Name for the Subject Name field of the certificate and a (case-insensitive) DNS name for the Subject Alternative Name field. 
+		            The client then compares this list of all acceptable reference identifiers to the presented identifiers in the TLS server’s certificate.
+		          </h:p>
+		          <h:p>
+		            The preferred method for verification is the Subject Alternative Name using DNS names, URI names, or Service Names. 
+		            Verification using the Common Name is required for the purposes of backwards compatibility. 
+		            Additionally, support for use of IP addresses in the Subject Name or Subject Alternative name is discouraged as against best practices but may be implemented. 
+		            Finally, support for wildcards is discouraged but may be implemented. 
+		            If the client supports wildcards, the client must follow the best practices regarding matching; these best practices are captured in the evaluation activity.
+		          </h:p>
+		        </note>
+		      </f-element>
+		      <f-element>
+		        <title>When the TSF negotiates a TLS_RSA_PSK cipher suite, the TSF shall  <selectables>
+		          <selectable>not establish the connection</selectable>
+		          <selectable>request authorization to establish the connection</selectable>
+		          <selectable><assignable>other action</assignable></selectable>
+		        </selectables> if the presented server certificate is deemed invalid.</title>
+		        <note role="application">
+		          <h:p>This requirement must be claimed if any ciphersuites beginning with 'TLS_RSA_PSK' are selected in FCS_RADSEC_EXT.2.1.</h:p>
+		          <h:p>
+		            Validity is determined by the identifier verification, certificate path, the expiration date, and the revocation status in accordance with RFC 5280. 
+		            Certificate validity is tested in accordance with testing performed for FIA_X509_EXT.1/Rev in the NDcPP.
+		          </h:p>
+		        </note>
+		        <aactivity>
+		          <TSS>
+		            The evaluator will ensure that the TSS describes the client’s method of establishing all reference identifiers from the administrator and application-configured reference identifier, 
+		            including which types of reference identifiers are supported (e.g., Common Name, DNS Name, URI Name, Service Name, or other application-specific Subject Alternative Names) and whether IP addresses and wildcards are supported. 
+		            The evaluator will ensure that this description identifies whether and the manner in which certificate pinning is supported or used by the TOE.<h:br/><h:br/></TSS>
+		          <Guidance>
+		            The evaluator will verify that the operational guidance includes instructions for setting the reference identifier to be used for the purposes of certificate validation in TLS.<h:br/><h:br/>
+		          </Guidance>
+		          <Tests>The evaluator will perform the following tests:
+		            <testlist>
+		              <test>The evaluator will attempt to establish the connection using a server with a server certificate that contains the Server Authentication purpose in the extendedKeyUsage field and 
+		                verify that a connection is established. The evaluator will then verify that the client rejects an otherwise valid server certificate that lacks the Server Authentication purpose in the extendedKeyUsage 
+		                field and a connection is not established. Ideally, the two certificates should be identical except for the extendedKeyUsage field.</test>
+		              <test>The evaluator will present a server certificate that does not contain an identifier in either the Subject Alternative Name (SAN) or Common Name (CN) that matches the reference identifier. 
+		                The evaluator will verify that the connection fails.</test>
+		              <test>The evaluator will present a server certificate that contains a CN that matches the reference identifier, 
+		                contains the SAN extension, but does not contain an identifier in the SAN that matches the reference identifier. 
+		                The evaluator will verify that the connection fails. The evaluator will repeat this test for each supported SAN type.</test>
+		              <test>The evaluator will present a server certificate that contains a CN that does not match the reference identifier but does contain an identifier in the SAN that matches. 
+		                The evaluator will verify that the connection succeeds.</test>
+		              <test>
+		                [conditional] If the TOE does not mandate the presence of the SAN extension, the evaluator will present a server certificate that contains a CN that matches the reference identifier and does not contain the SAN extension. 
+		                The evaluator will verify that the connection succeeds.
+		                If the TOE does mandate the presence of the SAN extension, this test will be omitted.
+		              </test>
+		              <test>[conditional] If wildcards are supported by the TOE, the evaluator will perform the following tests: <h:ul>
+		                <h:li>The evaluator will present a server certificate containing a wildcard that is not in the left-most label of the presented identifier (e.g. foo.*.example.com) and verify that the connection fails.</h:li>
+		                <h:li>The evaluator will present a server certificate containing a wildcard in the left-most label but not preceding the public suffix (e.g. *.example.com). 
+		                  The evaluator will configure the reference identifier with a single left-most label (e.g. foo.example.com). 
+		                  The evaluator will verify that the connection succeeds. The evaluator will configure the reference identifier without a left-most label as in the certificate (e.g. example.com) and verify that the connection fails. 
+		                  The evaluator will configure the reference identifier with two left-most labels (e.g. bar.foo.example.com) and verify that the connection fails.</h:li>
+		                <h:li>The evaluator will present a server certificate containing a wildcard in the left-most label immediately preceding the public suffix (e.g. *.com). 
+		                  The evaluator will configure the reference identifier with a single left-most label (e.g. foo.com) and verify that the connection fails. 
+		                  The evaluator will configure the reference identifier with two left-most labels (e.g. bar.foo.com) and verify that the connection fails.</h:li>
+		              </h:ul>
+		              </test>
+		              <test>[conditional] If wildcards are not supported by the TOE, the evaluator will present a server certificate containing a wildcard and verify that the connection fails.</test>
+		              <test>[conditional] If URI or Service name reference identifiers are supported, the evaluator will configure the DNS name and the service identifier. 
+		                The evaluator will present a server certificate containing the correct DNS name and service identifier in the URIName or SRVName fields of the SAN and verify that the connection succeeds. 
+		                The evaluator will repeat this test with the wrong service identifier (but correct DNS name) and verify that the connection fails.</test>
+		            </testlist>
+		          </Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event/>
+		    </f-component>
+		    
+		  </sec:sel_fcs> 
+	
 		
 		</sel-sfrs>
 
@@ -844,7 +1132,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            <selectable>128 bits</selectable>
 		            <selectable>192 bits</selectable>
 		            <selectable exclusive="yes">no other key sizes</selectable>
-		          </selectables></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b> that meet the following: 
+		          </selectables></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG.1</h:b> that meet the following: 
 		          [<h:i>IEEE 802.11-2020 and <selectables>
 		            <selectable>IEEE 802.11ax-2021</selectable>
 		            <selectable exclusive="yes">no other standards</selectable>
@@ -869,7 +1157,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            which is done using a random value generated by the RBG specified in this PP-Module,
 		            the HMAC function as specified in this PP-Module, as well as other information.
 		            This is specified in IEEE 802.11-2020, primarily in chapter 12.
-		            <no-link>FCS_RBG_EXT.1</no-link> is defined in the NDcPP.
+		            <no-link>FCS_RBG.1</no-link> is defined in the NDcPP.
 		          </h:p>
 		        </note>
 		        <aactivity>
@@ -937,10 +1225,472 @@ This PP-Module is written to address the situation where a distributed network d
 		      <audit-event/>
 		    </f-component>
 		    
+		    <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB">
+		      <depends on="feat-80211bb"/>
+		      <f-element>
+		        <title><comment>This is listed as optional in the WLAN AS module but not flagged as such in the Li-Fi requirements. If it should still be optional, this should be moved.<h:br/><h:br/></comment>
+		          The TSF shall distribute <h:b>the IEEE 802.11</h:b> keys in accordance with a
+		          specified key distribution method: [<h:i>trusted channel protocol specified in FPT_ITT.1(Base-PP) </h:i>] that meets the following: [<h:i>standards specified in the various iterations of FCS_COP.1</h:i>] <h:b>and
+		            does not expose the cryptographic keys</h:b>.
+		        </title>
+		        <note role="application">
+		          <h:p>
+		            This requirement applies to any key necessary for successful IEEE 802.11 connections
+		            not covered by FCS_CKM.2/GTK.
+		            In cases where a key must be distributed to other APs, this
+		            communication must be performed via a mechanism of commensurate cryptographic strength.
+		            Because communications with any component of a distributed TOE are required to be
+		            performed over a trusted connection, the transfer of these keys will be protected.
+		          </h:p>
+		          <h:p>
+		            FCS_COP.1 and FPT_ITT.1 are defined in the NDcPP.
+		          </h:p>
+		        </note>
+		        <aactivity>
+		          <TSS>The evaluator will examine the TSS to determine that it describes which keys are distributed outside
+		            the TOE, where they are sent, and the purpose for this transfer.<h:br/><h:br/></TSS>
+		          <Guidance>If this function is dependent on TOE configuration, the evaluator will confirm that the operational
+		            guidance contains instructions for how to configure that the keys are adequately protected.<h:br/><h:br/>
+		          </Guidance>
+		          <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
+		            protocols, and FPT_ITT.1 (Base-PP).</Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event/>
+		    </f-component>
+		    
+		    <f-component name="Cryptographic Key Distribution (GTK)" cc-id="fcs_ckm.2" iteration="GTK">
+		      <depends on="feat-80211bb"/>
+		      <f-element>
+		        <title>
+		          The TSF shall distribute <h:b>Group Temporal Key (GTK)</h:b> in accordance with a specified cryptographic key distribution method: <selectables>
+		            <selectable>AES Key Wrap in an EAPOL-Key frame</selectable>
+		            <selectable>AES Key Wrap with Padding in an EAPOL-Key frame</selectable>
+		          </selectables> that meets the following: [<h:i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</h:i>] <h:b>
+		            and does not expose the cryptographic keys</h:b>. 
+		        </title>
+		        <note role="application">This requirement applies to the Group Temporal Key (GTK) that is generated by the
+		          TOE for use in broadcast and multicast messages to clients to which it is connected. 802.11-2020
+		          specifies the format for the transfer as well as the fact that it must be wrapped by the AES Key Wrap
+		          method specified in NIST SP 800-38F.</note>
+		        <aactivity>
+		          <TSS>The evaluator will check the TSS to ensure that it describes how the GTK is wrapped prior to being
+		            distributed using the AES implementation specified in this PP-Module, and also how the GTKs are distributed
+		            when multiple clients connect to the TOE.<h:br/><h:br/></TSS>
+		          <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+		          <Tests>
+		            The evaluator will perform the following test using a packet sniffing tool to collect frames
+		            between a wireless client and the TOE (which may be performed in conjunction with the
+		            evaluation activity for FCS_CKM.1/PMK.
+		            <h:p>
+		              To fully test the broadcast and multicast functionality, these steps will be performed as
+		              the evaluator connects multiple clients to the TOE.
+		              The evaluator will ensure that GTKs established are sent to the
+		              appropriate participating clients.
+		            </h:p>
+		            <h:p>
+		              Step 1: The evaluator will configure the AP to an unused channel and configure the WLAN
+		              sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel).
+		              The sniffer should also be configured to filter on the MAC address of the TOE and client.
+		            </h:p>
+		            <h:p>
+		              Step 2: The evaluator will configure the TOE to communicate with the client using
+		              IEEE 802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key, setting up the
+		              connections as described in the operational guidance.
+		              The pre-shared key is only used for testing.
+		            </h:p>
+		            <h:p>
+		              Step 3: The evaluator will start the sniffing tool, initiate a connection between the
+		              TOE and client, and allow the client to authenticate, associate and successfully complete
+		              the four-way handshake with the TOE.
+		            </h:p>
+		            <h:p>
+		              Step 4: The evaluator will set a timer for one minute, at the end of which the evaluator
+		              will disconnect the TOE from the client and stop the sniffer.
+		            </h:p>
+		            <h:p>
+		              Step 5: The evaluator will identify the four-way handshake frames
+		              (denoted EAPOL-key in Wireshark captures) and derive the PTK and GTK from the
+		              four-way handshake frames and pre-shared key as specified in IEEE 802.11-2020.
+		            </h:p>
+		            <h:p>
+		              Step 6: The evaluator will select the first data frame from the captured packets that was sent between
+		              the TOE and client after the four-way handshake successfully completed,
+		              and with the frame control value  0x4208 (the first two bytes are 08 42).
+		              The evaluator will use the GTK to decrypt the data portion of the
+		              selected packet as specified in IEEE 802.11-2020 and verify that the decrypted
+		              data contains ASCII-readable text.
+		            </h:p>
+		            <h:p>
+		              Step 7: The evaluator will repeat Step 6 for the next two data frames with frame control value 0x4208.
+		            </h:p>
+		            <h:p>
+		              The evaluator will also perform the following testing based on the supported GTK distribution
+		              methods:
+		            </h:p>
+		            <h:p><h:b>AES Key Wrap (AES-KW Tests)</h:b></h:p>
+		            <h:p>
+		              <testlist>
+		                <test>The evaluator will test the authenticated encryption functionality of AES-KW for each combination of the following input parameter lengths:
+		                  <h:ul>
+		                    <h:li>128 and 256 bit key encryption keys (KEKs)</h:li>
+		                    <h:li>
+		                      Three plaintext lengths:
+		                      <h:ol>
+		                        <h:li>One of the plaintext lengths will be two semi-blocks (128 bits).</h:li>
+		                        <h:li>One of the plaintext lengths will be three semi-blocks (192 bits).</h:li>
+		                        <h:li>The third data unit length will be the longest supported plaintext
+		                          length less than or equal to 64 semi-blocks (4096 bits).</h:li>
+		                      </h:ol>
+		                    </h:li>
+		                  </h:ul>		    
+		                  For each combination, generate a set of 100 key and plaintext pairs
+		                  and obtain the ciphertext that results from AES-KW authenticated encryption. 
+		                  To determine correctness, the evaluator will use the same key and plaintext values
+		                  and encrypt them using a known good implementation of AES-KW authenticated-encryption,
+		                  and ensure that the resulting respective ciphertext values are identical.
+		                </test>
+		                <test>
+		                  The evaluator will test the authenticated-decryption functionality of AES-KW using
+		                  the same test as for authenticated-encryption, 
+		                  replacing plaintext values with ciphertext values and AES-KW authenticated-encryption with
+		                  AES-KW authenticated-decryption. 
+		                  Additionally, the evaluator will modify one byte of the ciphertext,
+		                  attempt to decrypt the modified ciphertext, and ensure that a failure is returned
+		                  rather than plaintext.
+		                </test>
+		              </testlist>
+		            </h:p>
+		            <h:p> <h:b>AES Key Wrap with Padding (AES-KWP Tests)</h:b></h:p>
+		            <h:p>
+		              <testlist>
+		                <test>
+		                  <h:p>The evaluator will test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</h:p>
+		                  <h:p>128 and 256 bit key encryption keys (KEKs)</h:p>
+		                  <h:p>
+		                    Three plaintext lengths. One plaintext length will be one octet. 
+		                    One plaintext length will be 20 octets (160 bits). 
+		                    One plaintext length will be the longest supported plaintext length less than or equal to 512 octets (4096 bits).
+		                  </h:p>
+		                  <h:p>
+		                    using a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KWP authenticated encryption. 
+		                    To determine correctness, the evaluator will use the AES-KWP authenticated-encryption function of a known good implementation.
+		                  </h:p>
+		                </test>
+		                <test>
+		                  The evaluator will test the authenticated-decryption functionality of AES-KWP
+		                  using the same test as for AES-KWP authenticated-encryption, 
+		                  replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption
+		                  with AES-KWP authenticated-decryption. 
+		                  Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
+		                </test>
+		              </testlist>
+		            </h:p>
+		          </Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event/>
+		    </f-component>
+		    
+		    
+		    <f-component name="Cryptographic Key Distribution (PMK)" cc-id="fcs_ckm.2" iteration="PMK">
+		      <depends on="feat-80211bb"/>
+		      <f-element>
+		        <title>
+		          The TSF shall <h:b>receive the 802.11 Pairwise Master Key (PMK)</h:b> in
+		          accordance with a specified cryptographic key distribution method: [<h:i>from 802.1X Authorization Server</h:i>]
+		          that meets the following: [<h:i>IEEE 802.11-2020</h:i>] <h:b>and does not expose the cryptographic keys</h:b>.
+		        </title>
+		        <note role="application">
+		          This requirement applies to the Pairwise Master Key that is received from the RADIUS
+		          server by the TOE. The intent of this requirement is to ensure conformant TOEs implement 802.1X
+		          authentication prior to establishing secure communications with the client.
+		          The intent is that any WLAN AS evaluated against this PP-Module will support both
+		          WPA2-Enterprise and WPA3-Enterprise at a minimum and certificate-based authentication mechanisms
+		          and therefore disallows implementations that support only pre-shared keys. Because communications
+		          with the RADIUS server are required to be performed over a protected connection, the transfer
+		          of the PMK will be protected.
+		        </note>
+		        <aactivity>
+		          <TSS>The evaluator will examine the TSS to determine that it describes how the PMK is transferred (that is,
+		            through what EAP attribute) to the TOE.<h:br/><h:br/></TSS>
+		          <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+		          <Tests>The evaluator will establish a session between the TOE and a RADIUS server according to the
+		            configuration guidance provided.
+		            The evaluator will then examine the traffic that passes between the
+		            RADIUS server and the TOE during a successful attempt to connect a wireless client to the TOE to
+		            determine that the PMK is not exposed.</Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event/>
+		    </f-component>
+		    
+		    
+		      <f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1">
+		        <depends on="s-radsec-psk"/>
+		        
+		        
+		        <comp-lev>requires the TSF to support pre-shared keys that meet various characteristics for specific communications usage.</comp-lev>
+		        <management>No specific management functions are identified.</management>
+		        <audit>There are no auditable events foreseen.</audit>
+		        <dependencies>FCS_RBG.1 Random Bit Generation</dependencies>
+		        
+		        <f-element id="fel-use-psk">
+		          <title>The TSF shall be able to use pre-shared keys for <selectables>
+		            <selectable>RADIUS over TLS (RadSec)</selectable>
+		            <selectable>IPsec</selectable>
+		            <selectable>WPA3-SAE</selectable>
+		            <selectable>WPA3-SAE-PK</selectable>
+		            <selectable>IEEE 802.11 WPA2-PSK</selectable>
+		            <selectable><assignable>other protocols that use pre-shared keys</assignable></selectable>
+		          </selectables>. 
+		          </title>
+		        </f-element>
+		        <f-element id="fel-valid-psk">
+		          <title>The TSF shall be able to accept text-based pre-shared keys that: <h:ul>
+		            <h:li>are 22 characters and <selectables>
+		              <selectable><assignable>other supported lengths</assignable></selectable>
+		              <selectable exclusive="yes">no other lengths</selectable>
+		            </selectables>;</h:li>
+		            <h:li>are composed of any combination of upper and lower case letters, numbers, and special
+		              characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”).
+		            </h:li>
+		          </h:ul>
+		          </title>
+		        </f-element>
+		        <f-element id="fel-get-psk">
+		          <title>The TSF shall be able to <selectables> 
+		            <selectable>accept</selectable>
+		            <selectable>generate using the random bit generator specified in FCS_RBG.1</selectable>
+		          </selectables> bit-based pre-shared keys.
+		          </title>
+		          
+		          <note role="application">
+		            <h:p>
+		              This requirement must be included if IPsec or another protocol that uses pre-shared keys is claimed, and pre-shared key authentication is selected 
+		              (e.g., "Pre-shared Keys" is selected in FCS_IPSEC_EXT.1.13 or "pre-shared keys" is selected in FCS_RADSEC_EXT.1.2). 
+		              The intent of this requirement is that all protocols will support both text-based and bit-based pre-shared keys.
+		            </h:p>
+		            <h:p>
+		              For the length of the text-based pre-shared keys, a common length (22 characters) is required to help
+		              promote interoperability.
+		              If other lengths are supported, they should be listed in the assignment;
+		              this assignment can also specify a range of values (e.g., "lengths from 5 to 55 characters") as well.
+		            </h:p>
+		            <h:p>
+		              For <xref to="fel-get-psk"/>, the ST author specifies whether the TSF merely accepts bit-based pre-shared keys
+		              or is capable of generating them.
+		              If it generates them, the requirement specifies that they must be
+		              generated using the RBG provided by the TOE.
+		            </h:p>
+		          </note>
+		          <aactivity>
+		            <TSS>
+		              The evaluator will verify that the TSS describes 
+		              <h:ol>
+		                <h:li>the protocols that can use pre-shared keys and that these are consistent with the selections made in <xref to="fel-use-psk"/>.</h:li>
+		                <h:li>the allowable values for pre-shared keys and that they are consistent with the selections made in <xref to="fel-valid-psk"/>.</h:li>
+		                <h:li>the way bit-based pre-shared keys are procured and that it is consistent with the selections made in <xref to="fel-get-psk"/>.</h:li>
+		              </h:ol>
+		            </TSS>
+		            <Guidance>
+		              The evaluator will examine the operational guidance to determine that it provides guidance to
+		              administrators on the composition of strong text-based pre-shared keys, and (if the selection indicates
+		              keys of various lengths can be entered) that it provides information on the range of lengths supported.
+		              The guidance must specify the allowable characters for pre-shared keys, and that list must be a superset of the list contained in FIA_PSK_EXT.1.2.<h:br/><h:br/>
+		              The evaluator will confirm the operational guidance contains instructions for either entering bit-based
+		              pre-shared keys for each protocol identified in the requirement or for generating a bit-based pre-shared
+		              key (or both).<h:br/><h:br/>
+		            </Guidance>
+		            <Tests>The evaluator will also perform the following tests for each protocol (or instantiation of a protocol, if
+		              performed by a different implementation on the TOE). Note that one or more of these tests can be
+		              performed with a single test case.
+		              <testlist>
+		                <test>The evaluator will compose a pre-shared key of 22 characters that contains a combination of
+		                  the allowed characters in accordance with the operational guidance and demonstrates that a successful
+		                  protocol negotiation can be performed with the key.
+		                </test>
+		                <test>[conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator will repeat
+		                  Test 1 using the minimum length; the maximum length; a length inside the allowable range; and invalid
+		                  lengths beyond the supported range (both higher and lower). The minimum, maximum, and included
+		                  length tests should be successful, and the invalid lengths must be rejected by the TOE.
+		                </test>
+		                <test>[conditional]: If the TOE does not generate bit-based pre-shared keys, the evaluator will obtain a
+		                  bit-based pre-shared key of the appropriate length and enter it according to the instructions in the
+		                  operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can
+		                  be performed with the key.</test>
+		                <test>[conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator will generate a
+		                  bit-based pre-shared key of the appropriate length and use it according to the instructions in the
+		                  operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can
+		                  be performed with the key.
+		                </test>
+		              </testlist>
+		            </Tests>
+		          </aactivity>
+		        </f-element>
+		        <audit-event/>
+		      </f-component>
+
+		    
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
+		      <depends on="feat-80211bb"/>
+		      <f-element>
+		        <title><comment>For now this is added as a separate iteration of FTP_ITC.1 just for 802.1X rather than reaching back to the NDcPP as a modified SFR. This will disambiguate the protocols that apply to individual external interfaces but can be moved up to Modified SFRs instead if desired.<h:br/><h:br/></comment>The TSF shall provide a communication channel <h:b>using IEEE 802.1X and <selectables>
+		          <selectable id="s-ipsec">IPsec</selectable>
+		          <selectable id="s-radius">RADIUS over TLS</selectable></selectables></h:b>
+		          
+		          between itself and <h:b>an 802.1X authentication server</h:b> that is logically distinct from other communication channels and provides assured
+		          identification of its end points and protection of the channel data from modification or
+		          disclosure.
+		          
+		        </title>
+		        <note role="application">
+		          <h:p>
+		            This requirement has been iterated from its definition in the NDcPP to 
+		            mandate the communications protocols and environmental components that 
+		            a Li-FI AS must use for 802.1X.
+		            IPsec or RADIUS over TLS (commonly known as "RadSec") is required at least for communications with the 802.1X authentication server.
+		            The requirement implies that not only are communications protected when they are initially established,
+		            but also on resumption after an outage.</h:p>
+		          <h:p>
+		            The IT entity of "802.1X authentication server" is distinct from "authentication server" as specified in FTP_ITC.1 in the NDcPP
+		            because the latter may be used for administrator authentication rather 
+		            than authorization of WLAN clients.
+		          </h:p><h:p>
+		            If <xref to="s-ipsec"/> is selected in FTP_ITC.1.1, then FCS_IPSEC_EXT.1 from the NDcPP must be claimed.
+		            If <xref to="s-radius"/> is selected in FTP_ITC.1.1,
+		            then FCS_RADSEC_EXT.1 in this PP-Module must be claimed, as well as FCS_TLSC_EXT.1 from the Functional Package for TLS.
+		          </h:p>
+		        </note>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall permit [<h:i>the TSF</h:i>] to initiate communication via the trusted channel.</title>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>802.1X authentication</h:i>].</title>
+		        <aactivity>
+		          The evaluator will perform the following activities in addition to those required by the NDcPP:<h:br/><h:br/>
+		          <TSS>
+		            The evaluator will examine the TSS to determine that, for all communications with authorized IT
+		            entities identified in the requirement, each communications mechanism is identified in terms of the
+		            allowed protocols for that IT entity.
+		            The evaluator will also confirm that all protocols listed in the TSS
+		            are specified and included in the requirements in the ST.<h:br/><h:br/>
+		          </TSS>
+		          <Guidance>The evaluator will confirm that the guidance documentation contains instructions for establishing the
+		            allowed protocols with each authorized IT entity and that it contains recovery instructions should a
+		            connection be unintentionally broken.<h:br/><h:br/>
+		          </Guidance>
+		          <Tests>The evaluator will perform the following tests:
+		            <testlist>
+		              <test>The evaluator will ensure that communications using each protocol with each authorized IT
+		                entity is tested during the course of the evaluation, setting up the connections as described in the
+		                guidance documentation and ensuring that communication is successful. </test>
+		              <test>For each protocol that the TOE can initiate as defined in the requirement, the evaluator will
+		                follow the guidance documentation to ensure that the communication channel can be initiated
+		                from the TOE. </test>
+		              <test>The evaluator will ensure, for each communication channel with an authorized IT entity, the
+		                channel data is not sent in plaintext.</test>
+		              <test>The evaluator will, for each protocol associated with each authorized IT entity tested during
+		                test 1, physically interrupt an established connection. The evaluator will ensure that when physical
+		                connectivity is restored, communications are appropriately protected.</test>
+		            </testlist>
+		          </Tests>
+		        </aactivity>
+		      </f-element>
+		      <audit-event>
+		        <audit-event-descr>Failed attempts to establish a trusted channel (including IEEE 802.11)</audit-event-descr>
+		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+		      </audit-event>
+		      <audit-event>
+		        <audit-event-descr>Detection of modification of channel data</audit-event-descr>
+		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+		      </audit-event>
+		    </f-component>
+		    
+		    
+		    
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (Li-Fi 802.11 Client Access)" iteration="Client">
+		      <depends on="feat-80211bb"/>
+		      <f-element><title>
+		        The TSF shall provide a communication channel <h:b> using
+		          WPA3-Enterprise, WPA2-Enterprise, and <selectables> 
+		            <selectable>WPA3-SAE</selectable> 
+		            <selectable>WPA3-SAE-PK</selectable> 
+		            <selectable>WPA2-PSK</selectable> 
+		            <selectable>no other mode</selectable> 
+		          </selectables> as defined by IEEE 802.11-2020</h:b> to provide a trusted channel
+		        
+		        between itself and <h:b>Li-Fi clients</h:b> that is logically distinct from other communication channels and provides assured
+		        identification of its end points and protection of the channel data from modification or
+		        disclosure.
+		      </title>
+		        <note role="application">
+		          <h:p>
+		            This requirement has been iterated from its definition in the NDcPP to 
+		            mandate support for 802.11 specifically for Li-Fi client access.
+		          </h:p>
+		        </note>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall permit [<h:i>Li-Fi clients</h:i>] to initiate communication via the trusted channel.</title>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>no services</h:i>].</title>
+		        <aactivity>
+		          <no-tests/>
+		        </aactivity>
+		      </f-element>
+		      <audit-event>
+		        <audit-event-descr>Failed attempts to establish a trusted channel (including IEEE 802.11)</audit-event-descr>
+		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+		      </audit-event>
+		      <audit-event>
+		        <audit-event-descr>Detection of modification of channel data</audit-event-descr>
+		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+		      </audit-event>
+		    </f-component>
+		    
 		  </section>
 		  
 		  <section id="gvlc-sfrs" title="SFRs for G.vlc Implementations">
 		    
+		    
+		    
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (MACsec)" iteration="MACsec">
+		      <depends on="feat-gvlc"/>
+		      <f-element><title>
+		        The TSF shall provide a communication channel <h:b>using MACsec</h:b> to provide a trusted channel
+		        
+		        between itself and <h:b>a MACsec peer</h:b> that is logically distinct from other communication channels and provides assured
+		        identification of its end points and protection of the channel data from modification or
+		        disclosure.
+		      </title>
+		        <note role="application">
+		          <h:p>
+		            This requirement has been iterated from its definition in the NDcPP to 
+		            mandate support for MACsec.
+		          </h:p>
+		        </note>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall permit <selectables><selectable>the TSF</selectable><selectable><h:b>a MACsec peer</h:b></selectable></selectables> to initiate communication via the trusted channel.</title>
+		      </f-element>
+		      <f-element>
+		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>communications with MACsec peers that require the use of MACsec</h:i>].</title>
+		        <aactivity>
+		          <no-tests/>
+		        </aactivity>
+		      </f-element>
+		      <audit-event>
+		        <audit-event-descr>Failed attempts to establish a trusted channel</audit-event-descr>
+		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+		      </audit-event>
+		      <audit-event>
+		        <audit-event-descr>Detection of modification of channel data</audit-event-descr>
+		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+		      </audit-event>
+		    </f-component>
 		    
 		  </section>
 		
