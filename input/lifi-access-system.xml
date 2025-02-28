@@ -845,7 +845,11 @@ This PP-Module is written to address the situation where a distributed network d
              </Tests>
            </aactivity>
          </f-element>
-         <audit-event/>
+         <audit-event>
+           <audit-event-descr>Denial of a session establishment due to the session establishment mechanism</audit-event-descr>
+           <audit-event-info>Reason for denial</audit-event-info>
+           <audit-event-info>Origin of establishment attempt</audit-event-info>
+         </audit-event>
        </f-component>
         
 	</section>  
