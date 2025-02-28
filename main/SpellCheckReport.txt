@@ -29,7 +29,6 @@ output/lifi-access-system-release-linkable.html: CEM
 output/lifi-access-system-release-linkable.html: EAPOL
 output/lifi-access-system-release-linkable.html: FI
 output/lifi-access-system-release-linkable.html: Fi
-output/lifi-access-system-release-linkable.html: GPOS
 output/lifi-access-system-release-linkable.html: ITT
 output/lifi-access-system-release-linkable.html: KDF
 output/lifi-access-system-release-linkable.html: NDcPP
@@ -48,9 +47,7 @@ output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: atref
 output/lifi-access-system-release-linkable.html: broadcasted
-output/lifi-access-system-release-linkable.html: fau
 output/lifi-access-system-release-linkable.html: impl
-output/lifi-access-system-release-linkable.html: lifi
 output/lifi-access-system-release-linkable.html: multicast
 output/lifi-access-system-release-linkable.html: sel
 output/lifi-access-system-release-linkable.html: vlc
@@ -66,7 +63,6 @@ output/lifi-access-system-release.html: CEM
 output/lifi-access-system-release.html: EAPOL
 output/lifi-access-system-release.html: FI
 output/lifi-access-system-release.html: Fi
-output/lifi-access-system-release.html: GPOS
 output/lifi-access-system-release.html: ITT
 output/lifi-access-system-release.html: KDF
 output/lifi-access-system-release.html: NDcPP
@@ -85,10 +81,8 @@ output/lifi-access-system-release.html: WPA2
 output/lifi-access-system-release.html: WPA3
 output/lifi-access-system-release.html: atref
 output/lifi-access-system-release.html: broadcasted
-output/lifi-access-system-release.html: fau
 output/lifi-access-system-release.html: identifier’s
 output/lifi-access-system-release.html: impl
-output/lifi-access-system-release.html: lifi
 output/lifi-access-system-release.html: multicast
 output/lifi-access-system-release.html: sel
 output/lifi-access-system-release.html: vlc
@@ -106,7 +100,6 @@ output/lifi-access-system.html: CEM
 output/lifi-access-system.html: EAPOL
 output/lifi-access-system.html: FI
 output/lifi-access-system.html: Fi
-output/lifi-access-system.html: GPOS
 output/lifi-access-system.html: GTKs
 output/lifi-access-system.html: ITT
 output/lifi-access-system.html: KDF
@@ -129,10 +122,8 @@ output/lifi-access-system.html: WPA3
 output/lifi-access-system.html: Wireshark
 output/lifi-access-system.html: atref
 output/lifi-access-system.html: broadcasted
-output/lifi-access-system.html: fau
 output/lifi-access-system.html: identifier’s
 output/lifi-access-system.html: impl
-output/lifi-access-system.html: lifi
 output/lifi-access-system.html: multicast
 output/lifi-access-system.html: sel
 output/lifi-access-system.html: superset

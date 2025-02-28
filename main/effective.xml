@@ -478,10 +478,8 @@ This PP-Module is written to address the situation where a distributed network d
           <description>
             <h:b>NOTE: for CC:2022 Part 2 conformance this SFR may be replaced in the next NDcPP release with FPT_TST.1. If so, then corresponding changes will need to be made here as well.</h:b>
             
-            This SFR is functionally identical to what is defined in the GPOS PP except that
-            ECC key generation with support for P-384 has been made mandatory
-            in support of IPsec due to the mandated support for Diffie-Hellman (DH) group 20 in
-            FCS_IPSEC_EXT.1.8.<h:p/>
+            This SFR is functionally identical to what is defined in the NDcPP except that
+            the specific self-test of verifying the integrity of TSF executable code has been mandated as a minimum baseline for the requirement. Other self-tests may still be claimed at the ST author's discretion.<h:p/>
             
             The text of the requirement is replaced with:<h:br/><h:br/>
             
@@ -538,7 +536,7 @@ This PP-Module is written to address the situation where a distributed network d
       
       <!-- Section for SFR Class -->
       <section title="Security Audit (FAU)" id="man-fau">
-        <f-component name="fau-gen-1-lifi" cc-id="fau_gen.1" iteration="LiFI">
+        <f-component name="Audit Data Generation (Li-Fi)" cc-id="fau_gen.1" iteration="LiFI">
         <f-element id="fau-gen-1e1-lifi">
           <title>
             <comment>For the sake of simplicity this has been defined as one single iteration rather than being split as in the proposed SFRs because of the amount of overlap between them. I think it is reasonable to say "whatever gets claimed gets audited" in one requirement.<h:br/></comment>
@@ -598,9 +596,7 @@ This PP-Module is written to address the situation where a distributed network d
 		<section title="Cryptographic Support (FCS)" id="man-fcs">
 		  <f-component name="Cryptographic Operation (Data Encryption and Decryption for Li-Fi" cc-id="fcs_cop.1" iteration="LiFiDataEncryption">
 		    <f-element>
-		      <title>The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<h:i>Advanced Encryption Standard (AES) used in CCM mode Protocol (CCMP), and [
-		        <selectables>
-		          <selectable>Cipher Block Chaining (CBC)</selectable>
+		      <title>The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<h:i>Advanced Encryption Standard (AES) used in CCM mode Protocol (CCMP), and [<selectables><selectable>Cipher Block Chaining (CBC)</selectable>
 		          <selectable>Counter (encryption mode) (CTR)</selectable>
 		          <selectable>Galois-Counter Mode (GCM)</selectable> 
 		          <selectable>GCMP</selectable> 
@@ -707,8 +703,7 @@ This PP-Module is written to address the situation where a distributed network d
               <selectable>following TSF-initiated session locking</selectable>
               <selectable><assignable>other conditions</assignable></selectable>
               <selectable>no other conditions</selectable>
-            </selectables>
-            </h:i>].
+            </selectables></h:i>].
           </title>
           <aactivity>
             <TSS>There are no TSS evaluation activities for this component.<h:br/><h:br/></TSS>
@@ -740,7 +735,7 @@ This PP-Module is written to address the situation where a distributed network d
               <h:li>Client credentials to be used for authentication</h:li> 
               <h:li>Wavelength set</h:li>
               <h:li>Optical Power</h:li>
-              <h:li><selectables><selectable>authentication protocol</selectable><selectable>Service Set Identifier (SSID) if the SSID is broadcasted</selectable></selectables></h:li>  
+              <h:li><selectables><selectable>authentication protocol</selectable><selectable>Service Set Identifier (SSID) if the SSID is broadcasted</selectable><selectable>no other security policy elements</selectable></selectables></h:li>  
               </h:ul>
               </h:i>].
             </title>
@@ -947,7 +942,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            The ciphersuites to be tested in the evaluated configuration are limited by this requirement. 
 		            The ST author should select the ciphersuites that are supported.
 		            If "X.509v3 certificates" is selected in FCS_RADSEC_EXT.1.2, 
-		            the ciphersuites selected in (and tested by) FCS_TLSC_EXT.2.1 are also supported for
+		            the ciphersuites selected in (and tested by) FCS_TLSC_EXT.1.1 in the Functional Package for TLS are also supported for
 		            RADIUS over TLS client use.
 		          </h:p>
 		        </note>
@@ -1612,7 +1607,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    
 		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (Li-Fi 802.11 Client Access)" iteration="Client">
 		      <depends on="feat-80211bb"/>
-		      <f-element><title>
+		      <f-element><title><comment>Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<h:br/><h:br/></comment>
 		        The TSF shall provide a communication channel <h:b> using
 		          WPA3-Enterprise, WPA2-Enterprise, and <selectables> 
 		            <selectable>WPA3-SAE</selectable> 

@@ -629,7 +629,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/><a href="#Comment-6-">Comment: Comment-6-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for LiFi Access Systems</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/><a href="#Comment-6-">Comment: Comment-6-</a><br/><a href="#Comment-7-">Comment: Comment-7-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for LiFi Access Systems</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 0.1<br/>2025-02-28<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>0.1</td><td>2025-02-28</td><td>Initial XML conversion</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#sec-TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOEboundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use-Cases" style="text-indent:10px">1.4<span>Use-Cases</span></a><a href="#sec-features" style="text-indent:10px">1.5<span>Implementation-Based Features</span></a><a href="#feat-80211bb" style="text-indent:20px">1.5.1<span>802.11bb Support</span></a><a href="#feat-gvlc" style="text-indent:20px">1.5.2<span>G.vlc Support</span></a><a href="#sec-cclaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#sec-spd" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#sec-threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#sec-assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#sec-osp" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#sec-objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#sec-OEObjectives" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#sec-sor" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#base-fpt" style="text-indent:30px">5.0.0.1<span>Protection of the TSF (FPT)</span></a><a href="#ss-audit-table" style="text-indent:20px">5.0.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#man-fau" style="text-indent:20px">5.0.2<span>Security Audit (FAU)</span></a><a href="#man-fcs" style="text-indent:20px">5.0.3<span>Cryptographic Support (FCS)</span></a><a href="#man-fia" style="text-indent:20px">5.0.4<span>Identification and Authentication (FIA)</span></a><a href="#man-fmt" style="text-indent:20px">5.0.5<span>Security Management (FMT)</span></a><a href="#man-fta" style="text-indent:20px">5.0.6<span>TOE Access (FTA)</span></a><a href="#sb-audit-table" style="text-indent:10px">5.1<span>Auditable Events for Selection-based SFRs</span></a><a href="#sel_fcs" style="text-indent:20px">5.1.1<span>Cryptographic Support (FCS)</span></a><a href="#sib-audit-table" style="text-indent:20px">5.1.2<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#80211bb-sfrs" style="text-indent:20px">5.1.3<span>SFRs for 802.11bb Implementations</span></a><a href="#gvlc-sfrs" style="text-indent:20px">5.1.4<span>SFRs for G.vlc Implementations</span></a></div>
 
@@ -981,10 +981,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           <span class="description">
             <b>NOTE: for CC:2022 Part 2 conformance this SFR may be replaced in the next NDcPP release with FPT_TST.1. If so, then corresponding changes will need to be made here as well.</b>
             
-            This SFR is functionally identical to what is defined in the GPOS PP except that
-            ECC key generation with support for P-384 has been made mandatory
-            in support of IPsec due to the mandated support for Diffie-Hellman (DH) group 20 in
-            FCS_IPSEC_EXT.1.8.<p></p>
+            This SFR is functionally identical to what is defined in the NDcPP except that
+            the specific self-test of verifying the integrity of TSF executable code has been mandated as a minimum baseline for the requirement. Other self-tests may still be claimed at the ST author's discretion.<p></p>
             
             The text of the requirement is replaced with:<br/><br/>
             
@@ -1039,7 +1037,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
       
       
       <h3 id="man-fau" class="indexable" data-level="3">5.0.2 Security Audit (FAU)</h3>
-        <div class="comp" id="FAU_GEN.1/LiFI"><h4>FAU_GEN.1/LiFI fau-gen-1-lifi</h4>
+        <div class="comp" id="FAU_GEN.1/LiFI"><h4>FAU_GEN.1/LiFI Audit Data Generation (Li-Fi)</h4>
         <div class="element"><div class="reqid" id="FAU_GEN.1.1/LiFI"><a href="#FAU_GEN.1.1/LiFI" class="abbr">FAU_GEN.1.1/LiFI</a></div><div class="reqdesc">
             <span style="" class="comment " id="Comment-3-">For the sake of simplicity this has been defined as one single iteration rather than being split as in the proposed SFRs because of the amount of overlap between them. I think it is reasonable to say "whatever gets claimed gets audited" in one requirement.<br/></span>
             The TSF shall be able to generate an audit record of the following
@@ -1093,8 +1091,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		
 		<h3 id="man-fcs" class="indexable" data-level="3">5.0.3 Cryptographic Support (FCS)</h3>
 		  <div class="comp" id="FCS_COP.1/LiFiDataEncryption"><h4>FCS_COP.1/LiFiDataEncryption Cryptographic Operation (Data Encryption and Decryption for Li-Fi</h4>
-		    <div class="element"><div class="reqid" id="FCS_COP.1.1/LiFiDataEncryption"><a href="#FCS_COP.1.1/LiFiDataEncryption" class="abbr">FCS_COP.1.1/LiFiDataEncryption</a></div><div class="reqdesc">The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<i>Advanced Encryption Standard (AES) used in CCM mode Protocol (CCMP), and [
-		        [<b>selection</b>: <span class="selectable-content" id="_s_1">Cipher Block Chaining (CBC)</span>, <span class="selectable-content" id="_s_2">Counter (encryption mode) (CTR)</span>, <span class="selectable-content" id="_s_3">Galois-Counter Mode (GCM)</span>, <span class="selectable-content" id="_s_4">GCMP</span>, <span class="selectable-content" id="_s_5">no other</span>]</i>] modes and cryptographic key sizes 256 bits and [[<b>selection</b>: <span class="selectable-content" id="_s_6">128 bits</span>, <span class="selectable-content" id="_s_7">192 bits</span>, <span class="selectable-content" id="_s_8">no other key sizes</span>] that meet the following: [<i>AES as specified in ISO 18033-3, CBC as specified in ISO 10116, CCMP as specified in NIST SP 800-38C and IEEE 802.11-2020, 
+		    <div class="element"><div class="reqid" id="FCS_COP.1.1/LiFiDataEncryption"><a href="#FCS_COP.1.1/LiFiDataEncryption" class="abbr">FCS_COP.1.1/LiFiDataEncryption</a></div><div class="reqdesc">The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<i>Advanced Encryption Standard (AES) used in CCM mode Protocol (CCMP), and [[<b>selection</b>: <span class="selectable-content" id="_s_1">Cipher Block Chaining (CBC)</span>, <span class="selectable-content" id="_s_2">Counter (encryption mode) (CTR)</span>, <span class="selectable-content" id="_s_3">Galois-Counter Mode (GCM)</span>, <span class="selectable-content" id="_s_4">GCMP</span>, <span class="selectable-content" id="_s_5">no other</span>]</i>] modes and cryptographic key sizes 256 bits and [[<b>selection</b>: <span class="selectable-content" id="_s_6">128 bits</span>, <span class="selectable-content" id="_s_7">192 bits</span>, <span class="selectable-content" id="_s_8">no other key sizes</span>] that meet the following: [<i>AES as specified in ISO 18033-3, CBC as specified in ISO 10116, CCMP as specified in NIST SP 800-38C and IEEE 802.11-2020, 
 		            [<b>selection</b>: <span class="selectable-content" id="_s_9">CTR as specified in ISO 10116</span>, <span class="selectable-content" id="_s_10">GCM as specified in ISO 19772</span>, <span class="selectable-content" id="_s_11">GCMP as specified in NIST SP 800-38D and IEEE 802.11ax-2021</span>, <span class="selectable-content" id="_s_12">no other standards</span>]</i>.<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1179,8 +1176,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         <div class="element"><div class="reqid" id="FIA_UAU.6.1"><a href="#FIA_UAU.6.1" class="abbr">FIA_UAU.6.1</a></div><div class="reqdesc">
             The TSF shall re-authenticate the user under the conditions [<i>when the user changes their password,
             [<b>selection</b>: <span class="selectable-content" id="_s_13">following TSF-initiated session locking</span>, <span class="selectable-content" id="_s_14">[<b>assignment</b>: 
-     <span class="assignable-content">other conditions</span>]</span>, <span class="selectable-content" id="_s_15">no other conditions</span>]
-            </i>].
+     <span class="assignable-content">other conditions</span>]</span>, <span class="selectable-content" id="_s_15">no other conditions</span>]</i>].
           </div></div>
         
       <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FIA_UAU.6">FIA_UAU.6</a></div>
@@ -1206,7 +1202,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               <li>Client credentials to be used for authentication</li> 
               <li>Wavelength set</li>
               <li>Optical Power</li>
-              <li>[<b>selection</b>: <span class="selectable-content" id="_s_16">authentication protocol</span>, <span class="selectable-content" id="_s_17">Service Set Identifier (SSID) if the SSID is broadcasted</span>]</li>  
+              <li>[<b>selection</b>: <span class="selectable-content" id="_s_16">authentication protocol</span>, <span class="selectable-content" id="_s_17">Service Set Identifier (SSID) if the SSID is broadcasted</span>, <span class="selectable-content" id="_s_18">no other security policy elements</span>]</li>  
               </ul>
               </i>].
             </div></div>
@@ -1249,8 +1245,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
        <div class="comp" id="FTA_TSE.1"><h4>FTA_TSE.1 TOE Session Establishment</h4>
          <div class="element"><div class="reqid" id="FTA_TSE.1.1"><a href="#FTA_TSE.1.1" class="abbr">FTA_TSE.1.1</a></div><div class="reqdesc">The TSF shall be able to deny session establishment <b>of a wireless client session</b> based
-             on [<i>TOE interface, time, day, [<b>selection</b>: <span class="selectable-content" id="_s_18">[<b>assignment</b>: 
-     <span class="assignable-content">other attributes</span>]</span>, <span class="selectable-content" id="_s_19">no other attributes</span>]</i>].
+             on [<i>TOE interface, time, day, [<b>selection</b>: <span class="selectable-content" id="_s_19">[<b>assignment</b>: 
+     <span class="assignable-content">other attributes</span>]</span>, <span class="selectable-content" id="_s_20">no other attributes</span>]</i>].
            <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1361,7 +1357,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      
 		      <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.2.1"><a href="#FCS_RADSEC_EXT.2.1" class="abbr">FCS_RADSEC_EXT.2.1</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-4-">Updated to remove 128-bit ciphers and TLS 1.1. Does TLS 1.3 need to be selectable here and do the ciphers need to change further?<br/><br/></span>
 		          The TSF shall implement TLS 1.2 and no earlier TLS versions when acting as a RADIUS over TLS client that supports the following ciphersuites: 
-		          [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_22">TLS_PSK_WITH_AES_256_CBC_SHA</span></li><li style=""><span class="selectable-content" id="_s_23">TLS_DHE_PSK_WITH_AES_256_CBC_SHA</span></li><li style=""><span class="selectable-content" id="s-rsa_psk_aes_256_cbc">TLS_RSA_PSK_WITH_AES_256_CBC_SHA</span></li><li style=""><span class="selectable-content" id="_s_25">TLS_PSK_WITH_AES_256_GCM_SHA384</span></li><li style=""><span class="selectable-content" id="_s_26">TLS_DHE_PSK_WITH_AES_256_GCM_SHA384</span></li><li style=""><span class="selectable-content" id="s-rsa_psk_aes_256_gcm">TLS_RSA_PSK_WITH_AES_256_GCM_SHA384</span></li></ul>].
+		          [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_23">TLS_PSK_WITH_AES_256_CBC_SHA</span></li><li style=""><span class="selectable-content" id="_s_24">TLS_DHE_PSK_WITH_AES_256_CBC_SHA</span></li><li style=""><span class="selectable-content" id="s-rsa_psk_aes_256_cbc">TLS_RSA_PSK_WITH_AES_256_CBC_SHA</span></li><li style=""><span class="selectable-content" id="_s_26">TLS_PSK_WITH_AES_256_GCM_SHA384</span></li><li style=""><span class="selectable-content" id="_s_27">TLS_DHE_PSK_WITH_AES_256_GCM_SHA384</span></li><li style=""><span class="selectable-content" id="s-rsa_psk_aes_256_gcm">TLS_RSA_PSK_WITH_AES_256_GCM_SHA384</span></li></ul>].
 		        <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1375,11 +1371,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            The ciphersuites to be tested in the evaluated configuration are limited by this requirement. 
 		            The ST author should select the ciphersuites that are supported.
 		            If "X.509v3 certificates" is selected in <a href="#FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</a>, 
-		            the ciphersuites selected in (and tested by) FCS_TLSC_EXT.2.1 are also supported for
+		            the ciphersuites selected in (and tested by) FCS_TLSC_EXT.1.1 in the Functional Package for TLS are also supported for
 		            RADIUS over TLS client use.
 		          </p>
 		        </span></div></div></div>
-		      <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.2.2"><a href="#FCS_RADSEC_EXT.2.2" class="abbr">FCS_RADSEC_EXT.2.2</a></div><div class="reqdesc">The TSF shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_28">accept</span>, <span class="selectable-content" id="_s_29">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based pre-shared keys.</div></div>
+		      <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.2.2"><a href="#FCS_RADSEC_EXT.2.2" class="abbr">FCS_RADSEC_EXT.2.2</a></div><div class="reqdesc">The TSF shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_29">accept</span>, <span class="selectable-content" id="_s_30">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based pre-shared keys.</div></div>
 		      
 		    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_RADSEC_EXT.2">FCS_RADSEC_EXT.2</a></div>
 		          
@@ -1464,7 +1460,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            If the client supports wildcards, the client must follow the best practices regarding matching; these best practices are captured in the evaluation activity.
 		          </p>
 		        </span></div></div></div>
-		      <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.3.2"><a href="#FCS_RADSEC_EXT.3.2" class="abbr">FCS_RADSEC_EXT.3.2</a></div><div class="reqdesc">When the TSF negotiates a TLS_RSA_PSK cipher suite, the TSF shall  [<b>selection</b>: <span class="selectable-content" id="_s_30">not establish the connection</span>, <span class="selectable-content" id="_s_31">request authorization to establish the connection</span>, <span class="selectable-content" id="_s_32">[<b>assignment</b>: 
+		      <div class="element"><div class="reqid" id="FCS_RADSEC_EXT.3.2"><a href="#FCS_RADSEC_EXT.3.2" class="abbr">FCS_RADSEC_EXT.3.2</a></div><div class="reqdesc">When the TSF negotiates a TLS_RSA_PSK cipher suite, the TSF shall  [<b>selection</b>: <span class="selectable-content" id="_s_31">not establish the connection</span>, <span class="selectable-content" id="_s_32">request authorization to establish the connection</span>, <span class="selectable-content" id="_s_33">[<b>assignment</b>: 
      <span class="assignable-content">other action</span>]</span>] if the presented server certificate is deemed invalid.<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1549,8 +1545,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      
 		      <div class="element"><div class="reqid" id="FCS_CKM.1.1/WPA"><a href="#FCS_CKM.1.1/WPA" class="abbr">FCS_CKM.1.1/WPA</a></div><div class="reqdesc">
 		          The TSF shall generate <b>symmetric</b> cryptographic keys in accordance with a
-		          specified cryptographic key generation algorithm [<i>PRF-384 and [<b>selection</b>: <span class="selectable-content" id="_s_33">PRF-512</span>, <span class="selectable-content" id="_s_34">PRF-704</span>, <span class="selectable-content" id="_s_35">no other algorithm</span>]</i>] and specified cryptographic key sizes [<i>256 bits and [<b>selection</b>: <span class="selectable-content" id="_s_36">128 bits</span>, <span class="selectable-content" id="_s_37">192 bits</span>, <span class="selectable-content" id="_s_38">no other key sizes</span>]</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b> that meet the following: 
-		          [<i>IEEE 802.11-2020 and [<b>selection</b>: <span class="selectable-content" id="_s_39">IEEE 802.11ax-2021</span>, <span class="selectable-content" id="_s_40">no other standards</span>]</i>].
+		          specified cryptographic key generation algorithm [<i>PRF-384 and [<b>selection</b>: <span class="selectable-content" id="_s_34">PRF-512</span>, <span class="selectable-content" id="_s_35">PRF-704</span>, <span class="selectable-content" id="_s_36">no other algorithm</span>]</i>] and specified cryptographic key sizes [<i>256 bits and [<b>selection</b>: <span class="selectable-content" id="_s_37">128 bits</span>, <span class="selectable-content" id="_s_38">192 bits</span>, <span class="selectable-content" id="_s_39">no other key sizes</span>]</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b> that meet the following: 
+		          [<i>IEEE 802.11-2020 and [<b>selection</b>: <span class="selectable-content" id="_s_40">IEEE 802.11ax-2021</span>, <span class="selectable-content" id="_s_41">no other standards</span>]</i>].
 		        <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1673,7 +1669,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		    <div class="comp" id="FCS_CKM.2/GTK"><h4>FCS_CKM.2/GTK Cryptographic Key Distribution (GTK)</h4><div class="statustag"><b><i>This component must be included in the ST if the TOE implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-80211bb">802.11bb Support</a></i></b></li></ul></div>
 		      
 		      <div class="element"><div class="reqid" id="FCS_CKM.2.1/GTK"><a href="#FCS_CKM.2.1/GTK" class="abbr">FCS_CKM.2.1/GTK</a></div><div class="reqdesc">
-		          The TSF shall distribute <b>Group Temporal Key (GTK)</b> in accordance with a specified cryptographic key distribution method: [<b>selection</b>: <span class="selectable-content" id="_s_41">AES Key Wrap in an EAPOL-Key frame</span>, <span class="selectable-content" id="_s_42">AES Key Wrap with Padding in an EAPOL-Key frame</span>] that meets the following: [<i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</i>] <b>
+		          The TSF shall distribute <b>Group Temporal Key (GTK)</b> in accordance with a specified cryptographic key distribution method: [<b>selection</b>: <span class="selectable-content" id="_s_42">AES Key Wrap in an EAPOL-Key frame</span>, <span class="selectable-content" id="_s_43">AES Key Wrap with Padding in an EAPOL-Key frame</span>] that meets the following: [<i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</i>] <b>
 		            and does not expose the cryptographic keys</b>. 
 		        <div class="appnote"><span class="note-header">Application
       Note:
@@ -1843,18 +1839,18 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		        
 		        
 		        
-		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">The TSF shall be able to use pre-shared keys for [<b>selection</b>: <span class="selectable-content" id="_s_43">RADIUS over TLS (RadSec)</span>, <span class="selectable-content" id="_s_44">IPsec</span>, <span class="selectable-content" id="_s_45">WPA3-SAE</span>, <span class="selectable-content" id="_s_46">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_47">IEEE 802.11 WPA2-PSK</span>, <span class="selectable-content" id="_s_48">[<b>assignment</b>: 
+		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">The TSF shall be able to use pre-shared keys for [<b>selection</b>: <span class="selectable-content" id="_s_44">RADIUS over TLS (RadSec)</span>, <span class="selectable-content" id="_s_45">IPsec</span>, <span class="selectable-content" id="_s_46">WPA3-SAE</span>, <span class="selectable-content" id="_s_47">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_48">IEEE 802.11 WPA2-PSK</span>, <span class="selectable-content" id="_s_49">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use pre-shared keys</span>]</span>]. 
 		          </div></div>
 		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2"><a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a></div><div class="reqdesc">The TSF shall be able to accept text-based pre-shared keys that: <ul>
-		            <li>are 22 characters and [<b>selection</b>: <span class="selectable-content" id="_s_49">[<b>assignment</b>: 
-     <span class="assignable-content">other supported lengths</span>]</span>, <span class="selectable-content" id="_s_50">no other lengths</span>];</li>
+		            <li>are 22 characters and [<b>selection</b>: <span class="selectable-content" id="_s_50">[<b>assignment</b>: 
+     <span class="assignable-content">other supported lengths</span>]</span>, <span class="selectable-content" id="_s_51">no other lengths</span>];</li>
 		            <li>are composed of any combination of upper and lower case letters, numbers, and special
 		              characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”).
 		            </li>
 		          </ul>
 		          </div></div>
-		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.3"><a href="#FIA_PSK_EXT.1.3" class="abbr">FIA_PSK_EXT.1.3</a></div><div class="reqdesc">The TSF shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_51">accept</span>, <span class="selectable-content" id="_s_52">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based pre-shared keys.
+		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.3"><a href="#FIA_PSK_EXT.1.3" class="abbr">FIA_PSK_EXT.1.3</a></div><div class="reqdesc">The TSF shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_52">accept</span>, <span class="selectable-content" id="_s_53">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based pre-shared keys.
 		          <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1996,9 +1992,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		    
 		    <div class="comp" id="FTP_ITC.1/Client"><h4>FTP_ITC.1/Client Inter-TSF Trusted Channel (Li-Fi 802.11 Client Access)</h4><div class="statustag"><b><i>This component must be included in the ST if the TOE implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-80211bb">802.11bb Support</a></i></b></li></ul></div>
 		      
-		      <div class="element"><div class="reqid" id="FTP_ITC.1.1/Client"><a href="#FTP_ITC.1.1/Client" class="abbr">FTP_ITC.1.1/Client</a></div><div class="reqdesc">
+		      <div class="element"><div class="reqid" id="FTP_ITC.1.1/Client"><a href="#FTP_ITC.1.1/Client" class="abbr">FTP_ITC.1.1/Client</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-7-">Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<br/><br/></span>
 		        The TSF shall provide a communication channel <b> using
-		          WPA3-Enterprise, WPA2-Enterprise, and [<b>selection</b>: <span class="selectable-content" id="_s_55">WPA3-SAE</span>, <span class="selectable-content" id="_s_56">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_57">WPA2-PSK</span>, <span class="selectable-content" id="_s_58">no other mode</span>] as defined by IEEE 802.11-2020</b> to provide a trusted channel
+		          WPA3-Enterprise, WPA2-Enterprise, and [<b>selection</b>: <span class="selectable-content" id="_s_56">WPA3-SAE</span>, <span class="selectable-content" id="_s_57">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_58">WPA2-PSK</span>, <span class="selectable-content" id="_s_59">no other mode</span>] as defined by IEEE 802.11-2020</b> to provide a trusted channel
 		        
 		        between itself and <b>Li-Fi clients</b> that is logically distinct from other communication channels and provides assured
 		        identification of its end points and protection of the channel data from modification or
@@ -2027,8 +2023,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      
 		      <div class="element"><div class="reqid" id="FCS_CKM.1.1/WPA"><a href="#FCS_CKM.1.1/WPA" class="abbr">FCS_CKM.1.1/WPA</a></div><div class="reqdesc">
 		          The TSF shall generate <b>symmetric</b> cryptographic keys in accordance with a
-		          specified cryptographic key generation algorithm [<i>PRF-384 and [<b>selection</b>: <span class="selectable-content" id="_s_33">PRF-512</span>, <span class="selectable-content" id="_s_34">PRF-704</span>, <span class="selectable-content" id="_s_35">no other algorithm</span>]</i>] and specified cryptographic key sizes [<i>256 bits and [<b>selection</b>: <span class="selectable-content" id="_s_36">128 bits</span>, <span class="selectable-content" id="_s_37">192 bits</span>, <span class="selectable-content" id="_s_38">no other key sizes</span>]</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b> that meet the following: 
-		          [<i>IEEE 802.11-2020 and [<b>selection</b>: <span class="selectable-content" id="_s_39">IEEE 802.11ax-2021</span>, <span class="selectable-content" id="_s_40">no other standards</span>]</i>].
+		          specified cryptographic key generation algorithm [<i>PRF-384 and [<b>selection</b>: <span class="selectable-content" id="_s_34">PRF-512</span>, <span class="selectable-content" id="_s_35">PRF-704</span>, <span class="selectable-content" id="_s_36">no other algorithm</span>]</i>] and specified cryptographic key sizes [<i>256 bits and [<b>selection</b>: <span class="selectable-content" id="_s_37">128 bits</span>, <span class="selectable-content" id="_s_38">192 bits</span>, <span class="selectable-content" id="_s_39">no other key sizes</span>]</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b> that meet the following: 
+		          [<i>IEEE 802.11-2020 and [<b>selection</b>: <span class="selectable-content" id="_s_40">IEEE 802.11ax-2021</span>, <span class="selectable-content" id="_s_41">no other standards</span>]</i>].
 		        <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2151,7 +2147,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		    <div class="comp" id="FCS_CKM.2/GTK"><h4>FCS_CKM.2/GTK Cryptographic Key Distribution (GTK)</h4><div class="statustag"><b><i>This component must be included in the ST if the TOE implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-80211bb">802.11bb Support</a></i></b></li></ul></div>
 		      
 		      <div class="element"><div class="reqid" id="FCS_CKM.2.1/GTK"><a href="#FCS_CKM.2.1/GTK" class="abbr">FCS_CKM.2.1/GTK</a></div><div class="reqdesc">
-		          The TSF shall distribute <b>Group Temporal Key (GTK)</b> in accordance with a specified cryptographic key distribution method: [<b>selection</b>: <span class="selectable-content" id="_s_41">AES Key Wrap in an EAPOL-Key frame</span>, <span class="selectable-content" id="_s_42">AES Key Wrap with Padding in an EAPOL-Key frame</span>] that meets the following: [<i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</i>] <b>
+		          The TSF shall distribute <b>Group Temporal Key (GTK)</b> in accordance with a specified cryptographic key distribution method: [<b>selection</b>: <span class="selectable-content" id="_s_42">AES Key Wrap in an EAPOL-Key frame</span>, <span class="selectable-content" id="_s_43">AES Key Wrap with Padding in an EAPOL-Key frame</span>] that meets the following: [<i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</i>] <b>
 		            and does not expose the cryptographic keys</b>. 
 		        <div class="appnote"><span class="note-header">Application
       Note:
@@ -2321,18 +2317,18 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		        
 		        
 		        
-		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">The TSF shall be able to use pre-shared keys for [<b>selection</b>: <span class="selectable-content" id="_s_43">RADIUS over TLS (RadSec)</span>, <span class="selectable-content" id="_s_44">IPsec</span>, <span class="selectable-content" id="_s_45">WPA3-SAE</span>, <span class="selectable-content" id="_s_46">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_47">IEEE 802.11 WPA2-PSK</span>, <span class="selectable-content" id="_s_48">[<b>assignment</b>: 
+		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">The TSF shall be able to use pre-shared keys for [<b>selection</b>: <span class="selectable-content" id="_s_44">RADIUS over TLS (RadSec)</span>, <span class="selectable-content" id="_s_45">IPsec</span>, <span class="selectable-content" id="_s_46">WPA3-SAE</span>, <span class="selectable-content" id="_s_47">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_48">IEEE 802.11 WPA2-PSK</span>, <span class="selectable-content" id="_s_49">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use pre-shared keys</span>]</span>]. 
 		          </div></div>
 		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2"><a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a></div><div class="reqdesc">The TSF shall be able to accept text-based pre-shared keys that: <ul>
-		            <li>are 22 characters and [<b>selection</b>: <span class="selectable-content" id="_s_49">[<b>assignment</b>: 
-     <span class="assignable-content">other supported lengths</span>]</span>, <span class="selectable-content" id="_s_50">no other lengths</span>];</li>
+		            <li>are 22 characters and [<b>selection</b>: <span class="selectable-content" id="_s_50">[<b>assignment</b>: 
+     <span class="assignable-content">other supported lengths</span>]</span>, <span class="selectable-content" id="_s_51">no other lengths</span>];</li>
 		            <li>are composed of any combination of upper and lower case letters, numbers, and special
 		              characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”).
 		            </li>
 		          </ul>
 		          </div></div>
-		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.3"><a href="#FIA_PSK_EXT.1.3" class="abbr">FIA_PSK_EXT.1.3</a></div><div class="reqdesc">The TSF shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_51">accept</span>, <span class="selectable-content" id="_s_52">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based pre-shared keys.
+		        <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.3"><a href="#FIA_PSK_EXT.1.3" class="abbr">FIA_PSK_EXT.1.3</a></div><div class="reqdesc">The TSF shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_52">accept</span>, <span class="selectable-content" id="_s_53">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based pre-shared keys.
 		          <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2474,9 +2470,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		    
 		    <div class="comp" id="FTP_ITC.1/Client"><h4>FTP_ITC.1/Client Inter-TSF Trusted Channel (Li-Fi 802.11 Client Access)</h4><div class="statustag"><b><i>This component must be included in the ST if the TOE implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-80211bb">802.11bb Support</a></i></b></li></ul></div>
 		      
-		      <div class="element"><div class="reqid" id="FTP_ITC.1.1/Client"><a href="#FTP_ITC.1.1/Client" class="abbr">FTP_ITC.1.1/Client</a></div><div class="reqdesc">
+		      <div class="element"><div class="reqid" id="FTP_ITC.1.1/Client"><a href="#FTP_ITC.1.1/Client" class="abbr">FTP_ITC.1.1/Client</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-7-">Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<br/><br/></span>
 		        The TSF shall provide a communication channel <b> using
-		          WPA3-Enterprise, WPA2-Enterprise, and [<b>selection</b>: <span class="selectable-content" id="_s_55">WPA3-SAE</span>, <span class="selectable-content" id="_s_56">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_57">WPA2-PSK</span>, <span class="selectable-content" id="_s_58">no other mode</span>] as defined by IEEE 802.11-2020</b> to provide a trusted channel
+		          WPA3-Enterprise, WPA2-Enterprise, and [<b>selection</b>: <span class="selectable-content" id="_s_56">WPA3-SAE</span>, <span class="selectable-content" id="_s_57">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_58">WPA2-PSK</span>, <span class="selectable-content" id="_s_59">no other mode</span>] as defined by IEEE 802.11-2020</b> to provide a trusted channel
 		        
 		        between itself and <b>Li-Fi clients</b> that is logically distinct from other communication channels and provides assured
 		        identification of its end points and protection of the channel data from modification or
@@ -2521,7 +2517,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            mandate support for MACsec.
 		          </p>
 		        </span></div></div></div>
-		      <div class="element"><div class="reqid" id="FTP_ITC.1.2/MACsec"><a href="#FTP_ITC.1.2/MACsec" class="abbr">FTP_ITC.1.2/MACsec</a></div><div class="reqdesc">The TSF shall permit [<b>selection</b>: <span class="selectable-content" id="_s_59">the TSF</span>, <span class="selectable-content" id="_s_60"><b>a MACsec peer</b></span>] to initiate communication via the trusted channel.</div></div>
+		      <div class="element"><div class="reqid" id="FTP_ITC.1.2/MACsec"><a href="#FTP_ITC.1.2/MACsec" class="abbr">FTP_ITC.1.2/MACsec</a></div><div class="reqdesc">The TSF shall permit [<b>selection</b>: <span class="selectable-content" id="_s_60">the TSF</span>, <span class="selectable-content" id="_s_61"><b>a MACsec peer</b></span>] to initiate communication via the trusted channel.</div></div>
 		      <div class="element"><div class="reqid" id="FTP_ITC.1.3/MACsec"><a href="#FTP_ITC.1.3/MACsec" class="abbr">FTP_ITC.1.3/MACsec</a></div><div class="reqdesc">The TSF shall initiate communication via the trusted channel for [<i>communications with MACsec peers that require the use of MACsec</i>].</div></div>
 		      
 		      
@@ -2551,7 +2547,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            mandate support for MACsec.
 		          </p>
 		        </span></div></div></div>
-		      <div class="element"><div class="reqid" id="FTP_ITC.1.2/MACsec"><a href="#FTP_ITC.1.2/MACsec" class="abbr">FTP_ITC.1.2/MACsec</a></div><div class="reqdesc">The TSF shall permit [<b>selection</b>: <span class="selectable-content" id="_s_59">the TSF</span>, <span class="selectable-content" id="_s_60"><b>a MACsec peer</b></span>] to initiate communication via the trusted channel.</div></div>
+		      <div class="element"><div class="reqid" id="FTP_ITC.1.2/MACsec"><a href="#FTP_ITC.1.2/MACsec" class="abbr">FTP_ITC.1.2/MACsec</a></div><div class="reqdesc">The TSF shall permit [<b>selection</b>: <span class="selectable-content" id="_s_60">the TSF</span>, <span class="selectable-content" id="_s_61"><b>a MACsec peer</b></span>] to initiate communication via the trusted channel.</div></div>
 		      <div class="element"><div class="reqid" id="FTP_ITC.1.3/MACsec"><a href="#FTP_ITC.1.3/MACsec" class="abbr">FTP_ITC.1.3/MACsec</a></div><div class="reqdesc">The TSF shall initiate communication via the trusted channel for [<i>communications with MACsec peers that require the use of MACsec</i>].</div></div>
 		      
 		      
