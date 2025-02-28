@@ -282,7 +282,7 @@
     <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
       <cc-st-conf>exact</cc-st-conf>       
       <cc-pt2-conf>extended</cc-pt2-conf>
-      <cc-pt3-conf>extended</cc-pt3-conf>
+      <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with> 
         <PP-cc-ref>collaborative Protection Profile for Network Devices, Version 3.0e</PP-cc-ref>
@@ -515,7 +515,7 @@ This PP-Module is written to address the situation where a distributed network d
             auditable events: <h:ol type="a">
               <h:li>Start-up and shutdown of the audit functions</h:li>
               <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
-              <h:li>[[<h:i>auditable events defined in <xref g="t-audit-mandatory"/>, 
+              <h:li>[[<h:i>auditable events defined in <xref to="atref-mandatory"/>, 
               auditable events defined in <xref g="t-audit-sel-based"/>,
               auditable events defined in <xref g="t-audit-impl-dep"/></h:i>].</h:li>
               <h:li><h:i>Failure of wireless sensor communication]</h:i></h:li>
