@@ -252,10 +252,15 @@
 	     TOE Boundary, TOE Operational Environment, and Roles. These sections can also be included in the
 		 TOE/PP Overview aove. -->
     <section title="Compliant Targets of Evaluation" id="sec-TOEdescription">
-      TBD
+      <h:p>
+      This PP-Module specifically addresses LiFi (IEEE 802.11bb, ITU G.9991) access systems (AS). A compliant LiFi AS is a system composed of hardware and software that is connected to a network and has an infrastructure role in the overall enterprise network. In particular, a LiFi AS establishes a secure wireless (IEEE 802.11, IEEE802.1x, IEEE 802.1AE) link that provides an authenticated and encrypted path to an enterprise network and thereby decreases the risk of exposure of information transiting “over-the-air”.
+      </h:p><h:p>
+      Since this PP-Module extends the NDcPP, conformant TOEs are obligated to implement the functionality required in the NDcPP along with the additional functionality defined in this PP-Module in response to the threat environment discussed subsequently herein.
+      </h:p><h:p>
+      The TOE encompasses the OS kernel drivers, shared software libraries, and some application software included with the OS. The applications considered within the TOE are those that provide essential LiFi services that make up the LiFi link and security. Examples are management services that implement configuration functions specified in this PP-Module, host services that manage client authentication to the access point, and the libraries and modules that provide security implementation of the LiFi link.  This applies to each separate TOE component that are being used to meet the security requirements proposed.
+      </h:p>
       <section title="TOE Boundary" id="TOEboundary">
-        TBD (including diagram)
-        <!-- <figure entity="images/Toe.png" title="General TOE " id="toe"/> -->
+        <figure entity="images/Toe.png" title="General TOE " id="toe"/>
       </section>
     </section>  <!-- Compliant TOEs -->
 
@@ -362,15 +367,7 @@ This PP-Module is written to address the situation where a distributed network d
 	
     <section title="Assumptions" id="sec-assumptions">
       <assumptions>
-        <assumption name="A.PHYSICAL">
-          <description><comment>Assumptions taken as-is from ESR but we may want to eliminate duplicates from NDcPP<h:br/><h:br/></comment>
-            The underlying platform is physically protected, to a large extent. The hardware that the product manages is secured by defensive measures that make physical attacks impractical for most attackers. At the same time, casual passersby might attempt to trivially access the system.</description>
-         
-          <objective-refer ref="OE.PHYSICAL">
-            <rationale> The operational environment objective OE.PHYSICAL is realized through
-              A.PHYSICAL. </rationale>
-          </objective-refer>
-        </assumption>
+  
         <assumption name="A.NON_SECURITY_FUNCTIONS">
           <description>The product implements some security-relevant functionality that does not require evaluation (e.g., network time synchronization, process scheduling, and virtual memory management including process separation).</description>
           <objective-refer ref="OE.NON_SECURITY_FUNCTIONS">
@@ -403,13 +400,6 @@ This PP-Module is written to address the situation where a distributed network d
           </objective-refer>
         </assumption>
         
-        <assumption name="A.TRUSTED_ADMIN">
-          <description>Administrators are not malicious in nature.</description>
-          <objective-refer ref="OE.TRUSTED_ADMIN">
-            <rationale>The operational environment objective OE.TRUSTED_ADMIN is realized through
-              A.TRUSTED_ADMIN.</rationale>
-          </objective-refer>
-        </assumption>
         
         <assumption name="A.PROPER_USER">
           <description>Users are not malicious in nature, though they may inadvertently or intentionally engage in risky behavior.</description>
@@ -440,10 +430,7 @@ This PP-Module is written to address the situation where a distributed network d
 	<!-- This section is included in direct rationale documents if there are OE Objectives -->
     <section title="Security Objectives for the Operational Environment" id="sec-OEObjectives">
 	  <SOEs>
-        <SOE name="OE.PHYSICAL">
-          <description>All components of the product are deployed in locations where they are not subject to unauthorized physical access.</description>
-        </SOE>
-	    
+
 	    <SOE name="OE.NON_SECURITY_FUNCTIONS">
 	      <description>The product has functionality outside of its logical security boundary to satisfy organizational requirements that are unrelated to what this PP-Module defines.</description>
 	    </SOE>
@@ -458,10 +445,6 @@ This PP-Module is written to address the situation where a distributed network d
 	    
 	    <SOE name="OE.NETWORK_CONNECTIVITY">
 	      <description>The operational environment facilitates the use of network connectivity by authorized subjects.</description>
-	    </SOE>
-	    
-	    <SOE name="OE.TRUSTED_ADMIN">
-	      <description>System administrators are adequately vetted and trained to ensure that they are non-malicious and comply with operational guidance.</description>
 	    </SOE>
 	    
 	    <SOE name="OE.PROPER_USER">
