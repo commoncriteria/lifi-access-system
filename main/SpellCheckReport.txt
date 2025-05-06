@@ -21,7 +21,9 @@ output/lifi-access-system-release-linkable.html: 0e
 output/lifi-access-system-release-linkable.html: 0x4208
 output/lifi-access-system-release-linkable.html: 11ax
 output/lifi-access-system-release-linkable.html: 11bb
+output/lifi-access-system-release-linkable.html: 1AE
 output/lifi-access-system-release-linkable.html: 1X
+output/lifi-access-system-release-linkable.html: 1x
 output/lifi-access-system-release-linkable.html: 362r6
 output/lifi-access-system-release-linkable.html: 38C
 output/lifi-access-system-release-linkable.html: 38D
@@ -32,6 +34,7 @@ output/lifi-access-system-release-linkable.html: EAPOL
 output/lifi-access-system-release-linkable.html: FI
 output/lifi-access-system-release-linkable.html: Fi
 output/lifi-access-system-release-linkable.html: GTKs
+output/lifi-access-system-release-linkable.html: IEEE802
 output/lifi-access-system-release-linkable.html: ITT
 output/lifi-access-system-release-linkable.html: KDF
 output/lifi-access-system-release-linkable.html: NDcPP
@@ -61,7 +64,9 @@ output/lifi-access-system-release-linkable.html: vlc
 output/lifi-access-system-release.html: 0e
 output/lifi-access-system-release.html: 11ax
 output/lifi-access-system-release.html: 11bb
+output/lifi-access-system-release.html: 1AE
 output/lifi-access-system-release.html: 1X
+output/lifi-access-system-release.html: 1x
 output/lifi-access-system-release.html: 38C
 output/lifi-access-system-release.html: 38D
 output/lifi-access-system-release.html: 38F
@@ -70,6 +75,7 @@ output/lifi-access-system-release.html: CEM
 output/lifi-access-system-release.html: EAPOL
 output/lifi-access-system-release.html: FI
 output/lifi-access-system-release.html: Fi
+output/lifi-access-system-release.html: IEEE802
 output/lifi-access-system-release.html: ITT
 output/lifi-access-system-release.html: KDF
 output/lifi-access-system-release.html: NDcPP
@@ -124,7 +130,9 @@ output/lifi-access-system.html: 0e
 output/lifi-access-system.html: 0x4208
 output/lifi-access-system.html: 11ax
 output/lifi-access-system.html: 11bb
+output/lifi-access-system.html: 1AE
 output/lifi-access-system.html: 1X
+output/lifi-access-system.html: 1x
 output/lifi-access-system.html: 362r6
 output/lifi-access-system.html: 38C
 output/lifi-access-system.html: 38D
@@ -135,6 +143,7 @@ output/lifi-access-system.html: EAPOL
 output/lifi-access-system.html: FI
 output/lifi-access-system.html: Fi
 output/lifi-access-system.html: GTKs
+output/lifi-access-system.html: IEEE802
 output/lifi-access-system.html: ITT
 output/lifi-access-system.html: KDF
 output/lifi-access-system.html: NDcPP
