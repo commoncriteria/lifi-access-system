@@ -238,7 +238,7 @@
       The TOE encompasses the OS kernel drivers, shared software libraries, and some application software included with the OS. The applications considered within the TOE are those that provide essential LiFi services that make up the LiFi link and security. Examples are management services that implement configuration functions specified in this PP-Module, host services that manage client authentication to the access point, and the libraries and modules that provide security implementation of the LiFi link.  This applies to each separate TOE component that are being used to meet the security requirements proposed.
       </h:p>
       <section title="TOE Boundary" id="TOEboundary">
-        <figure entity="images/Toe.png" title="General TOE " id="toe"/>
+        <figure entity="images/Toe.png" title="High Level TOE Implementation" id="toe"/>
       </section>
     </section>  <!-- Compliant TOEs -->
 
