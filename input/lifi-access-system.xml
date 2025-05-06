@@ -355,10 +355,7 @@ This PP-Module is written to address the situation where a distributed network d
           <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets trans versing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
           <addressed-by>TBD</addressed-by><rationale>TBD</rationale>
         </threat>
-        <threat name="T.TSF_FAILURE">
-          <description>Security mechanisms of the TOE generally build up from a primitive set of mechanisms (e.g., memory management, privileged modes of process execution) to more complex sets of mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex mechanisms, resulting in a compromise of the TOE Security Functionality (TSF).</description>
-          <addressed-by>TBD</addressed-by><rationale>TBD</rationale>
-        </threat>
+
       </threats>
     </section>  <!-- Threats -->
 	
@@ -518,14 +515,14 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="T.NETWORK_DISCLOSURE"></con-mod>
       <con-mod ref="T.NETWORK_ACCESS"></con-mod>
       <con-mod ref="T.REPLAY_ATTACK"></con-mod>
-      <con-mod ref="T.TSF_FAILURE"></con-mod>
       
-      <con-mod ref="A.PHYSICAL"></con-mod>
+      
+      
       <con-mod ref="A.NON_SECURITY_FUNCTIONS"></con-mod>
       <con-mod ref="A.MANAGED_CONFIG"></con-mod>
       <con-mod ref="A.THIRD_PARTY_SOFTWARE"></con-mod>
       <con-mod ref="A.NETWORK_CONNECTIVITY"></con-mod>
-      <con-mod ref="A.TRUSTED_ADMIN"></con-mod>
+      
       <con-mod ref="A.PROPER_USER"></con-mod>
       
       <con-mod ref=""></con-mod>
