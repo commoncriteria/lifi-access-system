@@ -91,14 +91,14 @@
   <sec:Introduction>
     <sec:Overview>
       
-      The scope of the Li-Fi Access System PP-Module is to describe the security functionality of a Li-Fi access system product in terms of [CC] 
+      The scope of the LiFi Access System PP-Module is to describe the security functionality of a LiFi access system product in terms of [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs: <h:ul>
         <h:li>collaborative Protection Profile for Network Devices, Version 3.0e</h:li>
       </h:ul>
       <h:p>
         A conformant TOE will claim conformance to a PP-Configuration that includes the Base-PP identified above, this PP-Module, and any of the PP-Modules or packages identified in Section 2.
       </h:p>
-      <h:p> This Base-PP is valid because a Li-Fi Access System is a specific function for a purpose-built network device.</h:p>
+      <h:p> This Base-PP is valid because a LiFi Access System is a specific function for a purpose-built network device.</h:p>
       
       <comment>Tech terms section below is placeholder/template, will need to be updated later for terms specific to this module</comment>
     </sec:Overview>
@@ -208,6 +208,7 @@
 		document. 
       </term>
       <term abbr='PKI' full="Public Key Infrastructure"/>
+	  <term full="peer">An IT entity that is external to the TOE that interfaces with the TOE via an over-the-air connection for the purpose of accessing the network on which the TOE exists as a boundary device.</term>
       <term abbr='PP' full="Protection Profile"/>
       <term abbr='RBG' full="Random Bit Generator"/>
       <term abbr='RFC' full="Request for Comment"/>
@@ -242,7 +243,9 @@
 		configurations, a normal user can temporarily elevate privileges to that of an administrator.
 		At that time, such a user should be considered an administrator.
       </term>
+	  <!--
 	  <term abbr="VM" full="Virtual Machine">A software-based emulation of a physical computer  running an independent operating system and applications, behavior similar to a physical computer.</term>
+	  -->
       <term abbr='XCCDF' full="eXtensible Configuration Checklist Description Format"/>
       <term abbr='XOR' full="Exclusive Or"/>
     </tech-terms>    
@@ -260,8 +263,12 @@
       The TOE encompasses the OS kernel drivers, shared software libraries, and some application software included with the OS. The applications considered within the TOE are those that provide essential LiFi services that make up the LiFi link and security. Examples are management services that implement configuration functions specified in this PP-Module, host services that manage client authentication to the access point, and the libraries and modules that provide security implementation of the LiFi link.  This applies to each separate TOE component that are being used to meet the security requirements proposed.
       </h:p>
       <section title="TOE Boundary" id="TOEboundary">
-        
-        The physical boundary for a TOE that conforms to this PP-Module is one or more physical or virtual network appliances (in a standalone or distributed configuration) that provides generalized network device functionality such as auditing, identification and authentication, and cryptographic services for network communications, as well as specialized functionality for facilitating remote network access via LiFi communications. The TOE's logical boundary includes all functionality required by the claimed Base-PP, this PP-Module, and any other PP-Modules which may be claimed by the ST author as a part of a PP-Configuration that includes this PP-Module. Product functionality for which no PP-Module exists, or for which no SFR within a relevant PP-Module exists to capture, are considered to be non-interfering with respect to the TSF. In other words, they may be present or enabled in the evaluated configuration of the TOE but their presence must not degrade or interrupt the enforcement of functions within the TOE's logical boundary. 
+        <h:p>
+        The physical boundary for a TOE that conforms to this PP-Module is one or more physical network appliances (in a standalone or distributed configuration) that provides generalized network device functionality such as auditing, identification and authentication, and cryptographic services for network communications, as well as specialized functionality for facilitating remote network access via LiFi communications. The TOE's logical boundary includes all functionality required by the claimed Base-PP, this PP-Module, and any other PP-Modules which may be claimed by the ST author as a part of a PP-Configuration that includes this PP-Module. Product functionality for which no PP-Module exists, or for which no SFR within a relevant PP-Module exists to capture, are considered to be non-interfering with respect to the TSF. In other words, they may be present or enabled in the evaluated configuration of the TOE but their presence must not degrade or interrupt the enforcement of functions within the TOE's logical boundary.
+        </h:p>
+        <h:p>
+          Note that while the Base-PP permits the TOE either to be a physical or virtual network appliance, LiFi devices require the use of specialized hardware that will not be present on commodity servers, and it is therefore expected that any TOE that conforms to this PP-Module will be one or more dedicated physical devices. 
+        </h:p>
         <figure entity="images/Toe.png" title="High Level TOE Implementation" id="toe"/>
       </section>
     </section>  <!-- Compliant TOEs -->
@@ -287,10 +294,10 @@
       A conformant TOE may implement either 802.11bb or G.vlc. Depending on which is supported, different requirements will apply to the TOE as they each implement different methods of protection of data in transit.
       <implements>
         <feature id="feat-80211bb" title="802.11bb Support">
-          <description>The TOE implements Li-Fi using IEEE 802.11bb. Data in transit is protected using either IPsec or RadSec (RADIUS over TLS).</description>
+          <description>The TOE implements LiFi using IEEE 802.11bb. Data in transit is protected using either IPsec or RadSec (RADIUS over TLS).</description>
         </feature>
         <feature id="feat-gvlc" title="G.vlc Support">
-          <description>The TSF implements Li-Fi using ITU-T G.9991 (aka G.vlc). Data in transit is protected using MACsec. When the TOE implements this feature, it must also claim conformance to the PP-Module for MACsec Ethernet Encryption.</description>
+          <description>The TSF implements LiFi using ITU-T G.9991 (aka G.vlc). Data in transit is protected using MACsec. When the TOE implements this feature, it must also claim conformance to the PP-Module for MACsec Ethernet Encryption.</description>
         </feature>
       </implements>			
     </section>   
@@ -333,7 +340,7 @@
   <section title="Security Problem Definition" id="sec-spd">
   
     <!-- Arbitrary introductory text -->
-This PP-Module is written to address the situation where a distributed network device facilitates end user access to a network via Li-Fi. The threats are similar to those that are typical of network devices as a whole, but may be exploited differently because of the mechanisms that are unique to this particular type of product.
+This PP-Module is written to address the situation where a distributed network device facilitates end user access to a network via LiFi. The threats are similar to those that are typical of network devices as a whole, but may be exploited differently because of the mechanisms that are unique to this particular type of product.
 
 
     <section title="Threats" id="sec-threats">
@@ -515,6 +522,7 @@ This PP-Module is written to address the situation where a distributed network d
          
         </base-sfr-spec>
         </section>
+        
       </modified-sfrs>
       <additional-sfrs/>
       
@@ -550,7 +558,7 @@ This PP-Module is written to address the situation where a distributed network d
       
       <!-- Section for SFR Class -->
       <section title="Security Audit (FAU)" id="man-fau">
-        <f-component name="Audit Data Generation (Li-Fi)" cc-id="fau_gen.1" iteration="LiFI">
+        <f-component name="Audit Data Generation (LiFi)" cc-id="fau_gen.1" iteration="LiFI">
         <f-element id="fau-gen-1e1-lifi">
           <title>
             <comment>For the sake of simplicity this has been defined as one single iteration rather than being split as in the proposed SFRs because of the amount of overlap between them. I think it is reasonable to say "whatever gets claimed gets audited" in one requirement.<h:br/></comment>
@@ -608,20 +616,20 @@ This PP-Module is written to address the situation where a distributed network d
 
 		<!-- Section for SFR Class -->
 		<section title="Cryptographic Support (FCS)" id="man-fcs">
-		  <f-component name="Cryptographic Operation (Data Encryption and Decryption for Li-Fi" cc-id="fcs_cop.1" iteration="LiFiDataEncryption">
+		  <f-component name="Cryptographic Operation (Data Encryption and Decryption for LiFi" cc-id="fcs_cop.1" iteration="LiFiDataEncryption">
 		    <f-element>
-		      <title>The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<h:i>Advanced Encryption Standard (AES) used in CCM mode Protocol (CCMP), and [<selectables><selectable>Cipher Block Chaining (CBC)</selectable>
+		      <title>The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<h:i>AES-GCMP and [<selectables><selectable>Cipher Block Chaining (CBC)</selectable>
+		        <selectable>CCMP</selectable>
 		          <selectable>Counter (encryption mode) (CTR)</selectable>
 		          <selectable>Galois-Counter Mode (GCM)</selectable> 
-		          <selectable>GCMP</selectable> 
-		          <selectable>no other</selectable></selectables></h:i>] modes and cryptographic key sizes 256 bits and [<selectables><selectable>128 bits</selectable><selectable>192 bits</selectable><selectable>no other key sizes</selectable></selectables> that meet the following: [<h:i>AES as specified in ISO 18033-3, CBC as specified in ISO 10116, CCMP as specified in NIST SP 800-38C and IEEE 802.11-2020, 
+		        <selectable>no other</selectable></selectables></h:i>] modes and cryptographic key sizes [<h:i>256 bits</h:i>] that meet the following: [<h:i>AES as specified in ISO 18033-3, GCM as specified in ISO 19772, GCMP as specified in NIST SP 800-38D and IEEE 802.11ax-2021
 		            <selectables>
+		              <selectable>CBC as specified in ISO 10116</selectable>
+		              <selectable>CCMP as specified in NIST SP 800-38C and IEEE 802.11-2020</selectable>
 		            <selectable>CTR as specified in ISO 10116</selectable> 
-		            <selectable>GCM as specified in ISO 19772</selectable>
-		            <selectable>GCMP as specified in NIST SP 800-38D and IEEE 802.11ax-2021</selectable> 
 		            <selectable>no other standards</selectable></selectables></h:i>.</title>
 		    <note role="Application">
-		      Application Note: This requirement is iterated from its definition in the NDcPP by mandating the selection of CBC mode and 256 bit key sizes while also defining additional AES mode and key size selections not present in the original definition. This requirement mandates AES-CCMP (which uses AES in Counter Mode with CBC-Message Authentication Code (CCM) as specified in NIST SP 800-38C) to comply with IEEE 802.11-2020. For the first selection of FCS_COP.1.1/LiFiDataEncryption, the ST author should choose the additional mode or modes in which AES operates. For the second selection, the ST author should choose the key sizes that are supported by this functionality. 256-bit CCMP is required in order to comply with FCS_CKM.1/WPA. Note that optionally AES-CCMP-192, AES-CCMP-128, AES-GCMP-192, and AES-GCMP-128 with cryptographic key size of 256 bits, may be implemented for IEEE 802.11ax-2021 connections. In the future, one of these modes may be required. CTR mode is not used for LiFi AS capabilities but remains selectable since it may be required by another part of the TSF.
+		      Application Note: This requirement is iterated from its definition in the NDcPP by mandating the selection of CBC mode and 256 bit key sizes while also defining additional AES mode and key size selections not present in the original definition. This requirement mandates AES-GCMP (which uses AES in Galois-Counter Mode (GCM) to comply with IEEE 802.11-2020. For the first selection of FCS_COP.1.1/LiFiDataEncryption, the ST author should choose the additional mode or modes in which AES operates. For the second selection, the ST author should choose the key sizes that are supported by this functionality. 256-bit GCMP is required in order to comply with FCS_CKM.1/WPA. AES-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections. CTR mode is not used for LiFi AS capabilities but remains selectable since it may be required by another part of the TSF.
 		    </note>
 		    <aactivity>
 		      <no-tests/>
@@ -978,8 +986,8 @@ This PP-Module is written to address the situation where a distributed network d
            </title>
            <note role="application">
              <h:p>
-               The “TOE interface” can be specified in terms of the device in the TOE that the Li-Fi
-               client is connecting to (e.g. specific Li-Fi APs). “Time” and “day” refer to time-of-day and
+               The “TOE interface” can be specified in terms of the device in the TOE that the LiFi
+               client is connecting to (e.g. specific LiFi APs). “Time” and “day” refer to time-of-day and
                day-of-week, respectively.
              </h:p>
              <h:p>
@@ -1018,6 +1026,85 @@ This PP-Module is written to address the situation where a distributed network d
        </f-component>
         
 	</section>  
+      
+      <section title="Trusted Path/Channels (FTP)" id="man-ftp">
+      
+      <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
+        
+        <f-element>
+          <title><comment>For now this is added as a separate iteration of FTP_ITC.1 just for 802.1X rather than reaching back to the NDcPP as a modified SFR. This will disambiguate the protocols that apply to individual external interfaces but can be moved up to Modified SFRs instead if desired.<h:br/><h:br/></comment>The TSF shall provide a communication channel <h:b>using IEEE 802.1X and <selectables>
+            <selectable id="s-ipsec">IPsec</selectable>
+            <selectable id="s-radius">RADIUS over TLS</selectable></selectables></h:b>
+            
+            between itself and <h:b>an 802.1X authentication server</h:b> that is logically distinct from other communication channels and provides assured
+            identification of its end points and protection of the channel data from modification or
+            disclosure.
+            
+          </title>
+          <note role="application">
+            <h:p>
+              This requirement has been iterated from its definition in the NDcPP to 
+              mandate the communications protocols and environmental components that 
+              a LiFI AS must use for 802.1X.
+              IPsec or RADIUS over TLS (commonly known as "RadSec") is required at least for communications with the 802.1X authentication server.
+              The requirement implies that not only are communications protected when they are initially established,
+              but also on resumption after an outage.</h:p>
+            <h:p>
+              The IT entity of "802.1X authentication server" is distinct from "authentication server" as specified in FTP_ITC.1 in the NDcPP
+              because the latter may be used for administrator authentication rather 
+              than authorization of WLAN clients.
+            </h:p><h:p>
+              If <xref to="s-ipsec"/> is selected in FTP_ITC.1.1, then FCS_IPSEC_EXT.1 from the NDcPP must be claimed.
+              If <xref to="s-radius"/> is selected in FTP_ITC.1.1,
+              then FCS_RADSEC_EXT.1 in this PP-Module must be claimed, as well as FCS_TLSC_EXT.1 from the Functional Package for TLS.
+            </h:p>
+          </note>
+        </f-element>
+        <f-element>
+          <title>The TSF shall permit [<h:i>the TSF</h:i>] to initiate communication via the trusted channel.</title>
+        </f-element>
+        <f-element>
+          <title>The TSF shall initiate communication via the trusted channel for [<h:i>802.1X authentication</h:i>].</title>
+          <aactivity>
+            The evaluator will perform the following activities in addition to those required by the NDcPP:<h:br/><h:br/>
+            <TSS>
+              The evaluator will examine the TSS to determine that, for all communications with authorized IT
+              entities identified in the requirement, each communications mechanism is identified in terms of the
+              allowed protocols for that IT entity.
+              The evaluator will also confirm that all protocols listed in the TSS
+              are specified and included in the requirements in the ST.<h:br/><h:br/>
+            </TSS>
+            <Guidance>The evaluator will confirm that the guidance documentation contains instructions for establishing the
+              allowed protocols with each authorized IT entity and that it contains recovery instructions should a
+              connection be unintentionally broken.<h:br/><h:br/>
+            </Guidance>
+            <Tests>The evaluator will perform the following tests:
+              <testlist>
+                <test>The evaluator will ensure that communications using each protocol with each authorized IT
+                  entity is tested during the course of the evaluation, setting up the connections as described in the
+                  guidance documentation and ensuring that communication is successful. </test>
+                <test>For each protocol that the TOE can initiate as defined in the requirement, the evaluator will
+                  follow the guidance documentation to ensure that the communication channel can be initiated
+                  from the TOE. </test>
+                <test>The evaluator will ensure, for each communication channel with an authorized IT entity, the
+                  channel data is not sent in plaintext.</test>
+                <test>The evaluator will, for each protocol associated with each authorized IT entity tested during
+                  test 1, physically interrupt an established connection. The evaluator will ensure that when physical
+                  connectivity is restored, communications are appropriately protected.</test>
+              </testlist>
+            </Tests>
+          </aactivity>
+        </f-element>
+        <audit-event>
+          <audit-event-descr>Failed attempts to establish a trusted channel (including IEEE 802.11)</audit-event-descr>
+          <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+        </audit-event>
+        <audit-event>
+          <audit-event-descr>Detection of modification of channel data</audit-event-descr>
+          <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
+        </audit-event>
+      </f-component>
+      </section>
       </man-sfrs><!-- Mandatory SFRs -->
 
 <opt-sfrs>
@@ -1414,7 +1501,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB">
 		      <depends on="feat-80211bb"/>
 		      <f-element>
-		        <title><comment>This is listed as optional in the WLAN AS module but not flagged as such in the Li-Fi requirements. If it should still be optional, this should be moved.<h:br/><h:br/></comment>
+		        <title><comment>This is listed as optional in the WLAN AS module but not flagged as such in the LiFi requirements. If it should still be optional, this should be moved.<h:br/><h:br/></comment>
 		          The TSF shall distribute <h:b>the IEEE 802.11</h:b> keys in accordance with a
 		          specified key distribution method: [<h:i>trusted channel protocol specified in FPT_ITT.1(Base-PP) </h:i>] that meets the following: [<h:i>standards specified in the various iterations of FCS_COP.1</h:i>] <h:b>and
 		            does not expose the cryptographic keys</h:b>.
@@ -1718,85 +1805,11 @@ This PP-Module is written to address the situation where a distributed network d
 		      </f-component>
 
 		    
-		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
-		      <depends on="feat-80211bb"/>
-		      <f-element>
-		        <title><comment>For now this is added as a separate iteration of FTP_ITC.1 just for 802.1X rather than reaching back to the NDcPP as a modified SFR. This will disambiguate the protocols that apply to individual external interfaces but can be moved up to Modified SFRs instead if desired.<h:br/><h:br/></comment>The TSF shall provide a communication channel <h:b>using IEEE 802.1X and <selectables>
-		          <selectable id="s-ipsec">IPsec</selectable>
-		          <selectable id="s-radius">RADIUS over TLS</selectable></selectables></h:b>
-		          
-		          between itself and <h:b>an 802.1X authentication server</h:b> that is logically distinct from other communication channels and provides assured
-		          identification of its end points and protection of the channel data from modification or
-		          disclosure.
-		          
-		        </title>
-		        <note role="application">
-		          <h:p>
-		            This requirement has been iterated from its definition in the NDcPP to 
-		            mandate the communications protocols and environmental components that 
-		            a Li-FI AS must use for 802.1X.
-		            IPsec or RADIUS over TLS (commonly known as "RadSec") is required at least for communications with the 802.1X authentication server.
-		            The requirement implies that not only are communications protected when they are initially established,
-		            but also on resumption after an outage.</h:p>
-		          <h:p>
-		            The IT entity of "802.1X authentication server" is distinct from "authentication server" as specified in FTP_ITC.1 in the NDcPP
-		            because the latter may be used for administrator authentication rather 
-		            than authorization of WLAN clients.
-		          </h:p><h:p>
-		            If <xref to="s-ipsec"/> is selected in FTP_ITC.1.1, then FCS_IPSEC_EXT.1 from the NDcPP must be claimed.
-		            If <xref to="s-radius"/> is selected in FTP_ITC.1.1,
-		            then FCS_RADSEC_EXT.1 in this PP-Module must be claimed, as well as FCS_TLSC_EXT.1 from the Functional Package for TLS.
-		          </h:p>
-		        </note>
-		      </f-element>
-		      <f-element>
-		        <title>The TSF shall permit [<h:i>the TSF</h:i>] to initiate communication via the trusted channel.</title>
-		      </f-element>
-		      <f-element>
-		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>802.1X authentication</h:i>].</title>
-		        <aactivity>
-		          The evaluator will perform the following activities in addition to those required by the NDcPP:<h:br/><h:br/>
-		          <TSS>
-		            The evaluator will examine the TSS to determine that, for all communications with authorized IT
-		            entities identified in the requirement, each communications mechanism is identified in terms of the
-		            allowed protocols for that IT entity.
-		            The evaluator will also confirm that all protocols listed in the TSS
-		            are specified and included in the requirements in the ST.<h:br/><h:br/>
-		          </TSS>
-		          <Guidance>The evaluator will confirm that the guidance documentation contains instructions for establishing the
-		            allowed protocols with each authorized IT entity and that it contains recovery instructions should a
-		            connection be unintentionally broken.<h:br/><h:br/>
-		          </Guidance>
-		          <Tests>The evaluator will perform the following tests:
-		            <testlist>
-		              <test>The evaluator will ensure that communications using each protocol with each authorized IT
-		                entity is tested during the course of the evaluation, setting up the connections as described in the
-		                guidance documentation and ensuring that communication is successful. </test>
-		              <test>For each protocol that the TOE can initiate as defined in the requirement, the evaluator will
-		                follow the guidance documentation to ensure that the communication channel can be initiated
-		                from the TOE. </test>
-		              <test>The evaluator will ensure, for each communication channel with an authorized IT entity, the
-		                channel data is not sent in plaintext.</test>
-		              <test>The evaluator will, for each protocol associated with each authorized IT entity tested during
-		                test 1, physically interrupt an established connection. The evaluator will ensure that when physical
-		                connectivity is restored, communications are appropriately protected.</test>
-		            </testlist>
-		          </Tests>
-		        </aactivity>
-		      </f-element>
-		      <audit-event>
-		        <audit-event-descr>Failed attempts to establish a trusted channel (including IEEE 802.11)</audit-event-descr>
-		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
-		      </audit-event>
-		      <audit-event>
-		        <audit-event-descr>Detection of modification of channel data</audit-event-descr>
-		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
-		      </audit-event>
-		    </f-component>
+		
 		    
 		    
 		    
-		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (Li-Fi 802.11 Client Access)" iteration="Client">
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (LiFi 802.11 Client Access)" iteration="Client">
 		      <depends on="feat-80211bb"/>
 		      <f-element><title><comment>Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<h:br/><h:br/></comment>
 		        The TSF shall provide a communication channel <h:b> using
@@ -1807,19 +1820,19 @@ This PP-Module is written to address the situation where a distributed network d
 		            <selectable>no other mode</selectable> 
 		          </selectables> as defined by IEEE 802.11-2020</h:b> to provide a trusted channel
 		        
-		        between itself and <h:b>Li-Fi clients</h:b> that is logically distinct from other communication channels and provides assured
+		        between itself and <h:b>LiFi clients</h:b> that is logically distinct from other communication channels and provides assured
 		        identification of its end points and protection of the channel data from modification or
 		        disclosure.
 		      </title>
 		        <note role="application">
 		          <h:p>
 		            This requirement has been iterated from its definition in the NDcPP to 
-		            mandate support for 802.11 specifically for Li-Fi client access.
+		            mandate support for 802.11 specifically for LiFi client access.
 		          </h:p>
 		        </note>
 		      </f-element>
 		      <f-element>
-		        <title>The TSF shall permit [<h:i>Li-Fi clients</h:i>] to initiate communication via the trusted channel.</title>
+		        <title>The TSF shall permit [<h:i>LiFi clients</h:i>] to initiate communication via the trusted channel.</title>
 		      </f-element>
 		      <f-element>
 		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>no services</h:i>].</title>
@@ -1843,10 +1856,10 @@ This PP-Module is written to address the situation where a distributed network d
 		    
 		    
 		    
-		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (MACsec)" iteration="MACsec">
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (MACsec)" iteration="Gvlc">
 		      <depends on="feat-gvlc"/>
 		      <f-element><title>
-		        The TSF shall provide a communication channel <h:b>using MACsec</h:b> to provide a trusted channel
+		        The TSF shall provide a communication channel <h:b>for G.vlc using MACsec</h:b> to provide a trusted channel
 		        
 		        between itself and <h:b>a MACsec peer</h:b> that is logically distinct from other communication channels and provides assured
 		        identification of its end points and protection of the channel data from modification or
