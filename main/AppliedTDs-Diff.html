@@ -718,7 +718,7 @@
                     <a href="#FIA_8021X_EXT.1.2" class="abbr">FIA_8021X_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support communications to a RADIUS authentication server conforming to RFCs 2865 and 3579.
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support communications to a RADIUS authentication server conforming to RFCs 2865, 2866, and 3579.
                 </div>
             </div>
             <div class="element">
@@ -730,7 +730,7 @@
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
-                                 This requirement covers the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s role as the authenticator in an 802.1X authentication exchange. If the exchange is completed successfully, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will obtain the PMK from the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin 802.11 communications. As indicated previously, there are at least three communication paths present during the exchange; two with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as an endpoint and one with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> acting as a transfer point only. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes an Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>) over Local Area Network (EAPOL) connection with the wireless client as specified in 802.1X-2007. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> also establishes (or has established) a RADIUS protocol connection protected either by IPsec or RadSec (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) with the RADIUS server. The wireless client and RADIUS server establish an <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS session (<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216); in this transaction the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> merely takes the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS packets from its EAPOL/RADIUS endpoint and transfers them to the other endpoint. Because the specific authentication method (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in this case) is opaque to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, there are no requirements with respect to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5126 in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the implementation and evaluation activities. 
+                                 This requirement covers the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s role as the authenticator in an 802.1X authentication exchange. If the exchange is completed successfully, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will obtain the PMK from the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin 802.11 communications. As indicated previously, there are at least three communication paths present during the exchange; two with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as an endpoint and one with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> acting as a transfer point only. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes an Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>) over Local Area Network (EAPOL) connection with the wireless client as specified in 802.1X-2007. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> also establishes (or has established) a RADIUS protocol connection protected either by IPsec or RadSec (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) with the RADIUS server. The wireless client and RADIUS server establish an <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS session (<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216); in this transaction the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> merely takes the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS packets from its EAPOL/RADIUS endpoint and transfers them to the other endpoint. Because the specific authentication method (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> in this case) is opaque to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, there are no requirements with respect to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5126 in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the implementation and evaluation activities. RADIUS accounting is implemented via conformance to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2866. 
                             </p>
                             <p>
                                  Additionally, <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5080 contains implementation issues that will need to be addressed by developers but which levy no new requirements. The point of performing 802.1X authentication is to provide access to the network (assuming the authentication was successful and that all 802.11 negotiations are performed successfully); in the terminology of 802.1X, this means the wireless client has access to the "controlled port" maintained by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
@@ -947,13 +947,13 @@
                     </td><td><a href="#FPT_ACF_EXT.1">FPT_ACF_EXT.1</a></td><td></td>
                 </tr>
                 <tr>
-                    <td><a href="#FPT_ASLR_EXT.1">FPT_ASLR_EXT.1</a></td><td></td>
+                    <td><a href="#FPT_ASLR_EXT.1">FPT_ASLR_EXT.1</a></td><td>A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of network attack by enforcing memory protections that guard against remote code execution exploits.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FPT_SBOP_EXT.1">FPT_SBOP_EXT.1</a></td><td></td>
+                    <td><a href="#FPT_SBOP_EXT.1">FPT_SBOP_EXT.1</a></td><td>A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of network attack by enforcing stack overflow protections that guard against remote code execution exploits.</td>
                 </tr>
                 <tr>
-                    <td>FPT_W^X_EXT.1</td><td></td>
+                    <td>FPT_W^X_EXT.1</td><td>A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of network attack by memory write protections that guard against remote code execution exploits.</td>
                 </tr>
                 <tr class="major-row">
                     <td rowspan="1"><a href="#T.REPLAY_ATTACK">T.REPLAY_​ATTACK</a>
@@ -1820,7 +1820,7 @@
                         <h4 id="ext-comp-FIA_8021X_EXT.1.1">FIA_8021X_EXT.1.1</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall conform to IEEE Standard 802.1X for a Port Access Entity (PAE) in the &ldquo;Authenticator&rdquo; role.
                         <h4 id="ext-comp-FIA_8021X_EXT.1.2">FIA_8021X_EXT.1.2</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support communications to a RADIUS authentication server conforming to RFCs 2865 and 3579.
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support communications to a RADIUS authentication server conforming to RFCs 2865, 2866, and 3579.
                         <h4 id="ext-comp-FIA_8021X_EXT.1.3">FIA_8021X_EXT.1.3</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that no access to its 802.1X controlled port is given to the wireless client prior to successful completion of this authentication exchange.
                     </div>

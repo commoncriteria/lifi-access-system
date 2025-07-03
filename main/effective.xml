@@ -344,9 +344,9 @@ This PP-Module is written to address the situation where a distributed network d
         <threat name="T.NETWORK_ATTACK">
           <description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may engage in communications with applications and services running on or part of the TOE with the intent of compromise. Engagement may consist of altering existing legitimate communications.</description>
           <addressed-by>FPT_ACF_EXT.1</addressed-by><rationale/>
-          <addressed-by>FPT_ASLR_EXT.1</addressed-by><rationale/>
-          <addressed-by>FPT_SBOP_EXT.1</addressed-by><rationale/>
-          <addressed-by>FPT_W^X_EXT.1</addressed-by><rationale/>
+          <addressed-by>FPT_ASLR_EXT.1</addressed-by><rationale>A conformant TOE mitigates the threat of network attack by enforcing memory protections that guard against remote code execution exploits.</rationale>
+          <addressed-by>FPT_SBOP_EXT.1</addressed-by><rationale>A conformant TOE mitigates the threat of network attack by enforcing stack overflow protections that guard against remote code execution exploits.</rationale>
+          <addressed-by>FPT_W^X_EXT.1</addressed-by><rationale>A conformant TOE mitigates the threat of network attack by memory write protections that guard against remote code execution exploits.</rationale>
         </threat>
         <threat name="T.REPLAY_ATTACK">
           <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets trans versing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
@@ -639,14 +639,14 @@ This PP-Module is written to address the situation where a distributed network d
           <title>The TSF shall conform to IEEE Standard 802.1X for a Port Access Entity (PAE) in the “Authenticator” role.</title>
         </f-element>
         <f-element>
-          <title>The TSF shall support communications to a RADIUS authentication server conforming to RFCs 2865 and 3579.</title>
+          <title>The TSF shall support communications to a RADIUS authentication server conforming to RFCs 2865, 2866, and 3579.</title>
         </f-element>
         <f-element>
           <title>The TSF shall ensure that no access to its 802.1X controlled port is given to the wireless client prior to successful completion of this authentication exchange.</title>
           <note role="Application">
             <h:p>
             This requirement covers the TOE's role as the authenticator
-            in an 802.1X authentication exchange. If the exchange is completed successfully, the TOE will obtain the PMK from the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin 802.11 communications. As indicated previously, there are at least three communication paths present during the exchange; two with the TOE as an endpoint and one with the TOE acting as a transfer point only. The TOE establishes an Extensible Authentication Protocol (EAP) over Local Area Network (EAPOL) connection with the wireless client as specified in 802.1X-2007. The TOE also establishes (or has established) a RADIUS protocol connection protected either by IPsec or RadSec (TLS) with the RADIUS server. The wireless client and RADIUS server establish an EAP-TLS session (RFC 5216); in this transaction the TOE merely takes the EAP-TLS packets from its EAPOL/RADIUS endpoint and transfers them to the other endpoint. Because the specific authentication method (TLS in this case) is opaque to the TOE, there are no requirements with respect to RFC 5126 in this PP-Module. However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the implementation and evaluation activities. 
+            in an 802.1X authentication exchange. If the exchange is completed successfully, the TOE will obtain the PMK from the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin 802.11 communications. As indicated previously, there are at least three communication paths present during the exchange; two with the TOE as an endpoint and one with the TOE acting as a transfer point only. The TOE establishes an Extensible Authentication Protocol (EAP) over Local Area Network (EAPOL) connection with the wireless client as specified in 802.1X-2007. The TOE also establishes (or has established) a RADIUS protocol connection protected either by IPsec or RadSec (TLS) with the RADIUS server. The wireless client and RADIUS server establish an EAP-TLS session (RFC 5216); in this transaction the TOE merely takes the EAP-TLS packets from its EAPOL/RADIUS endpoint and transfers them to the other endpoint. Because the specific authentication method (TLS in this case) is opaque to the TOE, there are no requirements with respect to RFC 5126 in this PP-Module. However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the implementation and evaluation activities. RADIUS accounting is implemented via conformance to RFC 2866.
             </h:p><h:p>
             Additionally, RFC 5080 contains implementation issues that will need to be addressed by developers but which levy no new requirements. The point of performing 802.1X authentication is to provide access to the network (assuming the authentication was successful and that all 802.11 negotiations are performed successfully); in the terminology of 802.1X, this means the wireless client has access to the "controlled port" maintained by the TOE.
             </h:p>
