@@ -38,7 +38,7 @@
 	<include-pkg id="pkg-ssh">
 	  <git>
 	    <url>https://github.com/commoncriteria/ssh</url>
-	    <branch>release-1.0</branch>
+	    <branch>release-2.0</branch>
 	  </git>
 	  <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
    </include-pkg>	
@@ -303,7 +303,7 @@
       <cc-pp-conf/>
       <cc-pp-config-with> 
         <PP-cc-ref>collaborative Protection Profile for Network Devices, Version 3.0e</PP-cc-ref>
-        <Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, version 1.0</Mod-cc-ref>  
+        <Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, version 2.0</Mod-cc-ref>  
       </cc-pp-config-with>
       <cc-pkg-claim>
         <FP-cc-ref conf="conformant">Functional Package for Transport Layer Security Version 2.1</FP-cc-ref>
