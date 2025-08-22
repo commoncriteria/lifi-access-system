@@ -93,7 +93,7 @@
       
       The scope of the LiFi Access System PP-Module is to describe the security functionality of a LiFi access system product in terms of [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs: <h:ul>
-        <h:li>collaborative Protection Profile for Network Devices, Version 3.0e</h:li>
+        <h:li>collaborative Protection Profile for Network Devices, Version 4.0</h:li>
       </h:ul>
       <h:p>
         A conformant TOE will claim conformance to a PP-Configuration that includes the Base-PP identified above, this PP-Module, and any of the PP-Modules or packages identified in Section 2.
@@ -324,7 +324,7 @@
       <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with> 
-        <PP-cc-ref>collaborative Protection Profile for Network Devices, Version 3.0e</PP-cc-ref>
+        <PP-cc-ref>collaborative Protection Profile for Network Devices, Version 4.0</PP-cc-ref>
         <Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, version 2.0</Mod-cc-ref>  
       </cc-pp-config-with>
       <cc-pkg-claim>
