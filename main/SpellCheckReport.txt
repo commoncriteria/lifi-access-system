@@ -52,11 +52,8 @@ output/lifi-access-system-release-linkable.html: TST
 output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: Wireshark
-output/lifi-access-system-release-linkable.html: atref
 output/lifi-access-system-release-linkable.html: broadcasted
-output/lifi-access-system-release-linkable.html: impl
 output/lifi-access-system-release-linkable.html: multicast
-output/lifi-access-system-release-linkable.html: sel
 output/lifi-access-system-release-linkable.html: superset
 output/lifi-access-system-release-linkable.html: vlc
 output/lifi-access-system-release.html: 11ax
@@ -88,12 +85,9 @@ output/lifi-access-system-release.html: TBD
 output/lifi-access-system-release.html: TST
 output/lifi-access-system-release.html: WPA2
 output/lifi-access-system-release.html: WPA3
-output/lifi-access-system-release.html: atref
 output/lifi-access-system-release.html: broadcasted
 output/lifi-access-system-release.html: identifier’s
-output/lifi-access-system-release.html: impl
 output/lifi-access-system-release.html: multicast
-output/lifi-access-system-release.html: sel
 output/lifi-access-system-release.html: vlc
 output/lifi-access-system-sd.html: 0x4208
 output/lifi-access-system-sd.html: 11bb
@@ -158,11 +152,8 @@ output/lifi-access-system.html: TST
 output/lifi-access-system.html: WPA2
 output/lifi-access-system.html: WPA3
 output/lifi-access-system.html: Wireshark
-output/lifi-access-system.html: atref
 output/lifi-access-system.html: broadcasted
 output/lifi-access-system.html: identifier’s
-output/lifi-access-system.html: impl
 output/lifi-access-system.html: multicast
-output/lifi-access-system.html: sel
 output/lifi-access-system.html: superset
 output/lifi-access-system.html: vlc
