@@ -551,14 +551,7 @@ This PP-Module is written to address the situation where a distributed network d
 
 		<!-- Audit table for Mandatory SFRs -->
       <section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
-        
-        
         <audit-table id="at-mandatory" table="mandatory"/>
-        <!--
-        <audit-table table="mandatory" id="mandatory-audit-events">
-          <h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-mandatory">: Auditable Events for Mandatory SFRs</ctr></h:b>
-        </audit-table>
-        -->
       </section>
       
       <!-- Section for SFR Class -->
@@ -572,15 +565,15 @@ This PP-Module is written to address the situation where a distributed network d
               <h:li>Start-up and shutdown of the audit functions</h:li>
               <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
               <h:li>[[<h:i>auditable events defined in <xref to="at-mandatory"/>, 
-                auditable events defined in <xref to="at-sel-based"/>,
-                auditable events defined in <xref to="at-feat-based"/></h:i>].</h:li>
+                auditable events defined in <xref to="at-feat-based"/>,
+                auditable events defined in <xref to="at-sel-based"/></h:i>].</h:li>
               <h:li><h:i>Failure of wireless sensor communication]</h:i></h:li>
             </h:ol>
           </title>
           <note role="application">
             <h:p>A TOE that conforms to a Protection Profile Configuration (PP-Configuration) containing this PP-Module either can be a standalone or distributed TOE as defined in the NDcPP. For distributed TOEs, the expectation for this PP-Module is that a LiFi AS is composed of a single controller and one or more access points (APs). If the TOE is a distributed system across multiple components then they must be capable of sending audit data to the controller. If the TOE is a standalone system, audit data should be stored on the component that generates it.</h:p>
             <h:p>
-              The auditable events defined in <xref to="at-mandatory"/>, <xref to="at-sel-based"/>, and <xref to="at-feat-based"/> are for the SFRs that are explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP. The events in the Auditable Events table should be combined with those of the NDcPP in the context of a conforming Security Target. This table includes rows for all SFRs in the PP-Module. For any SFRs the ST claims, the corresponding audit events must also be claimed in the table. If the ST does not claim a particular SFR, then there is likewise no expectation that the auditable events for that SFR are required.
+              The auditable events defined in <xref to="at-mandatory"/>, <xref to="at-feat-based"/>, and <xref to="at-sel-based"/>are for the SFRs that are explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP. The events in the Auditable Events table should be combined with those of the NDcPP in the context of a conforming Security Target. This table includes rows for all SFRs in the PP-Module. For any SFRs the ST claims, the corresponding audit events must also be claimed in the table. If the ST does not claim a particular SFR, then there is likewise no expectation that the auditable events for that SFR are required.
             </h:p>
             <h:p>
               Per FAU_STG_EXT.1 in the Base-PP, the TOE must support transfer of the audit data to an external IT entity using a trusted channel.
@@ -1120,13 +1113,7 @@ This PP-Module is written to address the situation where a distributed network d
 		<!-- Selection-based SFRs -->
 		<sel-sfrs>
 			<section id="sb-audit-table" title="Auditable Events for Selection-based SFRs">
-			  
 			  <audit-table id="at-sel-based" table="sel-based"/>
-			  <!--
-				<audit-table id="at-selbased" table="sel-based">
-					<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-based SFRs</ctr></h:b>
-				</audit-table>
-				-->
 			</section>
 
 
@@ -1393,13 +1380,7 @@ This PP-Module is written to address the situation where a distributed network d
 		<impl-dep-sfrs>
 			
 			<section id="sib-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
-			  
 			  <audit-table id="at-feat-based" table="feat-based"/>
-			  <!--
-				<audit-table id="at-feat-based" table="feat-based">
-					<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-implbased">: Auditable Events for Implementation-Dependent SFRs</ctr></h:b>
-				</audit-table>
-				-->
 			</section>
 		
 			<!-- implementation-dependent SFRs, etc. -->
