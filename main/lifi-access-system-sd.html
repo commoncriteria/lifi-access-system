@@ -477,14 +477,8 @@ The following sections list Common Criteria and technology terms used in this do
             
           <div class="eacategory">TSS</div><div class="ea"><div class="ea"> There are no TSS evaluation activities for this SFR.<br/><br/>
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> There are no operational guidance activities for this SFR.<br/><br/>
-            </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator will test the TOE’s ability to correctly generate audit records
-              by having the TOE generate audit records in accordance with the evaluation activities
-              associated with the functional requirements in this PP-Module. When verifying the
-              test results, the evaluator will ensure the audit records generated during testing
-              match the format specified in the administrative guide and that the fields in each
-              audit record have the proper entries. <br/><br/>
-              Note that the testing here can
-              be accomplished in conjunction with the testing of the security mechanisms directly.
+            </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module in addition to the applicable auditable events that are defined in the NDcPP. The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.
+              
             </div></div></span></div><h2 class="indexable" data-level="2" id="man-fcs">2.2.2 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_COP.1/LiFiDataEncryption Cryptographic Operation (Data Encryption and Decryption for LiFi</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/LiFiDataEncryption</div>
 		      
 		TODO: You need to explain the lack of EAs for this component!!!!
@@ -602,18 +596,8 @@ The following sections list Common Criteria and technology terms used in this do
             
             
             
-          <div class="eacategory">TSS</div><div class="ea"><div class="ea">TBD</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">TBD</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-              The evaluator shall select 3 executables included with the TSF.
-              If the TSF includes a web browser it must be selected.
-              If the TSF includes a mail client it must be selected.
-              For each of these apps, the evaluator shall launch the same executables on two separate instances of the
-              OS on identical hardware and compare all memory mapping locations.
-              The evaluator shall ensure that no memory mappings are placed in the same location.
-              If the rare chance occurs that two mappings are the same for a single executable and
-              not the same for the other two, the evaluator shall repeat the test with that executable to verify
-              that in the second test the mappings are different.
-              This test can also be completed on the same hardware and rebooting between application launches.
-            </div></div></span></div><div class="comp" id=""><h4>FPT_SBOP_EXT.1 Stack Buffer Overflow Protection</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_SBOP_EXT.1</div>
+          <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall ensure that the TSS describes the TOE's implementation of ASLR, specifically many bits of entropy are used to randomize the address space and whether there are any exceptions to this.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+              The evaluator shall establish two execution environments for the TOE such that the memory mappings of its various processes can be assessed in separate instances. Specifically, the evaluator shall either obtain a second copy of the TOE for this purpose, or if one is not avialable, the evaluator shall record the memory mappings of the TOE's various processes while the TOE is running and then reboot it. The evaluator shall verify the memory locations of the exeucting processes using a tool appropriate for the underlying OS platform on which the TOE is built. For example, if the TOE has a Linux-based operating system, the evaluator shall use the pmap utility to verify that the memory location of the TOE's various processes is not static between reboots or between separate instances of the TOE. This may require a debug configuration or other vendor-provided utility (e.g. a mechanism to dump the TOE's memory and search for a known pattern) if the TOE does not have a means to execute general-purpose commands on it for the purpose of testing.</div></div></span></div><div class="comp" id=""><h4>FPT_SBOP_EXT.1 Stack Buffer Overflow Protection</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_SBOP_EXT.1</div>
               
               
               
@@ -1049,9 +1033,8 @@ The following sections list Common Criteria and technology terms used in this do
 		TODO: You need to explain the lack of EAs for this component!!!!
 	
 		        </span></div><h2 class="indexable" data-level="2" id="gvlc-sfrs">2.6.2 SFRs for G.vlc Implementations</h2><div class="comp" id=""><h4>FTP_ITC.1/Gvlc Inter-TSF Trusted Channel (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/Gvlc</div>
-		          
-		TODO: You need to explain the lack of EAs for this component!!!!
-	
+		          G.vlc is implemented using MACsec. To demonstrate the implementation of G.vlc, the evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in the PP-Module for MACsec Ethernet Encryption.
+		          <br/><br/>
 		        </span></div><h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
     
 	base NDcPP to which it must claim conformance.
