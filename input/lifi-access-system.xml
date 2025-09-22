@@ -596,14 +596,8 @@ This PP-Module is written to address the situation where a distributed network d
             </TSS>
             <Guidance> There are no operational guidance activities for this SFR.<h:br/><h:br/>
             </Guidance>
-            <Tests>The evaluator will test the TOE’s ability to correctly generate audit records
-              by having the TOE generate audit records in accordance with the evaluation activities
-              associated with the functional requirements in this PP-Module. When verifying the
-              test results, the evaluator will ensure the audit records generated during testing
-              match the format specified in the administrative guide and that the fields in each
-              audit record have the proper entries. <h:br/><h:br/>
-              Note that the testing here can
-              be accomplished in conjunction with the testing of the security mechanisms directly.
+            <Tests>The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module in addition to the applicable auditable events that are defined in the NDcPP. The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.
+              
             </Tests>
           </aactivity>
         </f-element>
@@ -900,20 +894,10 @@ This PP-Module is written to address the situation where a distributed network d
             <assignable>list of explicit exceptions</assignable>.
           </title>
           <aactivity>
-            <TSS>TBD</TSS>
-            <Guidance>TBD</Guidance>
+            <TSS>The evaluator shall ensure that the TSS describes the TOE's implementation of ASLR, specifically many bits of entropy are used to randomize the address space and whether there are any exceptions to this.</TSS>
+            <Guidance>None.</Guidance>
             <Tests>
-              The evaluator shall select 3 executables included with the TSF.
-              If the TSF includes a web browser it must be selected.
-              If the TSF includes a mail client it must be selected.
-              For each of these apps, the evaluator shall launch the same executables on two separate instances of the
-              OS on identical hardware and compare all memory mapping locations.
-              The evaluator shall ensure that no memory mappings are placed in the same location.
-              If the rare chance occurs that two mappings are the same for a single executable and
-              not the same for the other two, the evaluator shall repeat the test with that executable to verify
-              that in the second test the mappings are different.
-              This test can also be completed on the same hardware and rebooting between application launches.
-            </Tests>
+              The evaluator shall establish two execution environments for the TOE such that the memory mappings of its various processes can be assessed in separate instances. Specifically, the evaluator shall either obtain a second copy of the TOE for this purpose, or if one is not avialable, the evaluator shall record the memory mappings of the TOE's various processes while the TOE is running and then reboot it. The evaluator shall verify the memory locations of the exeucting processes using a tool appropriate for the underlying OS platform on which the TOE is built. For example, if the TOE has a Linux-based operating system, the evaluator shall use the pmap utility to verify that the memory location of the TOE's various processes is not static between reboots or between separate instances of the TOE. This may require a debug configuration or other vendor-provided utility (e.g. a mechanism to dump the TOE's memory and search for a known pattern) if the TOE does not have a means to execute general-purpose commands on it for the purpose of testing.</Tests>
           </aactivity>
         </f-element>
     
@@ -1872,7 +1856,8 @@ This PP-Module is written to address the situation where a distributed network d
 		      <f-element>
 		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>communications with MACsec peers that require the use of MACsec</h:i>].</title>
 		        <aactivity>
-		          <no-tests/>
+		          <no-tests>G.vlc is implemented using MACsec. To demonstrate the implementation of G.vlc, the evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in the PP-Module for MACsec Ethernet Encryption.
+		          </no-tests>
 		        </aactivity>
 		      </f-element>
 		      <audit-event>
