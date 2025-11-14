@@ -34,9 +34,7 @@ output/lifi-access-system-release-linkable.html: TST
 output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: Wireshark
-output/lifi-access-system-release-linkable.html: avialable
 output/lifi-access-system-release-linkable.html: broadcasted
-output/lifi-access-system-release-linkable.html: exeucting
 output/lifi-access-system-release-linkable.html: multicast
 output/lifi-access-system-release-linkable.html: pmap
 output/lifi-access-system-release-linkable.html: superset
@@ -97,9 +95,7 @@ output/lifi-access-system-sd.html: TBD
 output/lifi-access-system-sd.html: TODO
 output/lifi-access-system-sd.html: WPA2
 output/lifi-access-system-sd.html: Wireshark
-output/lifi-access-system-sd.html: avialable
 output/lifi-access-system-sd.html: evaluator’s
-output/lifi-access-system-sd.html: exeucting
 output/lifi-access-system-sd.html: fail’
 output/lifi-access-system-sd.html: multicast
 output/lifi-access-system-sd.html: pass’
@@ -142,9 +138,7 @@ output/lifi-access-system.html: TST
 output/lifi-access-system.html: WPA2
 output/lifi-access-system.html: WPA3
 output/lifi-access-system.html: Wireshark
-output/lifi-access-system.html: avialable
 output/lifi-access-system.html: broadcasted
-output/lifi-access-system.html: exeucting
 output/lifi-access-system.html: identifier’s
 output/lifi-access-system.html: multicast
 output/lifi-access-system.html: pmap
