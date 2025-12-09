@@ -550,7 +550,8 @@ This PP-Module is written to address the situation where a distributed network d
 		                <selectable>112</selectable>
 		                <selectable>120</selectable>
 		                <selectable>128</selectable>
-		              </selectables> bits.</col>
+		              </selectables></col> 
+		              <col>256 bits</col>
 		            <col>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 19772:2020 (Clause 10)</col>
 		          </selectable>
 		          
@@ -558,12 +559,13 @@ This PP-Module is written to address the situation where a distributed network d
 		        </selectables>
 		      </title>
 		     
-		    <note role="Application">
-		      Application Note: This requirement includes cryptographic algorithms defined in the Base-PP because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the TSF solely for that purpose, it is not necessary to duplicate the claim in the Base-PP SFR. For example, if the TOE implements AES-CBC solely for LiFi communications, the Base-PP requirement FCS_COP.1/SKC does not need to replicate the AES-CBC claim made here. 256-bit GCMP is required in order to comply with FCS_CKM.1/WPA. AES-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
+		    <note role="Application">This requirement includes cryptographic algorithms defined in the Base-PP because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the TSF solely for that purpose, it is not necessary to duplicate the claim in the Base-PP SFR. For example, if the TOE implements AES-CBC solely for LiFi communications, the Base-PP requirement FCS_COP.1/SKC does not need to replicate the AES-CBC claim made here. 256-bit GCMP is required in order to comply with FCS_CKM.1/WPA. AES-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
 		    </note>
 		    <aactivity>
-		      <TSS/>
-		      <Guidance/>
+		      <TSS><h:p>The evaluator shall examine the TSS to verify that it describes how the TOE generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the TSS to verify that it describes how the functionality described by FCS_RBG.1 is invoked.
+		      </h:p><h:p>
+		        The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</h:p></TSS>
+		      <Guidance>The evaluator shall verify that the guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.</Guidance>
 		      <Tests>
 		        <h:p>
 		        If the TOE claims support for AES-CBC, AES-GCM, or AES-GCMP, the evaluator shall perform the testing defined in the Base-PP's FCS_COP.1/SKC SFR for the applicable modes.
@@ -756,7 +758,22 @@ This PP-Module is written to address the situation where a distributed network d
               </h:i>].
             </title>
             <aactivity>
-              <no-tests/>
+              <TSS>
+                <h:p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</h:p><h:p>
+                  The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</h:p></TSS>
+              <Guidance>The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</Guidance>
+              <Tests>
+                The evaluator shall perform the following tests:
+                <testlist>
+                  <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
+                  <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
+                  <test>{Conditional: SSID is broadcasted]
+                    The evaluator shall configure the SSID to be broadcasted.
+                    Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included.
+                    The evaluator shall then configure the SSID to be hidden.
+                    Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.
+                  </test>		  
+                </testlist></Tests>
             </aactivity>
           </f-element>
           <audit-event/>
@@ -789,17 +806,6 @@ This PP-Module is written to address the situation where a distributed network d
                 guidance, it is possible to establish an administrative session with the TOE on the “wired” portion of the
                 device. They will then demonstrate that an identically configured wireless client that can successfully
                 connect to the TOE cannot be used to perform administration.</h:p>
-              The evaluator shall also perform the following tests.
-              <testlist>
-                <test>
-                  Configure the SSID to be broadcasted.
-                  Using a network sniffing tool, capture a beacon frame and confirm that the SSID is included.
-                  Configure the SSID to be hidden.
-                  Using a network sniffing tool, capture a beacon frame and confirm that the SSID is not listed.
-                </test>		  
-                <test>The evaluator will configure the TOE to operate in each of the selected frequency bands and verify using a network sniffing tool. </test>	
-                <test>The evaluator will demonstrate that the client can establish a connection to the TOE on the default power level.  After disconnecting,  the power level should be adjusted and then the client should be able to successfully connect to the TOE again.</test>
-              </testlist>
               </Tests>
             </aactivity>
           </f-element>
@@ -1124,9 +1130,6 @@ This PP-Module is written to address the situation where a distributed network d
           Because communications with any component of a distributed TOE are required to be
           performed over a trusted connection, the transfer of these keys will be protected.
         </h:p>
-        <h:p>
-          FCS_COP.1 and FPT_ITT.1 are defined in the NDcPP.
-        </h:p>
       </note>
       <aactivity>
         <TSS>The evaluator will examine the TSS to determine that it describes which keys are distributed outside
@@ -1442,7 +1445,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            <selectable id="sel-fcs-ckm-wpa-prf-384">
 		              <col>PRF-384</col>
 		              <col>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from Base-PP)</col>
-		              <col>256 bits</col>
+		              <col>384 bits</col>
 		              <col>IEEE 802.11-2020</col>
 		            </selectable>
 		            
@@ -1450,7 +1453,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            <selectable id="sel-fcs-ckm-wpa-prf-512">
 		              <col>PRF-512</col>
 		              <col>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from Base-PP)</col>
-		              <col>256 bits</col>
+		              <col>512 bits</col>
 		              <col>IEEE 802.11-2020</col>
 		            </selectable>
 		            
@@ -1458,7 +1461,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            <selectable id="sel-fcs-ckm-wpa-prf-704">
 		              <col>PRF-704</col>
 		              <col>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from Base-PP)</col>
-		              <col>256 bits</col>
+		              <col>704 bits</col>
 		              <col>IEEE 802.11-2020, IEEE 802.11ax-2021</col>
 		            </selectable>
 		            
@@ -1859,7 +1862,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      <f-element>
 		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>no services</h:i>].</title>
 		        <aactivity>
-		          <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> base-PP.</no-tests>
+		          <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> base-PP. The evaluator shall repeat the tests from this SFR for each claimed LiFi communications channel.</no-tests>
 		        </aactivity>
 		      </f-element>
 		      <audit-event>
