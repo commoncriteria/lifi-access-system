@@ -1008,7 +1008,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM</td>
 		            <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_GCM">GCM</a></abbr> mode with non-repeating IVs using [<b>selection</b>: <span class="selectable-content" id="_s_5">deterministic</span>, <span class="selectable-content" id="_s_6"><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>-based</span>],
 		              IV construction; the tag must be of length
-		              [<b>selection</b>: <span class="selectable-content" id="_s_7">96</span>, <span class="selectable-content" id="_s_8">104</span>, <span class="selectable-content" id="_s_9">112</span>, <span class="selectable-content" id="_s_10">120</span>, <span class="selectable-content" id="_s_11">128</span>] bits.</td>
+		              [<b>selection</b>: <span class="selectable-content" id="_s_7">96</span>, <span class="selectable-content" id="_s_8">104</span>, <span class="selectable-content" id="_s_9">112</span>, <span class="selectable-content" id="_s_10">120</span>, <span class="selectable-content" id="_s_11">128</span>]</td> 
+		              <td>256 bits</td>
 		            <td>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 19772:2020 (Clause 10)</td>
 		          </tr>
 
@@ -1016,8 +1017,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		     
 		        </table><div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note">
-		      Application Note: This requirement includes cryptographic algorithms defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> solely for that purpose, it is not necessary to duplicate the claim in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. For example, if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC solely for LiFi communications, the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirement FCS_COP.1/SKC does not need to replicate the <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC claim made here. 256-bit GCMP is required in order to comply with <a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a>. <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
+    </span><span class="note">This requirement includes cryptographic algorithms defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> solely for that purpose, it is not necessary to duplicate the claim in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. For example, if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC solely for LiFi communications, the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirement FCS_COP.1/SKC does not need to replicate the <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC claim made here. 256-bit GCMP is required in order to comply with <a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a>. <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
 		    </span></div></div></div>
 		    
 		      
@@ -1289,9 +1289,6 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           Because communications with any component of a distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are required to be
           performed over a trusted connection, the transfer of these keys will be protected.
         </p>
-        <p>
-          FCS_COP.1 and FPT_ITT.1 are defined in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>.
-        </p>
       </span></div></div></div>
     
   </div>
@@ -1347,7 +1344,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <tr>
 		              <td>PRF-384</td>
 		              <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-		              <td>256 bits</td>
+		              <td>384 bits</td>
 		              <td>IEEE 802.11-2020</td>
 		            </tr>
 
@@ -1356,7 +1353,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <tr>
 		              <td>PRF-512</td>
 		              <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-		              <td>256 bits</td>
+		              <td>512 bits</td>
 		              <td>IEEE 802.11-2020</td>
 		            </tr>
 
@@ -1365,7 +1362,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <tr>
 		              <td>PRF-704</td>
 		              <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-		              <td>256 bits</td>
+		              <td>704 bits</td>
 		              <td>IEEE 802.11-2020, IEEE 802.11ax-2021</td>
 		            </tr>
 

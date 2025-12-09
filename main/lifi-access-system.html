@@ -1016,7 +1016,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM</td>
 		            <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_GCM">GCM</a></abbr> mode with non-repeating IVs using [<b>selection</b>: <span class="selectable-content" id="_s_5">deterministic</span>, <span class="selectable-content" id="_s_6"><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>-based</span>],
 		              IV construction; the tag must be of length
-		              [<b>selection</b>: <span class="selectable-content" id="_s_7">96</span>, <span class="selectable-content" id="_s_8">104</span>, <span class="selectable-content" id="_s_9">112</span>, <span class="selectable-content" id="_s_10">120</span>, <span class="selectable-content" id="_s_11">128</span>] bits.</td>
+		              [<b>selection</b>: <span class="selectable-content" id="_s_7">96</span>, <span class="selectable-content" id="_s_8">104</span>, <span class="selectable-content" id="_s_9">112</span>, <span class="selectable-content" id="_s_10">120</span>, <span class="selectable-content" id="_s_11">128</span>]</td> 
+		              <td>256 bits</td>
 		            <td>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 19772:2020 (Clause 10)</td>
 		          </tr>
 
@@ -1024,8 +1025,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		     
 		        </table><div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note">
-		      Application Note: This requirement includes cryptographic algorithms defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> solely for that purpose, it is not necessary to duplicate the claim in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. For example, if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC solely for LiFi communications, the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirement FCS_COP.1/SKC does not need to replicate the <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC claim made here. 256-bit GCMP is required in order to comply with <a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a>. <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
+    </span><span class="note">This requirement includes cryptographic algorithms defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> solely for that purpose, it is not necessary to duplicate the claim in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. For example, if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC solely for LiFi communications, the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirement FCS_COP.1/SKC does not need to replicate the <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC claim made here. 256-bit GCMP is required in order to comply with <a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a>. <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
 		    </span></div></div></div>
 		    
 		      
@@ -1033,9 +1033,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      
 		      
 		      
-		    <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
-			There are no additional <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea">
-			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+		    <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea"><p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes how the functionality described by FCS_RBG.1 is invoked.
+		      </p><p>
+		        The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance instructs the administrator how to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate keys for the selected key generation algorithms for all key types and uses identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		        <p>
 		        If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims support for <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC, <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM, or <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCMP, the evaluator shall perform the testing defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s FCS_COP.1/SKC <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the applicable modes.
 		        </p>
@@ -1207,9 +1207,25 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FMT_SMF.1/LiFi">FMT_SMF.1/LiFi</a></div>
               
-		TODO: You need to explain the lack of EAs for this component!!!!
-	
-            </div></div></div>
+              
+              
+            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
+                <p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes the security policy configuration in terms of the attributes claimed in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</p><p>
+                  The evaluator shall also confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+                The evaluator shall perform the following tests:
+                <span class="testlist-"><ul>
+                  <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
+      For each security type specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr>, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</li>
+                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMF.1/LiFi:2</a>:
+      For each authentication protocol specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</li>
+                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMF.1/LiFi:3</a>:
+      {Conditional: <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> is broadcasted]
+                    The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> to be broadcasted.
+                    Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> is included.
+                    The evaluator shall then configure the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> to be hidden.
+                    Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> is not listed.
+                  </li>		  
+                </ul></span></div></div></div></div></div>
         
         
         <div class="comp" id="FMT_SMR_EXT.1"><h4>FMT_SMR_EXT.1 No Administration from Client</h4>
@@ -1237,20 +1253,6 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 guidance, it is possible to establish an administrative session with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on the “wired” portion of the
                 device. They will then demonstrate that an identically configured wireless client that can successfully
                 connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> cannot be used to perform administration.</p>
-              The evaluator shall also perform the following tests.
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMR_EXT.1:1</a>:
-      
-                  Configure the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> to be broadcasted.
-                  Using a network sniffing tool, capture a beacon frame and confirm that the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> is included.
-                  Configure the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> to be hidden.
-                  Using a network sniffing tool, capture a beacon frame and confirm that the <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> is not listed.
-                </li>		  
-                <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMR_EXT.1:2</a>:
-      The evaluator will configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to operate in each of the selected frequency bands and verify using a network sniffing tool. </li>	
-                <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMR_EXT.1:3</a>:
-      The evaluator will demonstrate that the client can establish a connection to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on the default power level.  After disconnecting,  the power level should be adjusted and then the client should be able to successfully connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> again.</li>
-              </ul></span>
               </div></div></div></div></div>
           
       
@@ -1576,9 +1578,6 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           Because communications with any component of a distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are required to be
           performed over a trusted connection, the transfer of these keys will be protected.
         </p>
-        <p>
-          FCS_COP.1 and FPT_ITT.1 are defined in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>.
-        </p>
       </span></div></div></div>
     
   <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM.2/DISTRIB">FCS_CKM.2/DISTRIB</a></div>
@@ -1662,7 +1661,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <tr>
 		              <td>PRF-384</td>
 		              <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-		              <td>256 bits</td>
+		              <td>384 bits</td>
 		              <td>IEEE 802.11-2020</td>
 		            </tr>
 
@@ -1671,7 +1670,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <tr>
 		              <td>PRF-512</td>
 		              <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-		              <td>256 bits</td>
+		              <td>512 bits</td>
 		              <td>IEEE 802.11-2020</td>
 		            </tr>
 
@@ -1680,7 +1679,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            <tr>
 		              <td>PRF-704</td>
 		              <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-		              <td>256 bits</td>
+		              <td>704 bits</td>
 		              <td>IEEE 802.11-2020, IEEE 802.11ax-2021</td>
 		            </tr>
 
@@ -2056,7 +2055,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      
 		      
 		    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FTP_ITC.1/Client">FTP_ITC.1/Client</a></div>
-		          This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">Network Device, version 4.0</a> base-PP.<br/><br/>
+		          This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">Network Device, version 4.0</a> base-PP. The evaluator shall repeat the tests from this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for each claimed LiFi communications channel.<br/><br/>
 		        </div></div></div>
 		    
 		  

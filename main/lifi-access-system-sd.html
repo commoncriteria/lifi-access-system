@@ -406,9 +406,9 @@ The following sections list Common Criteria and technology terms used in this do
 		      
 		      
 		      
-		    <div class="eacategory">TSS</div><div class="ea">
-			There are no additional TSS evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea">
-			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+		    <div class="eacategory">TSS</div><div class="ea"><div class="ea"><p>The evaluator shall examine the TSS to verify that it describes how the TOE generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the TSS to verify that it describes how the functionality described by FCS_RBG.1 is invoked.
+		      </p><p>
+		        The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		        <p>
 		        If the TOE claims support for AES-CBC, AES-GCM, or AES-GCMP, the evaluator shall perform the testing defined in the Base-PP's FCS_COP.1/SKC SFR for the applicable modes.
 		        </p>
@@ -528,9 +528,25 @@ The following sections list Common Criteria and technology terms used in this do
               </p>
             </div></div></span></div><h2 class="indexable" data-level="2" id="man-fmt">2.2.4 Security Management (FMT)</h2><div class="comp" id=""><h4>FMT_SMF.1/LiFi Specification of Management Functions</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMF.1/LiFi</div>
               
-		TODO: You need to explain the lack of EAs for this component!!!!
-	
-            </span></div><div class="comp" id=""><h4>FMT_SMR_EXT.1 No Administration from Client</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMR_EXT.1</div>
+              
+              
+            <div class="eacategory">TSS</div><div class="ea"><div class="ea">
+                <p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</p><p>
+                  The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+                The evaluator shall perform the following tests:
+                <span class="testlist-"><ul>
+                  <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
+      For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</li>
+                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMF.1/LiFi:2</a>:
+      For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</li>
+                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMF.1/LiFi:3</a>:
+      {Conditional: SSID is broadcasted]
+                    The evaluator shall configure the SSID to be broadcasted.
+                    Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included.
+                    The evaluator shall then configure the SSID to be hidden.
+                    Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.
+                  </li>		  
+                </ul></span></div></div></span></div><div class="comp" id=""><h4>FMT_SMR_EXT.1 No Administration from Client</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMR_EXT.1</div>
               
               
               
@@ -543,20 +559,6 @@ The following sections list Common Criteria and technology terms used in this do
                 guidance, it is possible to establish an administrative session with the TOE on the “wired” portion of the
                 device. They will then demonstrate that an identically configured wireless client that can successfully
                 connect to the TOE cannot be used to perform administration.</p>
-              The evaluator shall also perform the following tests.
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMR_EXT.1:1</a>:
-      
-                  Configure the SSID to be broadcasted.
-                  Using a network sniffing tool, capture a beacon frame and confirm that the SSID is included.
-                  Configure the SSID to be hidden.
-                  Using a network sniffing tool, capture a beacon frame and confirm that the SSID is not listed.
-                </li>		  
-                <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMR_EXT.1:2</a>:
-      The evaluator will configure the TOE to operate in each of the selected frequency bands and verify using a network sniffing tool. </li>	
-                <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMR_EXT.1:3</a>:
-      The evaluator will demonstrate that the client can establish a connection to the TOE on the default power level.  After disconnecting,  the power level should be adjusted and then the client should be able to successfully connect to the TOE again.</li>
-              </ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="man-fpt">2.2.5 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_ACF_EXT.1 Access Controls</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_ACF_EXT.1</div>
             
             
@@ -1037,7 +1039,7 @@ The following sections list Common Criteria and technology terms used in this do
 		                </li>
 		              </ul></span>
 		            </div></div></span></div><div class="comp" id=""><h4>FTP_ITC.1/Client Inter-TSF Trusted Channel (LiFi 802.11 Client Access)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/Client</div>
-		          This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">Network Device, version 4.0</a> base-PP.<br/><br/>
+		          This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">Network Device, version 4.0</a> base-PP. The evaluator shall repeat the tests from this SFR for each claimed LiFi communications channel.<br/><br/>
 		        </span></div><h2 class="indexable" data-level="2" id="gvlc-sfrs">2.6.2 SFRs for G.vlc Implementations</h2><div class="comp" id=""><h4>FTP_ITC.1/Gvlc Inter-TSF Trusted Channel (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/Gvlc</div>
 		          G.vlc is implemented using MACsec. To demonstrate the implementation of G.vlc, the evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in the PP-Module for MACsec Ethernet Encryption.
 		          <br/><br/>

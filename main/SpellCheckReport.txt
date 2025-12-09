@@ -8,6 +8,7 @@ output/lifi-access-system-release-linkable.html: 362r6
 output/lifi-access-system-release-linkable.html: 38C
 output/lifi-access-system-release-linkable.html: 38D
 output/lifi-access-system-release-linkable.html: 38F
+output/lifi-access-system-release-linkable.html: AGD
 output/lifi-access-system-release-linkable.html: CEM
 output/lifi-access-system-release-linkable.html: EAPOL
 output/lifi-access-system-release-linkable.html: Fi
@@ -26,7 +27,6 @@ output/lifi-access-system-release-linkable.html: SRVName
 output/lifi-access-system-release-linkable.html: SigGen
 output/lifi-access-system-release-linkable.html: Subclause
 output/lifi-access-system-release-linkable.html: TBD
-output/lifi-access-system-release-linkable.html: TODO
 output/lifi-access-system-release-linkable.html: TST
 output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
@@ -34,6 +34,7 @@ output/lifi-access-system-release-linkable.html: Wi
 output/lifi-access-system-release-linkable.html: Wireshark
 output/lifi-access-system-release-linkable.html: accrodance
 output/lifi-access-system-release-linkable.html: broadcasted
+output/lifi-access-system-release-linkable.html: lifecycle
 output/lifi-access-system-release-linkable.html: multicast
 output/lifi-access-system-release-linkable.html: pmap
 output/lifi-access-system-release-linkable.html: superset
@@ -86,12 +87,12 @@ output/lifi-access-system-sd.html: RadSec
 output/lifi-access-system-sd.html: SKC
 output/lifi-access-system-sd.html: SRVName
 output/lifi-access-system-sd.html: TBD
-output/lifi-access-system-sd.html: TODO
 output/lifi-access-system-sd.html: WPA2
 output/lifi-access-system-sd.html: Wireshark
 output/lifi-access-system-sd.html: broadcasted
 output/lifi-access-system-sd.html: evaluator’s
 output/lifi-access-system-sd.html: fail’
+output/lifi-access-system-sd.html: lifecycle
 output/lifi-access-system-sd.html: multicast
 output/lifi-access-system-sd.html: pass’
 output/lifi-access-system-sd.html: pmap
@@ -107,6 +108,7 @@ output/lifi-access-system.html: 362r6
 output/lifi-access-system.html: 38C
 output/lifi-access-system.html: 38D
 output/lifi-access-system.html: 38F
+output/lifi-access-system.html: AGD
 output/lifi-access-system.html: CEM
 output/lifi-access-system.html: EAPOL
 output/lifi-access-system.html: Fi
@@ -125,7 +127,6 @@ output/lifi-access-system.html: SRVName
 output/lifi-access-system.html: SigGen
 output/lifi-access-system.html: Subclause
 output/lifi-access-system.html: TBD
-output/lifi-access-system.html: TODO
 output/lifi-access-system.html: TST
 output/lifi-access-system.html: WPA2
 output/lifi-access-system.html: WPA3
@@ -134,6 +135,7 @@ output/lifi-access-system.html: Wireshark
 output/lifi-access-system.html: accrodance
 output/lifi-access-system.html: broadcasted
 output/lifi-access-system.html: identifier’s
+output/lifi-access-system.html: lifecycle
 output/lifi-access-system.html: multicast
 output/lifi-access-system.html: pmap
 output/lifi-access-system.html: superset
