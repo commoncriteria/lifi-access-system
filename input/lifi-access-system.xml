@@ -1862,7 +1862,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      <f-element>
 		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>no services</h:i>].</title>
 		        <aactivity>
-		          <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> base-PP. The evaluator shall repeat the tests from this SFR for each claimed LiFi communications channel.</no-tests>
+		          <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> base-PP. The evaluator shall repeat the tests from that SFR for each claimed LiFi communications channel.</no-tests>
 		        </aactivity>
 		      </f-element>
 		      <audit-event>
