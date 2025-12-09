@@ -106,148 +106,38 @@
 	
 	<tech-terms>
 	  <!-- To remove an irrlevant CC term from the document, use the <suppress> element -->
-        
-
-      <term abbr='AES' full="Advanced Encryption Standard"/>
-      <term abbr='API' full="Application Programming Interface"/>
-      <term full="Address Space Layout Randomization" abbr="ASLR">
-		An anti-exploitation feature which loads memory mappings into unpredictable
-		locations. ASLR makes it more difficult for an attacker to redirect control to code
-		that they have introduced into the address space of a process.
-      </term>
-      <term full="Administrator">
-        An individual, user, or group that is responsible for management activities, including setting policies that are 
-		applied by the enterprise on the operating system.
-		This administrator could be acting remotely through a management server, from which the system
-		receives configuration policies.
-		An administrator can enforce settings on the system which cannot be overridden by non-administrator users.
-      </term>
-      <term full="Application" abbr="app">
-		Software that runs on a platform and performs tasks on behalf of the user
-		or owner of the platform, as well as its supporting documentation. 
-      </term>
-      <term full="Application Programming Interface" abbr="API">
-		A specification of routines, data structures, object classes, and variables
-		that allows an application to make use of services provided by another software
-		component, such as a library. APIs are often provided for a set of libraries included
-		with the platform.
-      </term>
-      <term abbr='CESG' full="Communications-Electronics Security Group"/>
-      <term abbr='CMC' full="Certificate Management over CMS"/>
-      <term abbr='CMS' full="Cryptographic Message Syntax"/>
-      <term abbr='CN' full="Common Names"/>
-      <term full="Credential">
-		Data that establishes the identity of a user, e.g. a cryptographic key or
-		password.
-      </term>
-      <term abbr='CRL' full="Certificate Revocation List"/>
-      <term abbr='CSA' full="Computer Security Act"/>
-      <term full="Critical Security Parameters" abbr="CSP">
-		Information that is either user or system defined and
-		is used to operate a cryptographic module in processing encryption functions including
-		cryptographic keys and authentication data, such as passwords, the disclosure or modification
-		of which can compromise the security of a cryptographic module or the security of the
-		information protected by the module.
-      </term>
-      <term full="Data At Rest" abbr="DAR" />
-      <term full="DAR Protection">
-		Countermeasures that prevent attackers, even those with physical access,
-		from extracting data from non-volatile storage.
-		Common techniques include data encryption and wiping.
-      </term>
-      <term full="Data Execution Prevention" abbr="DEP">
-		An anti-exploitation feature of modern operating systems executing on
-		modern computer hardware, which enforces a non-execute permission on pages of memory.
-		DEP prevents pages of memory from containing both data and instructions, which makes
-		it more difficult for an attacker to introduce and execute code.
-      </term>
-      <term abbr='DES' full="Data Encryption Standard"/>
-      <term full="Developer">
-		An entity that writes OS software. For the purposes of this document,
-		vendors and developers are the same.
-      </term>
-      <term full="General Purpose Operating System">
-		A class of OSes designed to support a wide-variety of workloads consisting of many concurrent applications or services.
-		Typical characteristics for OSes in this class include support for third-party applications,
-		support for multiple users, and security separation between users and their respective resources.
-		General Purpose Operating Systems also lack the real-time constraint that defines Real Time Operating Systems (RTOS).
-		RTOSes typically power routers, switches, and embedded devices.
-      </term>
-      <term abbr='DHE' full="Diffie-Hellman Ephemeral"/>
-      <term abbr='DNS' full="Domain Name System"/>
-      <term abbr='DRBG' full="Deterministic Random Bit Generator"/>
-      <term abbr='DSS' full="Digital Signature Standard"/>
-      <term abbr='DT' full="Date/Time Vector"/>
-      <term abbr='DTLS' full="Datagram Transport Layer Security"/>
-      <term abbr='EAP' full="Extensible Authentication Protocol"/>
-      <term abbr='ECDHE' full="Elliptic Curve Diffie-Hellman Ephemeral"/>
-      <term abbr='ECDSA' full="Elliptic Curve Digital Signature Algorithm"/>
-      <term abbr='EST' full="Enrollment over Secure Transport"/>
-      <term abbr='FIPS' full="Federal Information Processing Standards"/>
-      <term abbr='HMAC' full="Hash-based Message Authentication Code"/>
-      <term full="Host-based Firewall">
-		A software-based firewall implementation running on the OS for filtering inbound and
-		outbound network traffic to and from processes running on the OS.
-      </term>
-      <term abbr='HTTP' full="Hypertext Transfer Protocol"/>
-      <term abbr='HTTPS' full="Hypertext Transfer Protocol Secure"/>
-      <term abbr='DSS' full="Digital Signature Standard"/>
-      <term abbr='IETF' full="Internet Engineering Task Force"/>
-      <term abbr='IP' full="Internet Protocol"/>
-      <term abbr='ISO' full="International Organization for Standardization"/>
-      <term abbr='IT' full="Information Technology"/>
-      <term abbr='ITSEF' full="Information Technology Security Evaluation Facility"/>
-      <term abbr='NIAP' full="National Information Assurance Partnership"/>
-      <term abbr='NIST' full="National Institute of Standards and Technology"/>
-      <term abbr='OCSP' full="Online Certificate Status Protocol"/>
-      <term abbr='OID' full="Object Identifier"/>
-      <term abbr='OMB' full="Office of Management and Budget"/>
-      <term full="Operating System" abbr="OS" plural="OSes">
-		Software that manages physical and logical resources and provides services
-		for applications. The terms <h:i>TOE</h:i> and <h:i>OS</h:i> are interchangeable in this
-		document. 
-      </term>
-      <term abbr='PKI' full="Public Key Infrastructure"/>
-	  <term full="peer">An IT entity that is external to the TOE that interfaces with the TOE via an over-the-air connection for the purpose of accessing the network on which the TOE exists as a boundary device.</term>
-      <term abbr='PP' full="Protection Profile"/>
-      <term abbr='RBG' full="Random Bit Generator"/>
-      <term abbr='RFC' full="Request for Comment"/>
-      <term abbr='RNG' full="Random Number Generator"/>
-      <term abbr='RNGVS' full="Random Number Generator Validation System"/>
-      <term full="Personally Identifiable Information" abbr="PII">
-		Any information about an individual maintained by an agency, including, but
-		not limited to, education, financial transactions, medical history, and criminal or
-		employment history and information which can be used to distinguish or trace an
-		individual's identity, such as their name, social security number, date and place of
-		birth, mother's maiden name, biometric records, etc., including any other personal
-		information which is linked or linkable to an individual.<xref to="bibOMB"/>
-      </term>
-      <term abbr='SAN' full="Subject Alternative Name"/>
-      <term abbr='SHA' full="Secure Hash Algorithm"/>
-      <term abbr='S/MIME' full="Secure/Multi-purpose Internet Mail Extensions"/>
-      <term full="Sensitive Data">
-		Sensitive data may include all user or enterprise data or may be specific
-		application data such as PII, emails, messaging, documents, calendar items, and contacts.
-		Sensitive data must minimally include credentials and keys. Sensitive data shall
-		be identified in the OS's TSS by the ST author. 
-      </term>
-      <term abbr='SIP' full="Session Initiation Protocol"/>
-      <term abbr='SWID' full="Software Identification"/>
-      <term abbr='TLS' full="Transport Layer Security"/>
-      <term abbr='URI' full="Uniform Resource Identifier"/>
-      <term abbr='URL' full="Uniform Resource Locator"/>
-      <term abbr='USB' full="Universal Serial Bus"/>
-      <term full="User">
-		An entity operating the TOE that is subject to configuration policies applied
-		to the operating system by administrators.  On some systems under certain
-		configurations, a normal user can temporarily elevate privileges to that of an administrator.
-		At that time, such a user should be considered an administrator.
-      </term>
-	  <!--
-	  <term abbr="VM" full="Virtual Machine">A software-based emulation of a physical computer  running an independent operating system and applications, behavior similar to a physical computer.</term>
-	  -->
-      <term abbr='XCCDF' full="eXtensible Configuration Checklist Description Format"/>
-      <term abbr='XOR' full="Exclusive Or"/>
+	  <suppress>Functional Package,Extended Package</suppress>
+	  <term abbr="AES"   full="Advanced Encryption Standard"/>
+	  <term abbr="AP"    full="Access Point" plural="APs">
+	    A device that provides the network interface that enables
+	    wireless client hosts to access a wired network. </term>
+	  <term abbr="ASLR"    full="Address Space Layout Randomization"/>
+	  <term abbr="CBC"   full="Cipher Block Chaining"/>
+	  <term abbr="CCM"   full="Counter Mode with CBC-Message Authentication Code"/>
+	  <term abbr="CCMP"  full="CCM mode Protocol"/>
+	  <term abbr="CTR"   full="Counter (encryption mode)"/>
+	  <term abbr="EAP"   full="Extensible Authentication Protocol"/>
+	  <term abbr="GCM"   full="Galois-Counter Mode"/>
+	  <term abbr="GTK"   full="Group Temporal Key"/>
+	  <term abbr="IPsec" full="Internet Protocol Security"/>
+	  <term full="LiFi"> 
+	    A wireless computer network that links
+	    two or more devices using modulated optical communication to form a local area network within a
+	    limited area such as a home, school, computer laboratory, campus, office building,
+	    etc.
+	  </term>
+	  <term abbr="MAC"   full="Media Access Control"/>
+	  <term abbr="NDcPP" full="Network Device collaborative Protection Profile"/>
+	  <term abbr="PAE"   full="Port Access Entity"/>
+	  <term abbr="PMK"   full="Pairwise Master Key"/>
+	  <term abbr="PTK"   full="Pairwise Transient Key"/>
+	  <term abbr="RADIUS" full="Remote Authentication Dial In User Service"/>
+	  <term abbr="RBG"   full="Random Bit Generator"/>
+	  <term abbr="SSID"  full="Service Set Identifier"> 
+	    The primary name associated with an 802.11
+	    wireless local area network (WLAN). </term>
+	  <term abbr="TLS"   full="Transport Layer Security"/>
+	  <term abbr="WPA"   full="Wi-Fi Protected Access"/>
     </tech-terms>    
 
 	<!-- Other sections can be added here. -->
@@ -479,8 +369,8 @@ This PP-Module is written to address the situation where a distributed network d
 
   
   <sec:Security_Requirements>
-    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
-      <url><![CDATA[https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&id=447]]></url>
+    <base-pp id="ND" version="4.0" name="Network Device" product="Network Device" short="ND">
+      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
       <cPP/>
       
     <sec-func-req-dir> 
@@ -557,9 +447,7 @@ This PP-Module is written to address the situation where a distributed network d
       <section title="Security Audit (FAU)" id="man-fau">
         <f-component name="Audit Data Generation (LiFi)" cc-id="fau_gen.1" iteration="LiFI">
         <f-element id="fau-gen-1e1-lifi">
-          <title>
-            <comment>For the sake of simplicity this has been defined as one single iteration rather than being split as in the proposed SFRs because of the amount of overlap between them. I think it is reasonable to say "whatever gets claimed gets audited" in one requirement.<h:br/></comment>
-            The TSF shall be able to generate an audit record of the following
+          <title>The TSF shall be able to generate an audit record of the following
             auditable events: <h:ol type="a">
               <h:li>Start-up and shutdown of the audit functions</h:li>
               <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
@@ -609,21 +497,138 @@ This PP-Module is written to address the situation where a distributed network d
 		<section title="Cryptographic Support (FCS)" id="man-fcs">
 		  <f-component name="Cryptographic Operation (Data Encryption and Decryption for LiFi" cc-id="fcs_cop.1" iteration="LiFiDataEncryption">
 		    <f-element>
-		      <title>The TSF shall perform encryption/decryption in accordance with a specified cryptographic algorithm [<h:i>AES-GCMP and [<selectables><selectable>Cipher Block Chaining (CBC)</selectable>
-		        <selectable>CCMP</selectable>
-		          <selectable>Counter (encryption mode) (CTR)</selectable>
-		          <selectable>Galois-Counter Mode (GCM)</selectable> 
-		        <selectable>no other</selectable></selectables></h:i>] modes and cryptographic key sizes [<h:i>256 bits</h:i>] that meet the following: [<h:i>AES as specified in ISO 18033-3, GCM as specified in ISO 19772, GCMP as specified in NIST SP 800-38D and IEEE 802.11ax-2021
-		            <selectables>
-		              <selectable>CBC as specified in ISO 10116</selectable>
-		              <selectable>CCMP as specified in NIST SP 800-38C and IEEE 802.11-2020</selectable>
-		            <selectable>CTR as specified in ISO 10116</selectable> 
-		            <selectable>no other standards</selectable></selectables></h:i>.</title>
+		      <title>
+		        The TSF shall perform [<h:i>symmetric-key encryption and decryption</h:i>] in accordance with a 
+		        specified cryptographic algorithm   
+		        <selectables>
+		          <tabularize id="fcs-cop-lifi-sels" title="Allowable choices for FCS_COP.1/LiFiDataEncryption">
+		            <textcol>Identifier</textcol>
+		            <reqtext></reqtext>
+		            <selectcol>Cryptographic Algorithm</selectcol>
+		            <reqtext>and cryptographic key sizes</reqtext>
+		            <selectcol>Cryptographic Key Sizes</selectcol>
+		            <reqtext>that meet the following:</reqtext>
+		            <selectcol>List of Standards</selectcol>
+		            <reqtext><h:p/><h:p/>The following table provides the allowable choices for
+		              completion of the selection operations in FCS_COP.1/LiFiDataEncryption. At minimum, AES-GCMP must be selected.</reqtext>							
+		          </tabularize>
+		          
+		          <!-- AES-GCMP -->
+		          <selectable id="sel-fcs-cop-lifi-aes-gcmp">
+		            <col>AES-GCMP</col>
+		            <col>AES in Galois Counter Mode Protocol</col>
+		            <col>256 bits</col>
+		            <col>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38D, IEEE 802.11ax-2021</col>
+		          </selectable>
+		          
+		          <!-- AES-CBC -->
+		          <selectable id="sel-fcs-cop-lifi-aes-cbc">
+		            <col>AES-CBC</col>
+		            <col>AES in CBC mode with non-repeating and unpredictable IVs</col>
+		            <col>256 bits</col>
+		            <col>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 10116:2017 (Clause 7)</col> 
+		          </selectable>
+		          
+		          <!-- AES-CCMP -->
+		          <selectable id="sel-fcs-cop-lifi-aes-ccmp">
+		            <col>AES-CCMP</col>
+		            <col>AES in CCM mode Protocolr</col>
+		            <col>256 bits</col>
+		            <col>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38C, IEEE 802.11-2020</col>
+		          </selectable>
+		          
+		          <!-- AES-GCM -->
+		          <selectable id="sel-fcs-cop-lifi-aes-gcm">
+		            <col>AES-GCM</col>
+		            <col>AES in GCM mode with non-repeating IVs using <selectables>
+		              <selectable>deterministic</selectable>
+		              <selectable>RBG-based</selectable></selectables>,
+		              IV construction; the tag must be of length
+		              <selectables>
+		                <selectable>96</selectable>
+		                <selectable>104</selectable>
+		                <selectable>112</selectable>
+		                <selectable>120</selectable>
+		                <selectable>128</selectable>
+		              </selectables> bits.</col>
+		            <col>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 19772:2020 (Clause 10)</col>
+		          </selectable>
+		          
+		     
+		        </selectables>
+		      </title>
+		     
 		    <note role="Application">
-		      Application Note: This requirement is iterated from its definition in the NDcPP by mandating the selection of CBC mode and 256 bit key sizes while also defining additional AES mode and key size selections not present in the original definition. This requirement mandates AES-GCMP (which uses AES in Galois-Counter Mode (GCM) to comply with IEEE 802.11-2020. For the first selection of FCS_COP.1.1/LiFiDataEncryption, the ST author should choose the additional mode or modes in which AES operates. For the second selection, the ST author should choose the key sizes that are supported by this functionality. 256-bit GCMP is required in order to comply with FCS_CKM.1/WPA. AES-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections. CTR mode is not used for LiFi AS capabilities but remains selectable since it may be required by another part of the TSF.
+		      Application Note: This requirement includes cryptographic algorithms defined in the Base-PP because it applies to the cryptographic algorithms used specifically in support of LiFi communications, some of which can be used for other purposes. If any of the algorithms claimed in support of LiFi communications are used by the TSF solely for that purpose, it is not necessary to duplicate the claim in the Base-PP SFR. For example, if the TOE implements AES-CBC solely for LiFi communications, the Base-PP requirement FCS_COP.1/SKC does not need to replicate the AES-CBC claim made here. 256-bit GCMP is required in order to comply with FCS_CKM.1/WPA. AES-CCMP, if claimed, is required to use 256-bit keys for IEEE 802.11ax-2021 connections.
 		    </note>
 		    <aactivity>
-		      <no-tests/>
+		      <TSS/>
+		      <Guidance/>
+		      <Tests>
+		        <h:p>
+		        If the TOE claims support for AES-CBC, AES-GCM, or AES-GCMP, the evaluator shall perform the testing defined in the Base-PP's FCS_COP.1/SKC SFR for the applicable modes.
+		        </h:p>
+		        <h:p><h:b>AES-CCM Tests</h:b></h:p>
+		        <h:p>The evaluator will test the generation-encryption and decryption-verification functionality of AES-CCM for the following input parameter and tag lengths:</h:p>
+		        <h:p><h:b>128 bit and 256 bit keys</h:b></h:p>
+		        <h:p><h:b>Two payload lengths</h:b>. One payload length will be the shortest supported payload length,
+		          greater than or equal to zero bytes. The other payload length will be the longest supported
+		          payload length, less than or equal to 32 bytes (256 bits).</h:p>
+		        <h:p><h:b>Two or three associated data lengths</h:b>.
+		          One associated data length will be 0, if supported.
+		          One associated data length will be the shortest supported payload length,
+		          greater than or equal to zero bytes.
+		          One associated data length will be the longest supported payload length, less than
+		          or equal to 32 bytes (256 bits).
+		          If the implementation supports an associated data length of 216
+		          bytes, an associated data length of 216 bytes will be tested.
+		        </h:p>
+		        <h:p><h:b>Nonce lengths</h:b>.
+		          All supported nonce lengths between 7 and 13 bytes, inclusive, will be tested.
+		        </h:p>
+		        <h:p><h:b>Tag lengths</h:b>.
+		          All supported tag lengths of 4, 6, 8, 10, 12, 14, and 16 bytes will be tested.
+		        </h:p>
+		        <h:p>
+		          Due to the restrictions that IEEE 802.11 specifies for this mode
+		          (nonce length of 13 and tag length of 8),
+		          it is acceptable to test a subset of the supported lengths as long as the selections
+		          fall into the ranges specified above.
+		          In this case, the evaluator will ensure that these are the only supported lengths.
+		          To test the generation-encryption functionality of AES-CCM, the evaluator will
+		          perform the following four tests:
+		        </h:p>
+		        <testlist>
+		          <test>For each supported key and associated data length and any supported payload, nonce
+		            and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of
+		            associated data and payload values, and obtain the resulting ciphertext.</test>
+		          <test>For each supported key and payload length and any supported associated data, nonce
+		            and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of
+		            associated data and payload values, and obtain the resulting ciphertext.</test>
+		          <test>For each supported key and nonce length and any supported associated data, payload,
+		            and tag length, the evaluator will supply one key value and 10 associated data, payload and
+		            nonce value 3-tuples, and obtain the resulting ciphertext.</test>
+		          <test>For each supported key and tag length and any supported associated data, payload, and
+		            nonce length, the evaluator will supply one key value, one nonce value and 10 pairs of
+		            associated data and payload values and, obtain the resulting ciphertext.</test>
+		        </testlist>
+		        <h:p>
+		          To determine correctness in each of the above tests, the evaluator will compare the ciphertext with the
+		          result of generation-encryption of the same inputs with a known good implementation.</h:p>
+		        <h:p>
+		          To test the decryption-verification functionality of AES-CCM, for each combination of supported
+		          associated data length, payload length, nonce length, and tag length, the evaluator will supply a key
+		          value and 15 nonce, associated data and ciphertext 3-tuples, and obtain either a fail result or a pass
+		          result with the decrypted payload.
+		          The evaluator will supply 10 tuples that should fail and 5 that should pass per set of 15.
+		        </h:p>
+		        <h:p>
+		          Additionally, the evaluator will use tests from the IEEE 802.11-02/362r6 document “Proposed Test
+		          vectors for IEEE 802.11 TGi”, dated September 10, 2002, Section 2.1 AES-CCMP Encapsulation Example
+		          and Section 2.2 Additional AES-CCMP Test Vectors to verify further the IEEE 802.11-2020
+		          implementation of AES-CCMP.
+		        </h:p> 
+		      </Tests>
 		    </aactivity>
 		    </f-element>
 		    <audit-event/>
@@ -780,10 +785,22 @@ This PP-Module is written to address the situation where a distributed network d
                 performed on the client for remote administration. The evaluator will confirm that the TOE
                 does not permit remote administration from a wireless client by default.<h:br/><h:br/></Guidance>
               
-              <Tests>The evaluator will demonstrate that after configuring the TOE for first use from the operational
+              <Tests><h:p>The evaluator will demonstrate that after configuring the TOE for first use from the operational
                 guidance, it is possible to establish an administrative session with the TOE on the “wired” portion of the
                 device. They will then demonstrate that an identically configured wireless client that can successfully
-                connect to the TOE cannot be used to perform administration.</Tests>
+                connect to the TOE cannot be used to perform administration.</h:p>
+              The evaluator shall also perform the following tests.
+              <testlist>
+                <test>
+                  Configure the SSID to be broadcasted.
+                  Using a network sniffing tool, capture a beacon frame and confirm that the SSID is included.
+                  Configure the SSID to be hidden.
+                  Using a network sniffing tool, capture a beacon frame and confirm that the SSID is not listed.
+                </test>		  
+                <test>The evaluator will configure the TOE to operate in each of the selected frequency bands and verify using a network sniffing tool. </test>	
+                <test>The evaluator will demonstrate that the client can establish a connection to the TOE on the default power level.  After disconnecting,  the power level should be adjusted and then the client should be able to successfully connect to the TOE again.</test>
+              </testlist>
+              </Tests>
             </aactivity>
           </f-element>
           <audit-event/>
@@ -1013,7 +1030,7 @@ This PP-Module is written to address the situation where a distributed network d
       <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
         
         <f-element>
-          <title><comment>For now this is added as a separate iteration of FTP_ITC.1 just for 802.1X rather than reaching back to the NDcPP as a modified SFR. This will disambiguate the protocols that apply to individual external interfaces but can be moved up to Modified SFRs instead if desired.<h:br/><h:br/></comment>The TSF shall provide a communication channel <h:b>using IEEE 802.1X and <selectables>
+          <title>The TSF shall provide a communication channel <h:b>using IEEE 802.1X and <selectables>
             <selectable id="s-ipsec">IPsec</selectable>
             <selectable id="s-radius">RADIUS over TLS</selectable></selectables></h:b>
             
@@ -1033,7 +1050,7 @@ This PP-Module is written to address the situation where a distributed network d
             <h:p>
               The IT entity of "802.1X authentication server" is distinct from "authentication server" as specified in FTP_ITC.1 in the NDcPP
               because the latter may be used for administrator authentication rather 
-              than authorization of WLAN clients.
+              than authorization of LiFi clients.
             </h:p><h:p>
               If <xref to="s-ipsec"/> is selected in FTP_ITC.1.1, then FCS_IPSEC_EXT.1 from the NDcPP must be claimed.
               If <xref to="s-radius"/> is selected in FTP_ITC.1.1,
@@ -1090,7 +1107,40 @@ This PP-Module is written to address the situation where a distributed network d
 
 <opt-sfrs>
   
-  
+  <section title="Cryptographic Support (FCS)">
+  <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB">
+    <f-element>
+      <title>The TSF shall distribute <h:b>IEEE 802.11</h:b> keys in accrodance with a specified cryptographic key distribution method <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable> that meets the following: <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
+      </title>
+      <note role="application">
+        <h:p>
+          This SFR is optional because a conformant TOE may be a standalone device that has no function for distributing keys to other devices. A distributed TOE that supports 802.11bb is expected to claim this functionality.
+        </h:p>
+        <h:p>
+          If claimed, this requirement applies to any key necessary for successful IEEE 802.11 connections
+          not covered by FCS_CKM.2/GTK.
+          In cases where a key must be distributed to other APs, this
+          communication must be performed via a mechanism of commensurate cryptographic strength.
+          Because communications with any component of a distributed TOE are required to be
+          performed over a trusted connection, the transfer of these keys will be protected.
+        </h:p>
+        <h:p>
+          FCS_COP.1 and FPT_ITT.1 are defined in the NDcPP.
+        </h:p>
+      </note>
+      <aactivity>
+        <TSS>The evaluator will examine the TSS to determine that it describes which keys are distributed outside
+          the TOE, where they are sent, and the purpose for this transfer.<h:br/><h:br/></TSS>
+        <Guidance>If this function is dependent on TOE configuration, the evaluator will confirm that the operational
+          guidance contains instructions for how to configure that the keys are adequately protected.<h:br/><h:br/>
+        </Guidance>
+        <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
+          protocols, and FPT_ITT.1 (Base-PP).</Tests>
+      </aactivity>
+    </f-element>
+    <audit-event/>
+  </f-component>
+  </section>
 </opt-sfrs>
     
 		<!-- Selection-based SFRs -->
@@ -1373,20 +1423,48 @@ This PP-Module is written to address the situation where a distributed network d
 		      <depends on="feat-80211bb"/>
 		      <f-element>
 		        <title>
-		          The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a
-		          specified cryptographic key generation algorithm [<h:i>PRF-384 and <selectables>
-		            <selectable>PRF-512</selectable>
-		            <selectable>PRF-704</selectable>
-		            <selectable exclusive="yes">no other algorithm</selectable>
-		          </selectables></h:i>] and specified cryptographic key sizes [<h:i>256 bits and <selectables>
-		            <selectable>128 bits</selectable>
-		            <selectable>192 bits</selectable>
-		            <selectable exclusive="yes">no other key sizes</selectable>
-		          </selectables></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG.1</h:b> that meet the following: 
-		          [<h:i>IEEE 802.11-2020 and <selectables>
-		            <selectable>IEEE 802.11ax-2021</selectable>
-		            <selectable exclusive="yes">no other standards</selectable>
-		          </selectables></h:i>].
+		          The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with
+		          a specified cryptographic key generation algorithm<selectables>
+		            <tabularize id="fcs-ckm-1-wpa-sels" title="Allowable Choices for FCS_CKM.1/WPA">
+		              <textcol>Identifier</textcol>
+		              <selectcol>Cryptographic Key Generation Algorithm</selectcol>
+		              <reqtext>and specified cryptographic key sizes</reqtext>
+		              <selectcol>Cryptographic Key Sizes</selectcol>
+		              <reqtext>that meet the following: </reqtext>
+		              <selectcol>List of standards</selectcol>
+		              <reqtext><h:p/><h:p/>The following table provides the allowable choices for
+		                completion of the selection operations of FCS_CKM.1/WPA. At minimum, PRF-384 must be selected.</reqtext>
+		            </tabularize>
+		            
+		       
+		            
+		            <!-- PRF-384 -->
+		            <selectable id="sel-fcs-ckm-wpa-prf-384">
+		              <col>PRF-384</col>
+		              <col>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from Base-PP)</col>
+		              <col>256 bits</col>
+		              <col>IEEE 802.11-2020</col>
+		            </selectable>
+		            
+		            <!-- PRF-512 -->
+		            <selectable id="sel-fcs-ckm-wpa-prf-512">
+		              <col>PRF-512</col>
+		              <col>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from Base-PP)</col>
+		              <col>256 bits</col>
+		              <col>IEEE 802.11-2020</col>
+		            </selectable>
+		            
+		            <!-- PRF-704 -->
+		            <selectable id="sel-fcs-ckm-wpa-prf-704">
+		              <col>PRF-704</col>
+		              <col>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from Base-PP)</col>
+		              <col>256 bits</col>
+		              <col>IEEE 802.11-2020, IEEE 802.11ax-2021</col>
+		            </selectable>
+		            
+		            
+		          </selectables>
+		            
 		        </title>
 		        <note role="application">
 		          <h:p>
@@ -1474,40 +1552,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      </f-element>
 		      <audit-event/>
 		    </f-component>
-		    
-		    <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB">
-		      <depends on="feat-80211bb"/>
-		      <f-element>
-		        <title><comment>This is listed as optional in the WLAN AS module but not flagged as such in the LiFi requirements. If it should still be optional, this should be moved.<h:br/><h:br/></comment>
-		          The TSF shall distribute <h:b>the IEEE 802.11</h:b> keys in accordance with a
-		          specified key distribution method: [<h:i>trusted channel protocol specified in FPT_ITT.1(Base-PP) </h:i>] that meets the following: [<h:i>standards specified in the various iterations of FCS_COP.1</h:i>] <h:b>and
-		            does not expose the cryptographic keys</h:b>.
-		        </title>
-		        <note role="application">
-		          <h:p>
-		            This requirement applies to any key necessary for successful IEEE 802.11 connections
-		            not covered by FCS_CKM.2/GTK.
-		            In cases where a key must be distributed to other APs, this
-		            communication must be performed via a mechanism of commensurate cryptographic strength.
-		            Because communications with any component of a distributed TOE are required to be
-		            performed over a trusted connection, the transfer of these keys will be protected.
-		          </h:p>
-		          <h:p>
-		            FCS_COP.1 and FPT_ITT.1 are defined in the NDcPP.
-		          </h:p>
-		        </note>
-		        <aactivity>
-		          <TSS>The evaluator will examine the TSS to determine that it describes which keys are distributed outside
-		            the TOE, where they are sent, and the purpose for this transfer.<h:br/><h:br/></TSS>
-		          <Guidance>If this function is dependent on TOE configuration, the evaluator will confirm that the operational
-		            guidance contains instructions for how to configure that the keys are adequately protected.<h:br/><h:br/>
-		          </Guidance>
-		          <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
-		            protocols, and FPT_ITT.1 (Base-PP).</Tests>
-		        </aactivity>
-		      </f-element>
-		      <audit-event/>
-		    </f-component>
+		   
 		    
 		    <f-component name="Cryptographic Key Distribution (GTK)" cc-id="fcs_ckm.2" iteration="GTK">
 		      <depends on="feat-80211bb"/>
@@ -1539,7 +1584,7 @@ This PP-Module is written to address the situation where a distributed network d
 		              appropriate participating clients.
 		            </h:p>
 		            <h:p>
-		              Step 1: The evaluator will configure the AP to an unused channel and configure the WLAN
+		              Step 1: The evaluator will identify the channel used by the TOE and configure the 
 		              sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel).
 		              The sniffer should also be configured to filter on the MAC address of the TOE and client.
 		            </h:p>
@@ -1814,7 +1859,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      <f-element>
 		        <title>The TSF shall initiate communication via the trusted channel for [<h:i>no services</h:i>].</title>
 		        <aactivity>
-		          <no-tests/>
+		          <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> base-PP.</no-tests>
 		        </aactivity>
 		      </f-element>
 		      <audit-event>
