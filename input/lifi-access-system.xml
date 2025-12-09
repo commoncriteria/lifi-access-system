@@ -532,7 +532,7 @@ This PP-Module is written to address the situation where a distributed network d
 		          <!-- AES-CCMP -->
 		          <selectable id="sel-fcs-cop-lifi-aes-ccmp">
 		            <col>AES-CCMP</col>
-		            <col>AES in CCM mode Protocolr</col>
+		            <col>AES in CCM mode Protocol</col>
 		            <col>256 bits</col>
 		            <col>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38C, IEEE 802.11-2020</col>
 		          </selectable>
@@ -753,7 +753,7 @@ This PP-Module is written to address the situation where a distributed network d
                
               <h:li>Security type</h:li> 
               <h:li>Client credentials to be used for authentication</h:li> 
-              <h:li><selectables><selectable>authentication protocol</selectable><selectable>Service Set Identifier (SSID) if the SSID is broadcasted</selectable><selectable>no other security policy elements</selectable></selectables></h:li>  
+              <h:li><selectables><selectable>authentication protocol</selectable><selectable>Service Set Identifier (SSID) if the SSID is broadcast</selectable><selectable>no other security policy elements</selectable></selectables></h:li>  
               </h:ul>
               </h:i>].
             </title>
@@ -1116,7 +1116,7 @@ This PP-Module is written to address the situation where a distributed network d
   <section title="Cryptographic Support (FCS)">
   <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB">
     <f-element>
-      <title>The TSF shall distribute <h:b>IEEE 802.11</h:b> keys in accrodance with a specified cryptographic key distribution method <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable> that meets the following: <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
+      <title>The TSF shall distribute <h:b>IEEE 802.11</h:b> keys in accordance with a specified cryptographic key distribution method <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable> that meets the following: <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
       </title>
       <note role="application">
         <h:p>
