@@ -19,7 +19,6 @@ output/lifi-access-system-release-linkable.html: KDF
 output/lifi-access-system-release-linkable.html: MACSEC
 output/lifi-access-system-release-linkable.html: MACsec
 output/lifi-access-system-release-linkable.html: PRF
-output/lifi-access-system-release-linkable.html: Protocolr
 output/lifi-access-system-release-linkable.html: RadSec
 output/lifi-access-system-release-linkable.html: SAE
 output/lifi-access-system-release-linkable.html: SKC
@@ -32,7 +31,6 @@ output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: Wi
 output/lifi-access-system-release-linkable.html: Wireshark
-output/lifi-access-system-release-linkable.html: accrodance
 output/lifi-access-system-release-linkable.html: broadcasted
 output/lifi-access-system-release-linkable.html: lifecycle
 output/lifi-access-system-release-linkable.html: multicast
@@ -55,7 +53,6 @@ output/lifi-access-system-release.html: ITT
 output/lifi-access-system-release.html: KDF
 output/lifi-access-system-release.html: MACsec
 output/lifi-access-system-release.html: PRF
-output/lifi-access-system-release.html: Protocolr
 output/lifi-access-system-release.html: RadSec
 output/lifi-access-system-release.html: SAE
 output/lifi-access-system-release.html: SKC
@@ -66,8 +63,6 @@ output/lifi-access-system-release.html: TST
 output/lifi-access-system-release.html: WPA2
 output/lifi-access-system-release.html: WPA3
 output/lifi-access-system-release.html: Wi
-output/lifi-access-system-release.html: accrodance
-output/lifi-access-system-release.html: broadcasted
 output/lifi-access-system-release.html: identifier’s
 output/lifi-access-system-release.html: multicast
 output/lifi-access-system-release.html: vlc
@@ -119,7 +114,6 @@ output/lifi-access-system.html: KDF
 output/lifi-access-system.html: MACSEC
 output/lifi-access-system.html: MACsec
 output/lifi-access-system.html: PRF
-output/lifi-access-system.html: Protocolr
 output/lifi-access-system.html: RadSec
 output/lifi-access-system.html: SAE
 output/lifi-access-system.html: SKC
@@ -132,7 +126,6 @@ output/lifi-access-system.html: WPA2
 output/lifi-access-system.html: WPA3
 output/lifi-access-system.html: Wi
 output/lifi-access-system.html: Wireshark
-output/lifi-access-system.html: accrodance
 output/lifi-access-system.html: broadcasted
 output/lifi-access-system.html: identifier’s
 output/lifi-access-system.html: lifecycle
