@@ -17,60 +17,12 @@
         ref/Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[6]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/testlist[2]""/test[1]""/depends[1]""/ref[1]""
 * Error: Detected dangling id-reference to windows from attribute
         ref/Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[6]""/f-component[1]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[1]""/depends[1]""/ref[1]""
-* Error: Detected dangling ref to 'FAU_GEN.1/LiFi'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[16]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_COP.1/LiFiDataEncryption'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[17]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FIA_8021X_EXT.1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[18]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FIA_UAU.6'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[19]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FMT_SMF.1/LiFi'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[20]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FPT_AEX_EXT.1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[21]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FTA_TSE.1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[22]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FTP_ITC.1/8021X'
+* Error: Detected dangling ref to 'fta-tse.1'
         for a ref.
 	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[23]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_CKM.2/Distrib'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[24]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_CKM.1/WPA'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[25]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_CKM.2/GTK'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[26]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_CKM.2/PMK'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[27]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FIA_PSK_EXT.1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[28]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FTP_ITC.1/Client'
+* Error: Detected dangling ref to 'fia-psk-ext.1'
         for a ref.
 	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[29]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FTP_ITC.1/Gvlc'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[30]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_RADSEC_EXT.1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[31]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_RADSEC_EXT.2'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[32]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'FCS_RADSEC_EXT.3'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[33]"This SFR "/ref[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[3]""/f-component[1]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/tabularize[1]""/reqtext[4]"The follo"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[3]""/f-component[1]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/tabularize[1]""/reqtext[4]"The follo"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[6]""/f-component[1]""/f-element[4]""/note[1]""/h:p[1]"The purpo"/h:p[1]""
