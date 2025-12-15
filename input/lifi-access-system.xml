@@ -382,26 +382,51 @@ This PP-Module is written to address the situation where a distributed network d
       </modified-sfrs>
       <additional-sfrs/>
       
-      <con-toe></con-toe>
+      <con-toe> 
+        When this PP-Module extends the NDcPP, the TOE type for the overall TOE is still a network device.
+        This PP-Module just defines the TOE as a specific type of network device with functional capabilities
+        distinct to that type. </con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
       
-      <con-mod ref="T.DATA_INTEGRITY"></con-mod>
-      <con-mod ref="T.NETWORK_DISCLOSURE"></con-mod>
-      <con-mod ref="T.NETWORK_ACCESS"></con-mod>
-      <con-mod ref="T.REPLAY_ATTACK"></con-mod>
+      <con-mod ref="T.DATA_INTEGRITY">This threat is a specific type of failure that may result from successful exploitation of the T.WEAK_CRYPTOGRAPHY threat defined by the Base-PP. It is an extension of the Base-PP threat for communications that are specific to this PP-Module.</con-mod>
+      <con-mod ref="T.NETWORK_DISCLOSURE">This threat extends the security problem defined by the Base-PP to include the threat of a malicious entity in an untrusted network interacting with a protected entity in a trusted network. This is not addressed in the Base-PP because not all network devices are responsible for facilitating communications between separate networks. This threat is also consistent with the T.UNTRUSTED_COMMUNICATION_CHANNELS threat defined by the Base-PP because compromise of data in transit is one potential way this threat may be exploited.</con-mod>
+      <con-mod ref="T.NETWORK_ACCESS">This threat extends the security problem defined by the Base-PP to include the threat of a malicious entity in an untrusted network interacting with a protected entity in a trusted network. This is not addressed in the Base-PP because not all network devices are responsible for facilitating communications between separate networks.</con-mod>
+      <con-mod ref="T.NETWORK_ATTACK">This threat extends the security problem defined by the Base-PP to include network attacks as a more specific type of the threat defined by T.WEAK_CRYPTOGRAPHY and T.UNTRUSTED_COMMUNICATIONS_CHANNELS.</con-mod>
+      <con-mod ref="T.REPLAY_ATTACK">This threat is a specific type of failure that may result from successful exploitation of the T.UNAUTHORIZED_ADMINISTRATOR_ACCESS and T.UNTRUSTED_COMMUNICATIONS_CHANNELS threats defined by the Base-PP. It is an extension of the Base-PP threat for communications that are specific to this PP-Module.</con-mod>
       
       
+      <con-mod ref="A.NON_SECURITY_FUNCTIONS">This is consistent with the Base-PP because the notion of exact PP conformance accepts the case where non-TSF functionality exists within the physical boundary of the TOE if there are no PP requirements to evaluate it.</con-mod>
+      <con-mod ref="A.MANAGED_CONFIG">This is consistent with A.TRUSTED_ADMINISTRATOR in the Base-PP by defining specific mechanisms by which the trusted administrator is defined.</con-mod>
+      <con-mod ref="A.THIRD_PARTY_SOFTWARE">This is consistent with the Base-PP because the existence of a trusted update mechanism allows for the possibility that the TOE may have implementation flaws in need of fixing.</con-mod>
+      <con-mod ref="A.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
+      <con-mod ref="A.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       
-      <con-mod ref="A.NON_SECURITY_FUNCTIONS"></con-mod>
-      <con-mod ref="A.MANAGED_CONFIG"></con-mod>
-      <con-mod ref="A.THIRD_PARTY_SOFTWARE"></con-mod>
-      <con-mod ref="A.NETWORK_CONNECTIVITY"></con-mod>
+      <con-mod ref="OE.NON_SECURITY_FUNCTIONS">This is consistent with the Base-PP because the notion of exact PP conformance accepts the case where non-TSF functionality exists within the physical boundary of the TOE if there are no PP requirements to evaluate it.</con-mod>
+      <con-mod ref="OE.MANAGED_CONFIG">This is consistent with A.TRUSTED_ADMINISTRATOR in the Base-PP by defining specific mechanisms by which the trusted administrator is defined.</con-mod>
+      <con-mod ref="OE.THIRD_PARTY_SOFTWARE">This is consistent with the Base-PP because the existence of a trusted update mechanism allows for the possibility that the TOE may have implementation flaws in need of fixing.</con-mod>
+      <con-mod ref="OE.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
+      <con-mod ref="OE.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       
-      <con-mod ref="A.PROPER_USER"></con-mod>
-      
-      <con-mod ref=""></con-mod>
+      <con-mod ref="FAU_GEN.1/LiFi">This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="FCS_COP.1/LiFiDataEncryption">This SFR defines cryptographic behavior for functions outside the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="FIA_8021X_EXT.1">This SFR defines support for 802.1X communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="FIA_UAU.6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="FMT_SMF.1/LiFi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
+      <con-mod ref="FPT_AEX_EXT.1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
+      <con-mod ref="FTA_TSE.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="FTP_ITC.1/8021X">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="FCS_CKM.2/Distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
+      <con-mod ref="FCS_CKM.1/WPA">This SFR defines additional cryptographic functionality not defined in the Base-PP, but it implements this using the DRBG mechanism already defined in the Base-PP.</con-mod>
+      <con-mod ref="FCS_CKM.2/GTK">This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</con-mod>
+      <con-mod ref="FCS_CKM.2/PMK">This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</con-mod>
+      <con-mod ref="FIA_PSK_EXT.1">This SFR defines parameters for pre-shared key generation. The Base-PP supports pre-shared keys as a potential authentication method for IPsec. This PP-Module does not prevent this from being used but does define restrictions on how pre-shared keys may be generated and what constitutes an acceptable key. This may also be used for RadSec, which is outside the original scope of the Base-PP.</con-mod>
+      <con-mod ref="FTP_ITC.1/Client">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="FTP_ITC.1/Gvlc">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="FCS_RADSEC_EXT.1">This SFR defines the implementation of RadSec and the peer authentication method that it uses. This relies on the TLS requirements defined by the Base-PP and may also use the X.509v3 certificate validation methods specified in the Base-PP, depending on the selected peer authentication method.</con-mod>
+      <con-mod ref="FCS_RADSEC_EXT.2">This SFR defines the implementation of RadSec when pre-shared key authentication is used. This functionality is outside the original scope of the Base-PP, but it relies on the TLS client protocol implementation, cryptographic algorithms, and random bit generation functions defined by the Base-PP.</con-mod>
+      <con-mod ref="FCS_RADSEC_EXT.3">This SFR defines the implementation of RadSec when pre-shared key authentication with RSA is used. This functionality is outside the original scope of the Base-PP, but it relies on the TLS client protocol implementation, cryptographic algorithms, and random bit generation functions defined by the Base-PP.</con-mod>
     </base-pp>
     <man-sfrs>
 
