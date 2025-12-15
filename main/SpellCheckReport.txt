@@ -40,6 +40,7 @@ output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: Wi
 output/lifi-access-system-release-linkable.html: Wireshark
+output/lifi-access-system-release-linkable.html: authentiate
 output/lifi-access-system-release-linkable.html: broadcasted
 output/lifi-access-system-release-linkable.html: href
 output/lifi-access-system-release-linkable.html: lifecycle
@@ -73,6 +74,7 @@ output/lifi-access-system-release.html: TBD
 output/lifi-access-system-release.html: WPA2
 output/lifi-access-system-release.html: WPA3
 output/lifi-access-system-release.html: Wi
+output/lifi-access-system-release.html: authentiate
 output/lifi-access-system-release.html: identifier’s
 output/lifi-access-system-release.html: multicast
 output/lifi-access-system-release.html: vlc
@@ -157,6 +159,7 @@ output/lifi-access-system.html: WPA2
 output/lifi-access-system.html: WPA3
 output/lifi-access-system.html: Wi
 output/lifi-access-system.html: Wireshark
+output/lifi-access-system.html: authentiate
 output/lifi-access-system.html: broadcasted
 output/lifi-access-system.html: identifier’s
 output/lifi-access-system.html: lifecycle
