@@ -409,24 +409,25 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="OE.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
       <con-mod ref="OE.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       
-      <con-mod ref="FAU_GEN.1/LiFi">This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</con-mod>
-      <con-mod ref="FCS_COP.1/LiFiDataEncryption">This SFR defines cryptographic behavior for functions outside the scope of what the Base-PP originally defined.</con-mod>
-      <con-mod ref="FIA_8021X_EXT.1">This SFR defines support for 802.1X communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
-      <con-mod ref="FIA_UAU.6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
-      <con-mod ref="FMT_SMF.1/LiFi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
-      <con-mod ref="FPT_AEX_EXT.1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
-      <con-mod ref="FTA_TSE.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
-      <con-mod ref="FTP_ITC.1/8021X">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
-      <con-mod ref="FCS_CKM.2/Distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
-      <con-mod ref="FCS_CKM.1/WPA">This SFR defines additional cryptographic functionality not defined in the Base-PP, but it implements this using the DRBG mechanism already defined in the Base-PP.</con-mod>
-      <con-mod ref="FCS_CKM.2/GTK">This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</con-mod>
-      <con-mod ref="FCS_CKM.2/PMK">This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</con-mod>
-      <con-mod ref="FIA_PSK_EXT.1">This SFR defines parameters for pre-shared key generation. The Base-PP supports pre-shared keys as a potential authentication method for IPsec. This PP-Module does not prevent this from being used but does define restrictions on how pre-shared keys may be generated and what constitutes an acceptable key. This may also be used for RadSec, which is outside the original scope of the Base-PP.</con-mod>
-      <con-mod ref="FTP_ITC.1/Client">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
-      <con-mod ref="FTP_ITC.1/Gvlc">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
-      <con-mod ref="FCS_RADSEC_EXT.1">This SFR defines the implementation of RadSec and the peer authentication method that it uses. This relies on the TLS requirements defined by the Base-PP and may also use the X.509v3 certificate validation methods specified in the Base-PP, depending on the selected peer authentication method.</con-mod>
-      <con-mod ref="FCS_RADSEC_EXT.2">This SFR defines the implementation of RadSec when pre-shared key authentication is used. This functionality is outside the original scope of the Base-PP, but it relies on the TLS client protocol implementation, cryptographic algorithms, and random bit generation functions defined by the Base-PP.</con-mod>
-      <con-mod ref="FCS_RADSEC_EXT.3">This SFR defines the implementation of RadSec when pre-shared key authentication with RSA is used. This functionality is outside the original scope of the Base-PP, but it relies on the TLS client protocol implementation, cryptographic algorithms, and random bit generation functions defined by the Base-PP.</con-mod>
+      <con-mod ref="fau-gen-1-lifi">This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="fcs-cop-1-lifidataencryption">This SFR defines cryptographic behavior for functions outside the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="fia-8021x-ext-1">This SFR defines support for 802.1X communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="fia-uau-6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="fmt-smf-1-lifi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
+      <con-mod ref="fmt-smr-ext-1">This SFR specifies that remote administration occurs over a dedicated channel, which does not conflict with the Base-PP.</con-mod>
+      <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
+      <con-mod ref="fta-tse.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="ftp-itc-1-8021x">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="fcs-ckm-2-distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
+      <con-mod ref="fcs-ckm-1-wpa">This SFR defines additional cryptographic functionality not defined in the Base-PP, but it implements this using the DRBG mechanism already defined in the Base-PP.</con-mod>
+      <con-mod ref="fcs-ckm-2-gtk">This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</con-mod>
+      <con-mod ref="fcs-ckm-2-pmk">This SFR defines additional cryptographic functionality not defined in the Base-PP that is used for functionality outside the original scope of the Base-PP.</con-mod>
+      <con-mod ref="fia-psk-ext.1">This SFR defines parameters for pre-shared key generation. The Base-PP supports pre-shared keys as a potential authentication method for IPsec. This PP-Module does not prevent this from being used but does define restrictions on how pre-shared keys may be generated and what constitutes an acceptable key. This may also be used for RadSec, which is outside the original scope of the Base-PP.</con-mod>
+      <con-mod ref="ftp-itc-1-client">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="ftp-itc-1-gvlc">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
+      <con-mod ref="fcs-radsec-ext-1">This SFR defines the implementation of RadSec and the peer authentication method that it uses. This relies on the TLS requirements defined by the Base-PP and may also use the X.509v3 certificate validation methods specified in the Base-PP, depending on the selected peer authentication method.</con-mod>
+      <con-mod ref="fcs-radsec-ext-2">This SFR defines the implementation of RadSec when pre-shared key authentication is used. This functionality is outside the original scope of the Base-PP, but it relies on the TLS client protocol implementation, cryptographic algorithms, and random bit generation functions defined by the Base-PP.</con-mod>
+      <con-mod ref="fcs-radsec-ext-3">This SFR defines the implementation of RadSec when pre-shared key authentication with RSA is used. This functionality is outside the original scope of the Base-PP, but it relies on the TLS client protocol implementation, cryptographic algorithms, and random bit generation functions defined by the Base-PP.</con-mod>
     </base-pp>
     <man-sfrs>
 
@@ -437,7 +438,7 @@ This PP-Module is written to address the situation where a distributed network d
       
       <!-- Section for SFR Class -->
       <section title="Security Audit (FAU)" id="man-fau">
-        <f-component name="Audit Data Generation (LiFi)" cc-id="fau_gen.1" iteration="LiFI">
+        <f-component name="Audit Data Generation (LiFi)" cc-id="fau_gen.1" iteration="LiFI" id="fau-gen-1-lifi">
         <f-element id="fau-gen-1e1-lifi">
           <title>The TSF shall be able to generate an audit record of the following
             auditable events: <h:ol type="a">
@@ -487,7 +488,7 @@ This PP-Module is written to address the situation where a distributed network d
 
 		<!-- Section for SFR Class -->
 		<section title="Cryptographic Support (FCS)" id="man-fcs">
-		  <f-component name="Cryptographic Operation (Data Encryption and Decryption for LiFi" cc-id="fcs_cop.1" iteration="LiFiDataEncryption">
+		  <f-component name="Cryptographic Operation (Data Encryption and Decryption for LiFi" cc-id="fcs_cop.1" iteration="LiFiDataEncryption" id="fcs-cop-1-lifidataencryption">
 		    <f-element>
 		      <title>
 		        The TSF shall perform [<h:i>symmetric-key encryption and decryption</h:i>] in accordance with a 
@@ -637,7 +638,7 @@ This PP-Module is written to address the situation where a distributed network d
         <fam-behavior>Components in this family describe requirements for implementation of 802.1X port-based network access control.</fam-behavior> 
       </ext-comp-def>   
       
-      <f-component name="802.1X Authentication" cc-id="fia_8021x_ext.1">
+      <f-component name="802.1X Authentication" cc-id="fia_8021x_ext.1" id="fia-8021x-ext-1">
         
         <comp-lev>requires the TSF to securely implement IEEE 802.1X as an authenticator.</comp-lev>
         <management>No specific management functions are identified.</management>
@@ -707,7 +708,7 @@ This PP-Module is written to address the situation where a distributed network d
         </audit-event>
       </f-component>
       
-      <f-component name="Re-authenticating" cc-id="fia_uau.6">
+      <f-component name="Re-authenticating" cc-id="fia_uau.6" id="fia-uau-6">
         <f-element>
           <title>
             The TSF shall re-authenticate the user under the conditions [<h:i>when the user changes their password,
@@ -738,7 +739,7 @@ This PP-Module is written to address the situation where a distributed network d
     </section>
       
       <section title="Security Management (FMT)" id="man-fmt">
-        <f-component name="Specification of Management Functions" cc-id="fmt_smf.1" iteration="LiFi">
+        <f-component name="Specification of Management Functions" cc-id="fmt_smf.1" iteration="LiFi" id="fmt-smf-1-lifi">
           <f-element>
             <title>
               The TSF shall be capable of performing the following management functions: [<h:i>configuration of the security policy for each wireless network, including:<h:ul>
@@ -774,7 +775,7 @@ This PP-Module is written to address the situation where a distributed network d
         <ext-comp-def title="Security Management Restrictions" fam-id="FMT_SMR_EXT">
           <fam-behavior>Components in this family describe architectural restrictions on security administration that are not defined in CC Part 2.</fam-behavior> 
         </ext-comp-def>
-        <f-component name="No Administration from Client" cc-id="fmt_smr_ext.1">
+        <f-component name="No Administration from Client" cc-id="fmt_smr_ext.1" id="fmt-smr-ext-1">
           
           <comp-lev>requires the TSF to reject remote administration from a wireless client by default.</comp-lev>
           <management>No specific management functions are identified.</management>
@@ -978,7 +979,7 @@ This PP-Module is written to address the situation where a distributed network d
       </section>
      <section title="TOE Access (FTA)" id="man-fta">
         
-       <f-component name="TOE Session Establishment" cc-id="fta_tse.1">
+       <f-component name="TOE Session Establishment" cc-id="fta_tse.1" id="fta_tse.1">
          <f-element>
            <title>The TSF shall be able to deny session establishment <h:b>of a wireless client session</h:b> based
              on [<h:i>TOE interface, time, day, <selectables>
@@ -1031,7 +1032,7 @@ This PP-Module is written to address the situation where a distributed network d
       
       <section title="Trusted Path/Channels (FTP)" id="man-ftp">
       
-      <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
+      <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X" id="ftp-itc-1-8021x">
         
         <f-element>
           <title>The TSF shall provide a communication channel <h:b>using IEEE 802.1X and <selectables>
@@ -1112,7 +1113,7 @@ This PP-Module is written to address the situation where a distributed network d
 <opt-sfrs>
   
   <section title="Cryptographic Support (FCS)">
-  <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB">
+  <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB" id="fcs-ckm-2-distrib">
     <f-element>
       <title>The TSF shall distribute <h:b>IEEE 802.11</h:b> keys in accordance with a specified cryptographic key distribution method <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable> that meets the following: <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
       </title>
@@ -1157,7 +1158,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      <fam-behavior>Components in this family describe requirements for implementation of the RadSec (RADIUS over TLS) protocol.</fam-behavior> 
 		    </ext-comp-def>
 		    
-		    <f-component name="RadSec" cc-id="fcs_radsec_ext.1">
+		    <f-component name="RadSec" cc-id="fcs_radsec_ext.1" id="fcs-radsec-ext-1">
 		      <depends on="s-radius"/>
 		      
 		      <comp-lev>requires the TSF to implement RadSec using a specified peer authentication method.</comp-lev>
@@ -1211,7 +1212,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    </f-component>
 		    
 
-		    <f-component name="RadSec using Pre-Shared Keys" cc-id="fcs_radsec_ext.2">
+		    <f-component name="RadSec using Pre-Shared Keys" cc-id="fcs_radsec_ext.2" id="fcs-radsec-ext-2">
 		      <depends on="s-radsec-psk"/>
 		      
 		      <comp-lev>requires the TSF to implement RadSec using pre-shared key authentication in a manner that conforms to relevant TLS specifications.</comp-lev>
@@ -1326,7 +1327,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    </f-component>
 		    
 		    
-		    <f-component name="RadSec using Pre-Shared Keys and RSA" cc-id="fcs_radsec_ext.3">
+		    <f-component name="RadSec using Pre-Shared Keys and RSA" cc-id="fcs_radsec_ext.3" id="fcs-radsec-ext-3">
 		      <depends on="s-rsa_psk_aes_256_cbc" on1="s-rsa_psk_aes_256_gcm"/>
 		      <comp-lev>requires the TSF to validate the external entity used for trusted communications.</comp-lev>
 		      <management>No specific management functions are identified.</management>
@@ -1436,7 +1437,7 @@ This PP-Module is written to address the situation where a distributed network d
 			<!-- implementation-dependent SFRs, etc. -->
 		  <section id="80211bb-sfrs" title="SFRs for 802.11bb Implementations">
 		    
-		    <f-component name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" cc-id="fcs_ckm.1" iteration="WPA">
+		    <f-component name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" cc-id="fcs_ckm.1" iteration="WPA" id="fcs-ckm-1-wpa">
 		      <depends on="feat-80211bb"/>
 		      <f-element>
 		        <title>
@@ -1571,7 +1572,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    </f-component>
 		   
 		    
-		    <f-component name="Cryptographic Key Distribution (GTK)" cc-id="fcs_ckm.2" iteration="GTK">
+		    <f-component name="Cryptographic Key Distribution (GTK)" cc-id="fcs_ckm.2" iteration="GTK" id="fcs-ckm-2-gtk">
 		      <depends on="feat-80211bb"/>
 		      <f-element>
 		        <title>
@@ -1705,7 +1706,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    </f-component>
 		    
 		    
-		    <f-component name="Cryptographic Key Distribution (PMK)" cc-id="fcs_ckm.2" iteration="PMK">
+		    <f-component name="Cryptographic Key Distribution (PMK)" cc-id="fcs_ckm.2" iteration="PMK" id="fcs-ckm-2-pmk">
 		      <depends on="feat-80211bb"/>
 		      <f-element>
 		        <title>
@@ -1738,7 +1739,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    </f-component>
 		    
 		    
-		      <f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1">
+		      <f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1" id="fia-psk-ext-1">
 		        <depends on="s-radsec-psk"/>
 		        
 		        
@@ -1848,7 +1849,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    
 		    
 		    
-		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (LiFi 802.11 Client Access)" iteration="Client">
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (LiFi 802.11 Client Access)" iteration="Client" id="ftp-itc-1-client">
 		      <depends on="feat-80211bb"/>
 		      <f-element><title><comment>Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<h:br/><h:br/></comment>
 		        The TSF shall provide a communication channel <h:b> using
@@ -1895,7 +1896,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    
 		    
 		    
-		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (MACsec)" iteration="Gvlc">
+		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (MACsec)" iteration="Gvlc" id="ftp-itc-1-gvlc">
 		      <depends on="feat-gvlc"/>
 		      <f-element><title>
 		        The TSF shall provide a communication channel <h:b>for G.vlc using MACsec</h:b> to provide a trusted channel
