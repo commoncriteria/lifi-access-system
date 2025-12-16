@@ -32,7 +32,6 @@ output/lifi-access-system-release-linkable.html: RangeChecking
 output/lifi-access-system-release-linkable.html: SAE
 output/lifi-access-system-release-linkable.html: SELinux
 output/lifi-access-system-release-linkable.html: SKC
-output/lifi-access-system-release-linkable.html: SRVName
 output/lifi-access-system-release-linkable.html: Subclause
 output/lifi-access-system-release-linkable.html: SysInternals
 output/lifi-access-system-release-linkable.html: VMMap
@@ -78,7 +77,6 @@ output/lifi-access-system-release.html: WPA3
 output/lifi-access-system-release.html: Wi
 output/lifi-access-system-release.html: authentiate
 output/lifi-access-system-release.html: github
-output/lifi-access-system-release.html: identifier’s
 output/lifi-access-system-release.html: multicast
 output/lifi-access-system-release.html: transversing
 output/lifi-access-system-release.html: vlc
@@ -105,7 +103,6 @@ output/lifi-access-system-sd.html: RadSec
 output/lifi-access-system-sd.html: RangeChecking
 output/lifi-access-system-sd.html: SELinux
 output/lifi-access-system-sd.html: SKC
-output/lifi-access-system-sd.html: SRVName
 output/lifi-access-system-sd.html: SysInternals
 output/lifi-access-system-sd.html: VMMap
 output/lifi-access-system-sd.html: WPA2
@@ -155,7 +152,6 @@ output/lifi-access-system.html: RangeChecking
 output/lifi-access-system.html: SAE
 output/lifi-access-system.html: SELinux
 output/lifi-access-system.html: SKC
-output/lifi-access-system.html: SRVName
 output/lifi-access-system.html: Subclause
 output/lifi-access-system.html: SysInternals
 output/lifi-access-system.html: VMMap
@@ -166,7 +162,6 @@ output/lifi-access-system.html: Wireshark
 output/lifi-access-system.html: authentiate
 output/lifi-access-system.html: broadcasted
 output/lifi-access-system.html: github
-output/lifi-access-system.html: identifier’s
 output/lifi-access-system.html: lifecycle
 output/lifi-access-system.html: mmap
 output/lifi-access-system.html: mprotect
