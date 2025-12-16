@@ -241,14 +241,17 @@ This PP-Module is written to address the situation where a distributed network d
       <threats>
         <threat name="T.DATA_INTEGRITY">
           <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to modify the data without authorization. If known malicious external devices are able to communicate with devices on the protected network or if devices on the protected network can establish communications with those external devices then the data contained within the communications may be susceptible to a loss of integrity.</description>
+          <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by><rationale>Mitigates the threat by defining implementation of secure cryptographic integrity algorithms.</rationale>
           <addressed-by>FCS_CKM.2/DISTRIB (optional)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by><rationale>Mitigates the threat by generating a secure key used to encrypt and protect wireless traffic using WPA.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing group temporal keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely receiving a key from an authentication server so that it is not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data. <comment>update status of this if needed to resolve github comment</comment></rationale>
+          <addressed-by>FTP_ITC.1/Gvlc (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data. <comment>update status of this if needed to resolve github comment</comment></rationale>
         </threat>
         <threat name="T.NETWORK_DISCLOSURE">
           <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to conduct unauthorized activities. If malicious external devices are able to communicate with devices on the protected network, or if devices on the protected network can establish communications with those external devices (e.g., as a result of nonexistent or insufficient data encryption that exposes the data in transit to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of information.</description>
+          <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by><rationale>Mitigates the threat by defining implementation of secure cryptographic confidentiality algorithms.</rationale>
           <addressed-by>FIA_UAU.6</addressed-by><rationale>Mitigates the threat by re-authenticating users when specified criteria are met.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by><rationale>Mitigates the threat by denying sessions based on undesirable characteristics.</rationale>
           <addressed-by>FTP_ITC.1/8021X</addressed-by><rationale>Mitigates the threat by enforcing the use of authentication to access the network.</rationale>
@@ -283,8 +286,8 @@ This PP-Module is written to address the situation where a distributed network d
         </threat>
         <threat name="T.REPLAY_ATTACK">
           <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets transversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
-          
-          <addressed-by>FIP_ITC.1/8021X</addressed-by><rationale>Mitigates the threat by authenticating clients before allowing access to the controlled network and preventing replay of previous authentication sessions.</rationale>
+          <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by><rationale>Mitigates the threat by defining implementation of secure cryptographic integrity algorithms that prevent the disclosure of data that would be potentially suitable for replay attempts.</rationale>
+          <addressed-by>FTP_ITC.1/8021X</addressed-by><rationale>Mitigates the threat by authenticating clients before allowing access to the controlled network and preventing replay of previous authentication sessions.</rationale>
           <addressed-by>FIA_UAU.6</addressed-by><rationale>Mitigates the threat by re-authenticating users when specified criteria are met, which can include if a specified time has passed or other indicators of stale authentication data.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by><rationale>Mitigates the threat by denying sessions based on undesirable characteristics, which can include a detection of replay or other indicators of stale authentication data.</rationale>
           
@@ -476,7 +479,7 @@ This PP-Module is written to address the situation where a distributed network d
       
       <!-- Section for SFR Class -->
       <section title="Security Audit (FAU)" id="man-fau">
-        <f-component name="Audit Data Generation (LiFi)" cc-id="fau_gen.1" iteration="LiFI" id="fau-gen-1-lifi">
+        <f-component name="Audit Data Generation (LiFi)" cc-id="fau_gen.1" iteration="LiFi" id="fau-gen-1-lifi">
         <f-element id="fau-gen-1e1-lifi">
           <title>The TSF shall be able to generate an audit record of the following
             auditable events: <h:ol type="a">
