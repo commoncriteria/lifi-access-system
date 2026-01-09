@@ -287,7 +287,11 @@ This PP-Module is written to address the situation where a distributed network d
         <threat name="T.NETWORK_ATTACK">
           <description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may engage in communications with applications and services running on or part of the TOE with the intent of compromise. Engagement may consist of altering existing legitimate communications.</description>
           <addressed-by>FAU_GEN.1/LiFi</addressed-by><rationale>Mitigates the threat by generating audit data that will detect TSF failures.</rationale>
-          <addressed-by>FPT_AEX_EXT.1</addressed-by><rationale>Mitigates the threat by implementing mechanisms that increase the difficulty of a successful network attack.</rationale>
+          <addressed-by>FPT_ACF_EXT.1</addressed-by><rationale>Mitigates the threat by limiting access that could be obtained on the system as a result of successful network attack.</rationale>
+          <addressed-by>FPT_ASLR_EXT.1</addressed-by><rationale>Mitigates the threat by preventing network attacks that rely on predictable program memory layout.</rationale>
+          <addressed-by>FPT_SBOP_EXT.1</addressed-by><rationale>Mitigates the threat by preventing network attacks that rely on overwriting stack memory to execute arbitrary code.</rationale>
+          <addressed-by>FPT_W^X_EXT.1</addressed-by><rationale>Mitigates the threat by preventing network attacks that rely on writing arbitrary executable code to memory and subsequently executing it.</rationale>
+          
         </threat>
         <threat name="T.REPLAY_ATTACK">
           <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets transversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
@@ -855,173 +859,274 @@ This PP-Module is written to address the situation where a distributed network d
       </section>
       <section title="Protection of the TSF (FPT)" id="man-fpt">
         
-        <ext-comp-def title="Anti-Exploitation Capabilities" fam-id="FPT_AEX_EXT">
-          <fam-behavior>This family defines requirements for protecting against common types of software exploitation techniques.</fam-behavior>
+        
+        
+        <ext-comp-def fam-id="FPT_ACF_EXT" title="Access Controls">
+          <fam-behavior>This family defines specific TOE components that are protected against unprivileged access. This is a new
+            family defined for the FPT class.</fam-behavior>
         </ext-comp-def>
         
-        <f-component cc-id="fpt_aex_ext.1" id="fpt-aex-ext-1" name="Anti-Exploitation Capabilities">
-          <comp-lev>requires the application to implement functionality that protects against common software exploits.</comp-lev>
-          <management>No specific management functions are identified.</management>
+        <f-component cc-id="fpt_acf_ext.1" name="Access Controls">
+          
+          <comp-lev> requires the TSF to prohibit unauthorized users from reading or
+            modifying specific TSF data.</comp-lev>
+          <management>There are no management functions foreseen.</management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP or ST:
+            <h:ul>
+              <h:li>Unauthorized attempts to perform operations against protected data</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>No dependencies.</dependencies>
+          
+          <f-element id="fel-protect-priv">
+            <title> The TSF shall implement access controls which prohibit unprivileged users from
+              modifying: <h:ul>
+                <h:li>Kernel and its drivers/modules</h:li>
+                <h:li>Security audit logs</h:li>
+                <h:li>Shared libraries</h:li>
+                <h:li>System executables</h:li>
+                <h:li>System configuration files</h:li>
+                <h:li><assignable>other objects</assignable></h:li>
+              </h:ul>
+              .
+            </title>
+            <aactivity>
+              <TSS>
+                The evaluator shall confirm that the TSS specifies the locations of kernel drivers/modules, security
+                audit logs, shared libraries, system executables, and system configuration files.  Every
+                file does not need to be individually identified, but the system's conventions for storing and protecting
+                such files must be specified.
+              </TSS>
+              <Guidance/>
+              <Tests>
+                The evaluator shall create an unprivileged user account.
+                Using this account, the evaluator shall ensure that the following tests result in a negative
+                outcome (i.e., the action results in the OS denying the evaluator permission to
+                complete the action):
+                <testlist>
+                  <test>The evaluator shall attempt to modify all kernel drivers and modules.</test>
+                  <test>The evaluator shall attempt to modify all security audit logs generated by the logging subsystem.</test>
+                  <test>The evaluator shall attempt to modify all shared libraries that are used throughout the system.</test>
+                  <test>The evaluator shall attempt to modify all system executables.</test>
+                  <test>The evaluator shall attempt to modify all system configuration files.</test>
+                  <test>The evaluator shall attempt to modify any additional components selected.</test>
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+          <f-element id="fel-no-read">
+            <title> The TSF shall implement access controls which prohibit unprivileged users from
+              reading: <h:ul>
+                <h:li>Security audit logs</h:li>
+                <h:li>System-wide credential repositories</h:li>
+                <h:li><assignable>list of other objects</assignable></h:li>
+              </h:ul>
+              .
+            </title>
+            <note role="application">
+              "Credential repositories" refer, in this case, to structures containing cryptographic keys or passwords.
+            </note>
+            <aactivity>
+              <Tests>
+                The evaluator shall create an unprivileged user account.
+                Using this account, the evaluator shall ensure that the following tests result in a negative
+                outcome (i.e., the action results in the OS denying the evaluator permission to
+                complete the action):
+                <testlist>
+                  <test>The evaluator shall attempt to read security audit logs generated by the auditing subsystem</test>
+                  <test>The evaluator shall attempt to read system-wide credential repositories</test>
+                  <test>The evaluator shall attempt to read any other object specified in the assignment</test>
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+          <audit-event>
+            <audit-event-descr>Unauthorized attempts to perform operations against protected data</audit-event-descr>
+          </audit-event>
+        </f-component>
+        
+        <ext-comp-def fam-id="FPT_ASLR_EXT" title="Address Space Layout Randomization">
+          <fam-behavior>This family defines the ability of the TOE to implement address space layout randomization (ASLR). This
+            is a new family defined for the FPT class.</fam-behavior>
+        </ext-comp-def>
+        
+        <f-component cc-id="fpt_aslr_ext.1" name="Address Space Layout Randomization">
+          
+          <comp-lev> defines the ability of the TOE to use ASLR as
+            well as the objects that ASLR is applied to.</comp-lev>
+          <management>There are no management functions foreseen.</management>
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>No dependencies.</dependencies>
-          <f-element id="fel-aslr">
-            <title>The <h:b>web applications used by the TOE</h:b> shall not request to map memory at an explicit address except for <assignable>list of explicit exceptions</assignable>.</title>
-            <ext-comp-def-title>
-              <title>The application shall not request to map memory at an explicit address except for <assignable>list of explicit exceptions</assignable>.</title>
-            </ext-comp-def-title>
-            <note role="application">Requesting a memory mapping at an explicit address subverts address space layout randomization (ASLR).</note>
-            <aactivity level="element">
-              <TSS><h:p>The evaluator shall ensure that the TSS identifies any web applications used by the TOE and describes the compiler flags used to enable ASLR when they are compiled. If any explicitly-mapped exceptions are claimed, the evaluator shall check that the TSS identifies these exceptions, describes the static memory mapping that is used, and provides justification for why static memory mapping is appropriate in this case.</h:p></TSS>
-              <Guidance><h:p>None.</h:p></Guidance>
-              <Tests>
-                For each web application used by the TOE, the evaluator shall perform either a static or dynamic analysis to determine that no memory mappings are placed at an explicit and consistent address except for any exceptions claimed in the SFR. For these exceptions, the evaluator shall verify that this analysis shows explicit mappings that are consistent with what is claimed in the TSS. The method of doing so varies per platform. For those platforms requiring the same application running on two different systems, the evaluator may alternatively use the same device. After collecting the first instance of mappings, the evaluator must uninstall the application, reboot the device, and reinstall the application to collect the second instance of mappings.
-            
-                <testlist>
-                  <test>
-                    <depends ref="windows"/>
-                    
-                    For each web application used by the TOE, the evaluator shall run the same application on two different Windows systems and run a tool that will list all memory mapped addresses for the application. The evaluator shall then verify the two different instances share no mapping locations. The Microsoft SysInternals tool, VMMap, could be used to view memory addresses of a running application. The evaluator shall use a tool such as Microsoft's BinScope Binary Analyzer to confirm that the application has ASLR enabled.
-                    
-                  </test>
-                </testlist>
-           
-                <testlist>
-                  <test>
-                    <depends ref="linux"/>
-                    
-                    For each web application used by the TOE, the evaluator shall run the same application on two different Linux systems. The evaluator shall then compare their memory maps using <h:code>pmap -x <h:i>PID</h:i></h:code> to ensure the two different instances share no mapping locations.
-                    
-                  </test>
-                </testlist>
-       
-              </Tests>
-            </aactivity>
-          </f-element>
-          <f-element id="fel-nwx">
-            <title>The application shall  <selectables onlyone="yes" linebreak="yes"><selectable id="fpt_aex_ext.1.2_1" >not allocate any memory region with both write and execute permissions</selectable><selectable id="fpt_aex_ext.1.2_2">allocate memory regions with write and execute permissions for only <assignable>list of functions performing just-in-time compilation</assignable> </selectable> </selectables>.</title>
-            <ext-comp-def-title>
-              <title>The <h:b>web applications used by the TOE</h:b> shall  <selectables onlyone="yes" linebreak="yes"><selectable>not allocate any memory region with both write and execute permissions</selectable><selectable>allocate memory regions with write and execute permissions for only <assignable>list of functions performing just-in-time compilation</assignable> </selectable> </selectables>.</title>
-            </ext-comp-def-title>
-            <note role="application">Requesting a memory mapping with both write and execute permissions subverts the platform protection provided by DEP. If the TOE's web applications perform no just-in-time compiling, then the first selection must be chosen.</note>
-            <aactivity level="element">
-              <TSS><h:p>None.</h:p></TSS>
-              <Guidance><h:p>None.</h:p></Guidance>
-              <Tests>
-                For each web application used by the TOE, the evaluator shall verify that no memory mapping requests are made with write and execute permissions. The method of doing so varies per platform.
-       
-                <testlist>
-                  <test>
-                    <depends ref="windows"/>
-                    
-                    For each web application used by the TOE, the evaluator shall use a tool such as Microsoft's BinScope Binary Analyzer to confirm that the application passes the NXCheck. The evaluator may also ensure that the <h:code>/NXCOMPAT</h:code> flag was used during compilation to verify that DEP protections are enabled for the application.
-                    
-                  </test>
-                </testlist>
           
-                <testlist>
-                  <test>
-                    <depends ref="linux"/>
-                    
-                    For each web application used by the TOE, the evaluator shall perform static analysis on the application to verify that both <h:ul><h:li>mmap is never invoked with both the PROT_WRITE and PROT_EXEC permissions, and</h:li><h:li>mprotect is never invoked with the PROT_EXEC permission.</h:li></h:ul>
-                  </test>
-                </testlist>
-  
+          <f-element id="fel-aslr">
+            <title>The TSF shall always randomize process address space memory locations with
+              <selectables>
+                <selectable>8</selectable>
+                <selectable><assignable>number greater than 8</assignable></selectable>
+              </selectables>
+              bits of entropy except for
+              <assignable>list of explicit exceptions</assignable>.
+            </title>
+            <aactivity>
+              <TSS>The evaluator shall examine the TSS to verify that it identifies the number of entropy bits used for ASLR and what exceptions there are to this, if any.</TSS>
+              <Guidance/>
+              <Tests>
+                The evaluator shall select 3 executables included with the TSF.
+                If the TSF includes a web browser it must be selected.
+                If the TSF includes a mail client it must be selected.
+                For each of these apps, the evaluator shall launch the same executables on two separate instances of the
+                OS on identical hardware and compare all memory mapping locations.
+                The evaluator shall ensure that no memory mappings are placed in the same location.
+                If the rare chance occurs that two mappings are the same for a single executable and
+                not the same for the other two, the evaluator shall repeat the test with that executable to verify
+                that in the second test the mappings are different.
+                This test can also be completed on the same hardware and rebooting between application launches.
               </Tests>
             </aactivity>
           </f-element>
-          <f-element id="fel-plays-nice">
-            <title>The <h:b>web applications used by the TOE</h:b> shall be compatible with security features provided by the platform vendor.</title>
-            <ext-comp-def-title>
-              <title>The application shall be compatible with security features provided by the platform vendor.</title>
-            </ext-comp-def-title>
-            <note role="application">This requirement is designed to ensure that platform security features do not need to be disabled in order for the TOE's web applications to run.</note>
-            <aactivity level="element">
-              <TSS><h:p>None.</h:p></TSS>
-              <Guidance><h:p>None.</h:p></Guidance>
-              <Tests>
-                The evaluator shall configure the platform in the necessary manner and carry out one of the prescribed tests:
          
-                <testlist>
-                  <test>
-                    <depends ref="windows"/>
-                    <h:p>If the OS platform supports Windows Defender Exploit Guard, then the evaluator shall ensure that each web application used by the TOE can run successfully with Windows Defender Exploit Guard Exploit Protection configured with the following minimum mitigations enabled; Control Flow Guard (CFG), Randomize memory allocations (Bottom-Up ASLR), Export address filtering (EAF), Import address filtering (IAF), and Data Execution Prevention (DEP). The following link describes how to enable Exploit Protection, https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/enable-exploit-protection?view=o365-worldwide.</h:p>
-                  </test>
-                </testlist>
-       
-                <testlist>
-                  <test>
-                    <depends ref="linux"/>
-                    
-                    The evaluator shall ensure that each web application used by the TOE can successfully run on a system with either SELinux or AppArmor enabled and in enforce mode.
-                    
-                  </test>
-                </testlist>
-         
-              </Tests>
-            </aactivity>
-          </f-element>
-          <f-element id="fel-ro-exe">
-            <title>The <h:b>web applications used by the TOE</h:b> shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.</title>
-            <ext-comp-def-title>
-              <title>The application shall not write user-modifiable files to directories that contain executable files unless explicitly directed by the user to do so.</title>
-            </ext-comp-def-title>
-            <note role="application"><h:p>The purpose of this requirement is to help ensure the integrity of application binaries by supporting file protection mechanisms such as directory-level file permissions and application allowlisting.<h:p/>A user-modifiable file for purposes of this requirement is a file that is writable by an unprivileged user of the application - either directly through application execution or independently of the application. If an application runs in the context of the application user, then the application should not be able to write to the directory containing the application binaries - regardless of whether the files are configuration data, audit data, or temporary files.<h:p/>Executables and user-modifiable files may not share the same parent directory, but may share directories above the parent.</h:p></note>
-            <aactivity level="element">
-              <TSS><h:p>None.</h:p></TSS>
-              <Guidance><h:p>None.</h:p></Guidance>
-              <Tests>
-                The evaluator shall run each web application used by the TOE and determine where it writes its files. For files where the user does not choose the destination, the evaluator shall check whether the destination directory contains executable files. This varies per platform:
-           
-                <testlist>
-                  <test>
-                    <depends ref="windows"/>
-                    
-                    For Windows Universal Applications the evaluator shall consider the requirement met because the platform forces applications to write all data within the application working directory (sandbox). For Windows Desktop Applications the evaluator shall run the program, mimicking normal usage, and note where all user-modifiable files are written. The evaluator shall ensure that there are no executable files stored in the same directories to which the application wrote user-modifiable files.
-                    
-                  </test>
-                </testlist>
-    
-                <testlist>
-                  <test>
-                    <depends ref="linux"/>
-                    
-                    The evaluator shall run each web application used by the TOE, mimicking normal usage, and note where all user-modifiable files are written. The evaluator shall ensure that there are no executable files stored in the same directories to which the application wrote user-modifiable files.
-                    
-                  </test>
-                </testlist>
-
-              </Tests>
-            </aactivity>
-          </f-element>
-          <f-element id="fel-stackcookies">
-            <title>The <h:b>web applications used by the TOE</h:b> shall be built with stack-based buffer overflow protection enabled.</title>
-            <ext-comp-def-title>
-              <title>The application shall be built with stack-based buffer overflow protection enabled.</title>
-            </ext-comp-def-title>
-            <aactivity level="element">
-              <TSS><h:p>(Conditional: The PE or ELF automated tests fail) The evaluator shall ensure that the TSS describes the stack-based buffer overflow compiler flags.</h:p></TSS>
-              <Guidance><h:p>None.</h:p></Guidance>
-              <Tests>
-                The evaluator will inspect every native executable included in the TOE to ensure that stack-based buffer overflow protection is present.
-                <testlist>
-                  <test>
-                    <depends ref="windows"/>
-                    
-                    Applications that run as Managed Code in the .NET Framework do not require these stack protections. Applications developed in Object Pascal using the Delphi IDE compiled with RangeChecking enabled comply with this element. For other code, the evaluator shall review the TSS and verify that the /GS flag was used during compilation. The evaluator shall run a tool like, BinSkim, that can verify the correct usage of /GS.
-                    
-                  </test>
-                </testlist>
-                <testlist>
-                  <test><h:p><h:i><h:b>For PE</h:b></h:i>, the evaluator will disassemble each and ensure the following sequence appears:</h:p><h:code>mov rcx, QWORD PTR [rsp+(...)]</h:code><h:br/><h:code>xor rcx, (...)</h:code><h:br/><h:code>call (...)</h:code><h:br/></test>
-                </testlist>
-                <testlist>
-                  <test><h:p><h:i><h:b>For ELF executables</h:b></h:i>, the evaluator will ensure that each contains references to the symbol <h:b>__stack_chk_fail</h:b>.<h:p/>If these automated tests fail, the evaluator shall perform the above, conditional TSS activity.</h:p></test>
-                </testlist>
-                <h:p>Tools such as <h:a href="https://github.com/commoncriteria/canary-detector">Canary Detector</h:a> may help automate these activities.</h:p>
-              </Tests>
-            </aactivity>
-          </f-element>
+          <audit-event/>
         </f-component>
+      
+      
+      
+        <ext-comp-def fam-id="FPT_SBOP_EXT" title="Stack Buffer Overflow Protection">
+          <fam-behavior>This family requires the TSF to be compiled using stack-based buffer overflow protections. This is a new
+            family defined for the FPT class.</fam-behavior>
+        </ext-comp-def>
+        
+        
+        <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State">
+          <f-element id="fel-pres-sec-state">
+            <title>
+              The TSF shall preserve a secure state when the following types of failures occur: [<h:i>DRBG self-test failure</h:i>].              
+            </title>
+            <note role="application">The intent of this requirement is to ensure that cryptographic services requiring random bit generation cannot be performed if a failure of a self-test defined in FPT_TST.1 occurs.</note>
+            <aactivity>              
+              <TSS>
+                The evaluator shall verify that the TSF describes how the TOE enters an error state in the event of a DRBG self-test failure.
+              </TSS>
+              <Guidance>
+                The evaluator shall verify that the guidance documentation describes the error state that results from a DRBG self-test failure and the actions that a user or administrator should take in response to attempt to resolve the error state.
+              </Guidance>
+              <Tests/>
+            </aactivity>
+          </f-element>
+          <audit-event/>
+        </f-component>	     
+        
+        <f-component cc-id="fpt_sbop_ext.1" name="Stack Buffer Overflow Protection">
+          
+          <comp-lev> requires the TSF to be compiled using stack-based
+            buffer overflow protections or to store data in such a manner that a stack-based buffer overflow cannot
+            compromise the TSF.</comp-lev>
+          <management>There are no management activities foreseen.</management>
+          <audit>There are no auditable events foreseen.</audit>
+          <dependencies>No dependencies.</dependencies>
+          
+          <f-element id="fel-sbop">
+            <title>
+              The TSF shall <selectables>
+                <selectable>employ stack-based buffer overflow protections</selectable>
+                <selectable>not store parameters or variables in the same data structures as control flow values</selectable>
+              </selectables>.
+            </title>
+            
+            <note role="application">
+              Many OSes store control flow values (i.e. return addresses) in stack data structures that also contain parameters and variables.
+              For these OSes, it is expected that most of the OS, to include the kernel, libraries, and application software from the OS vendor be compiled with stack-based buffer overflow protection enabled.
+              OSes that store parameters and variables separately from control flow values do not need additional stack protections.
+            </note>
+            <aactivity>
+              <TSS>The evaluator shall examine the TSS to verify that it describes how stack-based buffer overflow protection is implemented, or how the TOE is designed in such a way that these protections are not explicitly needed.</TSS>
+              <Guidance/>
+              <Tests>
+                <h:p>For stack-based OSes, the evaluator shall determine that the TSS contains a description of stack-based buffer overflow protections used by the OS.
+                  These are referred to by a variety of terms. These include, but are not limited to, tagging, stack cookie, stack guard, and stack canaries.
+                  The TSS must include a rationale for any binaries that are not protected in this manner.
+                  The evaluator shall also preform the following test:
+                  <testlist>
+                    <test>
+                      [Conditional: if stack-based overflow detection can be determined by inventorying]: The evaluator shall inventory the kernel, libraries, and application binaries
+                      to determine those that do not implement stack-based buffer overflow protections. This list should
+                      match up with the list provided in the TSS.
+                    </test>
+                  </testlist>
+                </h:p>
+                
+                <h:p>For OSes that store parameters/variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
+                  The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.
+                </h:p>
+              </Tests>
+            </aactivity>
+          </f-element>
+          <audit-event/>
+        </f-component>
+        
+        
+        
+        <ext-comp-def fam-id="FPT_W^X_EXT" title="Write XOR Execute Memory Pages">
+          <fam-behavior>
+            This family defines the ability of the TOE to implement data execution prevention (DEP) by preventing
+            memory from being both writable and executable. This is a new family defined for the FPT class.
+          </fam-behavior>
+        </ext-comp-def>
+        <f-component cc-id="fpt_w^x_ext.1" name="Write XOR Execute Memory Pages" status="optional">
+          
+          <comp-lev> defines the ability of the TOE to prevent memory
+            from being simultaneously writable and executable unless otherwise specified.</comp-lev>
+          <management>There are no management functions foreseen.</management>
+          <audit>There are no auditable events foreseen.</audit>
+          <dependencies>No dependencies.</dependencies>
+          
+          <f-element id="fel-no-rw-mem">
+            <title> The TSF shall prevent allocation of any memory region with both write and
+              execute permissions except for <assignable>list of exceptions</assignable>.
+            </title>
+            <note role="application">Requesting a memory mapping with both write and execute
+              permissions subverts the platform protection provided by DEP.
+              If the OS provides no exceptions (such as for just-in-time compilation),
+              then "no exceptions" should be indicated in the assignment.
+              Full realization of this requirement requires hardware support, but this is commonly available.
+            </note>
+            <aactivity>
+              <TSS>
+                The evaluator shall inspect the vendor-provided developer documentation and
+                verify that no memory-mapping can be made with
+                write and execute permissions except for the cases listed in the assignment.
+              </TSS>
+              <Guidance/>           
+              <Tests>
+                The evaluator shall also perform the following tests.
+                <testlist>
+                  <test>
+                    The evaluator shall acquire or construct a test program which attempts
+                    to allocate memory that is both writable and executable.
+                    The evaluator shall run the program and confirm that it fails to
+                    allocate memory that is both writable and executable.
+                  </test>
+                  <test>
+                    The evaluator shall acquire or construct a test program which
+                    allocates memory that is executable and then
+                    subsequently requests additional write/modify permissions on that memory.
+                    The evaluator shall run the program and confirm that at no time
+                    during the lifetime of the process is the memory both writable and executable.
+                  </test>
+                  <test>
+                    The evaluator shall acquire or construct a test program which
+                    allocates memory that is writable and then
+                    subsequently requests additional execute permissions on that memory.
+                    The evaluator shall run the program and confirm that at no time
+                    during the lifetime of the process is the memory both writable and executable.
+                  </test>
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+          <audit-event/>
+        </f-component>
+      
+        
        
       </section>
      <section title="TOE Access (FTA)" id="man-fta">
