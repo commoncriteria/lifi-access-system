@@ -185,6 +185,9 @@
         <feature id="feat-80211bb" title="802.11bb Support">
           <description>The TOE implements LiFi using IEEE 802.11bb. Data in transit is protected using either IPsec or RadSec (RADIUS over TLS).</description>
         </feature>
+        <feature id="feat-distributed-toe" title="Distributed TOE">
+          <description>A specific subtype of a TOE that supports 802.11bb is a distributed architecture. When the TOE implements this feature, it uses a key distribution mechanism to pass keys between distributed components so that a remote client may persistently maintain a connection to different connections in transit (e.g., when moving to different floors of a building).</description>
+        </feature>
         <feature id="feat-gvlc" title="G.vlc Support">
           <description>The TSF implements LiFi using ITU-T G.9991 (aka G.vlc). Data in transit is protected using MACsec. When the TOE implements this feature, it must also claim conformance to the PP-Module for MACsec Ethernet Encryption.</description>
         </feature>
@@ -242,8 +245,9 @@ This PP-Module is written to address the situation where a distributed network d
         <threat name="T.DATA_INTEGRITY">
           <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to modify the data without authorization. If known malicious external devices are able to communicate with devices on the protected network or if devices on the protected network can establish communications with those external devices then the data contained within the communications may be susceptible to a loss of integrity.</description>
           <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by><rationale>Mitigates the threat by defining implementation of secure cryptographic integrity algorithms.</rationale>
-          <addressed-by>FCS_CKM.2/DISTRIB (optional)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
+          
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by><rationale>Mitigates the threat by generating a secure key used to encrypt and protect wireless traffic using WPA.</rationale>
+          <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing group temporal keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely receiving a key from an authentication server so that it is not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data. <comment>update status of this if needed to resolve github comment</comment></rationale>
@@ -255,8 +259,9 @@ This PP-Module is written to address the situation where a distributed network d
           <addressed-by>FIA_UAU.6</addressed-by><rationale>Mitigates the threat by re-authenticating users when specified criteria are met.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by><rationale>Mitigates the threat by denying sessions based on undesirable characteristics.</rationale>
           <addressed-by>FTP_ITC.1/8021X</addressed-by><rationale>Mitigates the threat by enforcing the use of authentication to access the network.</rationale>
-          <addressed-by>FCS_CKM.2/DISTRIB (optional)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients.</rationale>
+          
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by><rationale>Mitigates the threat by utilizing a secure key generation function for WPA functionality.</rationale>
+          <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing GTK keys to clients.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely receiving a key from an authentication server.</rationale>
           
@@ -291,8 +296,9 @@ This PP-Module is written to address the situation where a distributed network d
           <addressed-by>FIA_UAU.6</addressed-by><rationale>Mitigates the threat by re-authenticating users when specified criteria are met, which can include if a specified time has passed or other indicators of stale authentication data.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by><rationale>Mitigates the threat by denying sessions based on undesirable characteristics, which can include a detection of replay or other indicators of stale authentication data.</rationale>
           
-          <addressed-by>FCS_CKM.2/DISTRIB (optional)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining confidentiality and preventing replay.</rationale>
+          
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by><rationale>Mitigates the threat by utilizing a secure key generation function for WPA functionality that is not subject to replay or guessing.</rationale>
+          <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining confidentiality and preventing replay.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing GTK keys to clients so that they are not disclosed, maintaining confidentiality and preventing replay.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely receiving a key from an authentication server so that it is not disclosed, maintaining confidentiality and preventing replay.</rationale>
           <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that prevents the use of replayed data.</rationale>
@@ -1153,37 +1159,6 @@ This PP-Module is written to address the situation where a distributed network d
 
 <opt-sfrs>
   
-  <section title="Cryptographic Support (FCS)">
-  <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB" id="fcs-ckm-2-distrib">
-    <f-element>
-      <title>The TSF shall distribute <h:b>IEEE 802.11</h:b> keys in accordance with a specified cryptographic key distribution method <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable> that meets the following: <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
-      </title>
-      <note role="application">
-        <h:p>
-          This SFR is optional because a conformant TOE may be a standalone device that has no function for distributing keys to other devices. A distributed TOE that supports 802.11bb is expected to claim this functionality.
-        </h:p>
-        <h:p>
-          If claimed, this requirement applies to any key necessary for successful IEEE 802.11 connections
-          not covered by FCS_CKM.2/GTK.
-          In cases where a key must be distributed to other APs, this
-          communication must be performed via a mechanism of commensurate cryptographic strength.
-          Because communications with any component of a distributed TOE are required to be
-          performed over a trusted connection, the transfer of these keys will be protected.
-        </h:p>
-      </note>
-      <aactivity>
-        <TSS>The evaluator will examine the TSS to determine that it describes which keys are distributed outside
-          the TOE, where they are sent, and the purpose for this transfer.<h:br/><h:br/></TSS>
-        <Guidance>If this function is dependent on TOE configuration, the evaluator will confirm that the operational
-          guidance contains instructions for how to configure that the keys are adequately protected.<h:br/><h:br/>
-        </Guidance>
-        <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
-          protocols, and FPT_ITT.1 (Base-PP).</Tests>
-      </aactivity>
-    </f-element>
-    <audit-event/>
-  </f-component>
-  </section>
 </opt-sfrs>
     
 		<!-- Selection-based SFRs -->
@@ -1807,6 +1782,42 @@ This PP-Module is written to address the situation where a distributed network d
 		        <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
 		      </audit-event>
 		    </f-component>
+		    
+		  </section>
+		  
+		  <section id="distibuted-to-sfr" title="SFRs for Distributed TOE Implementations">
+		    
+		      <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB" id="fcs-ckm-2-distrib">
+		        <depends on="feat-distributed-toe"/>
+		        <f-element>
+		          <title>The TSF shall distribute <h:b>IEEE 802.11</h:b> keys in accordance with a specified cryptographic key distribution method <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable> that meets the following: <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
+		          </title>
+		          <note role="application">
+		            <h:p>
+		              This SFR is required for use in distibuted TOEs that support 802.11bb for distribution of keys to access nodes. G.Vlc TOEs will not claim this as they are used for point-to-point communications and do not have a distributed architecture. 
+		            </h:p>
+		            <h:p>
+		              If claimed, this requirement applies to any key necessary for successful IEEE 802.11 connections
+		              not covered by FCS_CKM.2/GTK.
+		              In cases where a key must be distributed to other APs, this
+		              communication must be performed via a mechanism of commensurate cryptographic strength.
+		              Because communications with any component of a distributed TOE are required to be
+		              performed over a trusted connection, the transfer of these keys will be protected.
+		            </h:p>
+		          </note>
+		          <aactivity>
+		            <TSS>The evaluator will examine the TSS to determine that it describes which keys are distributed outside
+		              the TOE, where they are sent, and the purpose for this transfer.<h:br/><h:br/></TSS>
+		            <Guidance>If this function is dependent on TOE configuration, the evaluator will confirm that the operational
+		              guidance contains instructions for how to configure that the keys are adequately protected.<h:br/><h:br/>
+		            </Guidance>
+		            <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
+		              protocols, and FPT_ITT.1 (Base-PP).</Tests>
+		          </aactivity>
+		        </f-element>
+		        <audit-event/>
+		      </f-component>
+		    
 		    
 		  </section>
 		  
