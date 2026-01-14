@@ -25,9 +25,9 @@
   <!-- PPReference (all documents) -->
   <PPReference>
     <ReferenceTable>
-      <PPVersion>0.1</PPVersion>
+      <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-02-28</PPPubDate>
+      <PPPubDate>2026-01-26</PPPubDate>
       <Keywords/>
     </ReferenceTable>
   </PPReference>
@@ -35,9 +35,9 @@
 <!-- Revision History (all documents) -->
   <RevisionHistory>
     <entry>
-      <version>0.1</version>
-      <date>2025-02-28</date>
-      <subject>Initial XML conversion</subject>
+      <version>1.0</version>
+      <date>2026-01-26</date>
+      <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
 
@@ -1978,9 +1978,14 @@ This PP-Module is written to address the situation where a distributed network d
 	<!-- included, add them here. -->
 	<bibliography>
 <cc-entry/>
+	  <entry id="bibNDcPP">
+	    <tag>NDcPP</tag>
+	    <description>
+	      <h:a href="https://www.niap-ccevs.org/protectionprofiles/524">
+	        collaborative Protection Profile for Network Devices, Version 4.0, December 22, 2025</h:a>
+	    </description>
+	  </entry>
 	</bibliography>
 
-<!-- </Module> -->
-<!-- </Package>  -->
 </Module>
 
