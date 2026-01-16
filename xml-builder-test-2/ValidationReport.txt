@@ -1,0 +1,11 @@
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:10:22: error: element "ReferenceTable" incomplete; missing required element "Keywords"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:117:88: error: attribute "id" not allowed here; expected attribute "boilerplate"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:904:101: error: value of attribute "id" is invalid; must be an XML name without colons
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1678:21: error: element "feature" missing required attributes "id" and "title"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1678:21: error: element "feature" incomplete; missing required element "description"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1679:21: error: element "feature" missing required attributes "id" and "title"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1679:21: error: element "feature" incomplete; missing required element "description"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1680:21: error: element "feature" missing required attributes "id" and "title"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1680:21: error: element "feature" incomplete; missing required element "description"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1681:21: error: element "feature" missing required attributes "id" and "title"
+/home/runner/work/lifi-access-system/lifi-access-system/input/lifi-access-system.xml:1681:21: error: element "feature" incomplete; missing required element "description"
