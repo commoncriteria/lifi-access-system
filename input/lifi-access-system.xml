@@ -632,8 +632,7 @@
                 <selectables>
                   <selectable id="fia_uau.6.1_1">following TSF-initiated session locking</selectable>
                   <selectable id="fia_uau.6.1_3">
-                    <assignable>other conditions</assignable>
-                  </selectable>
+                    <assignable>other conditions</assignable></selectable>
                   <selectable id="fia_uau.6.1_4">no other conditions</selectable>
                 </selectables></h:i>].
             </title>
@@ -753,8 +752,7 @@
                 <h:li>System executables</h:li>
                 <h:li>System configuration files</h:li>
                 <h:li>
-                  <assignable>other objects</assignable>
-                </h:li>
+                  <assignable>other objects</assignable></h:li>
               </h:ul>.
             </title>
             <aactivity>
@@ -787,8 +785,7 @@
                 <h:li>Security audit logs</h:li>
                 <h:li>System-wide credential repositories</h:li>
                 <h:li>
-                  <assignable>list of other objects</assignable>
-                </h:li>
+                  <assignable>list of other objects</assignable></h:li>
               </h:ul>.
             </title>
             <note role="application">"Credential repositories" refer, in this case, to structures containing cryptographic keys or passwords.</note>
@@ -826,8 +823,7 @@
               <selectables>
                 <selectable id="fpt_aslr_ext.1.1_1">8</selectable>
                 <selectable id="fpt_aslr_ext.1.1_3">
-                  <assignable>number greater than 8</assignable>
-                </selectable>
+                  <assignable>number greater than 8</assignable></selectable>
               </selectables>
               bits of entropy except for
               <assignable>list of explicit exceptions</assignable>.
@@ -1174,8 +1170,7 @@
             <ext-comp-def-title>
               <title>
                 The TSF shall implement
-                <assignable>list of allowed TLS versions</assignable>
-                and reject all other TLS and SSL versions. 
+                <assignable>list of allowed TLS versions</assignable>and reject all other TLS and SSL versions. 
 		            The TLS implementation shall support the following ciphersuites for use when acting as a RADIUS over TLS client:
                 <assignable>list of supported ciphersuites</assignable>.
               </title>
@@ -1466,8 +1461,7 @@
                 <selectable id="fia_psk_ext.1.1_4">WPA3-SAE-PK</selectable>
                 <selectable id="fia_psk_ext.1.1_5">IEEE 802.11 WPA2-PSK</selectable>
                 <selectable id="fia_psk_ext.1.1_7">
-                  <assignable>other protocols that use pre-shared keys</assignable>
-                </selectable>
+                  <assignable>other protocols that use pre-shared keys</assignable></selectable>
               </selectables>.
             </title>
           </f-element>
@@ -1600,8 +1594,7 @@
               The TSF shall distribute
               <h:b>IEEE 802.11</h:b>
               keys in accordance with a specified cryptographic key distribution method
-              <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable>
-              that meets the following:
+              <assignable>trusted channel protocol specified in FPT_ITT.1 (from Base-PP)</assignable>that meets the following:
               <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
             </title>
             <note role="application">
@@ -1674,12 +1667,6 @@
             <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
           </audit-event>
         </f-component>
-        <implements>
-          <feature/>
-          <feature/>
-          <feature/>
-          <feature/>
-        </implements>
       </section>
     </impl-dep-sfrs>
   </sec:Security_Requirements>
