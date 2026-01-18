@@ -385,11 +385,11 @@ The following sections list Common Criteria and technology terms used in this do
     The CEM workunits that are associated with the EAs specified in this section 
     are: ATE_IND.1-3, ATE_IND.1-4, ATE_IND.1-5, ATE_IND.1-6, and ATE_IND.1-7.</p><h2 class="indexable" data-level="1" id="aa-ND">2.1 Network Device</h2>
       The EAs defined in this section are only applicable in cases where the TOE claims conformance
-      to a PP-Configuration that includes the ND PP.
+      to a PP-Configuration that includes the NDcPP.
      <h3 class="indexable" data-level="2" id="qq-sfrs-ND-Modified">2.1.1 Modified SFRs
         </h3>
 	  The PP-Module does not modify any requirements when the 
-	  ND PP is the base.
+	  NDcPP is the base.
 	<h2 class="indexable" data-level="1" id="man-sfrs">2.2 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="fau-mandatory">2.2.1 Security Audit (FAU)</h2><div class="comp" id="FAU-GEN-1-LIFI"><h4>FAU_GEN.1/LiFi Audit Data Generation (LiFi)</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_GEN.1/LiFi</div>
               
               
@@ -866,9 +866,7 @@ The following sections list Common Criteria and technology terms used in this do
       [conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator will generate a bit-based pre-shared key of the appropriate length and use it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</li>
                 </ul></span>
               </div></div></span></div><div class="comp" id="FTP-ITC-1-CLIENT"><h4>FTP_ITC.1/Client Inter-TSF Trusted Channel (LiFi 802.11 Client Access)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/Client</div>
-              This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">,
-        version 
-        </a> base-PP. The evaluator shall repeat the tests from that SFR for each claimed LiFi communications channel.<br/><br/>
+              This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">Network Device, version 4.0</a> base-PP. The evaluator shall repeat the tests from that SFR for each claimed LiFi communications channel.<br/><br/>
             </span></div><h2 class="indexable" data-level="2" id="_sec_17">2.6.2 SFRs for Distributed TOE Implementations</h2><div class="comp" id="FCS-CKM-2-DISTRIB"><h4>FCS_CKM.2/DISTRIB Cryptographic Key Distribution (802.11 Keys)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM.2/DISTRIB</div>
               
               
@@ -888,10 +886,10 @@ The following sections list Common Criteria and technology terms used in this do
               G.vlc is implemented using MACsec. To demonstrate the implementation of G.vlc, the evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in the PP-Module for MACsec Ethernet Encryption.<br/><br/>
             </span></div><h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
     
-	base ND PP to which it must claim conformance.
+	base NDcPP to which it must claim conformance.
 	It is important to note that a TOE that is evaluated against the PP-Module is
 	inherently evaluated against this Base-PP as well. 
-	The ND PP 
+	The NDcPP 
         includes a number of Evaluation Activities associated with both SFRs and SARs.
 	Additionally, the PP-Module includes a number of SFR-based Evaluation Activities 
 	that similarly refine the SARs of the Base-PPs.
