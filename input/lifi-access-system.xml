@@ -323,10 +323,7 @@
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 ND PP Security Functional Requirements Direction -->
     <base-pp id="ND" name="Network Device" product="Network Device" short="ND" version="4.0">
-      <git>
-        <url/>
-        <branch/>
-      </git>
+      <cPP/>
       <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
       <sec-func-req-dir>In a PP-Configuration that includes the NDcPP, the TOE is expected to rely on some of the
       security functions implemented by the network device as a whole and evaluated against the Base-PP.
@@ -1667,6 +1664,12 @@
             <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
           </audit-event>
         </f-component>
+        <implements>
+          <feature/>
+          <feature/>
+          <feature/>
+          <feature/>
+        </implements>
       </section>
     </impl-dep-sfrs>
   </sec:Security_Requirements>
