@@ -289,7 +289,7 @@
       </assumptions>
     </sec:Assumptions>
     <!-- 3.3 Organizational Security Policies -->
-    <sec:Organizational_Security_Policies>
+    <sec:Organizational_Security_Policies boilerplate="no">
       <OSPs/>
     </sec:Organizational_Security_Policies>
   </section>
@@ -1667,6 +1667,12 @@
             <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
           </audit-event>
         </f-component>
+        <implements>
+          <feature/>
+          <feature/>
+          <feature/>
+          <feature/>
+        </implements>
       </section>
     </impl-dep-sfrs>
   </sec:Security_Requirements>
