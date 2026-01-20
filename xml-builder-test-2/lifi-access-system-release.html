@@ -760,9 +760,7 @@ provide all of its security functionality.
       <dl><dt class="assumption defined" id="A.MANAGED_CONFIG">A.MANAGED_CONFIG</dt><dd><span class="description">Depending on configuration and capability, the product may or may not be configuration-managed by the enterprise or bound to directory services to support multi-user login.</span></dd><dt class="assumption defined" id="A.NETWORK_CONNECTIVITY">A.NETWORK_CONNECTIVITY</dt><dd><span class="description">The platform is connected to a network. For purposes of sending/receiving data, to include software updates, the platform is connected to other entities. Other entities on the network are not inherently trustable.</span></dd><dt class="assumption defined" id="A.NON_SECURITY_FUNCTIONS">A.NON_SECURITY_FUNCTIONS</dt><dd><span class="description">The product implements some security-relevant functionality that does not require evaluation (e.g., network time synchronization, process scheduling, and virtual memory management including process separation).</span></dd><dt class="assumption defined" id="A.PROPER_USER">A.PROPER_USER</dt><dd><span class="description">Users are not malicious in nature, though they may inadvertently or intentionally engage in risky behavior.</span></dd><dt class="assumption defined" id="A.THIRD_PARTY_SOFTWARE">A.THIRD_PARTY_SOFTWARE</dt><dd><span class="description">The product runs application software developed by a third party. The applications are not intentionally developed to be malicious, but can contain inadvertent coding errors. These errors introduce risk that control of an application may be seized by a malicious entity. The product shall confine these applications within the originally designated operating environment.</span></dd></dl>
     
     
-    <h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2><p>An organization deploying the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
-      expected to satisfy the organizational security policy listed below in addition to all
-      organizational security policies defined by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </p>
+    <h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2>
       
       This document does not define any additional OSPs.
     
@@ -976,7 +974,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         <div class="comp" id="FIA_UAU.6"><h4>FIA_UAU.6 Re-authenticating</h4>
           
           <div class="element"><div class="reqid" id="FIA_UAU.6.1"><a href="#FIA_UAU.6.1" class="abbr">FIA_UAU.6.1</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall re-authenticate the user under the conditions [<i>when the user changes their password,
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall re-authenticate the user under the conditions [<i>
+                when the user changes their password,
                 [<b>selection</b>: <span class="selectable-content" id="fia_uau.6.1_1">following <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-initiated session locking</span>, <span class="selectable-content" id="fia_uau.6.1_3">
                     [<b>assignment</b>: 
      <span class="assignable-content">other conditions</span>]</span>, <span class="selectable-content" id="fia_uau.6.1_4">no other conditions</span>]</i>].
@@ -1415,7 +1414,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
      <span class="assignable-content">other protocols that use pre-shared keys</span>]</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2"><a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept text-based pre-shared keys that: <ul><li>are 22 characters and  [<b>selection</b>: <span class="selectable-content" id="fia_psk_ext.1.2_2">[<b>assignment</b>: 
-     <span class="assignable-content">other supported lengths</span>]</span>, <span class="selectable-content" id="fia_psk_ext.1.2_3">no other lengths</span>] ;</li> <li>are composed of any combination of upper and lower case letters, numbers, and special
+     <span class="assignable-content">other supported lengths</span>]</span>, <span class="selectable-content" id="fia_psk_ext.1.2_3">no other lengths</span>];</li> <li>are composed of any combination of upper and lower case letters, numbers, and special
 		              characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”).
 		            </li></ul></div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.3"><a href="#FIA_PSK_EXT.1.3" class="abbr">FIA_PSK_EXT.1.3</a></div><div class="reqdesc">
@@ -1485,7 +1484,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               <b>IEEE 802.11</b>
               keys in accordance with a specified cryptographic key distribution method
               [<b>assignment</b>: 
-     <span class="assignable-content">trusted channel protocol specified in FPT_ITT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</span>]that meets the following:
+     <span class="assignable-content">trusted channel protocol specified in FPT_ITT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</span>]
+              that meets the following:
               [<b>assignment</b>: 
      <span class="assignable-content">applicable standards as referenced by the distribution method specified in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span>].
             <div class="appnote"><span class="note-header">Application
@@ -1632,7 +1632,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           </td></tr></table><h4 id="ext-comp-FCS_RADSEC_EXT.2.1">FCS_RADSEC_EXT.2.1</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement
                 [<b>assignment</b>: 
-     <span class="assignable-content">list of allowed <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> versions</span>]and reject all other <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> and SSL versions. 
+     <span class="assignable-content">list of allowed <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> versions</span>]
+                and reject all other <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> and SSL versions. 
 		            The <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> implementation shall support the following ciphersuites for use when acting as a <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client:
                 [<b>assignment</b>: 
      <span class="assignable-content">list of supported ciphersuites</span>].
