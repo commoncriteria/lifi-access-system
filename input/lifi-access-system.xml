@@ -1466,7 +1466,7 @@
             </title>
           </f-element>
           <f-element id="fel-valid-psk">
-            <title>The TSF shall be able to accept text-based pre-shared keys that: <h:ul><h:li>are 22 characters and  <selectables><selectable id="fia_psk_ext.1.2_2"><assignable>other supported lengths</assignable></selectable><selectable id="fia_psk_ext.1.2_3" exclusive="yes">no other lengths</selectable></selectables> ;</h:li> <h:li>are composed of any combination of upper and lower case letters, numbers, and special
+            <title>The TSF shall be able to accept text-based pre-shared keys that: <h:ul><h:li>are 22 characters and  <selectables><selectable id="fia_psk_ext.1.2_2"><assignable>other supported lengths</assignable></selectable><selectable id="fia_psk_ext.1.2_3" exclusive="yes">no other lengths</selectable></selectables>;</h:li> <h:li>are composed of any combination of upper and lower case letters, numbers, and special
 		              characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”).
 		            </h:li></h:ul></title>
           </f-element>
