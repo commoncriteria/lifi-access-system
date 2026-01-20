@@ -627,9 +627,7 @@
           <consistency-rationale/>
           <f-element id="fia_uau-6-1">
             <title>
-              The TSF shall re-authenticate the user under the conditions
-              <h:i>
-                when the user changes their password,
+              The TSF shall re-authenticate the user under the conditions [<h:i>when the user changes their password,
                 <selectables>
                   <selectable id="fia_uau.6.1_1">following TSF-initiated session locking</selectable>
                   <selectable id="fia_uau.6.1_3">
