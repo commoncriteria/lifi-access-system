@@ -627,8 +627,7 @@
           <consistency-rationale/>
           <f-element id="fia_uau-6-1">
             <title>
-              The TSF shall re-authenticate the user under the conditions [<h:i>
-                when the user changes their password,
+              The TSF shall re-authenticate the user under the conditions [<h:i>when the user changes their password,
                 <selectables>
                   <selectable id="fia_uau.6.1_1">following TSF-initiated session locking</selectable>
                   <selectable id="fia_uau.6.1_3">
@@ -676,7 +675,7 @@
                 <testlist>
                   <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
                   <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
-                  <test>[Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</test>
+                  <test>{Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -889,9 +888,6 @@
                   These are referred to by a variety of terms. These include, but are not limited to, tagging, stack cookie, stack guard, and stack canaries.
                   The TSS must include a rationale for any binaries that are not protected in this manner.
                   The evaluator shall also preform the following test:</h:p>
-                <testlist>
-                  <test>[Conditional: if stack-based overflow detection can be determined by inventorying]: The evaluator shall inventory the kernel, libraries, and application binaries to determine those that do not implement stack-based buffer overflow protections. This list should match up with the list provided in the TSS.</test>
-                </testlist>
                 <h:p>For OSes that store parameters/variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
                   The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.</h:p>
               </Tests>
