@@ -440,16 +440,11 @@ The following sections list Common Criteria and technology terms used in this do
 		          In this case, the evaluator will ensure that these are the only supported lengths.
 		          To test the generation-encryption functionality of AES-CCM, the evaluator will
 		          perform the following four tests:</p>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_COP.1/LiFiDataEncryption:1</a>:
-      For each supported key and associated data length and any supported payload, nonce and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</li>
-                  <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_COP.1/LiFiDataEncryption:2</a>:
-      For each supported key and payload length and any supported associated data, nonce and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</li>
-                  <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_COP.1/LiFiDataEncryption:3</a>:
-      For each supported key and nonce length and any supported associated data, payload, and tag length, the evaluator will supply one key value and 10 associated data, payload and nonce value 3-tuples, and obtain the resulting ciphertext.</li>
-                  <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/LiFiDataEncryption:4</a>:
-      For each supported key and tag length and any supported associated data, payload, and nonce length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values and, obtain the resulting ciphertext.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_COP.1/LiFiDataEncryption:1</a>:
+      For each supported key and associated data length and any supported payload, nonce and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_COP.1/LiFiDataEncryption:2</a>:
+      For each supported key and payload length and any supported associated data, nonce and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</li><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_COP.1/LiFiDataEncryption:3</a>:
+      For each supported key and nonce length and any supported associated data, payload, and tag length, the evaluator will supply one key value and 10 associated data, payload and nonce value 3-tuples, and obtain the resulting ciphertext.</li><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/LiFiDataEncryption:4</a>:
+      For each supported key and tag length and any supported associated data, payload, and nonce length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values and, obtain the resulting ciphertext.</li></ul></span>
                 <p>To determine correctness in each of the above tests, the evaluator will compare the ciphertext with the
 		          result of generation-encryption of the same inputs with a known good implementation.</p>
                 <p>To test the decryption-verification functionality of AES-CCM, for each combination of supported
@@ -485,14 +480,10 @@ The following sections list Common Criteria and technology terms used in this do
                 <br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance evaluation activities for this component.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator will perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FIA_8021X_EXT.1:1</a>:
-      The evaluator will demonstrate that a wireless client has no access to the test network. After successfully authenticating with a RADIUS server through the TOE, the evaluator will demonstrate that the wireless client does have access to the test network.</li>
-                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_8021X_EXT.1:2</a>:
-      The evaluator will demonstrate that a wireless client has no access to the test network. The evaluator will attempt to authenticate using an invalid client certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</li>
-                  <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_8021X_EXT.1:3</a>:
-      The evaluator will demonstrate that a wireless client has no access to the test network. The evaluator will attempt to authenticate using an invalid RADIUS certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FIA_8021X_EXT.1:1</a>:
+      The evaluator will demonstrate that a wireless client has no access to the test network. After successfully authenticating with a RADIUS server through the TOE, the evaluator will demonstrate that the wireless client does have access to the test network.</li><li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_8021X_EXT.1:2</a>:
+      The evaluator will demonstrate that a wireless client has no access to the test network. The evaluator will attempt to authenticate using an invalid client certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</li><li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_8021X_EXT.1:3</a>:
+      The evaluator will demonstrate that a wireless client has no access to the test network. The evaluator will attempt to authenticate using an invalid RADIUS certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</li></ul></span>
                 <b>Note: </b>
                 Tests 2 and 3 above are not tests that "EAP-TLS works," although that is a by-product of the test.
               The test is actually that a failed authentication (under two failure modes) results in denial of access to
@@ -515,14 +506,10 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</p>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
-      For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</li>
-                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMF.1/LiFi:2</a>:
-      For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</li>
-                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMF.1/LiFi:3</a>:
-      [Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
+      For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</li><li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMF.1/LiFi:2</a>:
+      For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</li><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMF.1/LiFi:3</a>:
+      [Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</li></ul></span>
               </div></div></span></div><div class="comp" id="FMT-SMR-EXT-1"><h4>FMT_SMR_EXT.1 No Administration from Client</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMR_EXT.1</div>
               
               
@@ -548,30 +535,17 @@ The following sections list Common Criteria and technology terms used in this do
                 file does not need to be individually identified, but the system's conventions for storing and protecting
                 such files must be specified.</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                <span class="testlist-"><ul>
-                  <p>The evaluator shall create an unprivileged user account. Using this account, the evaluator shall ensure that the following tests result in a negative outcome (i.e., the action results in the OS denying the evaluator permission to complete the action):</p>
-                  <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FPT_ACF_EXT.1:1</a>:
-      The evaluator shall attempt to modify all kernel drivers and modules.</li>
-                  <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FPT_ACF_EXT.1:2</a>:
-      The evaluator shall attempt to modify all security audit logs generated by the logging subsystem.</li>
-                  <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FPT_ACF_EXT.1:3</a>:
-      The evaluator shall attempt to modify all shared libraries that are used throughout the system.</li>
-                  <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FPT_ACF_EXT.1:4</a>:
-      The evaluator shall attempt to modify all system executables.</li>
-                  <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FPT_ACF_EXT.1:5</a>:
-      The evaluator shall attempt to modify all system configuration files.</li>
-                  <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FPT_ACF_EXT.1:6</a>:
-      The evaluator shall attempt to modify any additional components selected.</li>
-                </ul></span>
-                <span class="testlist-"><ul>
-                  The evaluator shall create an unprivileged user account. Using this account, the evaluator shall ensure that the following tests result in a negative outcome (i.e., the action results in the OS denying the evaluator permission to complete the action):
-                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FPT_ACF_EXT.1:7</a>:
-      The evaluator shall attempt to read security audit logs generated by the auditing subsystem</li>
-                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FPT_ACF_EXT.1:8</a>:
-      The evaluator shall attempt to read system-wide credential repositories</li>
-                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FPT_ACF_EXT.1:9</a>:
-      The evaluator shall attempt to read any other object specified in the assignment</li>
-                </ul></span>
+                <p>The evaluator shall create an unprivileged user account. Using this account, the evaluator shall ensure that the following tests result in a negative outcome (i.e., the action results in the OS denying the evaluator permission to complete the action):</p><span class="testlist-"><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FPT_ACF_EXT.1:1</a>:
+      The evaluator shall attempt to modify all kernel drivers and modules.</li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FPT_ACF_EXT.1:2</a>:
+      The evaluator shall attempt to modify all security audit logs generated by the logging subsystem.</li><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FPT_ACF_EXT.1:3</a>:
+      The evaluator shall attempt to modify all shared libraries that are used throughout the system.</li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FPT_ACF_EXT.1:4</a>:
+      The evaluator shall attempt to modify all system executables.</li><li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FPT_ACF_EXT.1:5</a>:
+      The evaluator shall attempt to modify all system configuration files.</li><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FPT_ACF_EXT.1:6</a>:
+      The evaluator shall attempt to modify any additional components selected.</li></ul></span>
+                <p>The evaluator shall create an unprivileged user account. Using this account, the evaluator shall ensure that the following tests result in a negative outcome (i.e., the action results in the OS denying the evaluator permission to complete the action):</p><span class="testlist-"><ul><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FPT_ACF_EXT.1:7</a>:
+      The evaluator shall attempt to read security audit logs generated by the auditing subsystem</li><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FPT_ACF_EXT.1:8</a>:
+      The evaluator shall attempt to read system-wide credential repositories</li><li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FPT_ACF_EXT.1:9</a>:
+      The evaluator shall attempt to read any other object specified in the assignment</li></ul></span>
               </div></div></span></div><div class="comp" id="FPT-ASLR-EXT-1"><h4>FPT_ASLR_EXT.1 Address Space Layout Randomization</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_ASLR_EXT.1</div>
               
               
@@ -601,10 +575,8 @@ The following sections list Common Criteria and technology terms used in this do
                   These are referred to by a variety of terms. These include, but are not limited to, tagging, stack cookie, stack guard, and stack canaries.
                   The TSS must include a rationale for any binaries that are not protected in this manner.
                   The evaluator shall also preform the following test:</p>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FPT_SBOP_EXT.1:1</a>:
-      [Conditional: if stack-based overflow detection can be determined by inventorying]: The evaluator shall inventory the kernel, libraries, and application binaries to determine those that do not implement stack-based buffer overflow protections. This list should match up with the list provided in the TSS.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FPT_SBOP_EXT.1:1</a>:
+      [Conditional: if stack-based overflow detection can be determined by inventorying]: The evaluator shall inventory the kernel, libraries, and application binaries to determine those that do not implement stack-based buffer overflow protections. This list should match up with the list provided in the TSS.</li></ul></span>
                 <p>For OSes that store parameters/variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
                   The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.</p>
               </div></div></span></div><div class="comp" id="FPT-W^X-EXT-1"><h4>FPT_W^X_EXT.1 Write XOR Execute Memory Pages</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_W^X_EXT.1</div>
@@ -616,14 +588,10 @@ The following sections list Common Criteria and technology terms used in this do
                 write and execute permissions except for the cases listed in the assignment.</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall also perform the following tests.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FPT_W^X_EXT.1:1</a>:
-      The evaluator shall acquire or construct a test program which attempts to allocate memory that is both writable and executable. The evaluator shall run the program and confirm that it fails to allocate memory that is both writable and executable.</li>
-                  <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FPT_W^X_EXT.1:2</a>:
-      The evaluator shall acquire or construct a test program which allocates memory that is executable and then subsequently requests additional write/modify permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</li>
-                  <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FPT_W^X_EXT.1:3</a>:
-      The evaluator shall acquire or construct a test program which allocates memory that is writable and then subsequently requests additional execute permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FPT_W^X_EXT.1:1</a>:
+      The evaluator shall acquire or construct a test program which attempts to allocate memory that is both writable and executable. The evaluator shall run the program and confirm that it fails to allocate memory that is both writable and executable.</li><li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FPT_W^X_EXT.1:2</a>:
+      The evaluator shall acquire or construct a test program which allocates memory that is executable and then subsequently requests additional write/modify permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</li><li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FPT_W^X_EXT.1:3</a>:
+      The evaluator shall acquire or construct a test program which allocates memory that is writable and then subsequently requests additional execute permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="fta-mandatory">2.2.6 TOE Access (FTA)</h2><div class="comp" id="FTA_TSE-1"><h4>FTA_TSE.1 TOE Session Establishment</h4><span class="activity_pane_body"><div class="component-activity-header">FTA_TSE.1</div>
               
               
@@ -640,10 +608,8 @@ The following sections list Common Criteria and technology terms used in this do
                 <br/>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 For each supported attribute, the evaluator will perform the following test:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FTA_TSE.1:1</a>:
-      The evaluator successfully establishes a client session with a wireless client. The evaluator then follows the operational guidance to configure the system so that the client’s access is denied based on a specific value of the attribute. The evaluator will then attempt to establish a session in contravention to the attribute setting (for instance, the client is denied network access based upon the TOE interface that it is connecting to, or that the client is denied access based upon the time-of-day or day-of-week it is attempting connection on). The evaluator will observe that the access attempt fails.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FTA_TSE.1:1</a>:
+      The evaluator successfully establishes a client session with a wireless client. The evaluator then follows the operational guidance to configure the system so that the client’s access is denied based on a specific value of the attribute. The evaluator will then attempt to establish a session in contravention to the attribute setting (for instance, the client is denied network access based upon the TOE interface that it is connecting to, or that the client is denied access based upon the time-of-day or day-of-week it is attempting connection on). The evaluator will observe that the access attempt fails.</li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="ftp-mandatory">2.2.7 Trusted Path/Channels (FTP)</h2><div class="comp" id="FTP-ITC-1-8021X"><h4>FTP_ITC.1/8021X Inter-TSF Trusted Channel (802.1X)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/8021X</div>
               The evaluator will perform the following activities in addition to those required by the NDcPP:
               <br/>
@@ -667,16 +633,11 @@ The following sections list Common Criteria and technology terms used in this do
                 <br/>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator will perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FTP_ITC.1/8021X:1</a>:
-      The evaluator will ensure that communications using each protocol with each authorized IT entity is tested during the course of the evaluation, setting up the connections as described in the guidance documentation and ensuring that communication is successful.</li>
-                  <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FTP_ITC.1/8021X:2</a>:
-      For each protocol that the TOE can initiate as defined in the requirement, the evaluator will follow the guidance documentation to ensure that the communication channel can be initiated from the TOE.</li>
-                  <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FTP_ITC.1/8021X:3</a>:
-      The evaluator will ensure, for each communication channel with an authorized IT entity, the channel data is not sent in plaintext.</li>
-                  <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FTP_ITC.1/8021X:4</a>:
-      The evaluator will, for each protocol associated with each authorized IT entity tested during test 1, physically interrupt an established connection. The evaluator will ensure that when physical connectivity is restored, communications are appropriately protected.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FTP_ITC.1/8021X:1</a>:
+      The evaluator will ensure that communications using each protocol with each authorized IT entity is tested during the course of the evaluation, setting up the connections as described in the guidance documentation and ensuring that communication is successful.</li><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FTP_ITC.1/8021X:2</a>:
+      For each protocol that the TOE can initiate as defined in the requirement, the evaluator will follow the guidance documentation to ensure that the communication channel can be initiated from the TOE.</li><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FTP_ITC.1/8021X:3</a>:
+      The evaluator will ensure, for each communication channel with an authorized IT entity, the channel data is not sent in plaintext.</li><li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FTP_ITC.1/8021X:4</a>:
+      The evaluator will, for each protocol associated with each authorized IT entity tested during test 1, physically interrupt an established connection. The evaluator will ensure that when physical connectivity is restored, communications are appropriately protected.</li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2>The PP-Module does not define any optional requirements.<h2 class="indexable" data-level="1" id="sel-sfrs">2.4 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="fcs-selectionBased">2.4.1 Cryptographic Support (FCS)</h2><div class="comp" id="FCS-RADSEC-EXT-1"><h4>FCS_RADSEC_EXT.1 RadSec</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_RADSEC_EXT.1</div>
               
               
@@ -798,19 +759,13 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>Step 7: The evaluator will repeat Step 6 for the next two data frames with frame control value 0x4208.</p>
                 <p>The evaluator will also perform the following testing based on the supported GTK distribution
 		              methods:</p>
-                <span class="testlist-"><ul>
-                  <b>AES Key Wrap (AES-KW Tests)</b>
-                  <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_CKM.2/GTK:1</a>:
+                <span class="testlist-"><ul><li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_CKM.2/GTK:1</a>:
       The evaluator will test the authenticated encryption functionality of AES-KW for each combination of the following input parameter lengths: <ul><li>128 and 256 bit key encryption keys (KEKs)</li> <li>
 		                      Three plaintext lengths:
 		                      <ol><li>One of the plaintext lengths will be two semi-blocks (128 bits).</li> <li>One of the plaintext lengths will be three semi-blocks (192 bits).</li> <li>The third data unit length will be the longest supported plaintext
-		                          length less than or equal to 64 semi-blocks (4096 bits).</li></ol></li></ul> For each combination, generate a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KW authenticated encryption. To determine correctness, the evaluator will use the same key and plaintext values and encrypt them using a known good implementation of AES-KW authenticated-encryption, and ensure that the resulting respective ciphertext values are identical.</li>
-                  <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_CKM.2/GTK:2</a>:
-      The evaluator will test the authenticated-decryption functionality of AES-KW using the same test as for authenticated-encryption, replacing plaintext values with ciphertext values and AES-KW authenticated-encryption with AES-KW authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</li>
-                </ul></span>
-                <span class="testlist-"><ul>
-                  <b>AES Key Wrap with Padding (AES-KWP Tests)</b>
-                  <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
+		                          length less than or equal to 64 semi-blocks (4096 bits).</li></ol></li></ul> For each combination, generate a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KW authenticated encryption. To determine correctness, the evaluator will use the same key and plaintext values and encrypt them using a known good implementation of AES-KW authenticated-encryption, and ensure that the resulting respective ciphertext values are identical.</li><li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_CKM.2/GTK:2</a>:
+      The evaluator will test the authenticated-decryption functionality of AES-KW using the same test as for authenticated-encryption, replacing plaintext values with ciphertext values and AES-KW authenticated-encryption with AES-KW authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</li></ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
       
                     <p>The evaluator will test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</p>
                     <p>128 and 256 bit key encryption keys (KEKs)</p>
@@ -819,10 +774,8 @@ The following sections list Common Criteria and technology terms used in this do
 		                    One plaintext length will be the longest supported plaintext length less than or equal to 512 octets (4096 bits).</p>
                     <p>using a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KWP authenticated encryption. 
 		                    To determine correctness, the evaluator will use the AES-KWP authenticated-encryption function of a known good implementation.</p>
-                  </li>
-                  <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_CKM.2/GTK:4</a>:
-      The evaluator will test the authenticated-decryption functionality of AES-KWP using the same test as for AES-KWP authenticated-encryption, replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption with AES-KWP authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</li>
-                </ul></span>
+                  </li><li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_CKM.2/GTK:4</a>:
+      The evaluator will test the authenticated-decryption functionality of AES-KWP using the same test as for AES-KWP authenticated-encryption, replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption with AES-KWP authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</li></ul></span>
               </div></div></span></div><div class="comp" id="FCS-CKM-2-PMK"><h4>FCS_CKM.2/PMK Cryptographic Key Distribution (PMK)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM.2/PMK</div>
               
               
@@ -863,16 +816,11 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator will also perform the following tests for each protocol (or instantiation of a protocol, if
 		              performed by a different implementation on the TOE). Note that one or more of these tests can be
 		              performed with a single test case.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FIA_PSK_EXT.1:1</a>:
-      The evaluator will compose a pre-shared key of 22 characters that contains a combination of the allowed characters in accordance with the operational guidance and demonstrates that a successful protocol negotiation can be performed with the key.</li>
-                  <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FIA_PSK_EXT.1:2</a>:
-      [conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator will repeat Test 1 using the minimum length; the maximum length; a length inside the allowable range; and invalid lengths beyond the supported range (both higher and lower). The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE.</li>
-                  <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FIA_PSK_EXT.1:3</a>:
-      [conditional]: If the TOE does not generate bit-based pre-shared keys, the evaluator will obtain a bit-based pre-shared key of the appropriate length and enter it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</li>
-                  <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FIA_PSK_EXT.1:4</a>:
-      [conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator will generate a bit-based pre-shared key of the appropriate length and use it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FIA_PSK_EXT.1:1</a>:
+      The evaluator will compose a pre-shared key of 22 characters that contains a combination of the allowed characters in accordance with the operational guidance and demonstrates that a successful protocol negotiation can be performed with the key.</li><li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FIA_PSK_EXT.1:2</a>:
+      [conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator will repeat Test 1 using the minimum length; the maximum length; a length inside the allowable range; and invalid lengths beyond the supported range (both higher and lower). The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE.</li><li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FIA_PSK_EXT.1:3</a>:
+      [conditional]: If the TOE does not generate bit-based pre-shared keys, the evaluator will obtain a bit-based pre-shared key of the appropriate length and enter it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</li><li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FIA_PSK_EXT.1:4</a>:
+      [conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator will generate a bit-based pre-shared key of the appropriate length and use it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</li></ul></span>
               </div></div></span></div><div class="comp" id="FTP-ITC-1-CLIENT"><h4>FTP_ITC.1/Client Inter-TSF Trusted Channel (LiFi 802.11 Client Access)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/Client</div>
               This component is adequately evaluated when performing the evaluation activities for <span class="no-link">FTP_ITC.1</span> in the <a href="https://www.niap-ccevs.org/protectionprofiles/482">,
         version 
