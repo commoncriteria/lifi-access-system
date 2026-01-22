@@ -1666,13 +1666,8 @@ The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="
                 <p>Step 7: The evaluator will repeat Step 6 for the next two data frames with frame control value 0x4208<a id="period_441" href="#period_441">. </a></p>
                 <p>The evaluator will also perform the following testing based on the supported <abbr class="dyn-abbr"><a href="#abbr_GTK">GTK</a></abbr> distribution
 		              methods:</p>
-                <p>
-                  <b><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW Tests)</b>
-                </p>
-                <p>
-                  <b><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap with Padding (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP Tests)</b>
-                </p>
                 <span class="testlist-"><ul>
+                  <b><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW Tests)</b>
                   <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_CKM.2/GTK:1</a>:
       The evaluator will test the authenticated encryption functionality of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW for each combination of the following input parameter lengths: <ul><li>128 and 256 bit key encryption keys (KEKs)</li> <li>
 		                      Three plaintext lengths:
@@ -1682,6 +1677,7 @@ The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="
       The evaluator will test the authenticated-decryption functionality of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW using the same test as for authenticated-encryption, replacing plaintext values with ciphertext values and <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW authenticated-encryption with <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW authenticated-decryption<a id="period_447" href="#period_447">. </a>Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext<a id="period_448" href="#period_448">. </a></li>
                 </ul></span>
                 <span class="testlist-"><ul>
+                  <b><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap with Padding (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP Tests)</b>
                   <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
       
                     <p>The evaluator will test the authenticated-encryption functionality of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP for each combination of the following input parameter lengths:</p>

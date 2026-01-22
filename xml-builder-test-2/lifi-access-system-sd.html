@@ -811,13 +811,8 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>Step 7: The evaluator will repeat Step 6 for the next two data frames with frame control value 0x4208.</p>
                 <p>The evaluator will also perform the following testing based on the supported GTK distribution
 		              methods:</p>
-                <p>
-                  <b>AES Key Wrap (AES-KW Tests)</b>
-                </p>
-                <p>
-                  <b>AES Key Wrap with Padding (AES-KWP Tests)</b>
-                </p>
                 <span class="testlist-"><ul>
+                  <b>AES Key Wrap (AES-KW Tests)</b>
                   <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_CKM.2/GTK:1</a>:
       The evaluator will test the authenticated encryption functionality of AES-KW for each combination of the following input parameter lengths: <ul><li>128 and 256 bit key encryption keys (KEKs)</li> <li>
 		                      Three plaintext lengths:
@@ -827,6 +822,7 @@ The following sections list Common Criteria and technology terms used in this do
       The evaluator will test the authenticated-decryption functionality of AES-KW using the same test as for authenticated-encryption, replacing plaintext values with ciphertext values and AES-KW authenticated-encryption with AES-KW authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</li>
                 </ul></span>
                 <span class="testlist-"><ul>
+                  <b>AES Key Wrap with Padding (AES-KWP Tests)</b>
                   <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
       
                     <p>The evaluator will test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</p>
