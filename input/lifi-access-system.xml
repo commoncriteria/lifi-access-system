@@ -675,7 +675,7 @@
                 <testlist>
                   <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
                   <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
-                  <test>{Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</test>
+                  <test>[Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -888,6 +888,9 @@
                   These are referred to by a variety of terms. These include, but are not limited to, tagging, stack cookie, stack guard, and stack canaries.
                   The TSS must include a rationale for any binaries that are not protected in this manner.
                   The evaluator shall also preform the following test:</h:p>
+                <testlist>
+                  <test>[Conditional: if stack-based overflow detection can be determined by inventorying]: The evaluator shall inventory the kernel, libraries, and application binaries to determine those that do not implement stack-based buffer overflow protections. This list should match up with the list provided in the TSS.</test>
+                </testlist>
                 <h:p>For OSes that store parameters/variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
                   The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.</h:p>
               </Tests>
@@ -1395,11 +1398,28 @@
                 <h:p>
                   <h:b>AES Key Wrap (AES-KW Tests)</h:b>
                 </h:p>
-                <h:p/>
                 <h:p>
                   <h:b>AES Key Wrap with Padding (AES-KWP Tests)</h:b>
                 </h:p>
-                <h:p/>
+                <testlist>
+                  <test>The evaluator will test the authenticated encryption functionality of AES-KW for each combination of the following input parameter lengths: <h:ul><h:li>128 and 256 bit key encryption keys (KEKs)</h:li> <h:li>
+		                      Three plaintext lengths:
+		                      <h:ol><h:li>One of the plaintext lengths will be two semi-blocks (128 bits).</h:li> <h:li>One of the plaintext lengths will be three semi-blocks (192 bits).</h:li> <h:li>The third data unit length will be the longest supported plaintext
+		                          length less than or equal to 64 semi-blocks (4096 bits).</h:li></h:ol></h:li></h:ul> For each combination, generate a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KW authenticated encryption. To determine correctness, the evaluator will use the same key and plaintext values and encrypt them using a known good implementation of AES-KW authenticated-encryption, and ensure that the resulting respective ciphertext values are identical.</test>
+                  <test>The evaluator will test the authenticated-decryption functionality of AES-KW using the same test as for authenticated-encryption, replacing plaintext values with ciphertext values and AES-KW authenticated-encryption with AES-KW authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</test>
+                </testlist>
+                <testlist>
+                  <test>
+                    <h:p>The evaluator will test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</h:p>
+                    <h:p>128 and 256 bit key encryption keys (KEKs)</h:p>
+                    <h:p>Three plaintext lengths. One plaintext length will be one octet. 
+		                    One plaintext length will be 20 octets (160 bits). 
+		                    One plaintext length will be the longest supported plaintext length less than or equal to 512 octets (4096 bits).</h:p>
+                    <h:p>using a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KWP authenticated encryption. 
+		                    To determine correctness, the evaluator will use the AES-KWP authenticated-encryption function of a known good implementation.</h:p>
+                  </test>
+                  <test>The evaluator will test the authenticated-decryption functionality of AES-KWP using the same test as for AES-KWP authenticated-encryption, replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption with AES-KWP authenticated-decryption. Additionally, the evaluator will modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
