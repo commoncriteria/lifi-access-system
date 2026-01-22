@@ -811,7 +811,7 @@ This PP-Module is written to address the situation where a distributed network d
                 <testlist>
                   <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
                   <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
-                  <test>{Conditional: SSID is broadcasted]
+                  <test>[Conditional: SSID is broadcasted]
                     The evaluator shall configure the SSID to be broadcasted.
                     Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included.
                     The evaluator shall then configure the SSID to be hidden.
