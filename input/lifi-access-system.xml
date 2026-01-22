@@ -386,7 +386,7 @@
       <section title="Security Audit (FAU)" id="fau-mandatory">
         <!-- FAU_GEN.1/LiFi Audit Data Generation (LiFi) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-lifi" name="Audit Data Generation (LiFi)" iteration="LiFi">
-          <consistency-rationale/>
+          
           <f-element id="fau-gen-1e1-lifi">
             <title>
               The TSF shall be able to generate an audit record of the following
@@ -441,7 +441,7 @@
       <section title="Cryptographic Support (FCS)" id="fcs-mandatory">
         <!-- FCS_COP.1/LiFiDataEncryption Cryptographic Operation (Data Encryption and Decryption for LiFi -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-lifidataencryption" name="Cryptographic Operation (Data Encryption and Decryption for LiFi" iteration="LiFiDataEncryption">
-          <consistency-rationale/>
+          
           <f-element id="fcs_cop-1-1_LiFiDataEncryption">
             <title>
               The TSF shall perform [<h:i>symmetric-key encryption and decryption</h:i>] in accordance with a 
@@ -564,7 +564,7 @@
         </ext-comp-def>
         <!-- FIA_8021X_EXT.1 802.1X Authentication -->
         <f-component cc-id="fia_8021x_ext.1" id="fia-8021x-ext-1" name="802.1X Authentication">
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to securely implement IEEE 802.1X as an authenticator.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the ST: <h:ul><h:li>Attempts to access the 802.1X controlled port prior to successful completion of the authentication exchange</h:li></h:ul></audit>
@@ -624,7 +624,7 @@
         </f-component>
         <!-- FIA_UAU.6 Re-authenticating -->
         <f-component cc-id="fia_uau.6" id="fia-uau-6" name="Re-authenticating">
-          <consistency-rationale/>
+          
           <f-element id="fia_uau-6-1">
             <title>
               The TSF shall re-authenticate the user under the conditions [<h:i>when the user changes their password,
@@ -659,7 +659,7 @@
         </ext-comp-def>
         <!-- FMT_SMF.1/LiFi Specification of Management Functions -->
         <f-component cc-id="fmt_smf.1" id="fmt-smf-1-lifi" name="Specification of Management Functions" iteration="LiFi">
-          <consistency-rationale/>
+          
           <f-element id="fmt_smf-1-1_LiFi">
             <title>
               The TSF shall be capable of performing the following management functions: [<h:i>configuration of the security policy for each wireless network, including:<h:ul><h:li>Security type</h:li> <h:li>Client credentials to be used for authentication</h:li> <h:li> <selectables><selectable id="fmt_smf.1.1_LiFi_1">authentication protocol</selectable><selectable id="fmt_smf.1.1_LiFi_2">Service Set Identifier (SSID) if the SSID is broadcast</selectable><selectable id="fmt_smf.1.1_LiFi_3">no other security policy elements</selectable></selectables></h:li></h:ul></h:i>].
@@ -684,7 +684,7 @@
         </f-component>
         <!-- FMT_SMR_EXT.1 No Administration from Client -->
         <f-component cc-id="fmt_smr_ext.1" id="fmt-smr-ext-1" name="No Administration from Client">
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to reject remote administration from a wireless client by default.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.</audit>
@@ -729,7 +729,7 @@
         </ext-comp-def>
         <!-- FPT_ACF_EXT.1 Access Controls -->
         <f-component cc-id="fpt_acf_ext.1" id="fpt-acf-ext-1" name="Access Controls">
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to prohibit unauthorized users from reading or
             modifying specific TSF data.</comp-lev>
           <management>There are no management functions foreseen.</management>
@@ -810,7 +810,7 @@
         </f-component>
         <!-- FPT_ASLR_EXT.1 Address Space Layout Randomization -->
         <f-component cc-id="fpt_aslr_ext.1" id="fpt-aslr-ext-1" name="Address Space Layout Randomization">
-          <consistency-rationale/>
+          
           <comp-lev>defines the ability of the TOE to use ASLR as
             well as the objects that ASLR is applied to.</comp-lev>
           <management>There are no management functions foreseen.</management>
@@ -846,7 +846,7 @@
         </f-component>
         <!-- FPT_FLS.1 Failure with Preservation of Secure State -->
         <f-component cc-id="fpt_fls.1" id="fpt-fls-1" name="Failure with Preservation of Secure State">
-          <consistency-rationale/>
+          
           <f-element id="fel-pres-sec-state">
             <title>
               The TSF shall preserve a secure state when the following types of failures occur: [<h:i>DRBG self-test failure</h:i>].
@@ -862,7 +862,7 @@
         </f-component>
         <!-- FPT_SBOP_EXT.1 Stack Buffer Overflow Protection -->
         <f-component cc-id="fpt_sbop_ext.1" id="fpt-sbop-ext-1" name="Stack Buffer Overflow Protection">
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to be compiled using stack-based
             buffer overflow protections or to store data in such a manner that a stack-based buffer overflow cannot
             compromise the TSF.</comp-lev>
@@ -903,7 +903,7 @@
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale/>
+          
           <comp-lev>defines the ability of the TOE to prevent memory
             from being simultaneously writable and executable unless otherwise specified.</comp-lev>
           <management>There are no management functions foreseen.</management>
@@ -942,7 +942,7 @@
       <section title="TOE Access (FTA)" id="fta-mandatory">
         <!-- FTA_TSE.1 TOE Session Establishment -->
         <f-component cc-id="fta_tse.1" id="fta_tse-1" name="TOE Session Establishment">
-          <consistency-rationale/>
+          
           <f-element id="fta_tse-1-1">
             <title>
               The TSF shall be able to deny session establishment
@@ -989,7 +989,7 @@
       <section title="Trusted Path/Channels (FTP)" id="ftp-mandatory">
         <!-- FTP_ITC.1/8021X Inter-TSF Trusted Channel (802.1X) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-8021x" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
-          <consistency-rationale/>
+          
           <f-element id="ftp_itc-1-1_8021X">
             <title>
               The TSF shall provide a communication channel
@@ -1081,7 +1081,7 @@
         <!-- FCS_RADSEC_EXT.1 RadSec -->
         <f-component cc-id="fcs_radsec_ext.1" id="fcs-radsec-ext-1" name="RadSec">
           <depends on-sel="s-radius"/>
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to implement RadSec using a specified peer authentication method.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.</audit>
@@ -1142,7 +1142,7 @@
         <!-- FCS_RADSEC_EXT.2 RadSec using Pre-Shared Keys -->
         <f-component cc-id="fcs_radsec_ext.2" id="fcs-radsec-ext-2" name="RadSec using Pre-Shared Keys">
           <depends on-sel="s-radsec-psk"/>
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to implement RadSec using pre-shared key authentication in a manner that conforms to relevant TLS specifications.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.</audit>
@@ -1219,7 +1219,7 @@
         <!-- FCS_CKM.1/WPA Cryptographic Key Generation (Symmetric Keys for WPA2 Connections) -->
         <f-component cc-id="fcs_ckm.1" id="fcs-ckm-1-wpa" name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" iteration="WPA">
           <depends on="feat-80211bb"/>
-          <consistency-rationale/>
+          
           <f-element id="fcs_ckm-1-1_WPA">
             <title>
               The TSF shall generate
@@ -1337,7 +1337,7 @@
         <!-- FCS_CKM.2/GTK Cryptographic Key Distribution (GTK) -->
         <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2-gtk" name="Cryptographic Key Distribution (GTK)" iteration="GTK">
           <depends on="feat-80211bb"/>
-          <consistency-rationale/>
+          
           <f-element id="fcs_ckm-2-1_GTK">
             <title>
               The TSF shall distribute
@@ -1424,7 +1424,7 @@
         <!-- FCS_CKM.2/PMK Cryptographic Key Distribution (PMK) -->
         <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2-pmk" name="Cryptographic Key Distribution (PMK)" iteration="PMK">
           <depends on="feat-80211bb"/>
-          <consistency-rationale/>
+          
           <f-element id="fcs_ckm-2-1_PMK">
             <title>
               The TSF shall
@@ -1462,7 +1462,7 @@
         <!-- FIA_PSK_EXT.1 Pre-Shared Key Composition -->
         <f-component cc-id="fia_psk_ext.1" id="fia-psk-ext-1" name="Pre-Shared Key Composition">
           <depends on="s-radsec-psk"/>
-          <consistency-rationale/>
+          
           <comp-lev>requires the TSF to support pre-shared keys that meet various characteristics for specific communications usage.</comp-lev>
           <management>No specific management functions are identified.</management>
           <audit>There are no auditable events foreseen.</audit>
@@ -1551,7 +1551,7 @@
         <!-- FTP_ITC.1/Client Inter-TSF Trusted Channel (LiFi 802.11 Client Access) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-client" name="Inter-TSF Trusted Channel (LiFi 802.11 Client Access)" iteration="Client">
           <depends on="feat-80211bb"/>
-          <consistency-rationale/>
+          
           <f-element id="ftp_itc-1-1_Client">
             <title>
               <comment>Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<h:br/><h:br/></comment>
@@ -1604,7 +1604,7 @@
         <!-- FCS_CKM.2/DISTRIB Cryptographic Key Distribution (802.11 Keys) -->
         <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2-distrib" name="Cryptographic Key Distribution (802.11 Keys)" iteration="DISTRIB">
           <depends on="feat-distributed-toe"/>
-          <consistency-rationale/>
+          
           <f-element id="fcs_ckm-2-1_DISTRIB">
             <title>
               The TSF shall distribute
@@ -1648,7 +1648,7 @@
         <!-- FTP_ITC.1/Gvlc Inter-TSF Trusted Channel (MACsec) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-gvlc" name="Inter-TSF Trusted Channel (MACsec)" iteration="Gvlc">
           <depends on="feat-gvlc"/>
-          <consistency-rationale/>
+          
           <f-element id="ftp_itc-1-1_Gvlc">
             <title>
               The TSF shall provide a communication channel
