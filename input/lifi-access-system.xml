@@ -294,7 +294,7 @@ This PP-Module is written to address the situation where a distributed network d
           
         </threat>
         <threat name="T.REPLAY_ATTACK">
-          <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets transversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
+          <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets traversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
           <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by><rationale>Mitigates the threat by defining implementation of secure cryptographic integrity algorithms that prevent the disclosure of data that would be potentially suitable for replay attempts.</rationale>
           <addressed-by>FTP_ITC.1/8021X</addressed-by><rationale>Mitigates the threat by authenticating clients before allowing access to the controlled network and preventing replay of previous authentication sessions.</rationale>
           <addressed-by>FIA_UAU.6</addressed-by><rationale>Mitigates the threat by re-authenticating users when specified criteria are met, which can include if a specified time has passed or other indicators of stale authentication data.</rationale>
@@ -451,13 +451,13 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="A.NON_SECURITY_FUNCTIONS">This is consistent with the Base-PP because the notion of exact PP conformance accepts the case where non-TSF functionality exists within the physical boundary of the TOE if there are no PP requirements to evaluate it.</con-mod>
       <con-mod ref="A.MANAGED_CONFIG">This is consistent with A.TRUSTED_ADMINISTRATOR in the Base-PP by defining specific mechanisms by which the trusted administrator is defined.</con-mod>
       <con-mod ref="A.THIRD_PARTY_SOFTWARE">This is consistent with the Base-PP because the existence of a trusted update mechanism allows for the possibility that the TOE may have implementation flaws in need of fixing.</con-mod>
-      <con-mod ref="A.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
+      <con-mod ref="A.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authenticate them).</con-mod>
       <con-mod ref="A.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       
       <con-mod ref="OE.NON_SECURITY_FUNCTIONS">This is consistent with the Base-PP because the notion of exact PP conformance accepts the case where non-TSF functionality exists within the physical boundary of the TOE if there are no PP requirements to evaluate it.</con-mod>
       <con-mod ref="OE.MANAGED_CONFIG">This is consistent with A.TRUSTED_ADMINISTRATOR in the Base-PP by defining specific mechanisms by which the trusted administrator is defined.</con-mod>
       <con-mod ref="OE.THIRD_PARTY_SOFTWARE">This is consistent with the Base-PP because the existence of a trusted update mechanism allows for the possibility that the TOE may have implementation flaws in need of fixing.</con-mod>
-      <con-mod ref="OE.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
+      <con-mod ref="OE.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authenticate them).</con-mod>
       <con-mod ref="OE.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       
       <con-mod ref="fau-gen-1-lifi">This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</con-mod>
@@ -811,8 +811,8 @@ This PP-Module is written to address the situation where a distributed network d
                 <testlist>
                   <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
                   <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
-                  <test>[Conditional: SSID is broadcasted]
-                    The evaluator shall configure the SSID to be broadcasted.
+                  <test>[Conditional: SSID is broadcast]
+                    The evaluator shall configure the SSID to be broadcast.
                     Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included.
                     The evaluator shall then configure the SSID to be hidden.
                     Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.
@@ -987,7 +987,7 @@ This PP-Module is written to address the situation where a distributed network d
 				The evaluator shall also inspect the executables to verify fPIE compile flag enabled.
 
 				The evaluator shall read /proc/kallsysms and note the _stext address. 
-				The evaulator shall then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ.
+				The evaluator shall then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ.
 				In the rare event KASLR is on and the addresses are the same the evaluator shall reboot and verify again.
               </Tests>
             </aactivity>
@@ -1207,7 +1207,7 @@ This PP-Module is written to address the situation where a distributed network d
             <h:p>
               This requirement has been iterated from its definition in the NDcPP to 
               mandate the communications protocols and environmental components that 
-              a LiFI AS must use for 802.1X.
+              a LiFi AS must use for 802.1X.
               IPsec or RADIUS over TLS (commonly known as "RadSec") is required at least for communications with the 802.1X authentication server.
               The requirement implies that not only are communications protected when they are initially established,
               but also on resumption after an outage.</h:p>
@@ -1897,7 +1897,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    
 		  </section>
 		  
-		  <section id="distibuted-to-sfr" title="SFRs for Distributed TOE Implementations">
+		  <section id="distributed-toe-sfr" title="SFRs for Distributed TOE Implementations">
 		    
 		      <f-component name="Cryptographic Key Distribution (802.11 Keys)" cc-id="fcs_ckm.2" iteration="DISTRIB" id="fcs-ckm-2-distrib">
 		        <depends on="feat-distributed-toe"/>
@@ -1906,7 +1906,7 @@ This PP-Module is written to address the situation where a distributed network d
 		          </title>
 		          <note role="application">
 		            <h:p>
-		              This SFR is required for use in distibuted TOEs that support 802.11bb for distribution of keys to access nodes. G.Vlc TOEs will not claim this as they are used for point-to-point communications and do not have a distributed architecture. 
+		              This SFR is required for use in distributed TOEs that support 802.11bb for distribution of keys to access nodes. G.Vlc TOEs will not claim this as they are used for point-to-point communications and do not have a distributed architecture. 
 		            </h:p>
 		            <h:p>
 		              If claimed, this requirement applies to any key necessary for successful IEEE 802.11 connections
