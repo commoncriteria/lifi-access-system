@@ -669,11 +669,29 @@ The following sections list Common Criteria and technology terms used in this do
                 write and execute permissions except for the cases listed in the assignment.
               </div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                For this test the evaluator shall utilize appropriate development environment (e.g. a Virtual Machine) and/or development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
-                <span class="testlist-"><ul>
+                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FPT_W^X_EXT.1:1</a>:
       
-                    The evaluator shall read /proc/cpuinfo and check that "NX" is listed in the cpu_flags.
+                    The evaluator shall acquire or construct a test program which attempts
+                    to allocate memory that is both writable and executable.
+                    The evaluator shall run the program and confirm that it fails to
+                    allocate memory that is both writable and executable.
+                  </li>
+                  <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FPT_W^X_EXT.1:2</a>:
+      
+                    The evaluator shall acquire or construct a test program which
+                    allocates memory that is executable and then
+                    subsequently requests additional write/modify permissions on that memory.
+                    The evaluator shall run the program and confirm that at no time
+                    during the lifetime of the process is the memory both writable and executable.
+                  </li>
+                  <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FPT_W^X_EXT.1:3</a>:
+      
+                    The evaluator shall acquire or construct a test program which
+                    allocates memory that is writable and then
+                    subsequently requests additional execute permissions on that memory.
+                    The evaluator shall run the program and confirm that at no time
+                    during the lifetime of the process is the memory both writable and executable.
                   </li>
                 </ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="man-fta">2.2.6 TOE Access (FTA)</h2><div class="comp" id="FTA_TSE-1"><h4>FTA_TSE.1 TOE Session Establishment</h4><span class="activity_pane_body"><div class="component-activity-header">FTA_TSE.1</div>
@@ -686,7 +704,7 @@ The following sections list Common Criteria and technology terms used in this do
                configuring each of the attributes identified in the TSS.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                For each supported attribute, the evaluator will perform the following test:
                <span class="testlist-"><ul>
-                 <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FTA_TSE.1:1</a>:
+                 <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FTA_TSE.1:1</a>:
       
                    The evaluator successfully establishes a client session with a wireless client.
                    The evaluator then follows the operational guidance to configure the system so
@@ -714,18 +732,18 @@ The following sections list Common Criteria and technology terms used in this do
               connection be unintentionally broken.<br/><br/>
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator will perform the following tests:
               <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FTP_ITC.1/8021X:1</a>:
+                <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FTP_ITC.1/8021X:1</a>:
       The evaluator will ensure that communications using each protocol with each authorized IT
                   entity is tested during the course of the evaluation, setting up the connections as described in the
                   guidance documentation and ensuring that communication is successful. </li>
-                <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FTP_ITC.1/8021X:2</a>:
+                <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FTP_ITC.1/8021X:2</a>:
       For each protocol that the TOE can initiate as defined in the requirement, the evaluator will
                   follow the guidance documentation to ensure that the communication channel can be initiated
                   from the TOE. </li>
-                <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FTP_ITC.1/8021X:3</a>:
+                <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FTP_ITC.1/8021X:3</a>:
       The evaluator will ensure, for each communication channel with an authorized IT entity, the
                   channel data is not sent in plaintext.</li>
-                <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FTP_ITC.1/8021X:4</a>:
+                <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FTP_ITC.1/8021X:4</a>:
       The evaluator will, for each protocol associated with each authorized IT entity tested during
                   test 1, physically interrupt an established connection. The evaluator will ensure that when physical
                   connectivity is restored, communications are appropriately protected.</li>
@@ -887,7 +905,7 @@ The following sections list Common Criteria and technology terms used in this do
 		            <p><b>AES Key Wrap (AES-KW Tests)</b></p>
 		            <p>
 		              <span class="testlist-"><ul>
-		                <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_CKM.2/GTK:1</a>:
+		                <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_CKM.2/GTK:1</a>:
       The evaluator will test the authenticated encryption functionality of AES-KW for each combination of the following input parameter lengths:
 		                  <ul>
 		                    <li>128 and 256 bit key encryption keys (KEKs)</li>
@@ -907,7 +925,7 @@ The following sections list Common Criteria and technology terms used in this do
 		                  and encrypt them using a known good implementation of AES-KW authenticated-encryption,
 		                  and ensure that the resulting respective ciphertext values are identical.
 		                </li>
-		                <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_CKM.2/GTK:2</a>:
+		                <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_CKM.2/GTK:2</a>:
       
 		                  The evaluator will test the authenticated-decryption functionality of AES-KW using
 		                  the same test as for authenticated-encryption, 
@@ -922,7 +940,7 @@ The following sections list Common Criteria and technology terms used in this do
 		            <p> <b>AES Key Wrap with Padding (AES-KWP Tests)</b></p>
 		            <p>
 		              <span class="testlist-"><ul>
-		                <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_CKM.2/GTK:3</a>:
+		                <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
       
 		                  <p>The evaluator will test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</p>
 		                  <p>128 and 256 bit key encryption keys (KEKs)</p>
@@ -936,7 +954,7 @@ The following sections list Common Criteria and technology terms used in this do
 		                    To determine correctness, the evaluator will use the AES-KWP authenticated-encryption function of a known good implementation.
 		                  </p>
 		                </li>
-		                <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_CKM.2/GTK:4</a>:
+		                <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_CKM.2/GTK:4</a>:
       
 		                  The evaluator will test the authenticated-decryption functionality of AES-KWP
 		                  using the same test as for AES-KWP authenticated-encryption, 
@@ -978,23 +996,23 @@ The following sections list Common Criteria and technology terms used in this do
 		              performed by a different implementation on the TOE). Note that one or more of these tests can be
 		              performed with a single test case.
 		              <span class="testlist-"><ul>
-		                <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FIA_PSK_EXT.1:1</a>:
+		                <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FIA_PSK_EXT.1:1</a>:
       The evaluator will compose a pre-shared key of 22 characters that contains a combination of
 		                  the allowed characters in accordance with the operational guidance and demonstrates that a successful
 		                  protocol negotiation can be performed with the key.
 		                </li>
-		                <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FIA_PSK_EXT.1:2</a>:
+		                <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FIA_PSK_EXT.1:2</a>:
       [conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator will repeat
 		                  Test 1 using the minimum length; the maximum length; a length inside the allowable range; and invalid
 		                  lengths beyond the supported range (both higher and lower). The minimum, maximum, and included
 		                  length tests should be successful, and the invalid lengths must be rejected by the TOE.
 		                </li>
-		                <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FIA_PSK_EXT.1:3</a>:
+		                <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FIA_PSK_EXT.1:3</a>:
       [conditional]: If the TOE does not generate bit-based pre-shared keys, the evaluator will obtain a
 		                  bit-based pre-shared key of the appropriate length and enter it according to the instructions in the
 		                  operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can
 		                  be performed with the key.</li>
-		                <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FIA_PSK_EXT.1:4</a>:
+		                <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FIA_PSK_EXT.1:4</a>:
       [conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator will generate a
 		                  bit-based pre-shared key of the appropriate length and use it according to the instructions in the
 		                  operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can

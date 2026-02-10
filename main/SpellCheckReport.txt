@@ -20,7 +20,6 @@ output/lifi-access-system-release-linkable.html: KDF
 output/lifi-access-system-release-linkable.html: LiFI
 output/lifi-access-system-release-linkable.html: MACSEC
 output/lifi-access-system-release-linkable.html: MACsec
-output/lifi-access-system-release-linkable.html: NX
 output/lifi-access-system-release-linkable.html: PRF
 output/lifi-access-system-release-linkable.html: RadSec
 output/lifi-access-system-release-linkable.html: SAE
@@ -34,7 +33,6 @@ output/lifi-access-system-release-linkable.html: Wi
 output/lifi-access-system-release-linkable.html: Wireshark
 output/lifi-access-system-release-linkable.html: authentiate
 output/lifi-access-system-release-linkable.html: broadcasted
-output/lifi-access-system-release-linkable.html: cpu
 output/lifi-access-system-release-linkable.html: distibuted
 output/lifi-access-system-release-linkable.html: evaulator
 output/lifi-access-system-release-linkable.html: fPIE
@@ -88,14 +86,12 @@ output/lifi-access-system-sd.html: ITT
 output/lifi-access-system-sd.html: KASLR
 output/lifi-access-system-sd.html: MACSEC
 output/lifi-access-system-sd.html: MACsec
-output/lifi-access-system-sd.html: NX
 output/lifi-access-system-sd.html: PRF
 output/lifi-access-system-sd.html: RadSec
 output/lifi-access-system-sd.html: SKC
 output/lifi-access-system-sd.html: WPA2
 output/lifi-access-system-sd.html: Wireshark
 output/lifi-access-system-sd.html: broadcasted
-output/lifi-access-system-sd.html: cpu
 output/lifi-access-system-sd.html: evaluator’s
 output/lifi-access-system-sd.html: evaulator
 output/lifi-access-system-sd.html: fPIE
@@ -128,7 +124,6 @@ output/lifi-access-system.html: KDF
 output/lifi-access-system.html: LiFI
 output/lifi-access-system.html: MACSEC
 output/lifi-access-system.html: MACsec
-output/lifi-access-system.html: NX
 output/lifi-access-system.html: PRF
 output/lifi-access-system.html: RadSec
 output/lifi-access-system.html: SAE
@@ -142,7 +137,6 @@ output/lifi-access-system.html: Wi
 output/lifi-access-system.html: Wireshark
 output/lifi-access-system.html: authentiate
 output/lifi-access-system.html: broadcasted
-output/lifi-access-system.html: cpu
 output/lifi-access-system.html: distibuted
 output/lifi-access-system.html: evaulator
 output/lifi-access-system.html: fPIE
