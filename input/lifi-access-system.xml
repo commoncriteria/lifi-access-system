@@ -250,7 +250,7 @@ This PP-Module is written to address the situation where a distributed network d
           <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely distributing group temporal keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely receiving a key from an authentication server so that it is not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
-          <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data. <comment>update status of this if needed to resolve github comment</comment></rationale>
+          <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data.</rationale>
           <addressed-by>FTP_ITC.1/Gvlc (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data.</rationale>
         </threat>
         <threat name="T.NETWORK_DISCLOSURE">
@@ -266,7 +266,7 @@ This PP-Module is written to address the situation where a distributed network d
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by><rationale>Mitigates the threat by securely receiving a key from an authentication server.</rationale>
           
           <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic.</rationale>
-          <addressed-by>FTP_ITC.1/Gvlc (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic.  <comment>update status of this if needed to resolve github comment</comment></rationale>
+          <addressed-by>FTP_ITC.1/Gvlc (implementation-dependent)</addressed-by><rationale>Mitigates the threat by providing a secure channel for LiFi client traffic.</rationale>
           <addressed-by>FCS_RADSEC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing a secure RADIUS implementation to authenticate clients.</rationale>
           <addressed-by>FCS_RADSEC_EXT.2 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing a secure TLS configuration for RADIUS over TLS.</rationale>
          
@@ -1840,7 +1840,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    
 		    <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (LiFi 802.11 Client Access)" iteration="Client" id="ftp-itc-1-client">
 		      <depends on="feat-80211bb"/>
-		      <f-element><title><comment>Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<h:br/><h:br/></comment>
+		      <f-element><title>
 		        The TSF shall provide a communication channel <h:b> using
 		          WPA3-Enterprise, WPA2-Enterprise, and <selectables> 
 		            <selectable>WPA3-SAE</selectable> 
