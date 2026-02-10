@@ -1105,10 +1105,26 @@ This PP-Module is written to address the situation where a distributed network d
               </TSS>
               <Guidance/>           
               <Tests>
-                For this test the evaluator shall utilize appropriate development environment (e.g. a Virtual Machine) and/or development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
-                <testlist>
+                 <testlist>
                   <test>
-                    The evaluator shall read /proc/cpuinfo and check that "NX" is listed in the cpu_flags.
+                    The evaluator shall acquire or construct a test program which attempts
+                    to allocate memory that is both writable and executable.
+                    The evaluator shall run the program and confirm that it fails to
+                    allocate memory that is both writable and executable.
+                  </test>
+                  <test>
+                    The evaluator shall acquire or construct a test program which
+                    allocates memory that is executable and then
+                    subsequently requests additional write/modify permissions on that memory.
+                    The evaluator shall run the program and confirm that at no time
+                    during the lifetime of the process is the memory both writable and executable.
+                  </test>
+                  <test>
+                    The evaluator shall acquire or construct a test program which
+                    allocates memory that is writable and then
+                    subsequently requests additional execute permissions on that memory.
+                    The evaluator shall run the program and confirm that at no time
+                    during the lifetime of the process is the memory both writable and executable.
                   </test>
                 </testlist>
               </Tests>
