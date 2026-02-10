@@ -38,7 +38,6 @@ output/lifi-access-system-release-linkable.html: cpu
 output/lifi-access-system-release-linkable.html: distibuted
 output/lifi-access-system-release-linkable.html: evaulator
 output/lifi-access-system-release-linkable.html: fPIE
-output/lifi-access-system-release-linkable.html: github
 output/lifi-access-system-release-linkable.html: href
 output/lifi-access-system-release-linkable.html: lifecycle
 output/lifi-access-system-release-linkable.html: multicast
@@ -74,7 +73,6 @@ output/lifi-access-system-release.html: WPA3
 output/lifi-access-system-release.html: Wi
 output/lifi-access-system-release.html: authentiate
 output/lifi-access-system-release.html: distibuted
-output/lifi-access-system-release.html: github
 output/lifi-access-system-release.html: multicast
 output/lifi-access-system-release.html: transversing
 output/lifi-access-system-release.html: vlc
@@ -148,7 +146,6 @@ output/lifi-access-system.html: cpu
 output/lifi-access-system.html: distibuted
 output/lifi-access-system.html: evaulator
 output/lifi-access-system.html: fPIE
-output/lifi-access-system.html: github
 output/lifi-access-system.html: lifecycle
 output/lifi-access-system.html: multicast
 output/lifi-access-system.html: stext
