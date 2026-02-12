@@ -24,8 +24,6 @@ output/lifi-access-system-release-linkable.html: RadSec
 output/lifi-access-system-release-linkable.html: SAE
 output/lifi-access-system-release-linkable.html: SKC
 output/lifi-access-system-release-linkable.html: Subclause
-output/lifi-access-system-release-linkable.html: TST
-output/lifi-access-system-release-linkable.html: Vlc
 output/lifi-access-system-release-linkable.html: WPA2
 output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: Wi
@@ -57,8 +55,6 @@ output/lifi-access-system-release.html: RadSec
 output/lifi-access-system-release.html: SAE
 output/lifi-access-system-release.html: SKC
 output/lifi-access-system-release.html: Subclause
-output/lifi-access-system-release.html: TST
-output/lifi-access-system-release.html: Vlc
 output/lifi-access-system-release.html: WPA2
 output/lifi-access-system-release.html: WPA3
 output/lifi-access-system-release.html: Wi
@@ -116,8 +112,6 @@ output/lifi-access-system.html: RadSec
 output/lifi-access-system.html: SAE
 output/lifi-access-system.html: SKC
 output/lifi-access-system.html: Subclause
-output/lifi-access-system.html: TST
-output/lifi-access-system.html: Vlc
 output/lifi-access-system.html: WPA2
 output/lifi-access-system.html: WPA3
 output/lifi-access-system.html: Wi
