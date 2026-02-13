@@ -640,8 +640,8 @@ This PP-Module is written to address the situation where a distributed network d
 		    </note>
 		    <aactivity>
 		      <TSS><h:p>The evaluator shall examine the TSS to verify that it describes how the TOE generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the TSS to verify that it describes how the functionality described by FCS_RBG.1 is invoked.
-		      </h:p><h:p>
-		        The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</h:p></TSS>
+		      </h:p>
+		        The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</TSS>
 		      <Guidance>The evaluator shall verify that the guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.</Guidance>
 		      <Tests>
 		        <h:p>
@@ -763,17 +763,17 @@ This PP-Module is written to address the situation where a distributed network d
               protection for these communications. Consequently, no extensive analysis of the RFCs is required.
               However, the evaluator shall ensure that the TSS describes the measures (documentation, testing) that
               are taken by the product developer to ensure that the TOE conforms to the RFCs listed in this
-              requirement.<h:br/><h:br/>
+              requirement.
             </TSS>
             <Guidance/>
             <Tests>
-              The evaluator will perform the following tests:
+              The evaluator shall perform the following tests:
               <testlist>
                 <test>The evaluator shall demonstrate that a wireless client has no access to the test network. After
                   successfully authenticating with a RADIUS server through the TOE, the evaluator shall demonstrate that
                   the wireless client does have access to the test network.</test>
                 <test>The evaluator shall demonstrate that a wireless client has no access to the test network. The
-                  evaluator will attempt to authenticate using an invalid client certificate, such that the EAP-TLS
+                  evaluator shall attempt to authenticate using an invalid client certificate, such that the EAP-TLS
                   negotiation fails. This should result in the wireless client still being unable to access the test network.
                 </test>
                 <test>The evaluator shall demonstrate that a wireless client has no access to the test network. The
@@ -807,11 +807,11 @@ This PP-Module is written to address the situation where a distributed network d
             <Guidance/>
             <Tests>
               The evaluator shall attempt to change their password as directed by the operational guidance.
-              While making this attempt, the evaluator shall verify that re-authentication is required.
-              <h:p>
+              While making this attempt, the evaluator shall verify that re-authentication is required.<h:br/><h:br/>
+              
                 If other re-authentication conditions are specified, the evaluator shall cause those conditions to
                 occur and verify that the TSF re-authenticates the authenticated user.
-              </h:p>
+              
             </Tests>
           </aactivity>
         </f-element>
@@ -836,8 +836,8 @@ This PP-Module is written to address the situation where a distributed network d
             </title>
             <aactivity>
               <TSS>
-                <h:p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</h:p><h:p>
-                  The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</h:p></TSS>
+                <h:p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</h:p>
+                  The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</TSS>
               <Guidance>The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</Guidance>
               <Tests>
                 The evaluator shall perform the following tests:
@@ -877,12 +877,12 @@ This PP-Module is written to address the situation where a distributed network d
               <Guidance>The evaluator shall review the operational guidance to ensure that it contains instructions for
                 administering the TOE both locally and remotely, including any configuration that needs to be
                 performed on the client for remote administration. The evaluator shall confirm that the TOE
-                does not permit remote administration from a wireless client by default.<h:br/><h:br/></Guidance>
+                does not permit remote administration from a wireless client by default.</Guidance>
               
-              <Tests><h:p>The evaluator shall demonstrate that after configuring the TOE for first use from the operational
+              <Tests>The evaluator shall demonstrate that after configuring the TOE for first use from the operational
                 guidance, it is possible to establish an administrative session with the TOE on the “wired” portion of the
                 device. The evaluator shall then demonstrate that an identically configured wireless client that can successfully
-                connect to the TOE cannot be used to perform administration.</h:p>
+                connect to the TOE cannot be used to perform administration.
               </Tests>
             </aactivity>
           </f-element>
@@ -1068,9 +1068,9 @@ This PP-Module is written to address the situation where a distributed network d
                   </testlist>
                 </h:p>
                 
-                <h:p>For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
+                For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
                   The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.
-                </h:p>
+                
               </Tests>
             </aactivity>
           </f-element>
@@ -1162,9 +1162,9 @@ This PP-Module is written to address the situation where a distributed network d
            <aactivity>
              <TSS>
                The evaluator shall examine the TSS to determine that all of the attributes on
-               which a client session can be denied are specifically defined.<h:br/><h:br/></TSS>
+               which a client session can be denied are specifically defined.</TSS>
              <Guidance>The evaluator shall examine the operational guidance to determine that it contains guidance for
-               configuring each of the attributes identified in the TSS.<h:br/><h:br/></Guidance>
+               configuring each of the attributes identified in the TSS.</Guidance>
              <Tests>
                For each supported attribute, the evaluator shall perform the following test:
                <testlist>
@@ -1230,7 +1230,7 @@ This PP-Module is written to address the situation where a distributed network d
         <f-element>
           <title>The TSF shall initiate communication via the trusted channel for [<h:i>802.1X authentication</h:i>].</title>
           <aactivity>
-            The evaluator will perform the following activities in addition to those required by the NDcPP:<h:br/><h:br/>
+            The evaluator shall perform the following activities in addition to those required by the NDcPP:<h:br/><h:br/>
             <TSS>
               The evaluator shall examine the TSS to determine that, for all communications with authorized IT
               entities identified in the requirement, each communications mechanism is identified in terms of the
@@ -1240,7 +1240,7 @@ This PP-Module is written to address the situation where a distributed network d
             </TSS>
             <Guidance>The evaluator shall confirm that the guidance documentation contains instructions for establishing the
               allowed protocols with each authorized IT entity and that it contains recovery instructions should a
-              connection be unintentionally broken.<h:br/><h:br/>
+              connection be unintentionally broken.
             </Guidance>
             <Tests>The evaluator shall perform the following tests:
               <testlist>
@@ -1316,7 +1316,7 @@ This PP-Module is written to address the situation where a distributed network d
 		          The TSF shall perform peer authentication using <assignable>some authentication method</assignable>.
 		        </title></ext-comp-def-title>
 		        <note role="application">
-		          <h:p>This SFR is applicable if "RADIUS over TLS" is selected in <xref to="s-radius"/>.</h:p>
+		          <h:p>This SFR is applicable if "RADIUS over TLS" is selected in <xref to="ftp-itc-1-8021x"/>.</h:p>
 		          <h:p>
 		            If <xref to="s-x509-certs"/> is selected in FCS_RADSEC_EXT.1.2,
 		            then FCS_TLSC_EXT.1 from the Functional Package for TLS must be claimed and "mutual authentication" must be selected in FCS_TLSC_EXT.1.1. 
@@ -1327,13 +1327,12 @@ This PP-Module is written to address the situation where a distributed network d
 		          <TSS>
 		            The evaluator shall verify that the TSS description includes the use of
 		            RADIUS over TLS, as described in RFC 6614.
-		            <h:p>
+		            
 		              If X.509v3 certificates is selected, the evaluator shall ensure that the TSS description includes the use of client-side certificates for TLS
-		              mutual authentication.
-		            </h:p>
+		              mutual authentication.		           
 		          </TSS>
 		          <Guidance>
-		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.<h:br/><h:br/>
+		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
 		          </Guidance>
 		          <Tests>
 		            The evaluator shall demonstrate the ability to successfully establish a RADIUS over TLS connection with a RADIUS server. 
@@ -1406,10 +1405,10 @@ This PP-Module is written to address the situation where a distributed network d
 		            specified. 
 		            The evaluator shall check the TSS to ensure that the ciphersuites specified are identical to those listed for this component. 
 		            The evaluator shall also verify that the TSS contains a description of the denial of old SSL and TLS versions.
-		            <h:p>
+		            
 		              The evaluator shall examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are generated (if the TOE
 		              supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG.1.
-		            </h:p>
+		            
 		          </TSS>
 		          <Guidance>
 		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
@@ -1418,10 +1417,10 @@ This PP-Module is written to address the situation where a distributed network d
 		              TLS conforms to the description in the TSS (for instance, the set of ciphersuites advertised by the TOE may have to be restricted to
 		              meet the requirements).
 		            </h:p>
-		            <h:p>
+		            
 		              The evaluator shall confirm the operational guidance contains instructions for either entering bit-based pre-shared keys or generating a
 		              bit-based pre-shared key (or both).
-		            </h:p>
+		            
 		          </Guidance>
 		          <Tests>The testing for this requirement is addressed by the functional claims made in <xref to="pkg-tls"/> for this interface. </Tests>
 		        </aactivity>
@@ -1521,7 +1520,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            cryptographic standards; this includes not only testing done by the developing organization, but also
 		            proof of third-party testing that is performed (e.g., WPA2 certification). The evaluator shall ensure that
 		            the description of the testing methodology is of sufficient detail to determine the extent to which the
-		            details of the protocol specifics are tested.<h:br/><h:br/>
+		            details of the protocol specifics are tested.
 		          </TSS>
 		          <Guidance/>
 		          <Tests>
@@ -1545,7 +1544,7 @@ This PP-Module is written to address the situation where a distributed network d
 		            </h:p>
 		            <h:p>
 		              Step 4: The evaluator shall set a timer for one minute, at the end of which the evaluator
-		              will disconnect the client from the TOE and stop the sniffer.
+		              shall disconnect the client from the TOE and stop the sniffer.
 		            </h:p>
 		            <h:p>
 		              Step 5: The evaluator shall identify the four-way handshake frames (denoted EAPOL-key in Wireshark
@@ -1563,13 +1562,13 @@ This PP-Module is written to address the situation where a distributed network d
 		              Step 7: The evaluator shall repeat Step 6 for the next two data frames between the TOE and client,
 		              and without frame control value 0x4208.
 		            </h:p>
-		            <h:p>
+		            
 		              Additionally, the evaluator shall test the PRF function using the test vectors from:
 		              <h:ul>
 		                <h:li>Section 2.4 “The PRF Function – PRF (key, prefix, data, length)” of the IEEE 802.11-02/362r6 document "Proposed Test vectors for IEEE 802.11 TGi" dated September 10, 2002</h:li>
 		                <h:li>Annex J.3 “PRF reference implementation and test vectors” of IEEE 802.11-2020</h:li>
 		              </h:ul>
-		            </h:p>
+		            
 		          </Tests>
 		        </aactivity>
 		      </f-element>
@@ -1594,7 +1593,7 @@ This PP-Module is written to address the situation where a distributed network d
 		        <aactivity>
 		          <TSS>The evaluator shall check the TSS to ensure that it describes how the GTK is wrapped prior to being
 		            distributed using the AES implementation specified in this PP-Module, and also how the GTKs are distributed
-		            when multiple clients connect to the TOE.<h:br/><h:br/></TSS>
+		            when multiple clients connect to the TOE.</TSS>
 		          <Guidance/>
 		          <Tests>
 		            The evaluator shall perform the following test using a packet sniffing tool to collect frames
@@ -1680,7 +1679,7 @@ This PP-Module is written to address the situation where a distributed network d
 		              </testlist>
 		            </h:p>
 		            <h:p> <h:b>AES Key Wrap with Padding (AES-KWP Tests)</h:b></h:p>
-		            <h:p>
+		            
 		              <testlist>
 		                <test>
 		                  <h:p>The evaluator shall test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</h:p>
@@ -1703,7 +1702,7 @@ This PP-Module is written to address the situation where a distributed network d
 		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
 		                </test>
 		              </testlist>
-		            </h:p>
+		            
 		          </Tests>
 		        </aactivity>
 		      </f-element>
@@ -1825,7 +1824,7 @@ This PP-Module is written to address the situation where a distributed network d
 		              The guidance must specify the allowable characters for pre-shared keys, and that list must be a superset of the list contained in FIA_PSK_EXT.1.2.<h:br/><h:br/>
 		              The evaluator shall confirm the operational guidance contains instructions for either entering bit-based
 		              pre-shared keys for each protocol identified in the requirement or for generating a bit-based pre-shared
-		              key (or both).<h:br/><h:br/>
+		              key (or both).
 		            </Guidance>
 		            <Tests>The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, if
 		              performed by a different implementation on the TOE). Note that one or more of these tests can be
@@ -1921,9 +1920,9 @@ This PP-Module is written to address the situation where a distributed network d
 		          </note>
 		          <aactivity>
 		            <TSS>The evaluator shall examine the TSS to determine that it describes which keys are distributed outside
-		              the TOE, where they are sent, and the purpose for this transfer.<h:br/><h:br/></TSS>
+		              the TOE, where they are sent, and the purpose for this transfer.</TSS>
 		            <Guidance>If this function is dependent on TOE configuration, the evaluator shall confirm that the operational
-		              guidance contains instructions for how to configure that the keys are adequately protected.<h:br/><h:br/>
+		              guidance contains instructions for how to configure that the keys are adequately protected.
 		            </Guidance>
 		            <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
 		              protocols, and FPT_ITT.1 (Base-PP).</Tests>
