@@ -1028,8 +1028,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      
 		      
 		    <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea"><p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes how the functionality described by FCS_RBG.1 is invoked.
-		      </p><p>
-		        The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance instructs the administrator how to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate keys for the selected key generation algorithms for all key types and uses identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+		      </p>
+		        The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance instructs the administrator how to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to generate keys for the selected key generation algorithms for all key types and uses identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		        <p>
 		        If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims support for <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC, <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM, or <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCMP, the evaluator shall perform the testing defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s FCS_COP.1/SKC <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the applicable modes.
 		        </p>
@@ -1143,10 +1143,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               protection for these communications. Consequently, no extensive analysis of the RFCs is required.
               However, the evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the measures (documentation, testing) that
               are taken by the product developer to ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the RFCs listed in this
-              requirement.<br/><br/>
+              requirement.
             </div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-              The evaluator will perform the following tests:
+              The evaluator shall perform the following tests:
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FIA_8021X_EXT.1:1</a>:
       The evaluator shall demonstrate that a wireless client has no access to the test network. After
@@ -1154,7 +1154,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   the wireless client does have access to the test network.</li>
                 <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_8021X_EXT.1:2</a>:
       The evaluator shall demonstrate that a wireless client has no access to the test network. The
-                  evaluator will attempt to authenticate using an invalid client certificate, such that the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS
+                  evaluator shall attempt to authenticate using an invalid client certificate, such that the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS
                   negotiation fails. This should result in the wireless client still being unable to access the test network.
                 </li>
                 <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_8021X_EXT.1:3</a>:
@@ -1182,11 +1182,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 			There are no additional <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall attempt to change their password as directed by the operational guidance.
-              While making this attempt, the evaluator shall verify that re-authentication is required.
-              <p>
+              While making this attempt, the evaluator shall verify that re-authentication is required.<br/><br/>
+              
                 If other re-authentication conditions are specified, the evaluator shall cause those conditions to
                 occur and verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> re-authenticates the authenticated user.
-              </p>
+              
             </div></div></div></div></div>
     
       
@@ -1207,8 +1207,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-                <p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes the security policy configuration in terms of the attributes claimed in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</p><p>
-                  The evaluator shall also confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+                <p>The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes the security policy configuration in terms of the attributes claimed in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</p>
+                  The evaluator shall also confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
@@ -1247,10 +1247,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 			There are no additional <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall review the operational guidance to ensure that it contains instructions for
                 administering the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> both locally and remotely, including any configuration that needs to be
                 performed on the client for remote administration. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-                does not permit remote administration from a wireless client by default.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"><p>The evaluator shall demonstrate that after configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for first use from the operational
+                does not permit remote administration from a wireless client by default.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall demonstrate that after configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for first use from the operational
                 guidance, it is possible to establish an administrative session with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> on the “wired” portion of the
                 device. The evaluator shall then demonstrate that an identically configured wireless client that can successfully
-                connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> cannot be used to perform administration.</p>
+                connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> cannot be used to perform administration.
               </div></div></div></div></div>
           
       
@@ -1417,9 +1417,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   </ul></span>
                 </p>
                 
-                <p>For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes what data structures control values, parameters, and variables are stored.
+                For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes what data structures control values, parameters, and variables are stored.
                   The evaluator shall also ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.
-                </p>
+                
               </div></div></div></div></div>
         
         
@@ -1506,8 +1506,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
              
            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
                The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that all of the attributes on
-               which a client session can be denied are specifically defined.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine that it contains guidance for
-               configuring each of the attributes identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+               which a client session can be denied are specifically defined.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine that it contains guidance for
+               configuring each of the attributes identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                For each supported attribute, the evaluator shall perform the following test:
                <span class="testlist-"><ul>
                  <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FTA_TSE.1:1</a>:
@@ -1561,7 +1561,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
         
       <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FTP_ITC.1/8021X">FTP_ITC.1/8021X</a></div>
-            The evaluator will perform the following activities in addition to those required by the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>:<br/><br/>
+            The evaluator shall perform the following activities in addition to those required by the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>:<br/><br/>
             
             
             
@@ -1573,7 +1573,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               are specified and included in the requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<br/><br/>
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm that the guidance documentation contains instructions for establishing the
               allowed protocols with each authorized IT entity and that it contains recovery instructions should a
-              connection be unintentionally broken.<br/><br/>
+              connection be unintentionally broken.
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests:
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FTP_ITC.1/8021X:1</a>:
@@ -1828,7 +1828,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            cryptographic standards; this includes not only testing done by the developing organization, but also
 		            proof of third-party testing that is performed (e.g., WPA2 certification). The evaluator shall ensure that
 		            the description of the testing methodology is of sufficient detail to determine the extent to which the
-		            details of the protocol specifics are tested.<br/><br/>
+		            details of the protocol specifics are tested.
 		          </div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		            The evaluator shall perform the following test using a packet sniffing tool to collect
@@ -1851,7 +1851,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            </p>
 		            <p>
 		              Step 4: The evaluator shall set a timer for one minute, at the end of which the evaluator
-		              will disconnect the client from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and stop the sniffer.
+		              shall disconnect the client from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and stop the sniffer.
 		            </p>
 		            <p>
 		              Step 5: The evaluator shall identify the four-way handshake frames (denoted EAPOL-key in Wireshark
@@ -1869,13 +1869,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		              Step 7: The evaluator shall repeat Step 6 for the next two data frames between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and client,
 		              and without frame control value 0x4208.
 		            </p>
-		            <p>
+		            
 		              Additionally, the evaluator shall test the PRF function using the test vectors from:
 		              <ul>
 		                <li>Section 2.4 “The PRF Function – PRF (key, prefix, data, length)” of the IEEE 802.11-02/362r6 document "Proposed Test vectors for IEEE 802.11 TGi" dated September 10, 2002</li>
 		                <li>Annex J.3 “PRF reference implementation and test vectors” of IEEE 802.11-2020</li>
 		              </ul>
-		            </p>
+		            
 		          </div></div></div></div></div>
 		   
 		    
@@ -1897,7 +1897,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		          
 		        <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall check the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it describes how the <abbr class="dyn-abbr"><a href="#abbr_GTK">GTK</a></abbr> is wrapped prior to being
 		            distributed using the <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> implementation specified in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, and also how the GTKs are distributed
-		            when multiple clients connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea">
+		            when multiple clients connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		            The evaluator shall perform the following test using a packet sniffing tool to collect frames
 		            between a wireless client and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (which may be performed in conjunction with the
@@ -1984,7 +1984,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		              </ul></span>
 		            </p>
 		            <p> <b><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap with Padding (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP Tests)</b></p>
-		            <p>
+		            
 		              <span class="testlist-"><ul>
 		                <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
       
@@ -2009,7 +2009,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
 		                </li>
 		              </ul></span>
-		            </p>
+		            
 		          </div></div></div></div></div>
 		    
 		    
@@ -2108,7 +2108,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		              The guidance must specify the allowable characters for pre-shared keys, and that list must be a superset of the list contained in <a href="#FIA_PSK_EXT.1.2">FIA_PSK_EXT.1.2</a>.<br/><br/>
 		              The evaluator shall confirm the operational guidance contains instructions for either entering bit-based
 		              pre-shared keys for each protocol identified in the requirement or for generating a bit-based pre-shared
-		              key (or both).<br/><br/>
+		              key (or both).
 		            </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, if
 		              performed by a different implementation on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>). Note that one or more of these tests can be
 		              performed with a single test case.
@@ -2198,8 +2198,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            
 		            
 		          <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it describes which keys are distributed outside
-		              the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, where they are sent, and the purpose for this transfer.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If this function is dependent on <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> configuration, the evaluator shall confirm that the operational
-		              guidance contains instructions for how to configure that the keys are adequately protected.<br/><br/>
+		              the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, where they are sent, and the purpose for this transfer.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If this function is dependent on <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> configuration, the evaluator shall confirm that the operational
+		              guidance contains instructions for how to configure that the keys are adequately protected.
 		            </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
 		              protocols, and FPT_ITT.1 (<abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>).</div></div></div></div></div>
 		    
@@ -2265,7 +2265,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		        <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-		          <p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is applicable if "<abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>" is selected in <a href="#s-radius">RADIUS over TLS</a>.</p>
+		          <p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is applicable if "<abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>" is selected in <a href="#FTP_ITC.1/8021X">FTP_ITC.1/8021X</a>.</p>
 		          <p>
 		            If <a href="#s-x509-certs">X.509v3 certificates</a> is selected in <a href="#FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</a>,
 		            then FCS_TLSC_EXT.1 from the Functional Package for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> must be claimed and "mutual authentication" must be selected in FCS_TLSC_EXT.1.1. 
@@ -2280,12 +2280,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		        <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 		            The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> description includes the use of
 		            <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, as described in RFC 6614.
-		            <p>
+		            
 		              If X.509v3 certificates is selected, the evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> description includes the use of client-side certificates for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>
-		              mutual authentication.
-		            </p>
+		              mutual authentication.		           
 		          </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.<br/><br/>
+		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
 		          </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		            The evaluator shall demonstrate the ability to successfully establish a <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> connection with a <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> server. 
 		            This test will be performed with X.509v3 certificates if selected and performed with pre-shared keys if selected.</div></div></div></div></div>
@@ -2334,10 +2333,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            specified. 
 		            The evaluator shall check the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that the ciphersuites specified are identical to those listed for this component. 
 		            The evaluator shall also verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> contains a description of the denial of old SSL and <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> versions.
-		            <p>
+		            
 		              The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure it describes the process by which the bit-based pre-shared keys are generated (if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 		              supports this functionality), and confirm that this process uses the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in FCS_RBG.1.
-		            </p>
+		            
 		          </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
 		            <p>
@@ -2345,10 +2344,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		              <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> conforms to the description in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> (for instance, the set of ciphersuites advertised by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may have to be restricted to
 		              meet the requirements).
 		            </p>
-		            <p>
+		            
 		              The evaluator shall confirm the operational guidance contains instructions for either entering bit-based pre-shared keys or generating a
 		              bit-based pre-shared key (or both).
-		            </p>
+		            
 		          </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The testing for this requirement is addressed by the functional claims made in <a href="https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html">Functional Package for Transport Layer Security (TLS),
         version 
         2.1</a> for this interface. </div></div></div></div></div>

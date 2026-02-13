@@ -408,8 +408,8 @@ The following sections list Common Criteria and technology terms used in this do
 		      
 		      
 		    <div class="eacategory">TSS</div><div class="ea"><div class="ea"><p>The evaluator shall examine the TSS to verify that it describes how the TOE generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the TSS to verify that it describes how the functionality described by FCS_RBG.1 is invoked.
-		      </p><p>
-		        The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+		      </p>
+		        The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		        <p>
 		        If the TOE claims support for AES-CBC, AES-GCM, or AES-GCMP, the evaluator shall perform the testing defined in the Base-PP's FCS_COP.1/SKC SFR for the applicable modes.
 		        </p>
@@ -494,10 +494,10 @@ The following sections list Common Criteria and technology terms used in this do
               protection for these communications. Consequently, no extensive analysis of the RFCs is required.
               However, the evaluator shall ensure that the TSS describes the measures (documentation, testing) that
               are taken by the product developer to ensure that the TOE conforms to the RFCs listed in this
-              requirement.<br/><br/>
+              requirement.
             </div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-              The evaluator will perform the following tests:
+              The evaluator shall perform the following tests:
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FIA_8021X_EXT.1:1</a>:
       The evaluator shall demonstrate that a wireless client has no access to the test network. After
@@ -505,7 +505,7 @@ The following sections list Common Criteria and technology terms used in this do
                   the wireless client does have access to the test network.</li>
                 <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_8021X_EXT.1:2</a>:
       The evaluator shall demonstrate that a wireless client has no access to the test network. The
-                  evaluator will attempt to authenticate using an invalid client certificate, such that the EAP-TLS
+                  evaluator shall attempt to authenticate using an invalid client certificate, such that the EAP-TLS
                   negotiation fails. This should result in the wireless client still being unable to access the test network.
                 </li>
                 <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_8021X_EXT.1:3</a>:
@@ -524,18 +524,18 @@ The following sections list Common Criteria and technology terms used in this do
 			There are no additional TSS evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall attempt to change their password as directed by the operational guidance.
-              While making this attempt, the evaluator shall verify that re-authentication is required.
-              <p>
+              While making this attempt, the evaluator shall verify that re-authentication is required.<br/><br/>
+              
                 If other re-authentication conditions are specified, the evaluator shall cause those conditions to
                 occur and verify that the TSF re-authenticates the authenticated user.
-              </p>
+              
             </div></div></span></div><h2 class="indexable" data-level="2" id="man-fmt">2.2.4 Security Management (FMT)</h2><div class="comp" id="FMT-SMF-1-LIFI"><h4>FMT_SMF.1/LiFi Specification of Management Functions</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMF.1/LiFi</div>
               
               
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">
-                <p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</p><p>
-                  The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+                <p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</p>
+                  The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
@@ -559,10 +559,10 @@ The following sections list Common Criteria and technology terms used in this do
 			There are no additional TSS evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall review the operational guidance to ensure that it contains instructions for
                 administering the TOE both locally and remotely, including any configuration that needs to be
                 performed on the client for remote administration. The evaluator shall confirm that the TOE
-                does not permit remote administration from a wireless client by default.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"><p>The evaluator shall demonstrate that after configuring the TOE for first use from the operational
+                does not permit remote administration from a wireless client by default.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall demonstrate that after configuring the TOE for first use from the operational
                 guidance, it is possible to establish an administrative session with the TOE on the “wired” portion of the
                 device. The evaluator shall then demonstrate that an identically configured wireless client that can successfully
-                connect to the TOE cannot be used to perform administration.</p>
+                connect to the TOE cannot be used to perform administration.
               </div></div></span></div><h2 class="indexable" data-level="2" id="man-fpt">2.2.5 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_ACF_EXT.1 Access Controls</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_ACF_EXT.1</div>
               
               
@@ -652,9 +652,9 @@ The following sections list Common Criteria and technology terms used in this do
                   </ul></span>
                 </p>
                 
-                <p>For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
+                For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
                   The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.
-                </p>
+                
               </div></div></span></div><div class="comp" id=""><h4>FPT_W^X_EXT.1 Write XOR Execute Memory Pages</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_W^X_EXT.1</div>
               
                          
@@ -696,8 +696,8 @@ The following sections list Common Criteria and technology terms used in this do
              
            <div class="eacategory">TSS</div><div class="ea"><div class="ea">
                The evaluator shall examine the TSS to determine that all of the attributes on
-               which a client session can be denied are specifically defined.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine that it contains guidance for
-               configuring each of the attributes identified in the TSS.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+               which a client session can be denied are specifically defined.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine that it contains guidance for
+               configuring each of the attributes identified in the TSS.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                For each supported attribute, the evaluator shall perform the following test:
                <span class="testlist-"><ul>
                  <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FTA_TSE.1:1</a>:
@@ -713,7 +713,7 @@ The following sections list Common Criteria and technology terms used in this do
                  </li>
                </ul></span>
              </div></div></span></div><h2 class="indexable" data-level="2" id="man-ftp">2.2.7 Trusted Path/Channels (FTP)</h2><div class="comp" id="FTP-ITC-1-8021X"><h4>FTP_ITC.1/8021X Inter-TSF Trusted Channel (802.1X)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/8021X</div>
-            The evaluator will perform the following activities in addition to those required by the NDcPP:<br/><br/>
+            The evaluator shall perform the following activities in addition to those required by the NDcPP:<br/><br/>
             
             
             
@@ -725,7 +725,7 @@ The following sections list Common Criteria and technology terms used in this do
               are specified and included in the requirements in the ST.<br/><br/>
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm that the guidance documentation contains instructions for establishing the
               allowed protocols with each authorized IT entity and that it contains recovery instructions should a
-              connection be unintentionally broken.<br/><br/>
+              connection be unintentionally broken.
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests:
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FTP_ITC.1/8021X:1</a>:
@@ -751,12 +751,11 @@ The following sections list Common Criteria and technology terms used in this do
 		        <div class="eacategory">TSS</div><div class="ea"><div class="ea">
 		            The evaluator shall verify that the TSS description includes the use of
 		            RADIUS over TLS, as described in RFC 6614.
-		            <p>
+		            
 		              If X.509v3 certificates is selected, the evaluator shall ensure that the TSS description includes the use of client-side certificates for TLS
-		              mutual authentication.
-		            </p>
+		              mutual authentication.		           
 		          </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.<br/><br/>
+		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
 		          </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		            The evaluator shall demonstrate the ability to successfully establish a RADIUS over TLS connection with a RADIUS server. 
 		            This test will be performed with X.509v3 certificates if selected and performed with pre-shared keys if selected.</div></div></span></div><div class="comp" id="FCS-RADSEC-EXT-2"><h4>FCS_RADSEC_EXT.2 RadSec using Pre-Shared Keys</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_RADSEC_EXT.2</div>
@@ -768,10 +767,10 @@ The following sections list Common Criteria and technology terms used in this do
 		            specified. 
 		            The evaluator shall check the TSS to ensure that the ciphersuites specified are identical to those listed for this component. 
 		            The evaluator shall also verify that the TSS contains a description of the denial of old SSL and TLS versions.
-		            <p>
+		            
 		              The evaluator shall examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are generated (if the TOE
 		              supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG.1.
-		            </p>
+		            
 		          </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 		            The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
 		            <p>
@@ -779,10 +778,10 @@ The following sections list Common Criteria and technology terms used in this do
 		              TLS conforms to the description in the TSS (for instance, the set of ciphersuites advertised by the TOE may have to be restricted to
 		              meet the requirements).
 		            </p>
-		            <p>
+		            
 		              The evaluator shall confirm the operational guidance contains instructions for either entering bit-based pre-shared keys or generating a
 		              bit-based pre-shared key (or both).
-		            </p>
+		            
 		          </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The testing for this requirement is addressed by the functional claims made in <a href="https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html">Functional Package for Transport Layer Security (TLS),
         version 
         2.1</a> for this interface. </div></div></span></div><h2 class="indexable" data-level="1" id="obj-sfrs">2.5 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.6 Evaluation Activities for Implementation-dependent SFRs</h2><h2 class="indexable" data-level="2" id="80211bb-sfrs">2.6.1 SFRs for 802.11bb Implementations</h2><div class="comp" id="FCS-CKM-1-WPA"><h4>FCS_CKM.1/WPA Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM.1/WPA</div>
@@ -798,7 +797,7 @@ The following sections list Common Criteria and technology terms used in this do
 		            cryptographic standards; this includes not only testing done by the developing organization, but also
 		            proof of third-party testing that is performed (e.g., WPA2 certification). The evaluator shall ensure that
 		            the description of the testing methodology is of sufficient detail to determine the extent to which the
-		            details of the protocol specifics are tested.<br/><br/>
+		            details of the protocol specifics are tested.
 		          </div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		            The evaluator shall perform the following test using a packet sniffing tool to collect
@@ -821,7 +820,7 @@ The following sections list Common Criteria and technology terms used in this do
 		            </p>
 		            <p>
 		              Step 4: The evaluator shall set a timer for one minute, at the end of which the evaluator
-		              will disconnect the client from the TOE and stop the sniffer.
+		              shall disconnect the client from the TOE and stop the sniffer.
 		            </p>
 		            <p>
 		              Step 5: The evaluator shall identify the four-way handshake frames (denoted EAPOL-key in Wireshark
@@ -839,20 +838,20 @@ The following sections list Common Criteria and technology terms used in this do
 		              Step 7: The evaluator shall repeat Step 6 for the next two data frames between the TOE and client,
 		              and without frame control value 0x4208.
 		            </p>
-		            <p>
+		            
 		              Additionally, the evaluator shall test the PRF function using the test vectors from:
 		              <ul>
 		                <li>Section 2.4 “The PRF Function – PRF (key, prefix, data, length)” of the IEEE 802.11-02/362r6 document "Proposed Test vectors for IEEE 802.11 TGi" dated September 10, 2002</li>
 		                <li>Annex J.3 “PRF reference implementation and test vectors” of IEEE 802.11-2020</li>
 		              </ul>
-		            </p>
+		            
 		          </div></div></span></div><div class="comp" id="FCS-CKM-2-GTK"><h4>FCS_CKM.2/GTK Cryptographic Key Distribution (GTK)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM.2/GTK</div>
 		          
 		          
 		          
 		        <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall check the TSS to ensure that it describes how the GTK is wrapped prior to being
 		            distributed using the AES implementation specified in this PP-Module, and also how the GTKs are distributed
-		            when multiple clients connect to the TOE.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea">
+		            when multiple clients connect to the TOE.</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 		            The evaluator shall perform the following test using a packet sniffing tool to collect frames
 		            between a wireless client and the TOE (which may be performed in conjunction with the
@@ -939,7 +938,7 @@ The following sections list Common Criteria and technology terms used in this do
 		              </ul></span>
 		            </p>
 		            <p> <b>AES Key Wrap with Padding (AES-KWP Tests)</b></p>
-		            <p>
+		            
 		              <span class="testlist-"><ul>
 		                <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_CKM.2/GTK:3</a>:
       
@@ -964,7 +963,7 @@ The following sections list Common Criteria and technology terms used in this do
 		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
 		                </li>
 		              </ul></span>
-		            </p>
+		            
 		          </div></div></span></div><div class="comp" id="FCS-CKM-2-PMK"><h4>FCS_CKM.2/PMK Cryptographic Key Distribution (PMK)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM.2/PMK</div>
 		          
 		          
@@ -993,7 +992,7 @@ The following sections list Common Criteria and technology terms used in this do
 		              The guidance must specify the allowable characters for pre-shared keys, and that list must be a superset of the list contained in FIA_PSK_EXT.1.2.<br/><br/>
 		              The evaluator shall confirm the operational guidance contains instructions for either entering bit-based
 		              pre-shared keys for each protocol identified in the requirement or for generating a bit-based pre-shared
-		              key (or both).<br/><br/>
+		              key (or both).
 		            </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, if
 		              performed by a different implementation on the TOE). Note that one or more of these tests can be
 		              performed with a single test case.
@@ -1028,8 +1027,8 @@ The following sections list Common Criteria and technology terms used in this do
 		            
 		            
 		          <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to determine that it describes which keys are distributed outside
-		              the TOE, where they are sent, and the purpose for this transfer.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If this function is dependent on TOE configuration, the evaluator shall confirm that the operational
-		              guidance contains instructions for how to configure that the keys are adequately protected.<br/><br/>
+		              the TOE, where they are sent, and the purpose for this transfer.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If this function is dependent on TOE configuration, the evaluator shall confirm that the operational
+		              guidance contains instructions for how to configure that the keys are adequately protected.
 		            </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
 		              protocols, and FPT_ITT.1 (Base-PP).</div></div></span></div><h2 class="indexable" data-level="2" id="gvlc-sfrs">2.6.3 SFRs for G.vlc Implementations</h2><div class="comp" id="FTP-ITC-1-GVLC"><h4>FTP_ITC.1/Gvlc Inter-TSF Trusted Channel (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/Gvlc</div>
 		          G.vlc is implemented using MACsec. To demonstrate the implementation of G.vlc, the evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in the PP-Module for MACsec Ethernet Encryption.
