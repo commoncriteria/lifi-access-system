@@ -1,15 +1,3 @@
-* Error: Detected dangling ref to 'fpt-aex-ext-1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[22]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'fpt-aslr-ext-1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[23]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'fpt-sbop-ext-1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[24]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'fpt-w^x-ext-1'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[25]"This SFR "/ref[1]""
 * Error: Detected dangling ref to 'fta-tse.1'
         for a ref.
 	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[26]"This SFR "/ref[1]""
