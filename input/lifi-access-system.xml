@@ -496,7 +496,10 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="fia-uau-6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="fmt-smf-1-lifi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
       <con-mod ref="fmt-smr-ext-1">This SFR specifies that remote administration occurs over a dedicated channel, which does not conflict with the Base-PP.</con-mod>
-      <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
+      <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement anti-exploitation measures does not prevent its code from performing any required function.</con-mod>
+      <con-mod ref="fpt-aslr-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement ASLR measures does not prevent its code from performing any required function.</con-mod>
+      <con-mod ref="fpt-sbop-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement stack-based overflow protection does not prevent its code from performing any required function.</con-mod>
+      <con-mod ref="fpt-w^x-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to prevent executable memory from also being writable does not prevent its code from performing any required function</con-mod>
       <con-mod ref="fta-tse.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="ftp-itc-1-8021x">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
       <con-mod ref="fcs-ckm-2-distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
@@ -527,7 +530,7 @@ This PP-Module is written to address the situation where a distributed network d
               <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit</h:li>
               <h:li>[<h:i>auditable events defined in <xref to="at-mandatory"/></h:i></h:li>
                <h:li><h:i>failure of wireless sensor communication</h:i></h:li>
-                <h:li><selectables><selectable>auditable events defined in <xref to="at-sel-based"/></selectable> <selectable>no additional auditable
+                <h:li><selectables><selectable>auditable events defined in <xref to="at-feat-based"/></selectable> <selectable>no additional auditable
                   events</selectable></selectables></h:li>
             </h:ol> 
           </title>
@@ -538,7 +541,7 @@ This PP-Module is written to address the situation where a distributed network d
             controller. If the TOE is a standalone system, audit data should be stored on the component that generates it.<h:br/><h:br/>
             
             The auditable events defined in <xref to="at-mandatory"/>, <xref to="at-feat-based"/>, and <xref to="at-sel-based"/> are for the SFRs that are
-            explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP. The events in the Auditable Events table should be
+            explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP (<xref to="at-sel-based"/> is not referenced in the SFR as none of the SFRs in that section have auditable events associated with them). The events in the Auditable Events table should be
             combined with those of the NDcPP in the context of a conforming Security Target. This table includes rows for all SFRs in the PP-Module. For any
             SFRs the ST claims, the corresponding audit events must also be claimed in the table. If the ST does not claim a particular SFR, then there is
             likewise no expectation that the auditable events for that SFR are required.<h:br/><h:br/>
@@ -721,6 +724,11 @@ This PP-Module is written to address the situation where a distributed network d
         <fam-behavior>Components in this family describe requirements for implementation of 802.1X port-based network access control.</fam-behavior> 
       </ext-comp-def>   
       
+      
+      <ext-comp-def title="Pre-Shared Keys" fam-id="FIA_PSK_EXT">
+        <fam-behavior>Components in this family describe requirements for using pre-shared keys.</fam-behavior> 
+      </ext-comp-def>
+      
       <f-component name="802.1X Authentication" cc-id="fia_8021x_ext.1" id="fia-8021x-ext-1">
         
         <comp-lev>requires the TSF to securely implement IEEE 802.1X as an authenticator.</comp-lev>
@@ -868,7 +876,7 @@ This PP-Module is written to address the situation where a distributed network d
           
           <f-element>
             <title>
-              The TSF shall ensure that the ability to administer remotely, the TOE from a wireless client
+              The TSF shall ensure that the ability to remotely administer the TOE from a wireless client
               shall be disabled by default.
             </title>
             <aactivity>
@@ -1441,6 +1449,8 @@ This PP-Module is written to address the situation where a distributed network d
 			<!-- implementation-dependent SFRs, etc. -->
 		  <section id="80211bb-sfrs" title="SFRs for 802.11bb Implementations">
 		    
+		    
+		    
 		    <f-component name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" cc-id="fcs_ckm.1" iteration="WPA" id="fcs-ckm-1-wpa">
 		      <depends on="feat-80211bb"/>
 		      <f-element>
@@ -1741,10 +1751,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      </f-element>
 		      <audit-event/>
 		    </f-component>
-		    
-		    <ext-comp-def title="Pre-Shared Keys" fam-id="FIA_PSK_EXT">
-		      <fam-behavior>Components in this family describe requirements for using pre-shared keys.</fam-behavior> 
-		    </ext-comp-def>
+		  
 		    
 		      <f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1" id="fia-psk-ext-1">
 		        <depends on="s-radsec-psk"/>	        
