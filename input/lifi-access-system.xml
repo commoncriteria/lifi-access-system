@@ -496,10 +496,11 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="fia-uau-6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="fmt-smf-1-lifi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
       <con-mod ref="fmt-smr-ext-1">This SFR specifies that remote administration occurs over a dedicated channel, which does not conflict with the Base-PP.</con-mod>
-      <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement anti-exploitation measures does not prevent its code from performing any required function.</con-mod>
+      <con-mod ref="fpt-acf-ext-1">This SFR specifies that unprivileged users are prohibited reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the Base-PP.</con-mod>
+      
       <con-mod ref="fpt-aslr-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement ASLR measures does not prevent its code from performing any required function.</con-mod>
       <con-mod ref="fpt-sbop-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement stack-based overflow protection does not prevent its code from performing any required function.</con-mod>
-      <con-mod ref="fpt-w^x-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to prevent executable memory from also being writable does not prevent its code from performing any required function</con-mod>
+      <con-mod ref="fpt-worx-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to prevent executable memory from also being writable does not prevent its code from performing any required function</con-mod>
       <con-mod ref="fta-tse.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="ftp-itc-1-8021x">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
       <con-mod ref="fcs-ckm-2-distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
@@ -905,7 +906,7 @@ This PP-Module is written to address the situation where a distributed network d
             family defined for the FPT class.</fam-behavior>
         </ext-comp-def>
         
-        <f-component cc-id="fpt_acf_ext.1" name="Access Controls">
+        <f-component cc-id="fpt_acf_ext.1" name="Access Controls" id="fpt-acf-ext-1">
           
           <comp-lev> requires the TSF to prohibit unauthorized users from reading or
             modifying specific TSF data.</comp-lev>
@@ -990,7 +991,7 @@ This PP-Module is written to address the situation where a distributed network d
             is a new family defined for the FPT class.</fam-behavior>
         </ext-comp-def>
         
-        <f-component cc-id="fpt_aslr_ext.1" name="Address Space Layout Randomization">
+        <f-component cc-id="fpt_aslr_ext.1" name="Address Space Layout Randomization" id="fpt-aslr-ext-1">
           
           <comp-lev> defines the ability of the TOE to use ASLR as
             well as the objects that ASLR is applied to.</comp-lev>
@@ -1038,7 +1039,7 @@ This PP-Module is written to address the situation where a distributed network d
             family defined for the FPT class.</fam-behavior>
         </ext-comp-def>
         
-        <f-component cc-id="fpt_sbop_ext.1" name="Stack Buffer Overflow Protection">          
+        <f-component cc-id="fpt_sbop_ext.1" name="Stack Buffer Overflow Protection" id="fpt-sbop-ext-1">          
           <comp-lev> requires the TSF to be compiled using stack-based
             buffer overflow protections or to store data in such a manner that a stack-based buffer overflow cannot
             compromise the TSF.</comp-lev>
@@ -1091,7 +1092,7 @@ This PP-Module is written to address the situation where a distributed network d
             memory from being both writable and executable. This is a new family defined for the FPT class.
           </fam-behavior>
         </ext-comp-def>
-        <f-component cc-id="fpt_w^x_ext.1" name="Write XOR Execute Memory Pages" status="optional">
+        <f-component cc-id="fpt_w^x_ext.1" name="Write XOR Execute Memory Pages" status="optional" id="fpt-worx-ext-1">
           
           <comp-lev> defines the ability of the TOE to prevent memory
             from being simultaneously writable and executable unless otherwise specified.</comp-lev>
@@ -1148,7 +1149,7 @@ This PP-Module is written to address the situation where a distributed network d
       </section>
      <section title="TOE Access (FTA)" id="man-fta">
         
-       <f-component name="TOE Session Establishment" cc-id="fta_tse.1" id="fta_tse-1">
+       <f-component name="TOE Session Establishment" cc-id="fta_tse.1" id="fta-tse-1">
          <f-element>
            <title>The TSF shall be able to deny session establishment <h:b>of a wireless client session</h:b> based
              on [<h:i>TOE interface, time, day, <selectables>
