@@ -969,6 +969,8 @@ This PP-Module is written to address the situation where a distributed network d
               "Credential repositories" refer, in this case, to structures containing cryptographic keys or passwords.
             </note>
             <aactivity level="element">
+              <TSS/>
+              <Guidance/>               
               <Tests>
                 For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
 				The evaluator shall create an unprivileged user account.
