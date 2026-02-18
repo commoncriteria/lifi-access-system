@@ -496,11 +496,16 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="fia-uau-6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="fmt-smf-1-lifi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
       <con-mod ref="fmt-smr-ext-1">This SFR specifies that remote administration occurs over a dedicated channel, which does not conflict with the Base-PP.</con-mod>
+<<<<<<< Updated upstream
       <con-mod ref="fpt-acf-ext-1">This SFR specifies that unprivileged users are prohibited reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the Base-PP.</con-mod>
       
       <con-mod ref="fpt-aslr-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement ASLR measures does not prevent its code from performing any required function.</con-mod>
       <con-mod ref="fpt-sbop-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement stack-based overflow protection does not prevent its code from performing any required function.</con-mod>
       <con-mod ref="fpt-worx-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to prevent executable memory from also being writable does not prevent its code from performing any required function</con-mod>
+=======
+      
+      <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
+>>>>>>> Stashed changes
       <con-mod ref="fta-tse.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="ftp-itc-1-8021x">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
       <con-mod ref="fcs-ckm-2-distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
@@ -533,12 +538,12 @@ This PP-Module is written to address the situation where a distributed network d
                <h:li><h:i>failure of wireless sensor communication</h:i></h:li>
                 <h:li><selectables><selectable>auditable events defined in <xref to="at-feat-based"/></selectable> <selectable>no additional auditable
                   events</selectable></selectables></h:li>
-            </h:ol> 
+            </h:ol>]
           </title>
           <note role="application">
             A TOE that conforms to a Protection Profile Configuration (PP-Configuration) containing this PP-Module can either be a standalone or distributed TOE
             as defined in the NDcPP. For distributed TOEs, the expectation for this PP-Module is that a LiFi AS is composed of a single controller and one or
-            more access points (APs). If the TOE is a distributed system across multiple components then they must be capable of sending audit data to the
+            more access points (APs). If the TOE is a distributed system across multiple components, then they must be capable of sending audit data to the
             controller. If the TOE is a standalone system, audit data should be stored on the component that generates it.<h:br/><h:br/>
             
             The auditable events defined in <xref to="at-mandatory"/>, <xref to="at-feat-based"/>, and <xref to="at-sel-based"/> are for the SFRs that are
@@ -851,7 +856,7 @@ This PP-Module is written to address the situation where a distributed network d
               <Tests>
                 The evaluator shall perform the following tests:
                 <testlist>
-                  <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
+                  <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection.<h:br/><h:br/> Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
                   <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
                   <test>[Conditional: SSID is broadcast]
                     The evaluator shall configure the SSID to be broadcast.
@@ -926,10 +931,10 @@ This PP-Module is written to address the situation where a distributed network d
                 <h:li>Shared libraries</h:li>
                 <h:li>System executables</h:li>
                 <h:li>System configuration files</h:li>
-                <h:li><assignable>other objects</assignable></h:li>.
+                <h:li><assignable>other objects</assignable>.</h:li>
               </h:ul>              
             </title>
-            <aactivity>
+            <aactivity level="element">
               <TSS>
                 The evaluator shall confirm that the TSS specifies the locations of kernel drivers and modules, security
                 audit logs, shared libraries, system executables, and system configuration files.  Every
@@ -938,7 +943,7 @@ This PP-Module is written to address the situation where a distributed network d
               </TSS>
               <Guidance/>
               <Tests>
-                For these tests the evaluator shall use appropriate development environment (e.g. a Virtual Machine) and development tools (debuggers,
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers,
                 simulators, etc.), including enabling root shell access as needed.
 				        The evaluator shall create an unprivileged user account.
                 Using this account, the evaluator shall ensure that the following tests result in a negative
@@ -960,15 +965,15 @@ This PP-Module is written to address the situation where a distributed network d
               reading: <h:ul>
                 <h:li>Security audit logs</h:li>
                 <h:li>System-wide credential repositories</h:li>
-                <h:li><assignable>list of other objects</assignable></h:li>.
+                <h:li><assignable>list of other objects</assignable>.</h:li>
               </h:ul>
             </title>
             <note role="application">
               "Credential repositories" refer, in this case, to structures containing cryptographic keys or passwords.
             </note>
-            <aactivity>
+            <aactivity level="element">
               <Tests>
-                For these tests the evaluator shall use appropriate development environment (e.g. a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
 				The evaluator shall create an unprivileged user account.
                 Using this account, the evaluator shall ensure that the following tests result in a negative
                 outcome (i.e., the action results in the OS denying the evaluator permission to
@@ -1012,22 +1017,15 @@ This PP-Module is written to address the situation where a distributed network d
               <TSS>The evaluator shall examine the TSS to verify that it identifies the number of entropy bits used for ASLR and what exceptions there are to this, if any.</TSS>
               <Guidance/>
               <Tests>
-                For these tests the evaluator shall use appropriate development environment (e.g. a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
-				  
-				The evaluator shall select three executables included with the TSF.
-                If the TSF includes a web server it must be selected. 
-				The evaluator shall prioritize executables that are UDP or TCP listening network services.
-                For each of these executables, the evaluator shall launch the same executable twice and inspect /proc/$PID/maps.
-                The evaluator shall ensure that no memory mappings are placed in the different locations.
-                If the rare chance occurs that two mappings are the same for a single executable and
-                not the same for another chosen executable, the evaluator shall repeat the test with that executable to verify
-                that in the second test the mappings are different.
-                This test should also be completed on the same hardware. 
-				The evaluator shall also inspect the executables to verify the fPIE compile flag is enabled.
-
-				The evaluator shall read /proc/kallsysms and note the _stext address. 
-				The evaluator shall then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ.
-				In the rare event KASLR is on and the addresses are the same the evaluator shall reboot and verify again.
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.),
+                including enabling root shell access as needed. The evaluator shall select three executables included with the TSF. If the TSF includes a web server it must be
+                selected. The evaluator shall prioritize executables that are UDP or TCP listening network services. For each of these executables, the evaluator shall launch
+                the same executable twice and inspect /proc/$PID/maps. The evaluator shall ensure that no memory mappings are placed in the different locations. If the rare
+                chance occurs that two mappings are the same for a single executable and not the same for another chosen executable, the evaluator shall repeat the test with
+                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware.  The evaluator shall also
+                inspect the executables to verify the fPIE compile flag is enabled. The evaluator shall read /proc/kallsysms and note the _stext address. The evaluator shall
+                then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ. In the rare event KASLR is on and the addresses are the same
+                the evaluator shall reboot and verify again.
               </Tests>
             </aactivity>
           </f-element>         
@@ -1160,7 +1158,7 @@ This PP-Module is written to address the situation where a distributed network d
            <note role="application">
              <h:p>
                The “TOE interface” can be specified in terms of the device in the TOE that the LiFi
-               client is connecting to (e.g., specific LiFi APs). “Time” and “day” refer to time-of-day and
+               client is connecting to (e.g., specific LiFi APs). “time” and “day” refer to time-of-day and
                day-of-week, respectively.
              </h:p>
              <h:p>
@@ -1183,7 +1181,7 @@ This PP-Module is written to address the situation where a distributed network d
                    that the client’s access is denied based on a specific value of the attribute.
                    The evaluator shall then attempt to establish a session in contravention
                    to the attribute setting (for instance, the client is denied network access based upon the TOE interface
-                   that it is connecting to, or that the client is denied access based upon the time-of-day or
+                   that it is connecting to, or that the client is denied access based on the time-of-day or
                    day-of-week it is attempting connection on).
                    The evaluator shall observe that the access attempt fails.
                  </test>
@@ -1210,7 +1208,7 @@ This PP-Module is written to address the situation where a distributed network d
             <selectable id="s-radius">RADIUS over TLS</selectable></selectables></h:b>
             
             between itself and <h:b>an 802.1X authentication server</h:b> that is logically distinct from other communication channels and provides assured
-            identification of its end points and protection of the channel data from modification or
+            identification of its endpoints and protection of the channel data from modification or
             disclosure.
             
           </title>
@@ -1241,11 +1239,11 @@ This PP-Module is written to address the situation where a distributed network d
           <aactivity>
             The evaluator shall perform the following activities in addition to those required by the NDcPP:<h:br/><h:br/>
             <TSS>
-              The evaluator shall examine the TSS to determine that, for all communications with authorized IT
+              The evaluator shall examine the TSS to determine that for all communications with authorized IT
               entities identified in the requirement, each communications mechanism is identified in terms of the
               allowed protocols for that IT entity.
               The evaluator shall also confirm that all protocols listed in the TSS
-              are specified and included in the requirements in the ST.<h:br/><h:br/>
+              are specified and included in the requirements in the ST.
             </TSS>
             <Guidance>The evaluator shall confirm that the guidance documentation contains instructions for establishing the
               allowed protocols with each authorized IT entity and that it contains recovery instructions should a
@@ -1875,7 +1873,7 @@ This PP-Module is written to address the situation where a distributed network d
 		          </selectables> as defined by IEEE 802.11-2020 to provide a trusted channel</h:b>
 		        
 		        between itself and <h:b>LiFi clients</h:b> that is logically distinct from other communication channels and provides assured
-		        identification of its end points and protection of the channel data from modification or
+		        identification of its endpoints and protection of the channel data from modification or
 		        disclosure.
 		      </title>
 		        <note role="application">
@@ -1948,7 +1946,7 @@ This PP-Module is written to address the situation where a distributed network d
 		      <f-element><title>
 		        The TSF shall provide a communication channel <h:b>for G.vlc using MACsec to provide a trusted channel</h:b>		        
 		        between itself and <h:b>a MACsec peer</h:b> that is logically distinct from other communication channels and provides assured
-		        identification of its end points and protection of the channel data from modification or
+		        identification of its endpoints and protection of the channel data from modification or
 		        disclosure.
 		      </title>
 		        <note role="application">
