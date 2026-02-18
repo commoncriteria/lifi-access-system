@@ -903,13 +903,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                <li><i>failure of wireless sensor communication</i></li>
                 <li>[<b>selection</b>: <span class="selectable-content" id="_s_1">auditable events defined in <a onclick="showTarget('at-feat-based')" href="#at-feat-based" class="at-feat-based-ref">Table  <span class="counter">8</span></a></span>, <span class="selectable-content" id="_s_2">no additional auditable
                   events</span>]</li>
-            </ol> 
+            </ol>]
           <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
             A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to a Protection Profile Configuration (<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr>) containing this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can either be a standalone or distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
             as defined in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>. For distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>, the expectation for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is that a LiFi AS is composed of a single controller and one or
-            more access points (<abbr class="dyn-abbr"><a href="#abbr_AP">APs</a></abbr>). If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a distributed system across multiple components then they must be capable of sending audit data to the
+            more access points (<abbr class="dyn-abbr"><a href="#abbr_AP">APs</a></abbr>). If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a distributed system across multiple components, then they must be capable of sending audit data to the
             controller. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a standalone system, audit data should be stored on the component that generates it.<br/><br/>
             
             The auditable events defined in <a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>, <a onclick="showTarget('at-feat-based')" href="#at-feat-based" class="at-feat-based-ref">Table  <span class="counter">8</span></a>, and <a onclick="showTarget('at-sel-based')" href="#at-sel-based" class="at-sel-based-ref">Table  <span class="counter">10</span></a> are for the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are
@@ -1215,7 +1215,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FMT_SMF.1/LiFi:1</a>:
-      For each security type specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr>, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</li>
+      For each security type specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, configure the network to the approved security type and verify that the client can establish a connection.<br/><br/> Maintaining the same <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr>, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</li>
                   <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMF.1/LiFi:2</a>:
       For each authentication protocol specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</li>
                   <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMF.1/LiFi:3</a>:
@@ -1276,7 +1276,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 <li>System executables</li>
                 <li>System configuration files</li>
                 <li>[<b>assignment</b>: 
-     <span class="assignable-content">other objects</span>]</li>.
+     <span class="assignable-content">other objects</span>].</li>
               </ul>              
             </div></div>
           <div class="element"><div class="reqid" id="FPT_ACF_EXT.1.2"><a href="#FPT_ACF_EXT.1.2" class="abbr">FPT_ACF_EXT.1.2</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement access controls which prohibit unprivileged users from
@@ -1284,7 +1284,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 <li>Security audit logs</li>
                 <li>System-wide credential repositories</li>
                 <li>[<b>assignment</b>: 
-     <span class="assignable-content">list of other objects</span>]</li>.
+     <span class="assignable-content">list of other objects</span>].</li>
               </ul>
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1292,54 +1292,54 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               "Credential repositories" refer, in this case, to structures containing cryptographic keys or passwords.
             </span></div></div></div>
           
-        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_ACF_EXT.1">FPT_ACF_EXT.1</a></div>
-              
-              
-              
-            
-              
-            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
+        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="element-activity-header"><a href="#FPT_ACF_EXT.1.1">FPT_ACF_EXT.1.1</a></div>
+              <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
                 The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> specifies the locations of kernel drivers and modules, security
                 audit logs, shared libraries, system executables, and system configuration files.  Every
                 file does not need to be individually identified, but the system's conventions for storing and protecting
                 such files must be specified.
-              </div></div><div class="eacategory">Guidance</div><div class="ea">
-			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                For these tests the evaluator shall use appropriate development environment (e.g. a Virtual Machine) and development tools (debuggers,
+              </div>
+              <div class="eacategory">Guidance</div>
+			There are no additional Guidance evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Tests</div><div class="ea">
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers,
                 simulators, etc.), including enabling root shell access as needed.
 				        The evaluator shall create an unprivileged user account.
                 Using this account, the evaluator shall ensure that the following tests result in a negative
                 outcome (i.e., the action results in the OS denying the evaluator permission to
                 complete the action):
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FPT_ACF_EXT.1:1</a>:
+                  <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FPT_ACF_EXT.1.1:1</a>:
       The evaluator shall attempt to modify all kernel drivers and modules.</li>
-                  <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FPT_ACF_EXT.1:2</a>:
+                  <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FPT_ACF_EXT.1.1:2</a>:
       The evaluator shall attempt to modify all security audit logs generated by the logging subsystem.</li>
-                  <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FPT_ACF_EXT.1:3</a>:
+                  <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FPT_ACF_EXT.1.1:3</a>:
       The evaluator shall attempt to modify all shared libraries that are used throughout the system.</li>
-                  <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FPT_ACF_EXT.1:4</a>:
+                  <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FPT_ACF_EXT.1.1:4</a>:
       The evaluator shall attempt to modify all system executables.</li>
-                  <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FPT_ACF_EXT.1:5</a>:
+                  <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FPT_ACF_EXT.1.1:5</a>:
       The evaluator shall attempt to modify all system configuration files.</li>
-                  <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FPT_ACF_EXT.1:6</a>:
+                  <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FPT_ACF_EXT.1.1:6</a>:
       The evaluator shall attempt to modify any additional components selected.</li>
                 </ul></span>
-              </div><div class="ea">
-                For these tests the evaluator shall use appropriate development environment (e.g. a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
+              </div>
+            <div class="element-activity-header"><a href="#FPT_ACF_EXT.1.2">FPT_ACF_EXT.1.2</a></div>
+              <div class="eacategory">Tests</div><div class="ea">
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
 				The evaluator shall create an unprivileged user account.
                 Using this account, the evaluator shall ensure that the following tests result in a negative
                 outcome (i.e., the action results in the OS denying the evaluator permission to
                 complete the action):
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FPT_ACF_EXT.1:7</a>:
+                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FPT_ACF_EXT.1.2:1</a>:
       The evaluator shall attempt to read security audit logs generated by the auditing subsystem.</li>
-                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FPT_ACF_EXT.1:8</a>:
+                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FPT_ACF_EXT.1.2:2</a>:
       The evaluator shall attempt to read system-wide credential repositories.</li>
-                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FPT_ACF_EXT.1:9</a>:
+                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FPT_ACF_EXT.1.2:3</a>:
       The evaluator shall attempt to read any other object specified in the assignment.</li>
                 </ul></span>
-              </div></div></div></div></div>
+              </div>
+            </div></div></div>
         
         
         
@@ -1364,22 +1364,15 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it identifies the number of entropy bits used for <abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr> and what exceptions there are to this, if any.</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                For these tests the evaluator shall use appropriate development environment (e.g. a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
-				  
-				The evaluator shall select three executables included with the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
-                If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> includes a web server it must be selected. 
-				The evaluator shall prioritize executables that are UDP or TCP listening network services.
-                For each of these executables, the evaluator shall launch the same executable twice and inspect /proc/$PID/maps.
-                The evaluator shall ensure that no memory mappings are placed in the different locations.
-                If the rare chance occurs that two mappings are the same for a single executable and
-                not the same for another chosen executable, the evaluator shall repeat the test with that executable to verify
-                that in the second test the mappings are different.
-                This test should also be completed on the same hardware. 
-				The evaluator shall also inspect the executables to verify the fPIE compile flag is enabled.
-
-				The evaluator shall read /proc/kallsysms and note the _stext address. 
-				The evaluator shall then completely reboot the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and re-read /proc/kallsyms and in verify that the addresses differ.
-				In the rare event KASLR is on and the addresses are the same the evaluator shall reboot and verify again.
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.),
+                including enabling root shell access as needed. The evaluator shall select three executables included with the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> includes a web server it must be
+                selected. The evaluator shall prioritize executables that are UDP or TCP listening network services. For each of these executables, the evaluator shall launch
+                the same executable twice and inspect /proc/$PID/maps. The evaluator shall ensure that no memory mappings are placed in the different locations. If the rare
+                chance occurs that two mappings are the same for a single executable and not the same for another chosen executable, the evaluator shall repeat the test with
+                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware.  The evaluator shall also
+                inspect the executables to verify the fPIE compile flag is enabled. The evaluator shall read /proc/kallsysms and note the _stext address. The evaluator shall
+                then completely reboot the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and re-read /proc/kallsyms and in verify that the addresses differ. In the rare event KASLR is on and the addresses are the same
+                the evaluator shall reboot and verify again.
               </div></div></div></div></div>
         
          
@@ -1494,7 +1487,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </span><span class="note">
              <p>
                The “<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface” can be specified in terms of the device in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that the LiFi
-               client is connecting to (e.g., specific LiFi <abbr class="dyn-abbr"><a href="#abbr_AP">APs</a></abbr>). “Time” and “day” refer to time-of-day and
+               client is connecting to (e.g., specific LiFi <abbr class="dyn-abbr"><a href="#abbr_AP">APs</a></abbr>). “time” and “day” refer to time-of-day and
                day-of-week, respectively.
              </p>
              <p>
@@ -1519,8 +1512,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                    The evaluator shall then follow the operational guidance to configure the system so
                    that the client’s access is denied based on a specific value of the attribute.
                    The evaluator shall then attempt to establish a session in contravention
-                   to the attribute setting (for instance, the client is denied network access based upon the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface
-                   that it is connecting to, or that the client is denied access based upon the time-of-day or
+                   to the attribute setting (for instance, the client is denied network access based on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface
+                   that it is connecting to, or that the client is denied access based on the time-of-day or
                    day-of-week it is attempting connection on).
                    The evaluator shall observe that the access attempt fails.
                  </li>
@@ -1536,7 +1529,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         <div class="element"><div class="reqid" id="FTP_ITC.1.1/8021X"><a href="#FTP_ITC.1.1/8021X" class="abbr">FTP_ITC.1.1/8021X</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication channel <b>using IEEE 802.1X and [<b>selection</b>: <span class="selectable-content" id="s-ipsec"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="s-radius"><abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>]</b>
             
             between itself and <b>an 802.1X authentication server</b> that is logically distinct from other communication channels and provides assured
-            identification of its end points and protection of the channel data from modification or
+            identification of its endpoints and protection of the channel data from modification or
             disclosure.
             
           <div class="appnote"><span class="note-header">Application
@@ -1569,11 +1562,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             
             
           <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-              The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that, for all communications with authorized IT
+              The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that for all communications with authorized IT
               entities identified in the requirement, each communications mechanism is identified in terms of the
               allowed protocols for that IT entity.
               The evaluator shall also confirm that all protocols listed in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
-              are specified and included in the requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<br/><br/>
+              are specified and included in the requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm that the guidance documentation contains instructions for establishing the
               allowed protocols with each authorized IT entity and that it contains recovery instructions should a
               connection be unintentionally broken.
@@ -1694,7 +1687,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		  </td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
 	      <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> is the base.
-	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/LiFi">FAU_GEN.1/LiFi</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FAU_GEN.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define auditable events for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#FCS_COP.1/LiFiDataEncryption">FCS_COP.1/LiFiDataEncryption</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines cryptographic behavior for functions outside the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FIA_8021X_EXT.1">FIA_8021X_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for 802.1X communications, which is a logical interface that extends the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FMT_SMF.1/LiFi">FMT_SMF.1/LiFi</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FMT_SMR_EXT.1">FMT_SMR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> specifies that remote administration occurs over a dedicated channel, which does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_ACF_EXT.1">FPT_ACF_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> specifies that unprivileged users are prohibited reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_ASLR_EXT.1">FPT_ASLR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> enforces specific low-level protections on the software running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that does not conflict with any other security functionality. The ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr> measures does not prevent its code from performing any required function.</td></tr><tr><td><a href="#FPT_SBOP_EXT.1">FPT_SBOP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> enforces specific low-level protections on the software running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that does not conflict with any other security functionality. The ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement stack-based overflow protection does not prevent its code from performing any required function.</td></tr><tr><td><a href="#FPT_W^X_EXT.1">FPT_W^X_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> enforces specific low-level protections on the software running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that does not conflict with any other security functionality. The ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to prevent executable memory from also being writable does not prevent its code from performing any required function</td></tr><tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/8021X">FTP_ITC.1/8021X</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FTP_ITC.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define trusted communication channels for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/LiFi">FAU_GEN.1/LiFi</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FAU_GEN.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define auditable events for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#FCS_COP.1/LiFiDataEncryption">FCS_COP.1/LiFiDataEncryption</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines cryptographic behavior for functions outside the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FIA_8021X_EXT.1">FIA_8021X_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for 802.1X communications, which is a logical interface that extends the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FIA_UAU.6">FIA_UAU.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FMT_SMF.1/LiFi">FMT_SMF.1/LiFi</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FMT_SMR_EXT.1">FMT_SMR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> specifies that remote administration occurs over a dedicated channel, which does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_ACF_EXT.1">FPT_ACF_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> specifies that unprivileged users are prohibited from reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_ASLR_EXT.1">FPT_ASLR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> enforces specific low-level protections on the software running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that does not conflict with any other security functionality. The ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr> measures does not prevent its code from performing any required function.</td></tr><tr><td><a href="#FPT_SBOP_EXT.1">FPT_SBOP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> enforces specific low-level protections on the software running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that does not conflict with any other security functionality. The ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement stack-based overflow protection does not prevent its code from performing any required function.</td></tr><tr><td><a href="#FPT_W^X_EXT.1">FPT_W^X_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> enforces specific low-level protections on the software running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that does not conflict with any other security functionality. The ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to prevent executable memory from also being writable does not prevent its code from performing any required function</td></tr><tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> originally defined.</td></tr><tr><td><a href="#FTP_ITC.1/8021X">FTP_ITC.1/8021X</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iterates the FTP_ITC.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define trusted communication channels for the functionality that is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Optional requirements.
 	    </td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
@@ -2012,10 +2005,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		                  using the same test as for <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP authenticated-encryption, 
 		                  replacing plaintext values with ciphertext values and <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP authenticated-encryption
 		                  with <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KWP authenticated-decryption. 
-		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
+		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned
+		                  rather than plaintext.
 		                </li>
-		              </ul></span>
-		            
+		              </ul></span>		            
 		          </div></div></div></div></div>
 		    
 		    
@@ -2150,7 +2143,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		          WPA3-Enterprise, WPA2-Enterprise, and [<b>selection</b>: <span class="selectable-content" id="_s_55">WPA3-SAE</span>, <span class="selectable-content" id="_s_56">WPA3-SAE-PK</span>, <span class="selectable-content" id="_s_57">WPA2-PSK</span>, <span class="selectable-content" id="_s_58">no other mode</span>] as defined by IEEE 802.11-2020 to provide a trusted channel</b>
 		        
 		        between itself and <b>LiFi clients</b> that is logically distinct from other communication channels and provides assured
-		        identification of its end points and protection of the channel data from modification or
+		        identification of its endpoints and protection of the channel data from modification or
 		        disclosure.
 		      <div class="appnote"><span class="note-header">Application
       Note:
@@ -2220,7 +2213,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		      <div class="element"><div class="reqid" id="FTP_ITC.1.1/Gvlc"><a href="#FTP_ITC.1.1/Gvlc" class="abbr">FTP_ITC.1.1/Gvlc</a></div><div class="reqdesc">
 		        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication channel <b>for G.vlc using MACsec to provide a trusted channel</b>		        
 		        between itself and <b>a MACsec peer</b> that is logically distinct from other communication channels and provides assured
-		        identification of its end points and protection of the channel data from modification or
+		        identification of its endpoints and protection of the channel data from modification or
 		        disclosure.
 		      <div class="appnote"><span class="note-header">Application
       Note:
@@ -2295,7 +2288,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		            This test will be performed with X.509v3 certificates if selected and performed with pre-shared keys if selected.</div></div></div></div></div>
 		    
 
-		    <div class="comp" id="FCS_RADSEC_EXT.2"><h4>FCS_RADSEC_EXT.2 RadSec using Pre-Shared Keys</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+		    <div class="comp" id="FCS_RADSEC_EXT.2"><h4>FCS_RADSEC_EXT.2 RadSec Using Pre-Shared Keys</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</a>.
            </i></b></div>
 		      
@@ -2369,7 +2362,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 	<h3 id="ext-comp-FCS_RADSEC_EXT" class="indexable" data-level="4">C.2.1.1 FCS_RADSEC_EXT RadSec</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family describe requirements for implementation of the RadSec (<abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>) protocol.</div><h4>Component Leveling</h4><svg style="max-height: 50px;"><text x="4" fill="black" font-size="15" y="44">FCS_RADSEC_EXT</text><rect x="2" y="31" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="17" stroke="black"></line><text x="234" fill="black" font-size="15" y="44">2</text><rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="37" stroke="black"></line></svg><p><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a>,
              RadSec,
              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement RadSec using a specified peer authentication method.</p><p><a href="#FCS_RADSEC_EXT.2">FCS_RADSEC_EXT.2</a>,
-             RadSec using Pre-Shared Keys,
+             RadSec Using Pre-Shared Keys,
              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement RadSec using pre-shared key authentication in a manner that conforms to relevant <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> specifications.</p><h4>Management: FCS_RADSEC_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_RADSEC_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FCS_RADSEC_EXT.1 RadSec</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 		        FCS_TLSC_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Client Protocol<br/>
 		        <span class="no-link">FIA_PSK_EXT.1</span> Pre-Shared Key Composition<br/>
@@ -2379,7 +2372,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		        <h4 id="ext-comp-FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</h4>
 		          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform peer authentication using [<b>assignment</b>: 
      <span class="assignable-content">some authentication method</span>].
-		        </div><h4>Management: FCS_RADSEC_EXT.2</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_RADSEC_EXT.2</h4><p>There are no auditable events foreseen.</p><h4>FCS_RADSEC_EXT.2 RadSec using Pre-Shared Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
+		        </div><h4>Management: FCS_RADSEC_EXT.2</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_RADSEC_EXT.2</h4><p>There are no auditable events foreseen.</p><h4>FCS_RADSEC_EXT.2 RadSec Using Pre-Shared Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 		        FCS_CKM.1 Cryptographic Key Generation<br/>
 		        FCS_COP.1 Cryptographic Operation<br/>
 		        <span class="no-link">FCS_RADSEC_EXT.1</span> RadSec<br/>
@@ -2423,14 +2416,14 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 <li>System executables</li>
                 <li>System configuration files</li>
                 <li>[<b>assignment</b>: 
-     <span class="assignable-content">other objects</span>]</li>.
+     <span class="assignable-content">other objects</span>].</li>
               </ul>              
             <h4 id="ext-comp-FPT_ACF_EXT.1.2">FPT_ACF_EXT.1.2</h4> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement access controls which prohibit unprivileged users from
               reading: <ul>
                 <li>Security audit logs</li>
                 <li>System-wide credential repositories</li>
                 <li>[<b>assignment</b>: 
-     <span class="assignable-content">list of other objects</span>]</li>.
+     <span class="assignable-content">list of other objects</span>].</li>
               </ul>
             </div></div><h3 id="ext-comp-FPT_ASLR_EXT" class="indexable" data-level="4">C.2.3.2 FPT_ASLR_EXT Address Space Layout Randomization</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement address space layout randomization (<abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr>). This
             is a new family defined for the FPT class.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FPT_ASLR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FPT_ASLR_EXT.1">FPT_ASLR_EXT.1</a>,
