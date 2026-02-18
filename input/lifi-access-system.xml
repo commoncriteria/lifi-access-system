@@ -496,17 +496,14 @@ This PP-Module is written to address the situation where a distributed network d
       <con-mod ref="fia-uau-6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="fmt-smf-1-lifi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
       <con-mod ref="fmt-smr-ext-1">This SFR specifies that remote administration occurs over a dedicated channel, which does not conflict with the Base-PP.</con-mod>
-<<<<<<< Updated upstream
-      <con-mod ref="fpt-acf-ext-1">This SFR specifies that unprivileged users are prohibited reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the Base-PP.</con-mod>
+      <con-mod ref="fpt-acf-ext-1">This SFR specifies that unprivileged users are prohibited from reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the Base-PP.</con-mod>
       
       <con-mod ref="fpt-aslr-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement ASLR measures does not prevent its code from performing any required function.</con-mod>
       <con-mod ref="fpt-sbop-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement stack-based overflow protection does not prevent its code from performing any required function.</con-mod>
       <con-mod ref="fpt-worx-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to prevent executable memory from also being writable does not prevent its code from performing any required function</con-mod>
-=======
       
       <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
->>>>>>> Stashed changes
-      <con-mod ref="fta-tse.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="fta-tse-1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="ftp-itc-1-8021x">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
       <con-mod ref="fcs-ckm-2-distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
       <con-mod ref="fcs-ckm-1-wpa">This SFR defines additional cryptographic functionality not defined in the Base-PP, but it implements this using the DRBG mechanism already defined in the Base-PP.</con-mod>
@@ -1180,7 +1177,7 @@ This PP-Module is written to address the situation where a distributed network d
                    The evaluator shall then follow the operational guidance to configure the system so
                    that the client’s access is denied based on a specific value of the attribute.
                    The evaluator shall then attempt to establish a session in contravention
-                   to the attribute setting (for instance, the client is denied network access based upon the TOE interface
+                   to the attribute setting (for instance, the client is denied network access based on the TOE interface
                    that it is connecting to, or that the client is denied access based on the time-of-day or
                    day-of-week it is attempting connection on).
                    The evaluator shall observe that the access attempt fails.
@@ -1350,7 +1347,7 @@ This PP-Module is written to address the situation where a distributed network d
 		    </f-component>
 		    
 
-		    <f-component name="RadSec using Pre-Shared Keys" cc-id="fcs_radsec_ext.2" id="fcs-radsec-ext-2">
+		    <f-component name="RadSec Using Pre-Shared Keys" cc-id="fcs_radsec_ext.2" id="fcs-radsec-ext-2">
 		      <depends on="s-radsec-psk"/>
 		      
 		      <comp-lev>requires the TSF to implement RadSec using pre-shared key authentication in a manner that conforms to relevant TLS specifications.</comp-lev>
@@ -1708,10 +1705,10 @@ This PP-Module is written to address the situation where a distributed network d
 		                  using the same test as for AES-KWP authenticated-encryption, 
 		                  replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption
 		                  with AES-KWP authenticated-decryption. 
-		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.
+		                  Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned
+		                  rather than plaintext.
 		                </test>
-		              </testlist>
-		            
+		              </testlist>		            
 		          </Tests>
 		        </aactivity>
 		      </f-element>
