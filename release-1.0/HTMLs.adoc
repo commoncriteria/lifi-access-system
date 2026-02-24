@@ -1,0 +1,4 @@
+* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-release-linkable.html[lifi-access-system-release-linkable.html]
+* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-release.html[lifi-access-system-release.html]
+* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-sd.html[lifi-access-system-sd.html]
+* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system.html[lifi-access-system.html]
