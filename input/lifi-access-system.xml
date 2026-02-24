@@ -27,7 +27,7 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2026-02-10</PPPubDate>
+      <PPPubDate>2026-02-24</PPPubDate>
       <Keywords/>
     </ReferenceTable>
   </PPReference>
@@ -36,7 +36,7 @@
   <RevisionHistory>
     <entry>
       <version>1.0</version>
-      <date>2026-02-10</date>
+      <date>2026-02-24</date>
       <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
@@ -1019,9 +1019,9 @@ This PP-Module is written to address the situation where a distributed network d
                 For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.),
                 including enabling root shell access as needed. The evaluator shall select three executables included with the TSF. If the TSF includes a web server it must be
                 selected. The evaluator shall prioritize executables that are UDP or TCP listening network services. For each of these executables, the evaluator shall launch
-                the same executable twice and inspect /proc/$PID/maps. The evaluator shall ensure that no memory mappings are placed in the different locations. If the rare
+                the same executable twice and inspect the memory map using an appropriate tool or interface (e.g. /proc/$PID/maps on a Linux-based OS). The evaluator shall ensure that no memory mappings are placed in the same location. If the rare
                 chance occurs that two mappings are the same for a single executable and not the same for another chosen executable, the evaluator shall repeat the test with
-                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware.  The evaluator shall also
+                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware. The evaluator shall also
                 inspect the executables to verify the fPIE compile flag is enabled. The evaluator shall read /proc/kallsysms and note the _stext address. The evaluator shall
                 then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ. In the rare event KASLR is on and the addresses are the same
                 the evaluator shall reboot and verify again.
