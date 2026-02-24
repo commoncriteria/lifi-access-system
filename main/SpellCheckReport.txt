@@ -29,7 +29,6 @@ output/lifi-access-system-release-linkable.html: WPA3
 output/lifi-access-system-release-linkable.html: Wi
 output/lifi-access-system-release-linkable.html: Wireshark
 output/lifi-access-system-release-linkable.html: fPIE
-output/lifi-access-system-release-linkable.html: href
 output/lifi-access-system-release-linkable.html: lifecycle
 output/lifi-access-system-release-linkable.html: multicast
 output/lifi-access-system-release-linkable.html: stext

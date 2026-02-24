@@ -274,7 +274,7 @@
    </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
         Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
     PP-Module for LiFi Access Systems<br/>
-      Version: 1.0<br/>2026-02-10<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
+      Version: 1.0<br/>2026-02-24<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
       and the associated Common Evaluation Methodology for
       Information Technology Security Evaluation.</p><p>SDs may be “Guidance Documents”, that highlight specific approaches 
       and application of the standard to areas where no mutual recognition of
@@ -284,7 +284,7 @@
       The usage of the latter class is not only mandatory, but certificates
       issued as a result of their application are recognized under the CCRA.</p><p><b>Technical Editor:</b><br/>
       National Information Assurance Partnership (NIAP)
-      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>1.0</td><td>2026-02-10</td><td>Initial Release</td></tr></table></p><p><b>General Purpose:</b><br/>
+      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>1.0</td><td>2026-02-24</td><td>Initial Release</td></tr></table></p><p><b>General Purpose:</b><br/>
       The purpose of this SD is to define evaluation methods for the functional behavior of
       LiFi Access System      
       products.
@@ -623,9 +623,9 @@ The following sections list Common Criteria and technology terms used in this do
                 For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.),
                 including enabling root shell access as needed. The evaluator shall select three executables included with the TSF. If the TSF includes a web server it must be
                 selected. The evaluator shall prioritize executables that are UDP or TCP listening network services. For each of these executables, the evaluator shall launch
-                the same executable twice and inspect /proc/$PID/maps. The evaluator shall ensure that no memory mappings are placed in the different locations. If the rare
+                the same executable twice and inspect the memory map using an appropriate tool or interface (e.g. /proc/$PID/maps on a Linux-based OS). The evaluator shall ensure that no memory mappings are placed in the same location. If the rare
                 chance occurs that two mappings are the same for a single executable and not the same for another chosen executable, the evaluator shall repeat the test with
-                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware.  The evaluator shall also
+                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware. The evaluator shall also
                 inspect the executables to verify the fPIE compile flag is enabled. The evaluator shall read /proc/kallsysms and note the _stext address. The evaluator shall
                 then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ. In the rare event KASLR is on and the addresses are the same
                 the evaluator shall reboot and verify again.
