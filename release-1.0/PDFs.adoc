@@ -1,4 +1,4 @@
 * https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system.html.pdf[lifi-access-system.html.pdf]
-* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-sd.html.pdf[lifi-access-system-sd.html.pdf]
-* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-release-linkable.html.pdf[lifi-access-system-release-linkable.html.pdf]
 * https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-release.html.pdf[lifi-access-system-release.html.pdf]
+* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-release-linkable.html.pdf[lifi-access-system-release-linkable.html.pdf]
+* https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-sd.html.pdf[lifi-access-system-sd.html.pdf]
