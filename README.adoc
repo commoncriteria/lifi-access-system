@@ -42,7 +42,7 @@ Profile for LiFi Access System] (html)
 
 === Release Version
 * https://commoncriteria.github.io/lifi-access-system/release-1.0/lifi-access-system-release-linkable.html[Protection
-Profile for LiFi Access System] (html)
+Profile for LiFi Access System 1.0] (html)
 
 === Contributing
 
