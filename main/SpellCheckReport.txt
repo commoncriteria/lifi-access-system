@@ -9,6 +9,7 @@ output/lifi-access-system-release-linkable.html: 38C
 output/lifi-access-system-release-linkable.html: 38D
 output/lifi-access-system-release-linkable.html: 38F
 output/lifi-access-system-release-linkable.html: AGD
+output/lifi-access-system-release-linkable.html: APs
 output/lifi-access-system-release-linkable.html: CEM
 output/lifi-access-system-release-linkable.html: EAPOL
 output/lifi-access-system-release-linkable.html: Fi
@@ -42,6 +43,7 @@ output/lifi-access-system-release.html: 1x
 output/lifi-access-system-release.html: 38C
 output/lifi-access-system-release.html: 38D
 output/lifi-access-system-release.html: 38F
+output/lifi-access-system-release.html: APs
 output/lifi-access-system-release.html: CEM
 output/lifi-access-system-release.html: EAPOL
 output/lifi-access-system-release.html: Fi
@@ -96,6 +98,7 @@ output/lifi-access-system.html: 38C
 output/lifi-access-system.html: 38D
 output/lifi-access-system.html: 38F
 output/lifi-access-system.html: AGD
+output/lifi-access-system.html: APs
 output/lifi-access-system.html: CEM
 output/lifi-access-system.html: EAPOL
 output/lifi-access-system.html: Fi
