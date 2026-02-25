@@ -1,19 +1,28 @@
-<?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="..\transformspp2html.xsl"?>
-<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xsl-stylesheet type="text/xsl" href="../transforms/xsl/module/module2html.xsl"?>
+<?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<!-- for a PP-module -->
+<!-- <?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" 
+                  schematypens="http://relaxng.org/ns/structure/1.0"?>
+-->
+<!-- For PP or cPP -->
+<!-- Name of the TOE product  -->
+<!-- Plural name of the TOE product (optional)  -->
+<!-- Whether to use boilerplate text by default (can be disabled in sections) -->
+<!-- A short name for the PP (e.g. App or MDF) -->
 <Module name="PP-Module for LiFi Access Systems" boilerplate="yes" target-product="LiFi Access System" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
   <PPReference>
     <ReferenceTable>
-      <PPVersion>0.1</PPVersion>
+      <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-02-28</PPPubDate>
+      <PPPubDate>2026-02-24</PPPubDate>
     </ReferenceTable>
   </PPReference>
   <RevisionHistory>
     <entry>
-      <version>0.1</version>
-      <date>2025-02-28</date>
-      <subject>Initial XML conversion</subject>
+      <version>1.0</version>
+      <date>2026-02-24</date>
+      <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
   <include-pkg id="pkg-tls">
@@ -79,15 +88,26 @@
       <term full="Wi-Fi Protected Access" abbr="WPA"/>
     </tech-terms>
     <section title="Compliant Targets of Evaluation" id="sec-TOEdescription">
-      <h:p>This PP-Module specifically addresses LiFi (IEEE 802.11bb, ITU G.9991) access systems (AS). A compliant LiFi AS is a system composed of hardware and software that is connected to a network and has an infrastructure role in the overall enterprise network. In particular, a LiFi AS establishes a secure wireless (IEEE 802.11, IEEE802.1x, IEEE 802.1AE) link that provides an authenticated and encrypted path to an enterprise network and thereby decreases the risk of exposure of information transiting “over-the-air”.</h:p>
+      <h:p>This PP-Module specifically addresses LiFi (IEEE 802.11bb, ITU G.9991) access systems (AS). A compliant LiFi AS is a system composed of hardware and software that is connected to a network and has an infrastructure role in the overall enterprise network. In particular, a LiFi AS establishes a secure wireless (IEEE 802.11, IEEE802.1x, IEEE 802.1AE) link that provides an authenticated and encrypted path to an enterprise network and thereby decreases the risk of exposure of information transiting “over-the-air.”</h:p>
       <h:p>Since this PP-Module extends the NDcPP, conformant TOEs are obligated to implement the functionality required in the NDcPP along with the additional functionality defined in this PP-Module in response to the threat environment discussed subsequently herein.</h:p>
-      <h:p>The TOE encompasses the OS kernel drivers, shared software libraries, and some application software included with the OS. The applications considered within the TOE are those that provide essential LiFi services that make up the LiFi link and security. Examples are management services that implement configuration functions specified in this PP-Module, host services that manage client authentication to the access point, and the libraries and modules that provide security implementation of the LiFi link.  This applies to each separate TOE component that are being used to meet the security requirements proposed.</h:p>
+      <h:p>The TOE encompasses the OS kernel drivers, shared software libraries, and some application software included with the OS. The applications considered within the TOE are those that provide essential LiFi services that make up the LiFi link and security. Examples are management services that implement configuration functions specified in this PP-Module, host services that manage client authentication to the access point, and the libraries and modules that provide security implementation of the LiFi link.  This applies to each separate TOE component that is being used to meet the security requirements proposed.</h:p>
       <sec:TOE_Boundary>
-        <h:p>The physical boundary for a TOE that conforms to this PP-Module is one or more physical network appliances (in a standalone or distributed configuration) that provides generalized network device functionality such as auditing, identification and authentication, and cryptographic services for network communications, as well as specialized functionality for facilitating remote network access via LiFi communications. The TOE's logical boundary includes all functionality required by the claimed Base-PP, this PP-Module, and any other PP-Modules which may be claimed by the ST author as a part of a PP-Configuration that includes this PP-Module. Product functionality for which no PP-Module exists, or for which no SFR within a relevant PP-Module exists to capture, are considered to be non-interfering with respect to the TSF. In other words, they may be present or enabled in the evaluated configuration of the TOE but their presence must not degrade or interrupt the enforcement of functions within the TOE's logical boundary.</h:p>
-        <h:p>Note that while the Base-PP permits the TOE either to be a physical or virtual network appliance, LiFi devices require the use of specialized hardware that will not be present on commodity servers, and it is therefore expected that any TOE that conforms to this PP-Module will be one or more dedicated physical devices.</h:p>
+        <h:p>The physical boundary for a TOE that conforms to this PP-Module is one or more physical network appliances (in a standalone or distributed configuration) that provides generalized network device functionality such as auditing, identification and authentication, and cryptographic services for network communications, as well as specialized functionality for facilitating remote network access via LiFi communications. The TOE's logical boundary includes all functionality required by the claimed Base-PP, this PP-Module, and any other PP-Modules that may be claimed by the ST author as a part of a PP-Configuration that includes this PP-Module. Product functionality for which no PP-Module exists, or for which no SFR within a relevant PP-Module exists to capture, are considered to be non-interfering with respect to the TSF. In other words, they may be present or enabled in the evaluated configuration of the TOE but their presence must not degrade or interrupt the enforcement of functions within the TOE's logical boundary.</h:p>
+        <h:p>Note that while the Base-PP permits the TOE to be either a physical or virtual network appliance, LiFi devices require the use of specialized hardware that will not be present on commodity servers, and it is therefore expected that any TOE that conforms to this PP-Module will be one or more dedicated physical devices.</h:p>
         <figure entity="images/Toe.png" title="High Level TOE Implementation" id="toe"/>
       </sec:TOE_Boundary>
     </section>
+    <sec:Use_Cases>
+      <usecases>
+        <usecase title="Standalone Device" id="usecase-standalone">
+          <description>The TOE is a standalone network device that serves as a single network endpoint providing connectivity to LiFi clients.</description>
+        </usecase>
+        <usecase title="Distributed System" id="usecase-distributed">
+          <description>The TOE is a distributed system consisting of multiple network devices that collectively serve as the LiFi network endpoint. In addition to claiming the relevant "Distributed TOE" requirement in the NDcPP,
+            this use case also requires the TOE to claim the optional SFR FCS_CKM.2/DISTRIB to describe the key distribution method between distributed TOE components.</description>
+        </usecase>
+      </usecases>
+    </sec:Use_Cases>
     <section title="Implementation-Based Features" id="sec-features">
       A conformant TOE may implement either 802.11bb or G.vlc. Depending on which is supported, different requirements will apply to the TOE as they each implement different methods of protection of data in transit.
       <implements>
@@ -126,44 +146,60 @@
     <sec:Threats>
       <threats>
         <threat name="T.DATA_INTEGRITY">
-          <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to modify the data without authorization. If known malicious external devices are able to communicate with devices on the protected network or if devices on the protected network can establish communications with those external devices then the data contained within the communications may be susceptible to a loss of integrity.</description>
+          <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to
+            modify the data without authorization. If known malicious external devices are able to communicate with devices on the protected network or if
+            devices on the protected network can establish communications with those external devices, then the data contained within the communications may be
+            susceptible to a loss of integrity.</description>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by generating a secure key used to encrypt and protect wireless traffic using WPA.</rationale>
+          <rationale>Mitigates the threat by generating a secure key used to encrypt and
+            protect wireless traffic using WPA.</rationale>
           <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
+          <rationale>Mitigates the threat by securely distributing 802.11 keys to
+            clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by securely distributing group temporal keys to clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
+          <rationale>Mitigates the threat by securely distributing group temporal keys to
+            clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by securely receiving a key from an authentication server so that it is not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
+          <rationale>Mitigates the threat by securely receiving a key from an
+            authentication server so that it is not disclosed, maintaining the integrity of the data the key is used to protect.</rationale>
           <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by>
-          <rationale>Mitigates the threat by defining implementation of secure cryptographic integrity algorithms.</rationale>
+          <rationale>Mitigates the threat by defining implementation of secure cryptographic integrity
+            algorithms.</rationale>
           <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data. <comment>update status of this if needed to resolve github comment</comment></rationale>
+          <rationale>Mitigates the threat by providing a secure channel for LiFi client
+            traffic that protects the confidentiality and integrity of the data.</rationale>
           <addressed-by>FTP_ITC.1/Gvlc (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by providing a secure channel for LiFi client traffic that protects the confidentiality and integrity of the data.</rationale>
+          <rationale>Mitigates the threat by providing a secure channel for LiFi client
+            traffic that protects the confidentiality and integrity of the data.</rationale>
         </threat>
         <threat name="T.NETWORK_ACCESS">
-          <description>Devices located outside the protected network may seek to exercise services located on the protected network that are intended to be only accessed from inside the protected network or only accessed by entities using an authenticated path into the protected network.</description>
+          <description>Devices located outside the protected network may seek to exercise services located on the protected network that are intended to be only
+            accessed from inside the protected network or only accessed by entities using an authenticated path into the protected network.</description>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FAU_GEN.1/LiFi</addressed-by>
           <rationale>Mitigates the threat by generating audit data that will detect access to the network.</rationale>
           <addressed-by>FCS_RADSEC_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure RADIUS implementation to authenticate clients.</rationale>
+          <rationale>Mitigates the threat by using a secure RADIUS implementation to authenticate clients.</rationale>
           <addressed-by>FCS_RADSEC_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure TLS configuration for RADIUS over TLS.</rationale>
+          <rationale>Mitigates the threat by using a secure TLS configuration for RADIUS over TLS.</rationale>
+          <addressed-by>FIA_8021X_EXT.1</addressed-by>
+          <rationale>Mitigates the threat by enforcing authentication on access attempts.</rationale>
           <addressed-by>FIA_PSK_EXT.1 (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by defining the use of a PSK to authenticate clients.</rationale>
+          <rationale>Mitigates the threat by defining the use of a PSK to authenticate
+            clients.</rationale>
           <addressed-by>FIA_UAU.6</addressed-by>
           <rationale>Mitigates the threat by re-authenticating users when specified criteria are met.</rationale>
           <addressed-by>FMT_SMF.1/LiFi</addressed-by>
           <rationale>Mitigates the threat by defining management functions that must be protected.</rationale>
           <addressed-by>FMT_SMR_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by preventing remote administration functions from being exercised from a wireless client.</rationale>
+          <rationale>Mitigates the threat by preventing remote administration functions from being exercised from a
+            wireless client.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by>
           <rationale>Mitigates the threat by denying sessions based on undesirable characteristics.</rationale>
           <addressed-by>FTP_ITC.1/8021X</addressed-by>
-          <rationale>Mitigates the threat by authenticating clients before allowing access to the controlled network.</rationale>
+          <rationale>Mitigates the threat by authenticating clients before allowing access to the controlled
+            network.</rationale>
         </threat>
         <threat name="T.NETWORK_ATTACK">
           <description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may engage in communications with applications and services running on or part of the TOE with the intent of compromise. Engagement may consist of altering existing legitimate communications.</description>
@@ -180,22 +216,33 @@
           <rationale>Mitigates the threat by preventing network attacks that rely on writing arbitrary executable code to memory and subsequently executing it.</rationale>
         </threat>
         <threat name="T.NETWORK_DISCLOSURE">
-          <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to conduct unauthorized activities. If malicious external devices are able to communicate with devices on the protected network, or if devices on the protected network can establish communications with those external devices (e.g., as a result of nonexistent or insufficient data encryption that exposes the data in transit to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of information.</description>
+          <description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to
+            conduct unauthorized activities. If malicious external devices are able to communicate with devices on the protected network, or if devices on the
+            protected network can establish communications with those external devices (e.g., as a result of nonexistent or insufficient data encryption that
+            exposes the data in transit to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of
+            information.</description>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure key generation function for WPA functionality.</rationale>
+          <rationale>Mitigates the threat by using a secure key generation function for
+            WPA functionality.</rationale>
           <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by securely distributing 802.11 keys to clients.</rationale>
+          <rationale>Mitigates the threat by securely distributing 802.11 keys to
+            clients.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by securely distributing GTK keys to clients.</rationale>
+          <rationale>Mitigates the threat by securely distributing GTK keys to
+            clients.</rationale>
           <addressed-by>FCS_CKM.2/PMK (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by securely receiving a key from an authentication server.</rationale>
+          <rationale>Mitigates the threat by securely receiving a key from an
+            authentication server.</rationale>
           <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by>
-          <rationale>Mitigates the threat by defining implementation of secure cryptographic confidentiality algorithms.</rationale>
+          <rationale>Mitigates the threat by defining implementation of secure cryptographic
+            confidentiality algorithms.</rationale>
           <addressed-by>FCS_RADSEC_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure RADIUS implementation to authenticate clients.</rationale>
+          <rationale>Mitigates the threat by using a secure RADIUS implementation to
+            authenticate clients.</rationale>
           <addressed-by>FCS_RADSEC_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure TLS configuration for RADIUS over TLS.</rationale>
+          <rationale>Mitigates the threat by using a secure TLS configuration for RADIUS over
+            TLS.</rationale>
           <addressed-by>FIA_UAU.6</addressed-by>
           <rationale>Mitigates the threat by re-authenticating users when specified criteria are met.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by>
@@ -203,15 +250,17 @@
           <addressed-by>FTP_ITC.1/8021X</addressed-by>
           <rationale>Mitigates the threat by enforcing the use of authentication to access the network.</rationale>
           <addressed-by>FTP_ITC.1/Client (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by providing a secure channel for LiFi client traffic.</rationale>
+          <rationale>Mitigates the threat by providing a secure channel for LiFi client
+            traffic.</rationale>
           <addressed-by>FTP_ITC.1/Gvlc (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by providing a secure channel for LiFi client traffic.  <comment>update status of this if needed to resolve github comment</comment></rationale>
+          <rationale>Mitigates the threat by providing a secure channel for LiFi client
+            traffic.</rationale>
         </threat>
         <threat name="T.REPLAY_ATTACK">
-          <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets transversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
+          <description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets traversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</description>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FCS_CKM.1/WPA (implementation-dependent)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure key generation function for WPA functionality that is not subject to replay or guessing.</rationale>
+          <rationale>Mitigates the threat by using a secure key generation function for WPA functionality that is not subject to replay or guessing.</rationale>
           <addressed-by>FCS_CKM.2/DISTRIB (implementation-dependent)</addressed-by>
           <rationale>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining confidentiality and preventing replay.</rationale>
           <addressed-by>FCS_CKM.2/GTK (implementation-dependent)</addressed-by>
@@ -221,9 +270,9 @@
           <addressed-by>FCS_COP.1/LiFiDataEncryption</addressed-by>
           <rationale>Mitigates the threat by defining implementation of secure cryptographic integrity algorithms that prevent the disclosure of data that would be potentially suitable for replay attempts.</rationale>
           <addressed-by>FCS_RADSEC_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure RADIUS implementation to authenticate clients, which protects authentication data from replay attacks.</rationale>
+          <rationale>Mitigates the threat by using a secure RADIUS implementation to authenticate clients, which protects authentication data from replay attacks.</rationale>
           <addressed-by>FCS_RADSEC_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by utilizing a secure TLS configuration for RADIUS over TLS, which provides protection against replay and data modification.</rationale>
+          <rationale>Mitigates the threat by using a secure TLS configuration for RADIUS over TLS, which provides protection against replay and data modification.</rationale>
           <addressed-by>FIA_UAU.6</addressed-by>
           <rationale>Mitigates the threat by re-authenticating users when specified criteria are met, which can include if a specified time has passed or other indicators of stale authentication data.</rationale>
           <addressed-by>FTA_TSE.1</addressed-by>
@@ -248,7 +297,7 @@
           </objective-refer>
         </assumption>
         <assumption name="A.NETWORK_CONNECTIVITY">
-          <description>The platform is connected to a network. For purposes of sending/receiving data, to include software updates, the platform is connected to other entities. Other entities on the network are not inherently trustable.</description>
+          <description>The platform is connected to a network. For purposes of sending and receiving data, to include software updates, the platform is connected to other entities. Other entities on the network are not inherently trustable.</description>
           <objective-refer ref="OE.NETWORK_CONNECTIVITY">
             <rationale>The operational environment objective OE.NETWORK_CONNECTIVITY is realized through
               A.NETWORK_CONNECTIVITY.</rationale>
@@ -269,7 +318,7 @@
           </objective-refer>
         </assumption>
         <assumption name="A.THIRD_PARTY_SOFTWARE">
-          <description>The product runs application software developed by a third party. The applications are not intentionally developed to be malicious, but can contain inadvertent coding errors. These errors introduce risk that control of an application may be seized by a malicious entity. The product shall confine these applications within the originally designated operating environment.</description>
+          <description>The product runs application software developed by a third party. The applications are not intentionally developed to be malicious, but can contain inadvertent coding errors. These errors introduce a risk that control of an application may be seized by a malicious entity. The product shall confine these applications within the originally designated operating environment.</description>
           <objective-refer ref="OE.THIRD_PARTY_SOFTWARE">
             <rationale>The operational environment objective OE.THIRD_PARTY_SOFTWARE is realized through
               A.THIRD_PARTY_SOFTWARE.</rationale>
@@ -278,7 +327,7 @@
       </assumptions>
     </sec:Assumptions>
     <!-- 3.3 Organizational Security Policies -->
-    <sec:Organizational_Security_Policies>
+    <sec:Organizational_Security_Policies boilerplate="no">
       <OSPs/>
     </sec:Organizational_Security_Policies>
   </section>
@@ -312,11 +361,8 @@
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 ND PP Security Functional Requirements Direction -->
     <base-pp id="ND" name="Network Device" product="Network Device" short="ND" version="4.0">
-      <git>
-        <url/>
-        <branch/>
-      </git>
       <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
+      <cPP/>
       <sec-func-req-dir>In a PP-Configuration that includes the NDcPP, the TOE is expected to rely on some of the
       security functions implemented by the network device as a whole and evaluated against the Base-PP.
       In this case, the following sections describe any modifications that the ST author must make to the SFRs
@@ -339,12 +385,12 @@
       <con-mod ref="A.NON_SECURITY_FUNCTIONS">This is consistent with the Base-PP because the notion of exact PP conformance accepts the case where non-TSF functionality exists within the physical boundary of the TOE if there are no PP requirements to evaluate it.</con-mod>
       <con-mod ref="A.MANAGED_CONFIG">This is consistent with A.TRUSTED_ADMINISTRATOR in the Base-PP by defining specific mechanisms by which the trusted administrator is defined.</con-mod>
       <con-mod ref="A.THIRD_PARTY_SOFTWARE">This is consistent with the Base-PP because the existence of a trusted update mechanism allows for the possibility that the TOE may have implementation flaws in need of fixing.</con-mod>
-      <con-mod ref="A.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
+      <con-mod ref="A.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authenticate them).</con-mod>
       <con-mod ref="A.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       <con-mod ref="OE.NON_SECURITY_FUNCTIONS">This is consistent with the Base-PP because the notion of exact PP conformance accepts the case where non-TSF functionality exists within the physical boundary of the TOE if there are no PP requirements to evaluate it.</con-mod>
       <con-mod ref="OE.MANAGED_CONFIG">This is consistent with A.TRUSTED_ADMINISTRATOR in the Base-PP by defining specific mechanisms by which the trusted administrator is defined.</con-mod>
       <con-mod ref="OE.THIRD_PARTY_SOFTWARE">This is consistent with the Base-PP because the existence of a trusted update mechanism allows for the possibility that the TOE may have implementation flaws in need of fixing.</con-mod>
-      <con-mod ref="OE.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authentiate them).</con-mod>
+      <con-mod ref="OE.NETWORK_CONNECTIVITY">This is consistent with the Base-PP because a network device inherently requires network connectivity and the Base-PP similarly does not treat external entities as automatically trusted (hence the use of trusted channels to authenticate them).</con-mod>
       <con-mod ref="OE.PROPER_USER">This is consistent with the expectations of A.TRUSTED_ADMINISTRATOR in the Base-PP by defining administrators as non-hostile but allowing for the possibility of unintentional error.</con-mod>
       <con-mod ref="fau-gen-1-lifi">This SFR iterates the FAU_GEN.1 SFR defined in the Base-PP to define auditable events for the functionality that is specific to this PP-Module.</con-mod>
       <con-mod ref="fcs-cop-1-lifidataencryption">This SFR defines cryptographic behavior for functions outside the scope of what the Base-PP originally defined.</con-mod>
@@ -352,8 +398,12 @@
       <con-mod ref="fia-uau-6">This SFR defines support for re-authentication of wireless users, which are a type of subject beyond the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="fmt-smf-1-lifi">This SFR defines additional management functionality that is specific to the Module’s product type and would therefore not be expected to be present in the Base-PP.</con-mod>
       <con-mod ref="fmt-smr-ext-1">This SFR specifies that remote administration occurs over a dedicated channel, which does not conflict with the Base-PP.</con-mod>
+      <con-mod ref="fpt-acf-ext-1">This SFR specifies that unprivileged users are prohibited from reading or modifying certain parts of the system that could cause it to operate in an insecure state, which does not conflict with the Base-PP.</con-mod>
+      <con-mod ref="fpt-aslr-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement ASLR measures does not prevent its code from performing any required function.</con-mod>
+      <con-mod ref="fpt-sbop-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to implement stack-based overflow protection does not prevent its code from performing any required function.</con-mod>
+      <con-mod ref="fpt-worx-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality. The ability of the TOE to prevent executable memory from also being writable does not prevent its code from performing any required function</con-mod>
       <con-mod ref="fpt-aex-ext-1">This SFR enforces specific low-level protections on the software running on the TOE that does not conflict with any other security functionality.</con-mod>
-      <con-mod ref="fta-tse.1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
+      <con-mod ref="fta-tse-1">This SFR applies restrictions on establishment of wireless communications, which is a logical interface that extends the scope of what the Base-PP originally defined.</con-mod>
       <con-mod ref="ftp-itc-1-8021x">This SFR iterates the FTP_ITC.1 SFR defined in the Base-PP to define trusted communication channels for the functionality that is specific to this PP-Module.</con-mod>
       <con-mod ref="fcs-ckm-2-distrib">This SFR defines an additional use for the cryptographic and self-protection mechanisms defined in the Base-PP.</con-mod>
       <con-mod ref="fcs-ckm-1-wpa">This SFR defines additional cryptographic functionality not defined in the Base-PP, but it implements this using the DRBG mechanism already defined in the Base-PP.</con-mod>
@@ -372,62 +422,68 @@
         <audit-table id="at-mandatory" table="mandatory"/>
       </section>
       <!-- 5.2.1 Security Audit (FAU) -->
-      <section title="Security Audit (FAU)" id="fau-mandatory">
+      <section title="Security Audit (FAU)" id="man-fau">
         <!-- FAU_GEN.1/LiFi Audit Data Generation (LiFi) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-lifi" name="Audit Data Generation (LiFi)" iteration="LiFi">
           <consistency-rationale/>
           <f-element id="fau-gen-1e1-lifi">
             <title>
-              The TSF shall be able to generate an audit record of the following
+              The TSF shall be able to generate audit data of the following
             auditable events:
               <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions</h:li>
-                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[[<h:i>auditable events defined in <xref to="at-mandatory"/>, 
-                auditable events defined in <xref to="at-feat-based"/>,
-                auditable events defined in <xref to="at-sel-based"/></h:i>].</h:li>
+                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit</h:li>
+                <h:li>[<h:i>auditable events defined in <xref to="at-mandatory"/></h:i></h:li>
                 <h:li>
-                  <h:i>Failure of wireless sensor communication]</h:i>
+                  <h:i>failure of wireless sensor communication</h:i>
                 </h:li>
-              </h:ol>
+                <h:li>
+                  <selectables>
+                    <selectable id="fau_gen.1.1_LiFi_1">auditable events defined in <xref to="at-feat-based"/></selectable>
+                    <selectable id="fau_gen.1.1_LiFi_2">no additional auditable events</selectable>
+                  </selectables></h:li>
+              </h:ol>]
             </title>
             <note role="application">
-              <h:p>A TOE that conforms to a Protection Profile Configuration (PP-Configuration) containing this PP-Module either can be a standalone or distributed TOE as defined in the NDcPP. For distributed TOEs, the expectation for this PP-Module is that a LiFi AS is composed of a single controller and one or more access points (APs). If the TOE is a distributed system across multiple components then they must be capable of sending audit data to the controller. If the TOE is a standalone system, audit data should be stored on the component that generates it.</h:p>
-              <h:p>
-                The auditable events defined in
-                <xref to="at-mandatory"/>,
-                <xref to="at-feat-based"/>, and
-                <xref to="at-sel-based"/>
-                are for the SFRs that are explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP. The events in the Auditable Events table should be combined with those of the NDcPP in the context of a conforming Security Target. This table includes rows for all SFRs in the PP-Module. For any SFRs the ST claims, the corresponding audit events must also be claimed in the table. If the ST does not claim a particular SFR, then there is likewise no expectation that the auditable events for that SFR are required.
-              </h:p>
-              <h:p>Per FAU_STG_EXT.1 in the Base-PP, the TOE must support transfer of the audit data to an external IT entity using a trusted channel.</h:p>
+              A TOE that conforms to a Protection Profile Configuration (PP-Configuration) containing this PP-Module can either be a standalone or distributed TOE
+            as defined in the NDcPP. For distributed TOEs, the expectation for this PP-Module is that a LiFi AS is composed of a single controller and one or
+            more access points (APs). If the TOE is a distributed system across multiple components, then they must be capable of sending audit data to the
+            controller. If the TOE is a standalone system, audit data should be stored on the component that generates it.
+              <h:br/>
+              <h:br/>
+              The auditable events defined in
+              <xref to="at-mandatory"/>,
+              <xref to="at-feat-based"/>, and
+              <xref to="at-sel-based"/>
+              are for the SFRs that are
+            explicitly defined in this PP-Module and are intended to extend FAU_GEN.1 in the Base-PP (<xref to="at-sel-based"/>
+              is not referenced in the SFR as none of the SFRs in that section have auditable events associated with them). The events in the Auditable Events table should be
+            combined with those of the NDcPP in the context of a conforming Security Target. This table includes rows for all SFRs in the PP-Module. For any
+            SFRs the ST claims, the corresponding audit events must also be claimed in the table. If the ST does not claim a particular SFR, then there is
+            likewise no expectation that the auditable events for that SFR are required.
+              <h:br/>
+              <h:br/>
+              Per FAU_STG_EXT.1 in the Base-PP, the TOE must support transfer of the audit data to an external IT entity using a trusted channel.
             </note>
           </f-element>
           <f-element id="fau-gen-1e2-lifi">
-            <title>
-              The TSF shall record within each audit record at least the following
-            information:
-              <h:ol type="a">
-                <h:li>Date and time of the event, type of event, subject identity (if
-                applicable), and the outcome (success or failure) of the event; and</h:li>
-                <h:li>
-                  For each audit event type, based on the auditable event
-                definitions of the functional components included in the PP/ST,
-                [<h:i>additional information defined in <xref to="atref-mandatory"/> table for each auditable event, where applicable</h:i>].
-                </h:li>
-              </h:ol>
-            </title>
+            <title>The TSF shall record within the audit data at least the following information: <h:ol type="a"><h:li>Date and time of the event, type of event, subject identity (if
+                applicable), and the outcome (success or failure) of the event; and </h:li> <h:li>For each audit event type, based on the auditable event
+                definitions of the functional components included in the PP, PP-Module, functional package, or ST
+                [<h:i>additional information defined in auditable events tables for each auditable event, where applicable</h:i>].</h:li></h:ol></title>
             <aactivity>
-              <TSS>There are no TSS evaluation activities for this SFR.<h:br/><h:br/></TSS>
-              <Guidance> There are no operational guidance activities for this SFR.<h:br/><h:br/></Guidance>
-              <Tests>The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module in addition to the applicable auditable events that are defined in the NDcPP. The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.</Tests>
+              <TSS/>
+              <Guidance/>
+              <Tests>The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the
+              PP-Module, in addition to the applicable auditable events that are defined in the NDcPP. The evaluator shall also ensure that the administrative
+              actions defined for this PP-Module are appropriately audited.</Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory"/>
         </f-component>
       </section>
       <!-- 5.2.2 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="fcs-mandatory">
+      <section title="Cryptographic Support (FCS)" id="man-fcs">
         <!-- FCS_COP.1/LiFiDataEncryption Cryptographic Operation (Data Encryption and Decryption for LiFi -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-lifidataencryption" name="Cryptographic Operation (Data Encryption and Decryption for LiFi" iteration="LiFiDataEncryption">
           <consistency-rationale/>
@@ -481,7 +537,7 @@
             <aactivity>
               <TSS>
                 <h:p>The evaluator shall examine the TSS to verify that it describes how the TOE generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the TSS to verify that it describes how the functionality described by FCS_RBG.1 is invoked.</h:p>
-                <h:p>The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.</h:p>
+                The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.
               </TSS>
               <Guidance>The evaluator shall verify that the guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.</Guidance>
               <Tests>
@@ -489,7 +545,7 @@
                 <h:p>
                   <h:b>AES-CCM Tests</h:b>
                 </h:p>
-                <h:p>The evaluator will test the generation-encryption and decryption-verification functionality of AES-CCM for the following input parameter and tag lengths:</h:p>
+                <h:p>The evaluator shall test the generation-encryption and decryption-verification functionality of AES-CCM for the following input parameter and tag lengths:</h:p>
                 <h:p>
                   <h:b>128 bit and 256 bit keys</h:b>
                 </h:p>
@@ -520,26 +576,32 @@
 		          (nonce length of 13 and tag length of 8),
 		          it is acceptable to test a subset of the supported lengths as long as the selections
 		          fall into the ranges specified above.
-		          In this case, the evaluator will ensure that these are the only supported lengths.
-		          To test the generation-encryption functionality of AES-CCM, the evaluator will
+		          In this case, the evaluator shall ensure that these are the only supported lengths.
+		          To test the generation-encryption functionality of AES-CCM, the evaluator shall
 		          perform the following four tests:</h:p>
                 <testlist>
-                  <test>For each supported key and associated data length and any supported payload, nonce and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</test>
-                  <test>For each supported key and payload length and any supported associated data, nonce and tag length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</test>
-                  <test>For each supported key and nonce length and any supported associated data, payload, and tag length, the evaluator will supply one key value and 10 associated data, payload and nonce value 3-tuples, and obtain the resulting ciphertext.</test>
-                  <test>For each supported key and tag length and any supported associated data, payload, and nonce length, the evaluator will supply one key value, one nonce value and 10 pairs of associated data and payload values and, obtain the resulting ciphertext.</test>
+                  <test>For each supported key and associated data length and any supported payload, nonce, and tag length, the evaluator shall supply one key value, one nonce value, and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</test>
+                  <test>For each supported key and payload length and any supported associated data, nonce, and tag length, the evaluator shall supply one key value, one nonce value, and 10 pairs of associated data and payload values, and obtain the resulting ciphertext.</test>
+                  <test>For each supported key and nonce length and any supported associated data, payload, and tag length, the evaluator shall supply one key value and 10 associated data, payload, and nonce value 3-tuples, and obtain the resulting ciphertext.</test>
+                  <test>For each supported key and tag length and any supported associated data, payload, and nonce length, the evaluator shall supply one key value, one nonce value, and 10 pairs of associated data and payload values and, obtain the resulting ciphertext.</test>
                 </testlist>
-                <h:p>To determine correctness in each of the above tests, the evaluator will compare the ciphertext with the
-		          result of generation-encryption of the same inputs with a known good implementation.</h:p>
-                <h:p>To test the decryption-verification functionality of AES-CCM, for each combination of supported
-		          associated data length, payload length, nonce length, and tag length, the evaluator will supply a key
-		          value and 15 nonce, associated data and ciphertext 3-tuples, and obtain either a fail result or a pass
+                To determine correctness in each of the above tests, the evaluator shall compare the ciphertext with the
+		          result of generation-encryption of the same inputs with a known good implementation.
+                <h:br/>
+                <h:br/>
+                To test the decryption-verification functionality of AES-CCM, for each combination of supported
+		          associated data length, payload length, nonce length, and tag length, the evaluator shall supply a key
+		          value and 15 nonce, associated data, and ciphertext 3-tuples, and obtain either a fail result or a pass
 		          result with the decrypted payload.
-		          The evaluator will supply 10 tuples that should fail and 5 that should pass per set of 15.</h:p>
-                <h:p>Additionally, the evaluator will use tests from the IEEE 802.11-02/362r6 document “Proposed Test
-		          vectors for IEEE 802.11 TGi”, dated September 10, 2002, Section 2.1 AES-CCMP Encapsulation Example
+                <h:br/>
+                <h:br/>
+                The evaluator shall supply 10 tuples that should fail and 5 that should pass per set of 15.
+                <h:br/>
+                <h:br/>
+                Additionally, the evaluator shall use tests from the IEEE 802.11-02/362r6 document “Proposed Test
+		          vectors for IEEE 802.11 TGi,” dated September 10, 2002, Section 2.1 AES-CCMP Encapsulation Example
 		          and Section 2.2 Additional AES-CCMP Test Vectors to verify further the IEEE 802.11-2020
-		          implementation of AES-CCMP.</h:p>
+		          implementation of AES-CCMP.
               </Tests>
             </aactivity>
           </f-element>
@@ -547,9 +609,12 @@
         </f-component>
       </section>
       <!-- 5.2.3 Identification and Authentication (FIA) -->
-      <section title="Identification and Authentication (FIA)" id="fia-mandatory">
+      <section title="Identification and Authentication (FIA)" id="man-fia">
         <ext-comp-def title="802.1X Port Access Entity (Authenticator) Authentication" fam-id="FIA_8021X_EXT">
           <fam-behavior>Components in this family describe requirements for implementation of 802.1X port-based network access control.</fam-behavior>
+        </ext-comp-def>
+        <ext-comp-def title="Pre-Shared Keys" fam-id="FIA_PSK_EXT">
+          <fam-behavior>Components in this family describe requirements for using pre-shared keys.</fam-behavior>
         </ext-comp-def>
         <!-- FIA_8021X_EXT.1 802.1X Authentication -->
         <f-component cc-id="fia_8021x_ext.1" id="fia-8021x-ext-1" name="802.1X Authentication">
@@ -567,13 +632,18 @@
           <f-element id="fia_8021x_ext-1-3">
             <title>The TSF shall ensure that no access to its 802.1X controlled port is given to the wireless client prior to successful completion of this authentication exchange.</title>
             <note role="application">
-              <h:p>This requirement covers the TOE's role as the authenticator
-            in an 802.1X authentication exchange. If the exchange is completed successfully, the TOE will obtain the PMK from the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin 802.11 communications. As indicated previously, there are at least three communication paths present during the exchange; two with the TOE as an endpoint and one with the TOE acting as a transfer point only. The TOE establishes an Extensible Authentication Protocol (EAP) over Local Area Network (EAPOL) connection with the wireless client as specified in 802.1X-2007. The TOE also establishes (or has established) a RADIUS protocol connection protected either by IPsec or RadSec (TLS) with the RADIUS server. The wireless client and RADIUS server establish an EAP-TLS session (RFC 5216); in this transaction the TOE merely takes the EAP-TLS packets from its EAPOL/RADIUS endpoint and transfers them to the other endpoint. Because the specific authentication method (TLS in this case) is opaque to the TOE, there are no requirements with respect to RFC 5126 in this PP-Module. However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the implementation and evaluation activities. RADIUS accounting is implemented via conformance to RFC 2866.</h:p>
-              <h:p>Additionally, RFC 5080 contains implementation issues that will need to be addressed by developers but which levy no new requirements. The point of performing 802.1X authentication is to provide access to the network (assuming the authentication was successful and that all 802.11 negotiations are performed successfully); in the terminology of 802.1X, this means the wireless client has access to the "controlled port" maintained by the TOE.</h:p>
+              This requirement covers the TOE's role as the authenticator
+            in an 802.1X authentication exchange. If the exchange is completed successfully, the TOE will obtain the PMK from the RADIUS server and perform the four-way handshake with the wireless client (supplicant) to begin 802.11 communications.
+              <h:br/>
+              <h:br/>
+              As indicated previously, there are at least three communication paths present during the exchange; two with the TOE as an endpoint and one with the TOE acting as a transfer point only. The TOE establishes an Extensible Authentication Protocol (EAP) over Local Area Network (EAPOL) connection with the wireless client as specified in 802.1X-2007. The TOE also establishes (or has established) a RADIUS protocol connection protected either by IPsec or RadSec (TLS) with the RADIUS server. The wireless client and RADIUS server establish an EAP-TLS session (RFC 5216); in this transaction the TOE merely takes the EAP-TLS packets from its EAPOL/RADIUS endpoint and transfers them to the other endpoint. Because the specific authentication method (TLS in this case) is opaque to the TOE, there are no requirements with respect to RFC 5126 in this PP-Module. However, the base RADIUS protocol (2865) has an update (3579) that will need to be addressed in the implementation and evaluation activities. RADIUS accounting is implemented via conformance to RFC 2866.
+              <h:br/>
+              <h:br/>
+              Additionally, RFC 5080 contains implementation issues that will need to be addressed by developers but which levy no new requirements. The point of performing 802.1X authentication is to provide access to the network (assuming the authentication was successful and that all 802.11 negotiations are performed successfully); in the terminology of 802.1X, this means the wireless client has access to the "controlled port" maintained by the TOE.
             </note>
             <aactivity>
               <TSS>
-                In order to show that the TSF implements the 802.1X-2010 standard correctly, the evaluator will ensure
+                In order to show that the TSF implements the 802.1X-2010 standard correctly, the evaluator shall ensure
               that the TSS contains the following information:
                 <h:ul>
                   <h:li>The sections (clauses) of the standard that the TOE implements</h:li>
@@ -585,28 +655,28 @@
                 Because the connection to the RADIUS server will be contained in an IPsec or RadSec (TLS) tunnel,
               the security mechanisms detailed in the RFCs identified in the requirement are not relied on to provide
               protection for these communications. Consequently, no extensive analysis of the RFCs is required.
-              However, the evaluator will ensure that the TSS describes the measures (documentation, testing) that
+              However, the evaluator shall ensure that the TSS describes the measures (documentation, testing) that
               are taken by the product developer to ensure that the TOE conforms to the RFCs listed in this
               requirement.
-                <h:br/>
-                <h:br/>
               </TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+              <Guidance/>
               <Tests>
-                The evaluator will perform the following tests:
+                The evaluator shall perform the following tests:
                 <testlist>
-                  <test>The evaluator will demonstrate that a wireless client has no access to the test network. After successfully authenticating with a RADIUS server through the TOE, the evaluator will demonstrate that the wireless client does have access to the test network.</test>
-                  <test>The evaluator will demonstrate that a wireless client has no access to the test network. The evaluator will attempt to authenticate using an invalid client certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</test>
-                  <test>The evaluator will demonstrate that a wireless client has no access to the test network. The evaluator will attempt to authenticate using an invalid RADIUS certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</test>
+                  <test>The evaluator shall demonstrate that a wireless client has no access to the test network. After successfully authenticating with a RADIUS server through the TOE, the evaluator shall demonstrate that the wireless client does have access to the test network.</test>
+                  <test>The evaluator shall demonstrate that a wireless client has no access to the test network. The evaluator shall attempt to authenticate using an invalid client certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</test>
+                  <test>The evaluator shall demonstrate that a wireless client has no access to the test network. The evaluator shall attempt to authenticate using an invalid RADIUS certificate, such that the EAP-TLS negotiation fails. This should result in the wireless client still being unable to access the test network.</test>
                 </testlist>
                 <h:b>Note: </h:b>
-                Tests 2 and 3 above are not tests that "EAP-TLS works," although that is a by-product of the test. The test is actually that a failed authentication (under two failure modes) results in denial of access to the network, which demonstrates the enforcement of FIA_8021X_EXT.1.3.
+                Tests 2 and 3 above are not tests that "EAP-TLS works," although that is a by-product of the test.
+              The test is actually that a failed authentication (under two failure modes) results in denial of access to
+              the network, which demonstrates the enforcement of FIA_8021X_EXT.1.3.
               </Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory">
             <audit-event-descr>None</audit-event-descr>
-            <audit-event-info>Provided client identity (e.g., MAC address).</audit-event-info>
+            <audit-event-info>Provided client identity (e.g., MAC address)</audit-event-info>
           </audit-event>
         </f-component>
         <!-- FIA_UAU.6 Re-authenticating -->
@@ -614,23 +684,25 @@
           <consistency-rationale/>
           <f-element id="fia_uau-6-1">
             <title>
-              The TSF shall re-authenticate the user under the conditions [<h:i>
-                when the user changes their password,
+              The TSF shall re-authenticate the user under the conditions [<h:i>when the user changes their password,
                 <selectables>
                   <selectable id="fia_uau.6.1_1">following TSF-initiated session locking</selectable>
                   <selectable id="fia_uau.6.1_3">
-                    <assignable>other conditions</assignable>
-                  </selectable>
+                    <assignable>other conditions</assignable></selectable>
                   <selectable id="fia_uau.6.1_4">no other conditions</selectable>
                 </selectables></h:i>].
             </title>
             <aactivity>
-              <TSS>There are no TSS evaluation activities for this component.<h:br/><h:br/></TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
-              <Tests>The evaluator will attempt to change their password as directed by the operational guidance. While making this attempt, the evaluator will verify that re-authentication is required. <h:p>
-                If other re-authentication conditions are specified, the evaluator will cause those conditions to
+              <TSS/>
+              <Guidance/>
+              <Tests>
+                The evaluator shall attempt to change their password as directed by the operational guidance.
+              While making this attempt, the evaluator shall verify that re-authentication is required.
+                <h:br/>
+                <h:br/>
+                If other re-authentication conditions are specified, the evaluator shall cause those conditions to
                 occur and verify that the TSF re-authenticates the authenticated user.
-              </h:p></Tests>
+              </Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory">
@@ -640,7 +712,7 @@
         </f-component>
       </section>
       <!-- 5.2.4 Security Management (FMT) -->
-      <section title="Security Management (FMT)" id="fmt-mandatory">
+      <section title="Security Management (FMT)" id="man-fmt">
         <ext-comp-def title="Security Management Restrictions" fam-id="FMT_SMR_EXT">
           <fam-behavior>Components in this family describe architectural restrictions on security administration that are not defined in CC Part 2.</fam-behavior>
         </ext-comp-def>
@@ -654,15 +726,15 @@
             <aactivity>
               <TSS>
                 <h:p>The evaluator shall examine the TSS to verify that it describes the security policy configuration in terms of the attributes claimed in the SFR.</h:p>
-                <h:p>The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.</h:p>
+                The evaluator shall also confirm that the TSS includes a description of how connection attempts from clients that are not operating on an approved security type are handled.
               </TSS>
               <Guidance>The evaluator shall examine the operational guidance to verify that it includes procedures for configuring the security policy of the wireless network including all attributes claimed in the ST.</Guidance>
               <Tests>
                 The evaluator shall perform the following tests:
                 <testlist>
-                  <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
+                  <test>For each security type specified in the TSS, configure the network to the approved security type and verify that the client can establish a connection. <h:br/>  <h:br/> Maintaining the same SSID, change the security type of the client to a non-approved security type and attempt to establish a connection. Verify that the connection was unsuccessful.</test>
                   <test>For each authentication protocol specified in the TSS, configure the network accordingly per the AGD. Verify that the client connection attempt is successful when using the correct client credentials and that the connection is unsuccessful when incorrect authentication credentials are used.</test>
-                  <test>{Conditional: SSID is broadcasted] The evaluator shall configure the SSID to be broadcasted. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</test>
+                  <test>[Conditional: SSID is broadcast] The evaluator shall configure the SSID to be broadcast. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is included. The evaluator shall then configure the SSID to be hidden. Using a network sniffing tool, the evaluator shall capture a beacon frame and confirm that the SSID is not listed.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -677,31 +749,25 @@
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FMT_SMF.1 Specification of Management Functions</dependencies>
           <f-element id="fmt_smr_ext-1-1">
-            <title>The TSF shall ensure that the ability to administer remotely the TOE from a wireless client
+            <title>The TSF shall ensure that the ability to remotely administer the TOE from a wireless client
               shall be disabled by default.</title>
             <aactivity>
-              <TSS>There are no TSS evaluation activities for this component.<h:br/><h:br/></TSS>
-              <Guidance>
-                The evaluator will review the operational guidance to ensure that it contains instructions for
+              <TSS/>
+              <Guidance>The evaluator shall review the operational guidance to ensure that it contains instructions for
                 administering the TOE both locally and remotely, including any configuration that needs to be
-                performed on the client for remote administration. The evaluator will confirm that the TOE
-                does not permit remote administration from a wireless client by default.
-                <h:br/>
-                <h:br/>
-              </Guidance>
-              <Tests>
-                <h:p>The evaluator will demonstrate that after configuring the TOE for first use from the operational
+                performed on the client for remote administration. The evaluator shall confirm that the TOE
+                does not permit remote administration from a wireless client by default.</Guidance>
+              <Tests>The evaluator shall demonstrate that after configuring the TOE for first use from the operational
                 guidance, it is possible to establish an administrative session with the TOE on the “wired” portion of the
-                device. They will then demonstrate that an identically configured wireless client that can successfully
-                connect to the TOE cannot be used to perform administration.</h:p>
-              </Tests>
+                device. The evaluator shall then demonstrate that an identically configured wireless client that can successfully
+                connect to the TOE cannot be used to perform administration.</Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory"/>
         </f-component>
       </section>
       <!-- 5.2.5 Protection of the TSF (FPT) -->
-      <section title="Protection of the TSF (FPT)" id="fpt-mandatory">
+      <section title="Protection of the TSF (FPT)" id="man-fpt">
         <ext-comp-def title="Access Controls" fam-id="FPT_ACF_EXT">
           <fam-behavior>This family defines specific TOE components that are protected against unprivileged access. This is a new family defined for the FPT class.</fam-behavior>
         </ext-comp-def>
@@ -732,24 +798,27 @@
               The TSF shall implement access controls which prohibit unprivileged users from
               modifying:
               <h:ul>
-                <h:li>Kernel and its drivers/modules</h:li>
+                <h:li>Kernel and its drivers and modules</h:li>
                 <h:li>Security audit logs</h:li>
                 <h:li>Shared libraries</h:li>
                 <h:li>System executables</h:li>
                 <h:li>System configuration files</h:li>
-                <h:li>
-                  <assignable>other objects</assignable>
-                </h:li>
-              </h:ul>.
+                <h:li><assignable>other objects</assignable>.</h:li>
+              </h:ul>
             </title>
-            <aactivity>
-              <TSS>The evaluator shall confirm that the TSS specifies the locations of kernel drivers/modules, security
+            <aactivity level="element">
+              <TSS>The evaluator shall confirm that the TSS specifies the locations of kernel drivers and modules, security
                 audit logs, shared libraries, system executables, and system configuration files.  Every
                 file does not need to be individually identified, but the system's conventions for storing and protecting
                 such files must be specified.</TSS>
               <Guidance/>
               <Tests>
-                The evaluator shall create an unprivileged user account. Using this account, the evaluator shall ensure that the following tests result in a negative outcome (i.e., the action results in the OS denying the evaluator permission to complete the action):
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers,
+                simulators, etc.), including enabling root shell access as needed.
+				        The evaluator shall create an unprivileged user account.
+                Using this account, the evaluator shall ensure that the following tests result in a negative
+                outcome (i.e., the action results in the OS denying the evaluator permission to
+                complete the action):
                 <testlist>
                   <test>The evaluator shall attempt to modify all kernel drivers and modules.</test>
                   <test>The evaluator shall attempt to modify all security audit logs generated by the logging subsystem.</test>
@@ -768,21 +837,23 @@
               <h:ul>
                 <h:li>Security audit logs</h:li>
                 <h:li>System-wide credential repositories</h:li>
-                <h:li>
-                  <assignable>list of other objects</assignable>
-                </h:li>
-              </h:ul>.
+                <h:li><assignable>list of other objects</assignable>.</h:li>
+              </h:ul>
             </title>
             <note role="application">"Credential repositories" refer, in this case, to structures containing cryptographic keys or passwords.</note>
-            <aactivity>
+            <aactivity level="element">
               <TSS/>
               <Guidance/>
               <Tests>
-                The evaluator shall create an unprivileged user account. Using this account, the evaluator shall ensure that the following tests result in a negative outcome (i.e., the action results in the OS denying the evaluator permission to complete the action):
+                For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.
+				The evaluator shall create an unprivileged user account.
+                Using this account, the evaluator shall ensure that the following tests result in a negative
+                outcome (i.e., the action results in the OS denying the evaluator permission to
+                complete the action):
                 <testlist>
-                  <test>The evaluator shall attempt to read security audit logs generated by the auditing subsystem</test>
-                  <test>The evaluator shall attempt to read system-wide credential repositories</test>
-                  <test>The evaluator shall attempt to read any other object specified in the assignment</test>
+                  <test>The evaluator shall attempt to read security audit logs generated by the auditing subsystem.</test>
+                  <test>The evaluator shall attempt to read system-wide credential repositories.</test>
+                  <test>The evaluator shall attempt to read any other object specified in the assignment.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -805,8 +876,7 @@
               <selectables>
                 <selectable id="fpt_aslr_ext.1.1_1">8</selectable>
                 <selectable id="fpt_aslr_ext.1.1_3">
-                  <assignable>number greater than 8</assignable>
-                </selectable>
+                  <assignable>number greater than 8</assignable></selectable>
               </selectables>
               bits of entropy except for
               <assignable>list of explicit exceptions</assignable>.
@@ -814,23 +884,15 @@
             <aactivity>
               <TSS>The evaluator shall examine the TSS to verify that it identifies the number of entropy bits used for ASLR and what exceptions there are to this, if any.</TSS>
               <Guidance/>
-              <Tests>The evaluator shall select 3 executables included with the TSF. If the TSF includes a web browser it must be selected. If the TSF includes a mail client it must be selected. For each of these apps, the evaluator shall launch the same executables on two separate instances of the OS on identical hardware and compare all memory mapping locations. The evaluator shall ensure that no memory mappings are placed in the same location. If the rare chance occurs that two mappings are the same for a single executable and not the same for the other two, the evaluator shall repeat the test with that executable to verify that in the second test the mappings are different. This test can also be completed on the same hardware and rebooting between application launches.</Tests>
-            </aactivity>
-          </f-element>
-          <audit-event table="mandatory"/>
-        </f-component>
-        <!-- FPT_FLS.1 Failure with Preservation of Secure State -->
-        <f-component cc-id="fpt_fls.1" id="fpt-fls-1" name="Failure with Preservation of Secure State">
-          <consistency-rationale/>
-          <f-element id="fel-pres-sec-state">
-            <title>
-              The TSF shall preserve a secure state when the following types of failures occur: [<h:i>DRBG self-test failure</h:i>].
-            </title>
-            <note role="application">The intent of this requirement is to ensure that cryptographic services requiring random bit generation cannot be performed if a failure of a self-test defined in FPT_TST.1 occurs.</note>
-            <aactivity>
-              <TSS>The evaluator shall verify that the TSF describes how the TOE enters an error state in the event of a DRBG self-test failure.</TSS>
-              <Guidance>The evaluator shall verify that the guidance documentation describes the error state that results from a DRBG self-test failure and the actions that a user or administrator should take in response to attempt to resolve the error state.</Guidance>
-              <Tests/>
+              <Tests>For these tests the evaluator shall use appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.),
+                including enabling root shell access as needed. The evaluator shall select three executables included with the TSF. If the TSF includes a web server it must be
+                selected. The evaluator shall prioritize executables that are UDP or TCP listening network services. For each of these executables, the evaluator shall launch
+                the same executable twice and inspect the memory map using an appropriate tool or interface (e.g. /proc/$PID/maps on a Linux-based OS). The evaluator shall ensure that no memory mappings are placed in the same location. If the rare
+                chance occurs that two mappings are the same for a single executable and not the same for another chosen executable, the evaluator shall repeat the test with
+                that executable to verify that in the second test the mappings are different. This test should also be completed on the same hardware. The evaluator shall also
+                inspect the executables to verify the fPIE compile flag is enabled. The evaluator shall read /proc/kallsysms and note the _stext address. The evaluator shall
+                then completely reboot the TSF and re-read /proc/kallsyms and in verify that the addresses differ. In the rare event KASLR is on and the addresses are the same
+                the evaluator shall reboot and verify again.</Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory"/>
@@ -852,7 +914,7 @@
                 <selectable id="fpt_sbop_ext.1.1_2">not store parameters or variables in the same data structures as control flow values</selectable>
               </selectables>.
             </title>
-            <note role="application">Many OSes store control flow values (i.e. return addresses) in stack data structures that also contain parameters and variables.
+            <note role="application">Many OSes store control flow values (i.e., return addresses) in stack data structures that also contain parameters and variables.
               For these OSes, it is expected that most of the OS, to include the kernel, libraries, and application software from the OS vendor be compiled with stack-based buffer overflow protection enabled.
               OSes that store parameters and variables separately from control flow values do not need additional stack protections.</note>
             <aactivity>
@@ -862,16 +924,16 @@
                 <h:p>For stack-based OSes, the evaluator shall determine that the TSS contains a description of stack-based buffer overflow protections used by the OS.
                   These are referred to by a variety of terms. These include, but are not limited to, tagging, stack cookie, stack guard, and stack canaries.
                   The TSS must include a rationale for any binaries that are not protected in this manner.
-                  The evaluator shall also preform the following test:</h:p>
-                <h:p>For OSes that store parameters/variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
-                  The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.</h:p>
+                  The evaluator shall also preform the following test. For this test the evaluator shall use an appropriate development environment (e.g., a Virtual Machine) and development tools (debuggers, simulators, etc.), including enabling root shell access as needed.</h:p>
+                For OSes that store parameters or variables separately from control flow values, the evaluator shall verify that the TSS describes what data structures control values, parameters, and variables are stored.
+                  The evaluator shall also ensure that the TSS includes a description of the safeguards that ensure parameters and variables do not intermix with control flow values.
               </Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory"/>
         </f-component>
         <!-- FPT_W^X_EXT.1 Write XOR Execute Memory Pages -->
-        <f-component cc-id="fpt_w^x_ext.1" id="fpt-w^x-ext-1" name="Write XOR Execute Memory Pages">
+        <f-component cc-id="fpt_w^x_ext.1" id="fpt-worx-ext-1" name="Write XOR Execute Memory Pages">
           <depends>
             <optional/>
           </depends>
@@ -898,10 +960,9 @@
                 write and execute permissions except for the cases listed in the assignment.</TSS>
               <Guidance/>
               <Tests>
-                The evaluator shall also perform the following tests.
                 <testlist>
                   <test>The evaluator shall acquire or construct a test program which attempts to allocate memory that is both writable and executable. The evaluator shall run the program and confirm that it fails to allocate memory that is both writable and executable.</test>
-                  <test>The evaluator shall acquire or construct a test program which allocates memory that is executable and then subsequently requests additional write/modify permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</test>
+                  <test>The evaluator shall acquire or construct a test program which allocates memory that is executable and then subsequently requests additional write or modify permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</test>
                   <test>The evaluator shall acquire or construct a test program which allocates memory that is writable and then subsequently requests additional execute permissions on that memory. The evaluator shall run the program and confirm that at no time during the lifetime of the process is the memory both writable and executable.</test>
                 </testlist>
               </Tests>
@@ -911,9 +972,9 @@
         </f-component>
       </section>
       <!-- 5.2.6 TOE Access (FTA) -->
-      <section title="TOE Access (FTA)" id="fta-mandatory">
+      <section title="TOE Access (FTA)" id="man-fta">
         <!-- FTA_TSE.1 TOE Session Establishment -->
-        <f-component cc-id="fta_tse.1" id="fta_tse-1" name="TOE Session Establishment">
+        <f-component cc-id="fta_tse.1" id="fta-tse-1" name="TOE Session Establishment">
           <consistency-rationale/>
           <f-element id="fta_tse-1-1">
             <title>
@@ -924,28 +985,20 @@
             </title>
             <note role="application">
               <h:p>The “TOE interface” can be specified in terms of the device in the TOE that the LiFi
-               client is connecting to (e.g. specific LiFi APs). “Time” and “day” refer to time-of-day and
+               client is connecting to (e.g., specific LiFi APs). “time” and “day” refer to time-of-day and
                day-of-week, respectively.</h:p>
               <h:p>The assignment is to be used by the ST author to specify additional attributes on which denial of session
                establishment can be based.</h:p>
             </note>
             <aactivity>
-              <TSS>
-                The evaluator will examine the TSS to determine that all of the attributes on
-               which a client session can be denied are specifically defined.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance>
-                The evaluator will examine the operational guidance to determine that it contains guidance for
-               configuring each of the attributes identified in the TSS.
-                <h:br/>
-                <h:br/>
-              </Guidance>
+              <TSS>The evaluator shall examine the TSS to determine that all of the attributes on
+               which a client session can be denied are specifically defined.</TSS>
+              <Guidance>The evaluator shall examine the operational guidance to determine that it contains guidance for
+               configuring each of the attributes identified in the TSS.</Guidance>
               <Tests>
-                For each supported attribute, the evaluator will perform the following test:
+                For each supported attribute, the evaluator shall perform the following test:
                 <testlist>
-                  <test>The evaluator successfully establishes a client session with a wireless client. The evaluator then follows the operational guidance to configure the system so that the client’s access is denied based on a specific value of the attribute. The evaluator will then attempt to establish a session in contravention to the attribute setting (for instance, the client is denied network access based upon the TOE interface that it is connecting to, or that the client is denied access based upon the time-of-day or day-of-week it is attempting connection on). The evaluator will observe that the access attempt fails.</test>
+                  <test>The evaluator shall successfully establish a client session with a wireless client. The evaluator shall then follow the operational guidance to configure the system so that the client’s access is denied based on a specific value of the attribute. The evaluator shall then attempt to establish a session in contravention to the attribute setting (for instance, the client is denied network access based on the TOE interface that it is connecting to, or that the client is denied access based on the time-of-day or day-of-week it is attempting connection on). The evaluator shall observe that the access attempt fails.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -958,7 +1011,7 @@
         </f-component>
       </section>
       <!-- 5.2.7 Trusted Path/Channels (FTP) -->
-      <section title="Trusted Path/Channels (FTP)" id="ftp-mandatory">
+      <section title="Trusted Path/Channels (FTP)" id="man-ftp">
         <!-- FTP_ITC.1/8021X Inter-TSF Trusted Channel (802.1X) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-8021x" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
           <consistency-rationale/>
@@ -969,13 +1022,13 @@
               between itself and
               <h:b>an 802.1X authentication server</h:b>
               that is logically distinct from other communication channels and provides assured
-            identification of its end points and protection of the channel data from modification or
+            identification of its endpoints and protection of the channel data from modification or
             disclosure.
             </title>
             <note role="application">
               <h:p>This requirement has been iterated from its definition in the NDcPP to 
               mandate the communications protocols and environmental components that 
-              a LiFI AS must use for 802.1X.
+              a LiFi AS must use for 802.1X.
               IPsec or RADIUS over TLS (commonly known as "RadSec") is required at least for communications with the 802.1X authentication server.
               The requirement implies that not only are communications protected when they are initially established,
               but also on resumption after an outage.</h:p>
@@ -999,32 +1052,24 @@
           <f-element id="ftp_itc-1-3_8021X">
             <title>The TSF shall initiate communication via the trusted channel for [<h:i>802.1X authentication</h:i>].</title>
             <aactivity>
-              The evaluator will perform the following activities in addition to those required by the NDcPP:
+              The evaluator shall perform the following activities in addition to those required by the NDcPP:
               <h:br/>
               <h:br/>
-              <TSS>
-                The evaluator will examine the TSS to determine that, for all communications with authorized IT
+              <TSS>The evaluator shall examine the TSS to determine that for all communications with authorized IT
               entities identified in the requirement, each communications mechanism is identified in terms of the
               allowed protocols for that IT entity.
-              The evaluator will also confirm that all protocols listed in the TSS
-              are specified and included in the requirements in the ST.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance>
-                The evaluator will confirm that the guidance documentation contains instructions for establishing the
+              The evaluator shall also confirm that all protocols listed in the TSS
+              are specified and included in the requirements in the ST.</TSS>
+              <Guidance>The evaluator shall confirm that the guidance documentation contains instructions for establishing the
               allowed protocols with each authorized IT entity and that it contains recovery instructions should a
-              connection be unintentionally broken.
-                <h:br/>
-                <h:br/>
-              </Guidance>
+              connection be unintentionally broken.</Guidance>
               <Tests>
-                The evaluator will perform the following tests:
+                The evaluator shall perform the following tests:
                 <testlist>
-                  <test>The evaluator will ensure that communications using each protocol with each authorized IT entity is tested during the course of the evaluation, setting up the connections as described in the guidance documentation and ensuring that communication is successful.</test>
-                  <test>For each protocol that the TOE can initiate as defined in the requirement, the evaluator will follow the guidance documentation to ensure that the communication channel can be initiated from the TOE.</test>
-                  <test>The evaluator will ensure, for each communication channel with an authorized IT entity, the channel data is not sent in plaintext.</test>
-                  <test>The evaluator will, for each protocol associated with each authorized IT entity tested during test 1, physically interrupt an established connection. The evaluator will ensure that when physical connectivity is restored, communications are appropriately protected.</test>
+                  <test>The evaluator shall ensure that communications using each protocol with each authorized IT entity is tested during the course of the evaluation, setting up the connections as described in the guidance documentation and ensuring that communication is successful.</test>
+                  <test>For each protocol that the TOE can initiate as defined in the requirement, the evaluator shall follow the guidance documentation to ensure that the communication channel can be initiated from the TOE.</test>
+                  <test>The evaluator shall ensure, for each communication channel with an authorized IT entity, the channel data is not sent in plaintext.</test>
+                  <test>The evaluator shall, for each protocol associated with each authorized IT entity tested during test 1, physically interrupt an established connection. The evaluator shall ensure that when physical connectivity is restored, communications are appropriately protected.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -1046,7 +1091,7 @@
         <audit-table id="at-sel-based" table="sel-based"/>
       </section>
       <!-- 5.2.8 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="fcs-selectionBased">
+      <section title="Cryptographic Support (FCS)" id="sel_fcs">
         <ext-comp-def title="RadSec" fam-id="FCS_RADSEC_EXT">
           <fam-behavior>Components in this family describe requirements for implementation of the RadSec (RADIUS over TLS) protocol.</fam-behavior>
         </ext-comp-def>
@@ -1083,7 +1128,7 @@
               </title>
             </ext-comp-def-title>
             <note role="application">
-              <h:p>This SFR is applicable if "RADIUS over TLS" is selected in FTP_ITC.1.1.</h:p>
+              <h:p>This SFR is applicable if "RADIUS over TLS" is selected in <xref to="ftp-itc-1-8021x"/>.</h:p>
               <h:p>
                 If
                 <xref to="s-x509-certs"/>
@@ -1095,23 +1140,20 @@
               </h:p>
             </note>
             <aactivity>
-              <TSS>
-                The evaluator will verify that the TSS description includes the use of
+              <TSS>The evaluator shall verify that the TSS description includes the use of
 		            RADIUS over TLS, as described in RFC 6614.
-                <h:p>If X.509v3 certificates is selected, the evaluator will ensure that the TSS description includes the use of client-side certificates for TLS mutual authentication.</h:p>
-              </TSS>
-              <Guidance>
-                The evaluator will verify that any configuration necessary to meet the requirement must be contained in the guidance.
-                <h:br/>
-                <h:br/>
-              </Guidance>
-              <Tests>The evaluator will demonstrate the ability to successfully establish a RADIUS over TLS connection with a RADIUS server. This test will be performed with X.509v3 certificates if selected and performed with pre-shared keys if selected.</Tests>
+		            
+		              If X.509v3 certificates is selected, the evaluator shall ensure that the TSS description includes the use of client-side certificates for TLS
+		              mutual authentication.</TSS>
+              <Guidance>The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.</Guidance>
+              <Tests>The evaluator shall demonstrate the ability to successfully establish a RADIUS over TLS connection with a RADIUS server. 
+		            This test will be performed with X.509v3 certificates if selected and performed with pre-shared keys if selected.</Tests>
             </aactivity>
           </f-element>
           <audit-event table="sel-based"/>
         </f-component>
-        <!-- FCS_RADSEC_EXT.2 RadSec using Pre-Shared Keys -->
-        <f-component cc-id="fcs_radsec_ext.2" id="fcs-radsec-ext-2" name="RadSec using Pre-Shared Keys">
+        <!-- FCS_RADSEC_EXT.2 RadSec Using Pre-Shared Keys -->
+        <f-component cc-id="fcs_radsec_ext.2" id="fcs-radsec-ext-2" name="RadSec Using Pre-Shared Keys">
           <depends on-sel="s-radsec-psk"/>
           <consistency-rationale/>
           <comp-lev>requires the TSF to implement RadSec using pre-shared key authentication in a manner that conforms to relevant TLS specifications.</comp-lev>
@@ -1129,7 +1171,8 @@
           </dependencies>
           <f-element id="fcs_radsec_ext-2-1">
             <title>
-              The TSF shall implement TLS 1.2 and
+              The TSF shall implement
+              <h:b>TLS 1.2 and</h:b>
               <selectables>
                 <selectable id="fcs_radsec_ext.2.1_1">TLS 1.3</selectable>
                 <selectable id="fcs_radsec_ext.2.1_2">no other TLS versions</selectable>
@@ -1144,36 +1187,44 @@
               <title>
                 The TSF shall implement
                 <assignable>list of allowed TLS versions</assignable>
-                and reject all other TLS and SSL versions. 
-		            The TLS implementation shall support the following ciphersuites for use when acting as a RADIUS over TLS client:
+                when acting as a RADIUS over TLS client that supports
+		            the following ciphersuites:
                 <assignable>list of supported ciphersuites</assignable>.
               </title>
             </ext-comp-def-title>
             <note role="application">
-              <h:p>The above ciphersuites are only for use when the TSF is acting as a RADIUS over TLS client,
+              <h:p>
+                The above ciphersuites are only for use when the TSF is acting as a RADIUS over TLS client,
 		            not for other uses of the TLS protocol. 
 		            The ciphersuites to be tested in the evaluated configuration are limited by this requirement. 
-		            The ST author should select the ciphersuites that are supported.</h:p>
+		            The ST author should select the ciphersuites that are supported.
+                <h:br/>
+                <h:br/>
+                This requirement must be included if
+                <xref to="s-radsec-psk"/>
+                is selected in FCS_RADSEC_EXT.1.2.
+              </h:p>
             </note>
           </f-element>
           <f-element id="fcs_radsec_ext-2-2">
             <title>The TSF shall be able to  <selectables><selectable id="fcs_radsec_ext.2.2_1">accept</selectable><selectable id="fcs_radsec_ext.2.2_2">generate using the random bit generator specified in FCS_RBG.1</selectable></selectables>  bit-based pre-shared keys.</title>
             <aactivity>
-              <TSS>
-                The evaluator will check the description of the implementation of this protocol in the TSS to ensure that the ciphersuites supported are specified. 
-		            The evaluator will check the TSS to ensure that the ciphersuites specified are identical to those listed for this component. 
-		            The evaluator will also verify that the TSS contains a description of the denial of old SSL and TLS versions.
-                <h:p>The evaluator will examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are generated (if the TOE supports this functionality) 
-		              and confirm that this process uses the RBG specified in FCS_RBG.1.</h:p>
-              </TSS>
+              <TSS>The evaluator shall check the description of the implementation of this protocol in the TSS to ensure that the ciphersuites supported are
+		            specified. 
+		            The evaluator shall check the TSS to ensure that the ciphersuites specified are identical to those listed for this component. 
+		            The evaluator shall also verify that the TSS contains a description of the denial of old SSL and TLS versions.
+		            
+		              The evaluator shall examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are generated (if the TOE
+		              supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG.1.</TSS>
               <Guidance>
-                The evaluator will verify that any configuration necessary to meet the requirement must be contained in the guidance.
-                <h:p>The evaluator will also check the guidance documentation to ensure that it contains instructions on configuring the TOE so that RADIUS over TLS conforms to the description in the TSS 
-		              (for instance, the set of ciphersuites advertised by the TOE may have to be restricted to
+                The evaluator shall verify that any configuration necessary to meet the requirement must be contained in the guidance.
+                <h:p>The evaluator shall also check the guidance documentation to ensure that it contains instructions on configuring the TOE so that RADIUS over
+		              TLS conforms to the description in the TSS (for instance, the set of ciphersuites advertised by the TOE may have to be restricted to
 		              meet the requirements).</h:p>
-                <h:p>The evaluator will confirm the operational guidance contains instructions for either entering bit-based pre-shared keys or generating a bit-based pre-shared key (or both).</h:p>
+                The evaluator shall confirm the operational guidance contains instructions for either entering bit-based pre-shared keys or generating a
+		              bit-based pre-shared key (or both).
               </Guidance>
-              <Tests>The testing for this requirement is addressed by the functional claims made in <xref to="pkg-tls"/> for this interface.</Tests>
+              <Tests>The testing for this requirement is addressed by the functional claims made in  <xref to="pkg-tls"/>  for this interface. </Tests>
             </aactivity>
           </f-element>
           <audit-event table="sel-based"/>
@@ -1186,7 +1237,7 @@
         <audit-table id="at-feat-based" table="feat-based"/>
       </section>
       <!-- 5.2.9 SFRs for 802.11bb Implementations -->
-      <section title="SFRs for 802.11bb Implementations">
+      <section title="SFRs for 802.11bb Implementations" id="80211bb-sfrs">
         <!-- FCS_CKM.1/WPA Cryptographic Key Generation (Symmetric Keys for WPA2 Connections) -->
         <f-component cc-id="fcs_ckm.1" id="fcs-ckm-1-wpa" name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" iteration="WPA">
           <depends on="feat-80211bb"/>
@@ -1235,7 +1286,7 @@
             <note role="application">
               <h:p>The cryptographic key derivation algorithm required by IEEE 802.11-2020 (Section
 		            12.7.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1 function and
-		            outputs 384 bits.
+		            outputs a 384-bit key.
 		            The use of GCMP is defined in IEEE 802.11ax-2021 (Section 12.5.5) and
 		            requires a
 		            Key Derivation Function (KDF) based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA-384 (for 256-bit symmetric keys).
@@ -1254,52 +1305,47 @@
               </h:p>
             </note>
             <aactivity>
-              <TSS>
-                The cryptographic primitives will be verified through evaluation activities specified elsewhere in this PP-Module.
-		            The evaluator will verify that the TSS describes how the primitives defined and implemented by this PP-Module
+              <TSS>The cryptographic primitives will be verified through evaluation activities specified elsewhere in this PP-Module.
+		            The evaluator shall verify that the TSS describes how the primitives defined and implemented by this PP-Module
 		            are used by the TOE in establishing and maintaining secure connectivity to the wireless clients. This
-		            description will include how the GTK and PTK are generated or derived. The TSS will also provide a
+		            description will include how the GTK and PTK are generated or derived. The TSS shall also provide a
 		            description of the developer’s methods of assuring that their implementation conforms to the
 		            cryptographic standards; this includes not only testing done by the developing organization, but also
-		            proof of third-party testing that is performed (e.g. WPA2 certification). The evaluator will ensure that
+		            proof of third-party testing that is performed (e.g., WPA2 certification). The evaluator shall ensure that
 		            the description of the testing methodology is of sufficient detail to determine the extent to which the
-		            details of the protocol specifics are tested.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
-              <Tests>The evaluator will perform the following test using a packet sniffing tool to collect frames between the TOE and a wireless client: <h:p>
-		              Step 1: The evaluator will identify the channel used by the TOE and configure the 
+		            details of the protocol specifics are tested.</TSS>
+              <Guidance/>
+              <Tests>
+                The evaluator shall perform the following test using a packet sniffing tool to collect
+		            frames between the TOE and a wireless client:
+                <h:p>Step 1: The evaluator shall identify the channel used by the TOE and configure the 
 		              sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel).
-		              The sniffer should also be configured to filter on the MAC address of the TOE and client.
-		            </h:p> <h:p>
-		              Step 2: The evaluator will configure the TOE to communicate with a LiFi client using IEEE 
+		              The sniffer should also be configured to filter on the MAC address of the TOE and client.</h:p>
+                <h:p>Step 2: The evaluator shall configure the TOE to communicate with a LiFi client using IEEE 
 		              802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key,
 		              setting up the connections as described in the operational guidance.
-		              The pre-shared key is only used for testing.
-		            </h:p> <h:p>
-		              Step 3: The evaluator will start the sniffing tool, initiate a connection between the
+		              The pre-shared key is only used for testing.</h:p>
+                <h:p>Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
 		              TOE and LiFi client, and allow the TOE to authenticate, associate, and successfully
-		              complete the four-way handshake with the client.
-		            </h:p> <h:p>
-		              Step 4: The evaluator will set a timer for one minute, at the end of which the evaluator
-		              will disconnect the client from the TOE and stop the sniffer.
-		            </h:p> <h:p>
-		              Step 5: The evaluator will identify the four-way handshake frames (denoted EAPOL-key in Wireshark
+		              complete the four-way handshake with the client.</h:p>
+                <h:p>Step 4: The evaluator shall set a timer for one minute, at the end of which the evaluator
+		              shall disconnect the client from the TOE and stop the sniffer.</h:p>
+                <h:p>Step 5: The evaluator shall identify the four-way handshake frames (denoted EAPOL-key in Wireshark
 		              captures) and derive the PTK from the four-way handshake frames and pre-shared key as specified
-		              in IEEE 802.11-2020.
-		            </h:p> <h:p>
-		              Step 6: The evaluator will select the first data frame from the captured packets that was
+		              in IEEE 802.11-2020.</h:p>
+                <h:p>Step 6: The evaluator shall select the first data frame from the captured packets that was
 		              sent between the client and TOE after the four-way handshake successfully completed
 		              and without the frame control value 0x4208 (the first two bytes are 08 42).
-		              The evaluator will use the PTK to decrypt the data portion of the packet as specified in
-		              IEEE 802.11-2020 and verify that the decrypted data contains ASCII-readable text.
-		            </h:p> <h:p>
-		              Step 7: The evaluator will repeat Step 6 for the next two data frames between the TOE and client,
-		              and without frame control value 0x4208.
-		            </h:p> <h:p>
-		              Additionally, the evaluator will test the PRF function using the test vectors from:
-		              <h:ul><h:li>Section 2.4 “The PRF Function – PRF (key, prefix, data, length)” of the IEEE 802.11-02/362r6 document "Proposed Test vectors for IEEE 802.11 TGi" dated September 10, 2002</h:li> <h:li>Annex J.3 “PRF reference implementation and test vectors” of IEEE 802.11-2020</h:li></h:ul></h:p></Tests>
+		              The evaluator shall use the PTK to decrypt the data portion of the packet as specified in
+		              IEEE 802.11-2020 and verify that the decrypted data contains ASCII-readable text.</h:p>
+                <h:p>Step 7: The evaluator shall repeat Step 6 for the next two data frames between the TOE and client,
+		              and without frame control value 0x4208.</h:p>
+                Additionally, the evaluator shall test the PRF function using the test vectors from:
+                <h:ul>
+                  <h:li>Section 2.4 “The PRF Function – PRF (key, prefix, data, length)” of the IEEE 802.11-02/362r6 document "Proposed Test vectors for IEEE 802.11 TGi" dated September 10, 2002</h:li>
+                  <h:li>Annex J.3 “PRF reference implementation and test vectors” of IEEE 802.11-2020</h:li>
+                </h:ul>
+              </Tests>
             </aactivity>
           </f-element>
           <audit-event table="feat-based"/>
@@ -1320,57 +1366,67 @@
               that meets the following: [<h:i>NIST SP 800-38F, IEEE 802.11-2020 for the packet format and timing considerations</h:i>]
               <h:b>and does not expose the cryptographic keys</h:b>.
             </title>
-            <note role="application">This requirement applies to the Group Temporal Key (GTK) that is generated by the
+            <note role="application">This requirement applies to the GTK that is generated by the
 		          TOE for use in broadcast and multicast messages to clients to which it is connected. 802.11-2020
 		          specifies the format for the transfer as well as the fact that it must be wrapped by the AES Key Wrap
 		          method specified in NIST SP 800-38F.</note>
             <aactivity>
-              <TSS>
-                The evaluator will check the TSS to ensure that it describes how the GTK is wrapped prior to being
+              <TSS>The evaluator shall check the TSS to ensure that it describes how the GTK is wrapped prior to being
 		            distributed using the AES implementation specified in this PP-Module, and also how the GTKs are distributed
-		            when multiple clients connect to the TOE.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
-              <Tests>The evaluator will perform the following test using a packet sniffing tool to collect frames between a wireless client and the TOE (which may be performed in conjunction with the evaluation activity for FCS_CKM.1/PMK. <h:p>
-		              To fully test the broadcast and multicast functionality, these steps will be performed as
+		            when multiple clients connect to the TOE.</TSS>
+              <Guidance/>
+              <Tests>
+                The evaluator shall perform the following test using a packet sniffing tool to collect frames
+		            between a wireless client and the TOE (which may be performed in conjunction with the
+		            evaluation activity for FCS_CKM.1/PMK.
+                <h:p>To fully test the broadcast and multicast functionality, these steps will be performed as
 		              the evaluator connects multiple clients to the TOE.
-		              The evaluator will ensure that GTKs established are sent to the
-		              appropriate participating clients.
-		            </h:p> <h:p>
-		              Step 1: The evaluator will identify the channel used by the TOE and configure the 
+		              The evaluator shall ensure that GTKs established are sent to the
+		              appropriate participating clients.</h:p>
+                <h:p>Step 1: The evaluator shall identify the channel used by the TOE and configure the 
 		              sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel).
-		              The sniffer should also be configured to filter on the MAC address of the TOE and client.
-		            </h:p> <h:p>
-		              Step 2: The evaluator will configure the TOE to communicate with the client using
+		              The sniffer should also be configured to filter on the MAC address of the TOE and client.</h:p>
+                <h:p>Step 2: The evaluator shall configure the TOE to communicate with the client using
 		              IEEE 802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key, setting up the
 		              connections as described in the operational guidance.
-		              The pre-shared key is only used for testing.
-		            </h:p> <h:p>
-		              Step 3: The evaluator will start the sniffing tool, initiate a connection between the
-		              TOE and client, and allow the client to authenticate, associate and successfully complete
-		              the four-way handshake with the TOE.
-		            </h:p> <h:p>
-		              Step 4: The evaluator will set a timer for one minute, at the end of which the evaluator
-		              will disconnect the TOE from the client and stop the sniffer.
-		            </h:p> <h:p>
-		              Step 5: The evaluator will identify the four-way handshake frames
+		              The pre-shared key is only used for testing.</h:p>
+                <h:p>Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
+		              TOE and client, and allow the client to authenticate, associate, and successfully complete
+		              the four-way handshake with the TOE.</h:p>
+                <h:p>Step 4: The evaluator shall set a timer for one minute, at the end of which the evaluator
+		              shall disconnect the TOE from the client and stop the sniffer.</h:p>
+                <h:p>Step 5: The evaluator shall identify the four-way handshake frames
 		              (denoted EAPOL-key in Wireshark captures) and derive the PTK and GTK from the
-		              four-way handshake frames and pre-shared key as specified in IEEE 802.11-2020.
-		            </h:p> <h:p>
-		              Step 6: The evaluator will select the first data frame from the captured packets that was sent between
+		              four-way handshake frames and pre-shared key as specified in IEEE 802.11-2020.</h:p>
+                <h:p>Step 6: The evaluator shall select the first data frame from the captured packets that was sent between
 		              the TOE and client after the four-way handshake successfully completed,
 		              and with the frame control value  0x4208 (the first two bytes are 08 42).
-		              The evaluator will use the GTK to decrypt the data portion of the
+		              The evaluator shall use the GTK to decrypt the data portion of the
 		              selected packet as specified in IEEE 802.11-2020 and verify that the decrypted
-		              data contains ASCII-readable text.
-		            </h:p> <h:p>
-		              Step 7: The evaluator will repeat Step 6 for the next two data frames with frame control value 0x4208.
-		            </h:p> <h:p>
-		              The evaluator will also perform the following testing based on the supported GTK distribution
-		              methods:
-		            </h:p> <h:p><h:b>AES Key Wrap (AES-KW Tests)</h:b></h:p> <h:p/> <h:p><h:b>AES Key Wrap with Padding (AES-KWP Tests)</h:b></h:p> <h:p/></Tests>
+		              data contains ASCII-readable text.</h:p>
+                <h:p>Step 7: The evaluator shall repeat Step 6 for the next two data frames with frame control value 0x4208.</h:p>
+                <h:p>The evaluator shall also perform the following testing based on the supported GTK distribution
+		              methods:</h:p>
+                <h:p>
+                  <h:b>AES Key Wrap (AES-KW Tests)</h:b>
+                </h:p>
+                <h:p/>
+                <h:p>
+                  <h:b>AES Key Wrap with Padding (AES-KWP Tests)</h:b>
+                </h:p>
+                <testlist>
+                  <test>
+                    <h:p>The evaluator shall test the authenticated-encryption functionality of AES-KWP for each combination of the following input parameter lengths:</h:p>
+                    <h:p>128 and 256 bit key encryption keys (KEKs)</h:p>
+                    <h:p>Three plaintext lengths. One plaintext length will be one octet. 
+		                    One plaintext length will be 20 octets (160 bits). 
+		                    One plaintext length will be the longest supported plaintext length less than or equal to 512 octets (4096 bits).</h:p>
+                    <h:p>Use a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KWP authenticated encryption. 
+		                    To determine correctness, the evaluator shall use the AES-KWP authenticated-encryption function of a known good implementation.</h:p>
+                  </test>
+                  <test>The evaluator shall test the authenticated-decryption functionality of AES-KWP using the same test as for AES-KWP authenticated-encryption, replacing plaintext values with ciphertext values and AES-KWP authenticated-encryption with AES-KWP authenticated-decryption. Additionally, the evaluator shall modify one byte of the ciphertext, attempt to decrypt the modified ciphertext, and ensure that a failure is returned rather than plaintext.</test>
+                </testlist>
+              </Tests>
             </aactivity>
           </f-element>
           <audit-event table="feat-based"/>
@@ -1398,13 +1454,17 @@
 		          of the PMK will be protected.</note>
             <aactivity>
               <TSS>
-                The evaluator will examine the TSS to determine that it describes how the PMK is transferred (that is,
+                The evaluator shall examine the TSS to determine that it describes how the PMK is transferred (that is,
 		            through what EAP attribute) to the TOE.
                 <h:br/>
                 <h:br/>
               </TSS>
-              <Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
-              <Tests>The evaluator will establish a session between the TOE and a RADIUS server according to the configuration guidance provided. The evaluator will then examine the traffic that passes between the RADIUS server and the TOE during a successful attempt to connect a wireless client to the TOE to determine that the PMK is not exposed.</Tests>
+              <Guidance/>
+              <Tests>The evaluator shall establish a session between the TOE and a RADIUS server according to the
+		            configuration guidance provided.
+		            The evaluator shall then examine the traffic that passes between the
+		            RADIUS server and the TOE during a successful attempt to connect a wireless client to the TOE to
+		            determine that the PMK is not exposed.</Tests>
             </aactivity>
           </f-element>
           <audit-event table="feat-based"/>
@@ -1427,13 +1487,15 @@
                 <selectable id="fia_psk_ext.1.1_4">WPA3-SAE-PK</selectable>
                 <selectable id="fia_psk_ext.1.1_5">IEEE 802.11 WPA2-PSK</selectable>
                 <selectable id="fia_psk_ext.1.1_7">
-                  <assignable>other protocols that use pre-shared keys</assignable>
-                </selectable>
+                  <assignable>other protocols that use pre-shared keys</assignable></selectable>
               </selectables>.
             </title>
+            <ext-comp-def-title>
+              <title>The TSF shall be able to use pre-shared keys for <assignable>pre-shared key protocols</assignable>.</title>
+            </ext-comp-def-title>
           </f-element>
           <f-element id="fel-valid-psk">
-            <title>The TSF shall be able to accept text-based pre-shared keys that: <h:ul><h:li>are 22 characters and  <selectables><selectable id="fia_psk_ext.1.2_2"><assignable>other supported lengths</assignable></selectable><selectable id="fia_psk_ext.1.2_3" exclusive="yes">no other lengths</selectable></selectables> ;</h:li> <h:li>are composed of any combination of upper and lower case letters, numbers, and special
+            <title>The TSF shall be able to accept text-based pre-shared keys that: <h:ul><h:li>are 22 characters and  <selectables><selectable id="fia_psk_ext.1.2_2"><assignable>other supported lengths</assignable></selectable><selectable id="fia_psk_ext.1.2_3" exclusive="yes">no other lengths</selectable></selectables>;</h:li> <h:li>are composed of any combination of upper and lower case letters, numbers, and special
 		              characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”).
 		            </h:li></h:ul></title>
           </f-element>
@@ -1447,13 +1509,13 @@
               bit-based pre-shared keys.
             </title>
             <note role="application">
-              <h:p>This requirement must be included if IPsec or another protocol that uses pre-shared keys is claimed, and pre-shared key authentication is selected 
-		              (e.g., "Pre-shared Keys" is selected in FCS_IPSEC_EXT.1.13 or "pre-shared keys" is selected in FCS_RADSEC_EXT.1.2). 
+              <h:p>This requirement must be included if IPsec or another protocol that uses pre-shared keys is claimed, and pre-shared key authentication is
+		              selected (e.g., "Pre-shared Keys" is selected in FCS_IPSEC_EXT.1.13 or "pre-shared keys" is selected in FCS_RADSEC_EXT.1.2). 
 		              The intent of this requirement is that all protocols will support both text-based and bit-based pre-shared keys.</h:p>
               <h:p>For the length of the text-based pre-shared keys, a common length (22 characters) is required to help
 		              promote interoperability.
 		              If other lengths are supported, they should be listed in the assignment;
-		              this assignment can also specify a range of values (e.g., "lengths from 5 to 55 characters") as well.</h:p>
+		              this assignment can also specify a range of values (e.g., "lengths from 5 to 55 characters").</h:p>
               <h:p>
                 For
                 <xref to="fel-get-psk"/>, the ST author specifies whether the TSF merely accepts bit-based pre-shared keys
@@ -1464,7 +1526,7 @@
             </note>
             <aactivity>
               <TSS>
-                The evaluator will verify that the TSS describes
+                The evaluator shall verify that the TSS describes
                 <h:ol>
                   <h:li>the protocols that can use pre-shared keys and that these are consistent with the selections made in <xref to="fel-use-psk"/>.</h:li>
                   <h:li>the allowable values for pre-shared keys and that they are consistent with the selections made in <xref to="fel-valid-psk"/>.</h:li>
@@ -1472,25 +1534,25 @@
                 </h:ol>
               </TSS>
               <Guidance>
-                The evaluator will examine the operational guidance to determine that it provides guidance to
+                The evaluator shall examine the operational guidance to determine that it provides guidance to
 		              administrators on the composition of strong text-based pre-shared keys, and (if the selection indicates
 		              keys of various lengths can be entered) that it provides information on the range of lengths supported.
 		              The guidance must specify the allowable characters for pre-shared keys, and that list must be a superset of the list contained in FIA_PSK_EXT.1.2.
                 <h:br/>
                 <h:br/>
-                The evaluator will confirm the operational guidance contains instructions for either entering bit-based
+                The evaluator shall confirm the operational guidance contains instructions for either entering bit-based
 		              pre-shared keys for each protocol identified in the requirement or for generating a bit-based pre-shared
 		              key (or both).
-                <h:br/>
-                <h:br/>
               </Guidance>
               <Tests>
-                The evaluator will also perform the following tests for each protocol (or instantiation of a protocol, if performed by a different implementation on the TOE). Note that one or more of these tests can be performed with a single test case.
+                The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, if
+		              performed by a different implementation on the TOE). Note that one or more of these tests can be
+		              performed with a single test case.
                 <testlist>
-                  <test>The evaluator will compose a pre-shared key of 22 characters that contains a combination of the allowed characters in accordance with the operational guidance and demonstrates that a successful protocol negotiation can be performed with the key.</test>
-                  <test>[conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator will repeat Test 1 using the minimum length; the maximum length; a length inside the allowable range; and invalid lengths beyond the supported range (both higher and lower). The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE.</test>
-                  <test>[conditional]: If the TOE does not generate bit-based pre-shared keys, the evaluator will obtain a bit-based pre-shared key of the appropriate length and enter it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</test>
-                  <test>[conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator will generate a bit-based pre-shared key of the appropriate length and use it according to the instructions in the operational guidance. The evaluator will then demonstrate that a successful protocol negotiation can be performed with the key.</test>
+                  <test>The evaluator shall compose a pre-shared key of 22 characters that contains a combination of the allowed characters in accordance with the operational guidance and demonstrates that a successful protocol negotiation can be performed with the key.</test>
+                  <test>[conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator shall repeat Test 1 using the minimum length; the maximum length; a length inside the allowable range; and invalid lengths beyond the supported range (both higher and lower). The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE.</test>
+                  <test>[conditional]: If the TOE does not generate bit-based pre-shared keys, the evaluator shall obtain a bit-based pre-shared key of the appropriate length and enter it according to the instructions in the operational guidance. The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key.</test>
+                  <test>[conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator shall generate a bit-based pre-shared key of the appropriate length and use it according to the instructions in the operational guidance. The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -1503,7 +1565,6 @@
           <consistency-rationale/>
           <f-element id="ftp_itc-1-1_Client">
             <title>
-              <comment>Do we need something similar for G.vlc? There was no equivalent to this in the Word doc requirements. Just checking as to whether anything is missing.<h:br/><h:br/></comment>
               The TSF shall provide a communication channel
               <h:b>
                 using
@@ -1514,14 +1575,12 @@
                   <selectable id="ftp_itc.1.1_Client_3">WPA2-PSK</selectable>
                   <selectable id="ftp_itc.1.1_Client_4">no other mode</selectable>
                 </selectables>
-                as defined by IEEE 802.11-2020
+                as defined by IEEE 802.11-2020 to provide a trusted channel
               </h:b>
-              to provide a trusted channel
-		        
-		        between itself and
+              between itself and
               <h:b>LiFi clients</h:b>
               that is logically distinct from other communication channels and provides assured
-		        identification of its end points and protection of the channel data from modification or
+		        identification of its endpoints and protection of the channel data from modification or
 		        disclosure.
             </title>
             <note role="application">
@@ -1530,12 +1589,12 @@
             </note>
           </f-element>
           <f-element id="ftp_itc-1-2_Client">
-            <title>The TSF shall permit [<h:i>LiFi clients</h:i>] to initiate communication via the trusted channel.</title>
+            <title>The TSF shall permit [<h:i><h:b>LiFi clients</h:b></h:i>] to initiate communication via the trusted channel.</title>
           </f-element>
           <f-element id="ftp_itc-1-3_Client">
             <title>The TSF shall initiate communication via the trusted channel for [<h:i>no services</h:i>].</title>
             <aactivity>
-              <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> base-PP. The evaluator shall repeat the tests from that SFR for each claimed LiFi communications channel.</no-tests>
+              <no-tests>This component is adequately evaluated when performing the evaluation activities for <no-link>FTP_ITC.1</no-link> in the <xref to="ND"/> Base-PP. The evaluator shall repeat the tests from that SFR for each claimed LiFi communications channel.</no-tests>
             </aactivity>
           </f-element>
           <audit-event table="feat-based">
@@ -1549,7 +1608,7 @@
         </f-component>
       </section>
       <!-- 5.2.10 SFRs for Distributed TOE Implementations -->
-      <section title="SFRs for Distributed TOE Implementations">
+      <section title="SFRs for Distributed TOE Implementations" id="distributed-toe-sfr">
         <!-- FCS_CKM.2/DISTRIB Cryptographic Key Distribution (802.11 Keys) -->
         <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2-distrib" name="Cryptographic Key Distribution (802.11 Keys)" iteration="DISTRIB">
           <depends on="feat-distributed-toe"/>
@@ -1564,7 +1623,7 @@
               <assignable>applicable standards as referenced by the distribution method specified in the Base-PP</assignable>.
             </title>
             <note role="application">
-              <h:p>This SFR is required for use in distibuted TOEs that support 802.11bb for distribution of keys to access nodes. G.Vlc TOEs will not claim this as they are used for point-to-point communications and do not have a distributed architecture.</h:p>
+              <h:p>This SFR is required for use in distributed TOEs that support 802.11bb for distribution of keys to access nodes. G.vlc TOEs will not claim this as they are used for point-to-point communications and do not have a distributed architecture.</h:p>
               <h:p>If claimed, this requirement applies to any key necessary for successful IEEE 802.11 connections
 		              not covered by FCS_CKM.2/GTK.
 		              In cases where a key must be distributed to other APs, this
@@ -1573,26 +1632,19 @@
 		              performed over a trusted connection, the transfer of these keys will be protected.</h:p>
             </note>
             <aactivity>
-              <TSS>
-                The evaluator will examine the TSS to determine that it describes which keys are distributed outside
-		              the TOE, where they are sent, and the purpose for this transfer.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance>
-                If this function is dependent on TOE configuration, the evaluator will confirm that the operational
-		              guidance contains instructions for how to configure that the keys are adequately protected.
-                <h:br/>
-                <h:br/>
-              </Guidance>
-              <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure protocols, and FPT_ITT.1 (Base-PP).</Tests>
+              <TSS>The evaluator shall examine the TSS to determine that it describes which keys are distributed outside
+		              the TOE, where they are sent, and the purpose for this transfer.</TSS>
+              <Guidance>If this function is dependent on TOE configuration, the evaluator shall confirm that the operational
+		              guidance contains instructions for how to configure that the keys are adequately protected.</Guidance>
+              <Tests>This requirement will be tested in conjunction with the tests for the cryptographic primitives, the secure
+		              protocols, and FPT_ITT.1 (Base-PP).</Tests>
             </aactivity>
           </f-element>
           <audit-event table="feat-based"/>
         </f-component>
       </section>
       <!-- 5.2.11 SFRs for G.vlc Implementations -->
-      <section title="SFRs for G.vlc Implementations">
+      <section title="SFRs for G.vlc Implementations" id="gvlc-sfrs">
         <!-- FTP_ITC.1/Gvlc Inter-TSF Trusted Channel (MACsec) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-gvlc" name="Inter-TSF Trusted Channel (MACsec)" iteration="Gvlc">
           <depends on="feat-gvlc"/>
@@ -1600,13 +1652,11 @@
           <f-element id="ftp_itc-1-1_Gvlc">
             <title>
               The TSF shall provide a communication channel
-              <h:b>for G.vlc using MACsec</h:b>
-              to provide a trusted channel
-		        
-		        between itself and
+              <h:b>for G.vlc using MACsec to provide a trusted channel</h:b>
+              between itself and
               <h:b>a MACsec peer</h:b>
               that is logically distinct from other communication channels and provides assured
-		        identification of its end points and protection of the channel data from modification or
+		        identification of its endpoints and protection of the channel data from modification or
 		        disclosure.
             </title>
             <note role="application">
@@ -1632,14 +1682,15 @@
             <audit-event-info>Identification of the initiator and target of channel</audit-event-info>
           </audit-event>
         </f-component>
-        <implements>
-          <feature/>
-          <feature/>
-          <feature/>
-          <feature/>
-        </implements>
       </section>
     </impl-dep-sfrs>
   </sec:Security_Requirements>
-  <bibliography/>
+  <bibliography>
+    <entry id="bibNDcPP">
+      <tag>NDcPP</tag>
+      <description>
+        <h:a href="https://www.niap-ccevs.org/protectionprofiles/524">collaborative Protection Profile for Network Devices, Version 4.0, December 22, 2025</h:a>
+      </description>
+    </entry>
+  </bibliography>
 </Module>
