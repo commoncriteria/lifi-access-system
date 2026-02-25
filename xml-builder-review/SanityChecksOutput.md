@@ -1,3 +1,11 @@
+* Error: Detected multiple elements with an id of 'fia_uau.6.1_1'.
+* Error: Detected multiple elements with an id of 'fia_uau.6.1_1'.
+* Error: Detected multiple elements with an id of 'fpt_aslr_ext.1.1_1'.
+* Error: Detected multiple elements with an id of 'fpt_aslr_ext.1.1_1'.
+* Error: Detected multiple elements with an id of 'fcs_radsec_ext.2.1_1'.
+* Error: Detected multiple elements with an id of 'fcs_radsec_ext.2.1_1'.
+* Error: Detected multiple elements with an id of 'fia_psk_ext.1.1_1'.
+* Error: Detected multiple elements with an id of 'fia_psk_ext.1.1_1'.
 * Error: Detected dangling ref to 'fpt-aex-ext-1'
         for a ref.
 	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[26]"This SFR "/ref[1]""
