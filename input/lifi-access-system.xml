@@ -16,6 +16,7 @@
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2026-02-24</PPPubDate>
+      <Keywords/>
     </ReferenceTable>
   </PPReference>
   <RevisionHistory>
@@ -123,7 +124,7 @@
       </implements>
     </section>
   </sec:Introduction>
-  <sec:Conformance_Claims title="Conformance Claims" id="sec-cclaims" boilerplate="no">
+  <sec:Conformance_Claims boilerplate="no">
     <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
       <cc-st-conf>exact</cc-st-conf>
       <cc-pt2-conf>extended</cc-pt2-conf>
@@ -327,9 +328,9 @@
       </assumptions>
     </sec:Assumptions>
     <!-- 3.3 Organizational Security Policies -->
-    <sec:Organizational_Security_Policies boilerplate="no">
+    <section title="Organizational Security Policies" id="sec-osp" boilerplate="no">
       <OSPs/>
-    </sec:Organizational_Security_Policies>
+    </section>
   </section>
   <!-- 4.0 Security Objectives -->
   <sec:Security_Objectives>
