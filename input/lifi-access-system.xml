@@ -423,7 +423,7 @@
         <audit-table id="at-mandatory" table="mandatory"/>
       </section>
       <!-- 5.2.1 Security Audit (FAU) -->
-      <section title="Security Audit (FAU)" id="man-fau">
+      <section title="Class FAU: Security Audit" id="man-fau">
         <!-- FAU_GEN.1/LiFi Audit Data Generation (LiFi) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-lifi" name="Audit Data Generation (LiFi)" iteration="LiFi">
           <consistency-rationale/>
@@ -484,7 +484,7 @@
         </f-component>
       </section>
       <!-- 5.2.2 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="man-fcs">
+      <section title="Class FCS: Cryptographic Support" id="man-fcs">
         <!-- FCS_COP.1/LiFiDataEncryption Cryptographic Operation (Data Encryption and Decryption for LiFi -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-lifidataencryption" name="Cryptographic Operation (Data Encryption and Decryption for LiFi" iteration="LiFiDataEncryption">
           <consistency-rationale/>
@@ -610,7 +610,7 @@
         </f-component>
       </section>
       <!-- 5.2.3 Identification and Authentication (FIA) -->
-      <section title="Identification and Authentication (FIA)" id="man-fia">
+      <section title="Class FIA: Identification and Authentication" id="man-fia">
         <ext-comp-def title="802.1X Port Access Entity (Authenticator) Authentication" fam-id="FIA_8021X_EXT">
           <fam-behavior>Components in this family describe requirements for implementation of 802.1X port-based network access control.</fam-behavior>
         </ext-comp-def>
@@ -713,7 +713,7 @@
         </f-component>
       </section>
       <!-- 5.2.4 Security Management (FMT) -->
-      <section title="Security Management (FMT)" id="man-fmt">
+      <section title="Class FMT: Security Management" id="man-fmt">
         <ext-comp-def title="Security Management Restrictions" fam-id="FMT_SMR_EXT">
           <fam-behavior>Components in this family describe architectural restrictions on security administration that are not defined in CC Part 2.</fam-behavior>
         </ext-comp-def>
@@ -768,7 +768,7 @@
         </f-component>
       </section>
       <!-- 5.2.5 Protection of the TSF (FPT) -->
-      <section title="Protection of the TSF (FPT)" id="man-fpt">
+      <section title="Class FPT: Protection of the TSF" id="man-fpt">
         <ext-comp-def title="Access Controls" fam-id="FPT_ACF_EXT">
           <fam-behavior>This family defines specific TOE components that are protected against unprivileged access. This is a new family defined for the FPT class.</fam-behavior>
         </ext-comp-def>
@@ -976,7 +976,7 @@
         </f-component>
       </section>
       <!-- 5.2.6 TOE Access (FTA) -->
-      <section title="TOE Access (FTA)" id="man-fta">
+      <section title="Class FTA: TOE Access" id="man-fta">
         <!-- FTA_TSE.1 TOE Session Establishment -->
         <f-component cc-id="fta_tse.1" id="fta-tse-1" name="TOE Session Establishment">
           <consistency-rationale/>
@@ -1015,7 +1015,7 @@
         </f-component>
       </section>
       <!-- 5.2.7 Trusted Path/Channels (FTP) -->
-      <section title="Trusted Path/Channels (FTP)" id="man-ftp">
+      <section title="Class FTP: Trusted Path/Channels" id="man-ftp">
         <!-- FTP_ITC.1/8021X Inter-TSF Trusted Channel (802.1X) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-8021x" name="Inter-TSF Trusted Channel (802.1X)" iteration="8021X">
           <consistency-rationale/>
@@ -1095,7 +1095,7 @@
         <audit-table id="at-sel-based" table="sel-based"/>
       </section>
       <!-- 5.2.8 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="sel_fcs">
+      <section title="Class FCS: Cryptographic Support" id="sel_fcs">
         <ext-comp-def title="RadSec" fam-id="FCS_RADSEC_EXT">
           <fam-behavior>Components in this family describe requirements for implementation of the RadSec (RADIUS over TLS) protocol.</fam-behavior>
         </ext-comp-def>
