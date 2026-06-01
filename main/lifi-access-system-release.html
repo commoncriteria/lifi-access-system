@@ -669,6 +669,12 @@ The following sections list Common Criteria and technology terms used in this do
       accredited by the National Voluntary Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to conduct Common Criteria-based evaluations.
     </td></tr>
 <tr><td><div id="Common_Evaluation_Methodology">Common Evaluation Methodology (CEM)</div></td><td>Common Evaluation Methodology for Information Technology Security Evaluation.</td></tr>
+<tr><td><div id="Direct_Rationale">Direct Rationale</div></td><td>
+		A type of Protection Profile, PP-Module, or Security Target in which the security
+		problem definition (SPD) elements are mapped directly to the SFRs and possibly to the 
+		security objectives for the operational environment. There are no security objectives
+		for the TOE.
+	</td></tr>
 <tr><td><div id="Distributed_TOE">Distributed TOE</div></td><td>A TOE composed of multiple components operating as a logical whole.</td></tr>
 <tr><td><div id="Operational_Environment">Operational Environment (OE)</div></td><td>Hardware and software that are outside the TOE boundary that support the TOE functionality and security policy.</td></tr>
 <tr><td><div id="Protection_Profile">Protection Profile (PP)</div></td><td>An implementation-independent set of security requirements for a category of products.</td></tr>
@@ -759,29 +765,23 @@ The following sections list Common Criteria and technology terms used in this do
             information.</span></dd><dt class="threat defined" id="T.REPLAY_ATTACK">T.REPLAY_ATTACK</dt><dd><span class="description">If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a "replay" attack. This method of attack allows the individual to capture packets traversing throughout the wireless network and send the packets later, possibly unknown by the intended receiver.</span></dd></dl>
     
     
-    <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
-These assumptions are made on the Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) in order to be able to ensure that the
+    <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2><p>These assumptions are made on the Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) in order to be able to ensure that the
 security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to
-provide all of its security functionality.
-      
+provide all of its security functionality.</p>
       <dl><dt class="assumption defined" id="A.MANAGED_CONFIG">A.MANAGED_CONFIG</dt><dd><span class="description">Depending on configuration and capability, the product may or may not be configuration-managed by the enterprise or bound to directory services to support multi-user login.</span></dd><dt class="assumption defined" id="A.NETWORK_CONNECTIVITY">A.NETWORK_CONNECTIVITY</dt><dd><span class="description">The platform is connected to a network. For purposes of sending and receiving data, to include software updates, the platform is connected to other entities. Other entities on the network are not inherently trustable.</span></dd><dt class="assumption defined" id="A.NON_SECURITY_FUNCTIONS">A.NON_SECURITY_FUNCTIONS</dt><dd><span class="description">The product implements some security-relevant functionality that does not require evaluation (e.g., network time synchronization, process scheduling, and virtual memory management including process separation).</span></dd><dt class="assumption defined" id="A.PROPER_USER">A.PROPER_USER</dt><dd><span class="description">Users are not malicious in nature, though they may inadvertently or intentionally engage in risky behavior.</span></dd><dt class="assumption defined" id="A.THIRD_PARTY_SOFTWARE">A.THIRD_PARTY_SOFTWARE</dt><dd><span class="description">The product runs application software developed by a third party. The applications are not intentionally developed to be malicious, but can contain inadvertent coding errors. These errors introduce a risk that control of an application may be seized by a malicious entity. The product shall confine these applications within the originally designated operating environment.</span></dd></dl>
     
     
     <h2 class="indexable" data-level="2" id="sec-osp">3.3 Organizational Security Policies</h2>
       
-      This document does not define any additional OSPs.
-    
     
   <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>
     
     
-    <h2 class="indexable" data-level="2" id="sec-OEObjectives">4.1 Security Objectives for the Operational Environment</h2>
-The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements technical and procedural measures to assist the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in correctly providing its security functionality (which is defined by the security objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>).
+    <h2 class="indexable" data-level="2" id="sec-OEObjectives">4.1 Security Objectives for the Operational Environment</h2><p>The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements technical and procedural measures to assist the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in correctly providing its security functionality (which is defined by the security objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>).
 The security objectives for the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> consist of a set of statements describing the goals that the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> should achieve.
 This section defines the security objectives that are to be addressed by the IT domain or by non-technical or procedural means.
-The assumptions identified in Section 3 are incorporated as security objectives for the environment.
-      
+The assumptions identified in Section 3 are incorporated as security objectives for the environment.</p>
       <dl><dt class="SOE defined" id="OE.MANAGED_CONFIG">OE.MANAGED_CONFIG</dt><dd><span class="description">The product is compatible with enterprise architecture that allows for managed configuration, subject authorization via directory services, or both.</span></dd><dt class="SOE defined" id="OE.NETWORK_CONNECTIVITY">OE.NETWORK_CONNECTIVITY</dt><dd><span class="description">The operational environment facilitates the use of network connectivity by authorized subjects.</span></dd><dt class="SOE defined" id="OE.NON_SECURITY_FUNCTIONS">OE.NON_SECURITY_FUNCTIONS</dt><dd><span class="description">The product has functionality outside of its logical security boundary to satisfy organizational requirements that are unrelated to what this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines.</span></dd><dt class="SOE defined" id="OE.PROPER_USER">OE.PROPER_USER</dt><dd><span class="description">Users of the system are adequately vetted to ensure that they are non-malicious.</span></dd><dt class="SOE defined" id="OE.THIRD_PARTY_SOFTWARE">OE.THIRD_PARTY_SOFTWARE</dt><dd><span class="description">The operational environment permits the use of third-party software on organization-owned hardware to enforce necessary functions.</span></dd></dl>
     
     
@@ -924,33 +924,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                 </tr>
 
-                <tr>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCMP</td>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in Galois Counter Mode Protocol</td>
-                  <td>256 bits</td>
-                  <td>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38D, IEEE 802.11ax-2021</td>
-                </tr>
+                <tr><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCMP</td><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in Galois Counter Mode Protocol</td><td>256 bits</td><td>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38D, IEEE 802.11ax-2021</td></tr>
 
-                <tr>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC</td>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_CBC">CBC</a></abbr> mode with non-repeating and unpredictable IVs</td>
-                  <td>256 bits</td>
-                  <td>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 10116:2017 (Clause 7)</td>
-                </tr>
+                <tr><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC</td><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_CBC">CBC</a></abbr> mode with non-repeating and unpredictable IVs</td><td>256 bits</td><td>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 10116:2017 (Clause 7)</td></tr>
 
-                <tr>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP</td>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_CCM">CCM</a></abbr> mode Protocol</td>
-                  <td>256 bits</td>
-                  <td>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38C, IEEE 802.11-2020</td>
-                </tr>
+                <tr><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP</td><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_CCM">CCM</a></abbr> mode Protocol</td><td>256 bits</td><td>ISO/IEC 18033-3:2010 (Subclause 5.2), NIST SP 800-38C, IEEE 802.11-2020</td></tr>
 
-                <tr>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM</td>
-                  <td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_GCM">GCM</a></abbr> mode with non-repeating IVs using [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_1">deterministic</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_2"><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>-based</span>], IV construction; the tag must be of length [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_3">96</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_4">104</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_5">112</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_6">120</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_7">128</span>]</td>
-                  <td>256 bits</td>
-                  <td>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 19772:2020 (Clause 10)</td>
-                </tr>
+                <tr><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM</td><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in <abbr class="dyn-abbr"><a href="#abbr_GCM">GCM</a></abbr> mode with non-repeating IVs using [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_1">deterministic</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_2"><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>-based</span>], IV construction; the tag must be of length [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_3">96</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_4">104</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_5">112</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_6">120</span>, <span class="selectable-content" id="fcs_cop.1.1_LiFiDataEncryption_7">128</span>]</td><td>256 bits</td><td>ISO/IEC 18033-3:2010 (Subclause 5.2), ISO/IEC 19772:2020 (Clause 10)</td></tr>
 
               </table><div class="appnote"><span class="note-header">Application
       Note:
@@ -990,8 +970,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           <div class="element"><div class="reqid" id="FIA_UAU.6.1"><a href="#FIA_UAU.6.1" class="abbr">FIA_UAU.6.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall re-authenticate the user under the conditions [<i>when the user changes their password,
-                [<b>selection</b>: <span class="selectable-content" id="fia_uau.6.1_1">following <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-initiated session locking</span>, <span class="selectable-content" id="fia_uau.6.1_3">
-                    [<b>assignment</b>: 
+                [<b>selection</b>: <span class="selectable-content" id="fia_uau.6.1_1">following <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-initiated session locking</span>, <span class="selectable-content" id="fia_uau.6.1_3">[<b>assignment</b>: 
      <span class="assignable-content">other conditions</span>]</span>, <span class="selectable-content" id="fia_uau.6.1_4">no other conditions</span>]</i>].
             </div></div>
           
@@ -1069,8 +1048,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           <div class="element"><div class="reqid" id="FPT_ASLR_EXT.1.1"><a href="#FPT_ASLR_EXT.1.1" class="abbr">FPT_ASLR_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall always randomize process address space memory locations with
-              [<b>selection</b>: <span class="selectable-content" id="fpt_aslr_ext.1.1_1">8</span>, <span class="selectable-content" id="fpt_aslr_ext.1.1_3">
-                  [<b>assignment</b>: 
+              [<b>selection</b>: <span class="selectable-content" id="fpt_aslr_ext.1.1_1">8</span>, <span class="selectable-content" id="fpt_aslr_ext.1.1_3">[<b>assignment</b>: 
      <span class="assignable-content">number greater than 8</span>]</span>]
               bits of entropy except for
               [<b>assignment</b>: 
@@ -1183,7 +1161,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         </div>
       
     <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">4</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="7"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a><br/></td><td><a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> (implementation-dependent)</td><td>Mitigates the threat by generating a secure key used to encrypt and
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">4</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="7"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> (implementation-dependent)</td><td>Mitigates the threat by generating a secure key used to encrypt and
             protect wireless traffic using <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr>.</td></tr>
 <tr><td><a href="#FCS_CKM.2/DISTRIB">FCS_CKM.2/DISTRIB</a> (implementation-dependent)</td><td>Mitigates the threat by securely distributing 802.11 keys to
             clients so that they are not disclosed, maintaining the integrity of the data the key is used to protect.</td></tr>
@@ -1197,7 +1175,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             traffic that protects the confidentiality and integrity of the data.</td></tr>
 <tr><td><a href="#FTP_ITC.1/Gvlc">FTP_ITC.1/Gvlc</a> (implementation-dependent)</td><td>Mitigates the threat by providing a secure channel for LiFi client
             traffic that protects the confidentiality and integrity of the data.</td></tr>
-<tr class="major-row"><td rowspan="10"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a><br/></td><td><a href="#FAU_GEN.1/LiFi">FAU_GEN.1/LiFi</a></td><td>Mitigates the threat by generating audit data that will detect access to the network.</td></tr>
+<tr class="major-row"><td rowspan="10"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a></td><td><a href="#FAU_GEN.1/LiFi">FAU_GEN.1/LiFi</a></td><td>Mitigates the threat by generating audit data that will detect access to the network.</td></tr>
 <tr><td><a href="#FCS_RADSEC_EXT.1">FCS_RADSEC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by using a secure <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> implementation to authenticate clients.</td></tr>
 <tr><td><a href="#FCS_RADSEC_EXT.2">FCS_RADSEC_EXT.2</a> (selection-based)</td><td>Mitigates the threat by using a secure <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> configuration for <abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>.</td></tr>
 <tr><td><a href="#FIA_8021X_EXT.1">FIA_8021X_EXT.1</a></td><td>Mitigates the threat by enforcing authentication on access attempts.</td></tr>
@@ -1210,12 +1188,12 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 <tr><td><a href="#FTA_TSE.1">FTA_TSE.1</a></td><td>Mitigates the threat by denying sessions based on undesirable characteristics.</td></tr>
 <tr><td><a href="#FTP_ITC.1/8021X">FTP_ITC.1/8021X</a></td><td>Mitigates the threat by authenticating clients before allowing access to the controlled
             network.</td></tr>
-<tr class="major-row"><td rowspan="5"><a href="#T.NETWORK_ATTACK">T.NETWORK_​ATTACK</a><br/></td><td><a href="#FAU_GEN.1/LiFi">FAU_GEN.1/LiFi</a></td><td>Mitigates the threat by generating audit data that will detect <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures.</td></tr>
+<tr class="major-row"><td rowspan="5"><a href="#T.NETWORK_ATTACK">T.NETWORK_​ATTACK</a></td><td><a href="#FAU_GEN.1/LiFi">FAU_GEN.1/LiFi</a></td><td>Mitigates the threat by generating audit data that will detect <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures.</td></tr>
 <tr><td><a href="#FPT_ACF_EXT.1">FPT_ACF_EXT.1</a></td><td>Mitigates the threat by limiting access that could be obtained on the system as a result of successful network attack.</td></tr>
 <tr><td><a href="#FPT_ASLR_EXT.1">FPT_ASLR_EXT.1</a></td><td>Mitigates the threat by preventing network attacks that rely on predictable program memory layout.</td></tr>
 <tr><td><a href="#FPT_SBOP_EXT.1">FPT_SBOP_EXT.1</a></td><td>Mitigates the threat by preventing network attacks that rely on overwriting stack memory to execute arbitrary code.</td></tr>
 <tr><td><a href="#FPT_W^X_EXT.1">FPT_W^X_EXT.1</a></td><td>Mitigates the threat by preventing network attacks that rely on writing arbitrary executable code to memory and subsequently executing it.</td></tr>
-<tr class="major-row"><td rowspan="12"><a href="#T.NETWORK_DISCLOSURE">T.NETWORK_​DISCLOSURE</a><br/></td><td><a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> (implementation-dependent)</td><td>Mitigates the threat by using a secure key generation function for
+<tr class="major-row"><td rowspan="12"><a href="#T.NETWORK_DISCLOSURE">T.NETWORK_​DISCLOSURE</a></td><td><a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> (implementation-dependent)</td><td>Mitigates the threat by using a secure key generation function for
             <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> functionality.</td></tr>
 <tr><td><a href="#FCS_CKM.2/DISTRIB">FCS_CKM.2/DISTRIB</a> (implementation-dependent)</td><td>Mitigates the threat by securely distributing 802.11 keys to
             clients.</td></tr>
@@ -1236,7 +1214,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             traffic.</td></tr>
 <tr><td><a href="#FTP_ITC.1/Gvlc">FTP_ITC.1/Gvlc</a> (implementation-dependent)</td><td>Mitigates the threat by providing a secure channel for LiFi client
             traffic.</td></tr>
-<tr class="major-row"><td rowspan="12"><a href="#T.REPLAY_ATTACK">T.REPLAY_​ATTACK</a><br/></td><td><a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> (implementation-dependent)</td><td>Mitigates the threat by using a secure key generation function for <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> functionality that is not subject to replay or guessing.</td></tr>
+<tr class="major-row"><td rowspan="12"><a href="#T.REPLAY_ATTACK">T.REPLAY_​ATTACK</a></td><td><a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> (implementation-dependent)</td><td>Mitigates the threat by using a secure key generation function for <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> functionality that is not subject to replay or guessing.</td></tr>
 <tr><td><a href="#FCS_CKM.2/DISTRIB">FCS_CKM.2/DISTRIB</a> (implementation-dependent)</td><td>Mitigates the threat by securely distributing 802.11 keys to clients so that they are not disclosed, maintaining confidentiality and preventing replay.</td></tr>
 <tr><td><a href="#FCS_CKM.2/GTK">FCS_CKM.2/GTK</a> (implementation-dependent)</td><td>Mitigates the threat by securely distributing <abbr class="dyn-abbr"><a href="#abbr_GTK">GTK</a></abbr> keys to clients so that they are not disclosed, maintaining confidentiality and preventing replay.</td></tr>
 <tr><td><a href="#FCS_CKM.2/PMK">FCS_CKM.2/PMK</a> (implementation-dependent)</td><td>Mitigates the threat by securely receiving a key from an authentication server so that it is not disclosed, maintaining confidentiality and preventing replay.</td></tr>
@@ -1333,26 +1311,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                 </tr>
 
-                <tr>
-                  <td>PRF-384</td>
-                  <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-                  <td>384 bits</td>
-                  <td>IEEE 802.11-2020</td>
-                </tr>
+                <tr><td>PRF-384</td><td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>384 bits</td><td>IEEE 802.11-2020</td></tr>
 
-                <tr>
-                  <td>PRF-512</td>
-                  <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-                  <td>512 bits</td>
-                  <td>IEEE 802.11-2020</td>
-                </tr>
+                <tr><td>PRF-512</td><td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>512 bits</td><td>IEEE 802.11-2020</td></tr>
 
-                <tr>
-                  <td>PRF-704</td>
-                  <td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td>
-                  <td>704 bits</td>
-                  <td>IEEE 802.11-2020, IEEE 802.11ax-2021</td>
-                </tr>
+                <tr><td>PRF-704</td><td>Pseudorandom Function using a random bit generator as specified in FCS_RBG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>704 bits</td><td>IEEE 802.11-2020, IEEE 802.11ax-2021</td></tr>
 
               </table><div class="appnote"><span class="note-header">Application
       Note:
@@ -1431,8 +1394,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to use pre-shared keys for
-              [<b>selection</b>: <span class="selectable-content" id="fia_psk_ext.1.1_1"><abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> (RadSec)</span>, <span class="selectable-content" id="fia_psk_ext.1.1_2"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="fia_psk_ext.1.1_3">WPA3-SAE</span>, <span class="selectable-content" id="fia_psk_ext.1.1_4">WPA3-SAE-PK</span>, <span class="selectable-content" id="fia_psk_ext.1.1_5">IEEE 802.11 WPA2-PSK</span>, <span class="selectable-content" id="fia_psk_ext.1.1_7">
-                  [<b>assignment</b>: 
+              [<b>selection</b>: <span class="selectable-content" id="fia_psk_ext.1.1_1"><abbr class="dyn-abbr"><a href="#abbr_RADIUS">RADIUS</a></abbr> over <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> (RadSec)</span>, <span class="selectable-content" id="fia_psk_ext.1.1_2"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="fia_psk_ext.1.1_3">WPA3-SAE</span>, <span class="selectable-content" id="fia_psk_ext.1.1_4">WPA3-SAE-PK</span>, <span class="selectable-content" id="fia_psk_ext.1.1_5">IEEE 802.11 WPA2-PSK</span>, <span class="selectable-content" id="fia_psk_ext.1.1_7">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use pre-shared keys</span>]</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2"><a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept text-based pre-shared keys that: <ul><li>are 22 characters and  [<b>selection</b>: <span class="selectable-content" id="fia_psk_ext.1.2_2">[<b>assignment</b>: 
@@ -1556,9 +1518,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
       <h2 id="sel_fcs" class="indexable" data-level="2">B.2 Class FCS: Cryptographic Support</h2>
         
         
-        <div class="comp" id="FCS_RADSEC_EXT.1"><h4>FCS_RADSEC_EXT.1 RadSec</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FTP_ITC.1.1/8021X">FTP_ITC.1.1/8021X</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_RADSEC_EXT.1"><h4>FCS_RADSEC_EXT.1 RadSec</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FTP_ITC.1.1/8021X">FTP_ITC.1.1/8021X</a></i></b></li></ul></div>
           
           
           
@@ -1586,9 +1546,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
         </div>
         
-        <div class="comp" id="FCS_RADSEC_EXT.2"><h4>FCS_RADSEC_EXT.2 RadSec Using Pre-Shared Keys</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_RADSEC_EXT.2"><h4>FCS_RADSEC_EXT.2 RadSec Using Pre-Shared Keys</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FCS_RADSEC_EXT.1.2">FCS_RADSEC_EXT.1.2</a></i></b></li></ul></div>
           
           
           
@@ -1717,8 +1675,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
              defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to use <abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr> as
             well as the objects that <abbr class="dyn-abbr"><a href="#abbr_ASLR">ASLR</a></abbr> is applied to.</p><h4>Management: FPT_ASLR_EXT.1</h4><p>There are no management functions foreseen.</p><h4>Audit: FPT_ASLR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FPT_ASLR_EXT.1 Address Space Layout Randomization</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FPT_ASLR_EXT.1.1">FPT_ASLR_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall always randomize process address space memory locations with
-              [<b>selection</b>: <span class="selectable-content" id="fpt_aslr_ext.1.1_1">8</span>, <span class="selectable-content" id="fpt_aslr_ext.1.1_3">
-                  [<b>assignment</b>: 
+              [<b>selection</b>: <span class="selectable-content" id="fpt_aslr_ext.1.1_1">8</span>, <span class="selectable-content" id="fpt_aslr_ext.1.1_3">[<b>assignment</b>: 
      <span class="assignable-content">number greater than 8</span>]</span>]
               bits of entropy except for
               [<b>assignment</b>: 
