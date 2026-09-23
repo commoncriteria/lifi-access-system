@@ -27,27 +27,6 @@
       <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
-  <include-pkg id="pkg-tls">
-    <git>
-      <url>https://github.com/commoncriteria/tls</url>
-      <branch>master</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html</url>
-  </include-pkg>
-  <include-pkg id="pkg-x509">
-    <git>
-      <url>https://github.com/commoncriteria/X509</url>
-      <branch>master</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
-  </include-pkg>
-  <include-pkg id="pkg-ssh">
-    <git>
-      <url>https://github.com/commoncriteria/ssh</url>
-      <branch>release-2.0</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
-  </include-pkg>
   <pp-preferences/>
   <sec:Introduction>
     <sec:Overview title="Overview">
@@ -132,12 +111,60 @@
       <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <PP-cc-ref>collaborative Protection Profile for Network Devices, Version 4.0</PP-cc-ref>
-        <Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, version 2.0</Mod-cc-ref>
+        <PP-cc-ref>
+			<!-- Network Device collaborative Protection Profile Version 4.0 -->
+			<cc-doc-ref id="ndcpp" 
+				name="Network Device collaborative Protection Profile"      
+				version="4.0"                            
+				short="ND"                             
+				product="network device"     
+				plural="network devices"
+                doctype="cPP">     
+				<url>https://www.niap-ccevs.org/protectionprofiles/524</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+        <Mod-cc-ref>
+			<!-- PP-Module for MACsec Ethernet Encryption, version 2.0 -->
+			<cc-doc-ref id="MACsec">
+				<git>
+					<url>https://github.com/commoncriteria/MACsec</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/541</url>
+			</cc-doc-ref>
+		</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim>
-        <FP-cc-ref conf="conformant">Functional Package for Transport Layer Security Version 2.1</FP-cc-ref>
-        <FP-cc-ref conf="conformant">Functional Package for X.509 Version 1.0</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for TLS Version 2.1 -->
+			<cc-doc-ref id="tls">
+				<git>
+					<url>https://github.com/commoncriteria/tls</url>
+					<branch>release-2.1</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/519</url>
+			</cc-doc-ref>
+		</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for X.509 Version 1.0 -->	
+			<cc-doc-ref id="X509">
+				<git>
+					<url>https://github.com/commoncriteria/X509</url>
+					<branch>release-1.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+			</cc-doc-ref>
+		</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for SSH Version 2.0 -->
+			<cc-doc-ref id="ssh">
+				<git>
+					<url>https://github.com/commoncriteria/ssh</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
+			</cc-doc-ref>
+		</FP-cc-ref>
       </cc-pkg-claim>
     </CClaimsInfo>
   </sec:Conformance_Claims>
@@ -362,8 +389,7 @@
   <!-- 5.0 Security Requirements -->
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 ND PP Security Functional Requirements Direction -->
-    <base-pp id="ND" name="Network Device" product="Network Device" short="ND" version="4.0">
-      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
+    <base-pp ref="ndcpp">
       <cPP/>
       <sec-func-req-dir>In a PP-Configuration that includes the NDcPP, the TOE is expected to rely on some of the
       security functions implemented by the network device as a whole and evaluated against the Base-PP.
